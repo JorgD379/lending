@@ -373,9 +373,9 @@
           '</p>'
         : '';
 
-      var modalMetric = item.roiMetric
-        ? '<p class="result-metric" style="font-family:var(--font-mono);font-size:0.875rem;color:var(--accent);margin-bottom:12px;">' +
-          item.roiMetric +
+      var resultBlock = item.result
+        ? '<p class="result-metric" style="font-family:var(--font-mono);font-size:0.875rem;color:var(--accent);margin-top:12px;">' +
+          item.result +
           '</p>'
         : '';
 
@@ -387,15 +387,12 @@
         '<p class="desc">' +
         item.desc +
         '</p>' +
-        modalMetric +
         '<div class="stack">' +
         item.stack.map(function (s) {
           return '<span>' + s + '</span>';
         }).join('') +
         '</div>' +
-        '<div class="result">' +
-        item.result +
-        '</div>' +
+        resultBlock +
         '<p style="margin-top:20px;">' +
         '<a href="' +
         (document.body.id === 'portfolioPage' ? 'index.html#quiz' : '#quiz') +
