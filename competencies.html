@@ -13,23 +13,299 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Manrope&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    :root{--bg:#050A0F;--surface:#0D1B2A;--accent:#00F5FF;--text:#F0F4F8;--text-muted:#8899AA;--gradient:linear-gradient(135deg,#00F5FF,#0066FF);--font-heading:'Syne',sans-serif;--font-body:'Manrope',sans-serif;--font-mono:'JetBrains Mono',monospace;--glass:rgba(13,27,42,0.7);--glass-border:rgba(0,245,255,0.15);--glow:0 0 30px rgba(0,245,255,0.3)}
-    *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--font-body);font-size:16px;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden}body.menu-open{overflow:hidden}
-    .container{max-width:1200px;margin:0 auto;padding:0 24px}.section{padding:64px 0}.reveal{opacity:0;transform:translateY(24px);transition:opacity .5s ease-out,transform .5s ease-out}.reveal.visible{opacity:1;transform:translateY(0)}
-    .navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;transition:background .3s,backdrop-filter .3s}.navbar.scrolled{background:var(--glass);backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border)}.navbar .container{display:flex;align-items:center;justify-content:space-between}
-    .logo{font-family:var(--font-heading);font-weight:700;font-size:1.35rem;color:var(--text)}.logo span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .nav-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}.nav-links a{color:var(--text);font-weight:500;text-decoration:none;font-size:.9375rem}.nav-links a:hover,.nav-links a.active{color:var(--accent);text-decoration:none}
-    .nav-dropdown{position:relative}.nav-dropdown .dropdown-trigger{background:none;border:none;color:var(--text);font-family:var(--font-body);font-weight:500;font-size:.9375rem;cursor:pointer;padding:0}.nav-dropdown .dropdown-trigger:hover{color:var(--accent)}.nav-dropdown .dropdown-menu{position:absolute;top:100%;left:0;margin-top:8px;min-width:180px;background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:12px;padding:8px 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:.2s}.nav-dropdown.open .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.nav-dropdown .dropdown-menu a{display:block;padding:10px 16px;color:var(--text);font-size:.875rem}.nav-dropdown .dropdown-menu a:hover{background:rgba(0,245,255,.08);color:var(--accent)}.nav-dropdown.active .dropdown-trigger{color:var(--accent)}
-    .btn-cta{display:inline-block;padding:10px 20px;background:var(--gradient);color:var(--bg);font-family:var(--font-heading);font-weight:600;border-radius:999px;border:none;cursor:pointer;text-decoration:none;font-size:.9375rem}.btn-cta:hover{box-shadow:var(--glow);color:var(--bg)}
-    .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}.burger span{display:block;width:22px;height:2px;background:var(--text)}.burger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.burger.active span:nth-child(2){opacity:0}.burger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-    .mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:var(--glass);backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border);padding:20px;flex-direction:column;gap:12px;z-index:99;max-height:0;overflow:hidden;transition:max-height .35s ease}.mobile-menu.open{max-height:360px;display:flex}.mobile-menu a{color:var(--text);font-size:1rem}
-    @media (max-width:768px){.nav-links{display:none}.burger{display:flex}.mobile-menu{display:flex}h1{font-size:42px}}
-    .page-hero{padding:120px 0 48px;text-align:center}.page-hero h1{font-family:var(--font-heading);font-weight:700;font-size:clamp(32px,5vw,48px);margin:0 0 12px}
-    .competency-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}.competency-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:24px;transition:box-shadow .3s,border-color .3s;overflow:hidden}.competency-card:hover{box-shadow:var(--glow);border-color:rgba(0,245,255,.25)}.competency-card .icon{font-size:2.5rem;margin-bottom:12px;line-height:1}.competency-card h3{font-family:var(--font-heading);font-size:1.125rem;margin:0 0 10px;color:var(--accent)}.competency-card p{font-size:.875rem;color:var(--text-muted);margin:0;line-height:1.5}.competency-card .thumb{width:100%;height:100px;object-fit:cover;border-radius:8px;margin-top:12px;background:var(--surface)}
-    .timeline{position:relative;padding-left:24px;border-left:2px solid var(--glass-border);margin:48px 0 0 8px}.timeline-item{position:relative;padding-bottom:28px;padding-left:20px}.timeline-item:last-child{padding-bottom:0}.timeline-item::before{content:'';position:absolute;left:-31px;top:4px;width:10px;height:10px;background:var(--accent);border-radius:50%;box-shadow:0 0 10px rgba(0,245,255,.5)}.timeline-item .year{font-family:var(--font-mono);font-size:.875rem;color:var(--accent);margin-bottom:4px}.timeline-item h4{font-family:var(--font-heading);font-size:1rem;margin:0 0 6px}.timeline-item p{margin:0;font-size:.8125rem;color:var(--text-muted)}
-    .partners-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:16px;align-items:center;margin-top:24px}.partner-pill{padding:14px 24px;background:var(--glass);border:1px solid var(--glass-border);border-radius:999px;font-family:var(--font-heading);font-weight:600;font-size:.9375rem;text-align:center}
-    footer{padding:40px 0 0;border-top:1px solid var(--glass-border)}.footer-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:40px;align-items:start;margin-bottom:24px}.footer-logo{font-family:var(--font-heading);font-weight:700}.footer-logo span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.footer-tagline{font-size:.8125rem;color:var(--text-muted)}.footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px}.footer-nav a{color:var(--text-muted);font-size:.875rem}.footer-nav a:hover{color:var(--accent)}.footer-right{text-align:right}.footer-right p{font-size:.8125rem;color:var(--text-muted);margin:0 0 4px}.footer-bar{padding:14px;text-align:center;border-top:1px solid var(--accent);margin-top:20px}.footer-bar span{font-size:.8125rem;color:var(--text-muted)}@media (max-width:768px){.footer-grid{grid-template-columns:1fr;text-align:center}.footer-right{text-align:center}}
+    .competency-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .competency-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+      overflow: hidden;
+    }
+
+    .competency-card:hover {
+      box-shadow: var(--shadow-glow);
+      border-color: rgba(0, 245, 255, 0.25);
+    }
+
+    .competency-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .competency-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      margin: 0 0 10px;
+      color: var(--accent);
+    }
+
+    .competency-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      border-left: 2px solid var(--glass-border);
+      margin: 48px 0 0 8px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 28px;
+      padding-left: 20px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -31px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+    }
+
+    .timeline-item .year {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      margin: 0 0 6px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">ITiS <span>LAB</span></a>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <div class="nav-dropdown" id="aboutDropdown">
+          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">О нас</button>
+          <div class="dropdown-menu"><a href="team.html">Команда</a><a href="competencies.html">Компетенции</a></div>
+        </div>
+        <a href="index.html#services">Услуги</a>
+        <a href="portfolio.html">Портфолио</a>
+        <a href="testimonials.html">Отзывы</a>
+        <a href="blog.html">Блог</a>
+        <a href="index.html#quiz">Контакты</a>
+        <a href="index.html#quiz" class="btn-cta">Обсудить проект</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Главная</a><a href="team.html">Команда</a><a href="competencies.html">Компетенции</a><a href="index.html#services">Услуги</a><a href="portfolio.html">Портфолио</a><a href="testimonials.html">Отзывы</a><a href="blog.html">Блог</a><a href="index.html#quiz">Контакты</a><a href="index.html#quiz" class="btn-cta">Обсудить проект</a>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <h1 class="reveal">Компетенции</h1>
+      <p class="reveal" style="color:var(--text-muted);margin:0;">Proof, партнёры, timeline</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="competency-grid" id="competencyGrid">
+        <div class="competency-card reveal">
+          <div class="icon">🏆</div>
+          <h3>Конкурсы</h3>
+          <p>Победитель грантовых конкурсов «Студенческий стартап <a href="https://fasie.ru" target="_blank" rel="noopener">ФСИ</a>», «<a href="https://umnik.fasie.ru" target="_blank" rel="noopener">УМНИК</a>», победитель хакатонов.</p>
+        </div>
+        <div class="competency-card reveal">
+          <div class="icon">📜</div>
+          <h3>Гранты R&D</h3>
+          <p>Гранты от <a href="https://fasie.ru" target="_blank" rel="noopener">ФСИ</a> на разработку в области CV и ML.</p>
+        </div>
+        <div class="competency-card reveal">
+          <div class="icon">🔬</div>
+          <h3>Пилоты</h3>
+          <p>Пилотные проекты для ОДК УМПО, БГК, ИТ Космос.</p>
+        </div>
+        <div class="competency-card reveal">
+          <div class="icon">🎯</div>
+          <h3>Кейсы</h3>
+          <p>Участники научных конференций и выставок, есть публикации.</p>
+        </div>
+      </div>
+
+      <h2 class="reveal" style="margin-top:48px;margin-bottom:16px;font-size:1.25rem;">Партнёры</h2>
+      <div class="partners-grid reveal">
+        <span class="partner-pill">УУНиТ</span>
+        <span class="partner-pill">ОДК УМПО</span>
+        <span class="partner-pill">Техстройпроект</span>
+        <span class="partner-pill">ИТ Космос</span>
+        <span class="partner-pill">ООО «БГК»</span>
+      </div>
+
+      <h2 class="reveal" style="margin-top:48px;margin-bottom:24px;font-size:1.25rem;">Timeline</h2>
+      <div class="timeline reveal">
+        <div class="timeline-item"><span class="year">2024</span><h4>Создание СКБ</h4><p>Начало деятельности</p></div>
+        <div class="timeline-item"><span class="year">2025</span><h4>Открытие ООО</h4><p>ООО ИТиС ЛАБ</p></div>
+      </div>
+
+      <div class="reveal" style="text-align:center;margin-top:56px;">
+        <p style="color:var(--text-muted);margin-bottom:16px;">Обсудим ваш проект</p>
+        <a href="index.html#quiz" class="btn-cta">Пройти AI-диагностику</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-logo">ITiS <span>LAB</span></div><p class="footer-tagline">Интеллектуальные технологии и системы</p><p class="footer-tagline" style="margin-top:8px;">info@itislab.ru · @itislab</p></div>
+        <div class="footer-nav">
+          <a href="index.html">Главная</a><a href="team.html">Команда</a><a href="competencies.html">Компетенции</a><a href="index.html#services">Услуги</a><a href="portfolio.html">Портфолио</a><a href="testimonials.html">Отзывы</a><a href="blog.html">Блог</a><a href="index.html#faq">FAQ</a><a href="index.html#quiz">Обсудить проект</a>
+        </div>
+        <div class="footer-right"><p>© 2026 ООО ИТиС ЛАБ</p></div>
+      </div>
+      <div class="footer-bar"><span>Разработано с AI</span></div>
+    </div>
+  </footer>
+  <script src="scripts.js" defer></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Компетенции | ООО ИТиС ЛАБ — Proof, партнёры, timeline</title>
+  <meta name="description" content="Компетенции ООО ИТиС ЛАБ: конкурсы УМНИК и ФСИ, гранты R&D, пилоты ОДК УМПО и БГК, кейсы. Партнёры: УУНиТ, ОДК УМПО, ИТ Космос, БГК. 2024 — СКБ, 2025 — ООО.">
+  <meta name="keywords" content="компетенции ИТиС ЛАБ, УМНИК, ФСИ, ОДК УМПО, БГК, Computer Vision">
+  <link rel="canonical" href="https://lab-itis.ru/competencies.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"ООО ИТиС ЛАБ","url":"https://lab-itis.ru","description":"Разработка ПО с упором на ИИ и Computer Vision. Победитель грантов ФСИ и УМНИК. Партнёры: ОДК УМПО, БГК, ИТ Космос, УУНиТ. 2024 — СКБ, 2025 — ООО. Пилотные проекты и R&D в области CV и ML."}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Manrope&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .competency-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .competency-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+      overflow: hidden;
+    }
+
+    .competency-card:hover {
+      box-shadow: var(--shadow-glow);
+      border-color: rgba(0, 245, 255, 0.25);
+    }
+
+    .competency-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .competency-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      margin: 0 0 10px;
+      color: var(--accent);
+    }
+
+    .competency-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      border-left: 2px solid var(--glass-border);
+      margin: 48px 0 0 8px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 28px;
+      padding-left: 20px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -31px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+    }
+
+    .timeline-item .year {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      margin: 0 0 6px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
@@ -122,18 +398,6 @@
       <div class="footer-bar"><span>Разработано с AI</span></div>
     </div>
   </footer>
-
-  <script>
-    (function(){
-      var aboutDropdown=document.getElementById('aboutDropdown');
-      if(aboutDropdown){var t=aboutDropdown.querySelector('.dropdown-trigger');t.addEventListener('click',function(e){e.stopPropagation();aboutDropdown.classList.toggle('open');});document.addEventListener('click',function(){aboutDropdown.classList.remove('open');});}
-      window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
-      var burger=document.getElementById('burger'),mobileMenu=document.getElementById('mobileMenu');
-      if(burger&&mobileMenu){burger.addEventListener('click',function(){burger.classList.toggle('active');mobileMenu.classList.toggle('open');document.body.classList.toggle('menu-open');});mobileMenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('active');mobileMenu.classList.remove('open');document.body.classList.remove('menu-open');});});}
-      var reveals=document.querySelectorAll('.reveal');
-      var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('visible');});},{threshold:0.12});
-      reveals.forEach(function(el){observer.observe(el);});
-    })();
-  </script>
+  <script src="scripts.js" defer></script>
 </body>
 </html>
