@@ -394,9 +394,7 @@
         '</div>' +
         resultBlock +
         '<p style="margin-top:20px;">' +
-        '<a href="' +
-        (document.body.id === 'portfolioPage' ? 'index.html#quiz' : '#quiz') +
-        '" class="btn-cta">Хочу похожее</a>' +
+        '<a href="/#quiz" class="btn-cta">Хочу похожее</a>' +
         '</p>';
 
       modalOverlay.classList.add('open');

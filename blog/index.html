@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Блог | ООО ИТиС ЛАБ — Кейсы CV, ML, YOLO</title>
+  <meta name="description" content="Статьи и кейсы ООО ИТиС ЛАБ: Computer Vision, YOLO, детектор СИЗ, крепёж ОДК УМПО, нефтяные долота. B2B разработка с ИИ.">
+  <meta name="keywords" content="блог ИТиС ЛАБ, YOLO кейс, Computer Vision, детектор СИЗ, CV производство">
+  <link rel="canonical" href="https://lab-itis.ru/blog/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Manrope&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .blog-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .blog-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      cursor: pointer;
+      transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .blog-card:hover {
+      box-shadow: var(--shadow-glow);
+      border-color: rgba(0, 245, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .blog-card h3 { font-size: 1.125rem; margin: 0 0 10px; }
+    .blog-card .thesis { font-size: 0.9375rem; color: var(--text-muted); margin: 0 0 12px; line-height: 1.5; flex: 1; }
+    .blog-card .meta { font-size: 0.75rem; color: var(--accent); }
+    .article-modal .modal { max-width: 680px; max-height: 85vh; overflow-y: auto; }
+    .article-modal .article-body { font-size: 1rem; line-height: 1.7; color: var(--text-muted); }
+    .article-modal .article-body p { margin-bottom: 1rem; }
+    .article-modal .article-body h4 { color: var(--text); margin: 1.5rem 0 0.5rem; font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="/" class="logo">ITiS <span>LAB</span></a>
+      <div class="nav-links">
+        <a href="/">Главная</a>
+        <div class="nav-dropdown" id="aboutDropdown">
+          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">О нас</button>
+          <div class="dropdown-menu"><a href="/team/">Команда</a><a href="/competencies/">Компетенции</a></div>
+        </div>
+        <a href="/#services">Услуги</a>
+        <a href="/portfolio/">Портфолио</a>
+        <a href="/testimonials/">Отзывы</a>
+        <a href="/blog/" class="active">Блог</a>
+        <a href="/#quiz">Контакты</a>
+        <a href="/#quiz" class="btn-cta">Обсудить проект</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/">Главная</a><a href="/team/">Команда</a><a href="/competencies/">Компетенции</a><a href="/#services">Услуги</a><a href="/portfolio/">Портфолио</a><a href="/testimonials/">Отзывы</a><a href="/blog/">Блог</a><a href="/#quiz">Контакты</a><a href="/#quiz" class="btn-cta">Обсудить проект</a>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <h1 class="reveal">Блог</h1>
+      <p class="reveal" style="color:var(--text-muted);margin:0;">Кейсы и статьи по Computer Vision, ML, YOLO</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="blog-cards reveal" id="blogCards"></div>
+      <p style="text-align:center;color:var(--text-muted);margin-top:32px;" class="reveal">Новые статьи публикуются по мере готовности. Следите за обновлениями.</p>
+      <div class="reveal" style="text-align:center;margin-top:40px;">
+        <a href="/#quiz" class="btn-cta">Обсудить проект</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal-overlay article-modal" id="articleModal">
+    <div class="modal">
+      <button type="button" class="modal-close" id="articleModalClose" aria-label="Закрыть">&times;</button>
+      <div id="articleModalContent"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-logo">ITiS <span>LAB</span></div><p class="footer-tagline">Интеллектуальные технологии и системы</p><p class="footer-tagline" style="margin-top:8px;">info@itislab.ru · @itislab</p></div>
+        <div class="footer-nav">
+          <a href="/">Главная</a><a href="/team/">Команда</a><a href="/competencies/">Компетенции</a><a href="/#services">Услуги</a><a href="/portfolio/">Портфолио</a><a href="/testimonials/">Отзывы</a><a href="/blog/">Блог</a><a href="/#faq">FAQ</a><a href="/#quiz">Обсудить проект</a>
+        </div>
+        <div class="footer-right"><p>© 2026 ООО ИТиС ЛАБ</p></div>
+      </div>
+      <div class="footer-bar"><span>Разработано с AI</span></div>
+    </div>
+  </footer>
+  <script>
+    var BLOG_ARTICLES = [
+      {
+        id: 'siz-detector-bgk',
+        title: 'YOLO для детектора СИЗ: кейс БГК',
+        thesis: 'Как мы делали детектор нарушений средств индивидуальной защиты по видео с нагрудных камер. Отчёт по временным меткам и типам нарушений.',
+        meta: 'Февраль 2026 · В разработке',
+        body: '<p>Задача: автоматизировать контроль соблюдения требований по средствам индивидуальной защиты (каска, спецодежда, обувь) на объектах ООО «БГК». Ручная проверка видео с нагрудных камер занимала часы и не давала структурированной отчётности.</p><h4>Подход</h4><p>Использовали YOLO для детекции объектов (каска, роба, штаны) и классификации нарушений. Обработка видео в реальном времени с формированием отчёта по временным меткам: когда и какой тип нарушения зафиксирован.</p><h4>Результат</h4><p>Автоматический отчёт по нарушениям СИЗ с привязкой к временным отрезкам. Сокращение времени на проверку в разы. Интеграция с существующими системами учёта.</p><p><a href="/#quiz" class="btn-cta">Обсудить похожий проект</a></p>'
+      },
+      {
+        id: 'cv-fastener-odk',
+        title: 'CV для сортировки крепежа ОДК УМПО',
+        thesis: 'Кейс по распознаванию болтов, гаек и шайб при разборе авиадвигателей. Интеграция с Полином МДМ, ускорение сортировки.',
+        meta: 'Февраль 2026 · В разработке',
+        body: '<p>При разборе авиадвигателей образуется большое количество крепёжных изделий разных типоразмеров. Ручная сортировка болтов, гаек и шайб — трудоёмкий процесс с высоким риском ошибок.</p><h4>Решение</h4><p>Модель на базе YOLO определяет тип и типоразмер крепежа по шаблону. Подсветка и подсчёт в реальном времени. Интеграция с системой Полином МДМ для учёта и маршрутизации.</p><h4>Эффект</h4><p>До 7× ускорение сортировки. Снижение человеческого фактора. Структурированные данные для планирования закупок и логистики.</p><p><a href="/#quiz" class="btn-cta">Обсудить похожий проект</a></p>'
+      }
+    ];
+    (function() {
+      var grid = document.getElementById('blogCards');
+      var modal = document.getElementById('articleModal');
+      var content = document.getElementById('articleModalContent');
+      var closeBtn = document.getElementById('articleModalClose');
+      if (!grid) return;
+      BLOG_ARTICLES.forEach(function(a) {
+        var card = document.createElement('div');
+        card.className = 'blog-card reveal';
+        card.setAttribute('data-id', a.id);
+        card.innerHTML = '<h3>' + a.title + '</h3><p class="thesis">' + a.thesis + '</p><span class="meta">' + a.meta + '</span>';
+        card.addEventListener('click', function() {
+          content.innerHTML = '<h3 class="title">' + a.title + '</h3><p class="desc" style="margin-bottom:20px;">' + a.meta + '</p><div class="article-body">' + a.body + '</div>';
+          modal.classList.add('open');
+        });
+        grid.appendChild(card);
+      });
+      if (closeBtn) closeBtn.addEventListener('click', function() { modal.classList.remove('open'); });
+      if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) modal.classList.remove('open'); });
+    })();
+  </script>
+  <script src="/scripts.js" defer></script>
+</body>
+</html>
