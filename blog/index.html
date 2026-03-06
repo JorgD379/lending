@@ -18,22 +18,18 @@
       border: 1px solid var(--glass-border);
       border-radius: 16px;
       padding: 24px;
-      cursor: pointer;
       transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
       display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
     }
     .blog-card:hover {
       box-shadow: var(--shadow-glow);
       border-color: rgba(0, 245, 255, 0.3);
       transform: translateY(-2px);
     }
-    .blog-card h3 { font-size: 1.125rem; margin: 0 0 10px; }
+    .blog-card h3 { font-size: 1.125rem; margin: 0 0 10px; color: var(--text); }
     .blog-card .thesis { font-size: 0.9375rem; color: var(--text-muted); margin: 0 0 12px; line-height: 1.5; flex: 1; }
     .blog-card .meta { font-size: 0.75rem; color: var(--accent); }
-    .article-modal .modal { max-width: 680px; max-height: 85vh; overflow-y: auto; }
-    .article-modal .article-body { font-size: 1rem; line-height: 1.7; color: var(--text-muted); }
-    .article-modal .article-body p { margin-bottom: 1rem; }
-    .article-modal .article-body h4 { color: var(--text); margin: 1.5rem 0 0.5rem; font-size: 1.1rem; }
   </style>
 </head>
 <body>
@@ -69,20 +65,24 @@
 
   <main class="section">
     <div class="container">
-      <div class="blog-cards reveal" id="blogCards"></div>
+      <div class="blog-cards reveal">
+        <a href="/blog/siz-detector-bgk/" class="blog-card">
+          <h3>YOLO для детектора СИЗ: кейс БГК</h3>
+          <p class="thesis">Как мы делали детектор нарушений средств индивидуальной защиты по видео с нагрудных камер. Отчёт по временным меткам и типам нарушений.</p>
+          <span class="meta">Февраль 2026 · В разработке</span>
+        </a>
+        <a href="/blog/cv-fastener-odk/" class="blog-card">
+          <h3>CV для сортировки крепежа ОДК УМПО</h3>
+          <p class="thesis">Кейс по распознаванию болтов, гаек и шайб при разборе авиадвигателей. Интеграция с Полином МДМ, ускорение сортировки.</p>
+          <span class="meta">Февраль 2026 · В разработке</span>
+        </a>
+      </div>
       <p style="text-align:center;color:var(--text-muted);margin-top:32px;" class="reveal">Новые статьи публикуются по мере готовности. Следите за обновлениями.</p>
       <div class="reveal" style="text-align:center;margin-top:40px;">
         <a href="/#quiz" class="btn-cta">Обсудить проект</a>
       </div>
     </div>
   </main>
-
-  <div class="modal-overlay article-modal" id="articleModal">
-    <div class="modal">
-      <button type="button" class="modal-close" id="articleModalClose" aria-label="Закрыть">&times;</button>
-      <div id="articleModalContent"></div>
-    </div>
-  </div>
 
   <footer>
     <div class="container">
@@ -96,44 +96,6 @@
       <div class="footer-bar"><span>Разработано с AI</span></div>
     </div>
   </footer>
-  <script>
-    var BLOG_ARTICLES = [
-      {
-        id: 'siz-detector-bgk',
-        title: 'YOLO для детектора СИЗ: кейс БГК',
-        thesis: 'Как мы делали детектор нарушений средств индивидуальной защиты по видео с нагрудных камер. Отчёт по временным меткам и типам нарушений.',
-        meta: 'Февраль 2026 · В разработке',
-        body: '<p>Задача: автоматизировать контроль соблюдения требований по средствам индивидуальной защиты (каска, спецодежда, обувь) на объектах ООО «БГК». Ручная проверка видео с нагрудных камер занимала часы и не давала структурированной отчётности.</p><h4>Подход</h4><p>Использовали YOLO для детекции объектов (каска, роба, штаны) и классификации нарушений. Обработка видео в реальном времени с формированием отчёта по временным меткам: когда и какой тип нарушения зафиксирован.</p><h4>Результат</h4><p>Автоматический отчёт по нарушениям СИЗ с привязкой к временным отрезкам. Сокращение времени на проверку в разы. Интеграция с существующими системами учёта.</p><p><a href="/#quiz" class="btn-cta">Обсудить похожий проект</a></p>'
-      },
-      {
-        id: 'cv-fastener-odk',
-        title: 'CV для сортировки крепежа ОДК УМПО',
-        thesis: 'Кейс по распознаванию болтов, гаек и шайб при разборе авиадвигателей. Интеграция с Полином МДМ, ускорение сортировки.',
-        meta: 'Февраль 2026 · В разработке',
-        body: '<p>При разборе авиадвигателей образуется большое количество крепёжных изделий разных типоразмеров. Ручная сортировка болтов, гаек и шайб — трудоёмкий процесс с высоким риском ошибок.</p><h4>Решение</h4><p>Модель на базе YOLO определяет тип и типоразмер крепежа по шаблону. Подсветка и подсчёт в реальном времени. Интеграция с системой Полином МДМ для учёта и маршрутизации.</p><h4>Эффект</h4><p>До 7× ускорение сортировки. Снижение человеческого фактора. Структурированные данные для планирования закупок и логистики.</p><p><a href="/#quiz" class="btn-cta">Обсудить похожий проект</a></p>'
-      }
-    ];
-    (function() {
-      var grid = document.getElementById('blogCards');
-      var modal = document.getElementById('articleModal');
-      var content = document.getElementById('articleModalContent');
-      var closeBtn = document.getElementById('articleModalClose');
-      if (!grid) return;
-      BLOG_ARTICLES.forEach(function(a) {
-        var card = document.createElement('div');
-        card.className = 'blog-card reveal';
-        card.setAttribute('data-id', a.id);
-        card.innerHTML = '<h3>' + a.title + '</h3><p class="thesis">' + a.thesis + '</p><span class="meta">' + a.meta + '</span>';
-        card.addEventListener('click', function() {
-          content.innerHTML = '<h3 class="title">' + a.title + '</h3><p class="desc" style="margin-bottom:20px;">' + a.meta + '</p><div class="article-body">' + a.body + '</div>';
-          modal.classList.add('open');
-        });
-        grid.appendChild(card);
-      });
-      if (closeBtn) closeBtn.addEventListener('click', function() { modal.classList.remove('open'); });
-      if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) modal.classList.remove('open'); });
-    })();
-  </script>
   <script src="/scripts.js" defer></script>
 </body>
 </html>
