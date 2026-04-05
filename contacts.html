@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ИТиС ЛАБ — контакты: телефон, email, адрес, форма обратной связи.">
+  <title>Контакты — ИТиС ЛАБ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Manrope&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">ИТиС <span>ЛАБ</span></a>
+      <div class="nav-links">
+        <a href="about.html">О нас</a>
+        <a href="tasks.html">Типовые задачи</a>
+        <a href="industries.html">Решения по отраслям</a>
+        <a href="cases.html">Кейсы</a>
+        <a href="blog/index.html">Блог</a>
+        <a href="contacts.html" class="active">Контакты</a>
+        <a href="contacts.html" class="btn-cta">Обсудить проект</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html">О нас</a>
+    <a href="tasks.html">Типовые задачи</a>
+    <a href="industries.html">Решения по отраслям</a>
+    <a href="cases.html">Кейсы</a>
+    <a href="blog/index.html">Блог</a>
+    <a href="contacts.html">Контакты</a>
+    <a href="contacts.html" class="btn-cta">Обсудить проект</a>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:12px;">
+          <a href="index.html">Главная</a> / Контакты
+        </p>
+        <h1>Связь с командой ИТиС ЛАБ: обсудим ваш проект</h1>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ + ФОРМА -->
+    <section class="section">
+      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
+
+        <!-- Реквизиты -->
+        <div>
+          <h2 class="reveal" style="font-size:1.5rem;margin-bottom:24px;">Контактная информация</h2>
+
+          <div class="service-card reveal" style="margin-bottom:16px;">
+            <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Телефон</p>
+            <a href="tel:+70000000000" style="font-size:1.125rem;font-family:var(--font-heading);font-weight:600;color:var(--text);">+7 (000) 000-00-00</a>
+          </div>
+          <div class="service-card reveal" style="margin-bottom:16px;">
+            <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Email</p>
+            <a href="mailto:info@lab-itis.ru" style="font-size:1.125rem;font-family:var(--font-heading);font-weight:600;color:var(--text);">info@lab-itis.ru</a>
+          </div>
+          <div class="service-card reveal">
+            <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Адрес</p>
+            <p style="color:var(--text-muted);margin:0;">000000, г. Город, ул. Примерная, д. 0</p>
+          </div>
+        </div>
+
+        <!-- Форма -->
+        <div class="service-card reveal" style="padding:36px;">
+          <h2 style="font-size:1.5rem;margin-bottom:6px;">Расскажите нам о своей задаче</h2>
+          <p style="color:var(--text-muted);margin-bottom:28px;">Мы поможем ее решить!</p>
+
+          <form id="contact-form" action="#" method="post" novalidate>
+            <label for="c-name" style="display:block;font-size:0.875rem;color:var(--text-muted);margin-bottom:4px;">Ваше имя</label>
+            <input type="text" id="c-name" name="name" autocomplete="name">
+
+            <label for="c-email" style="display:block;font-size:0.875rem;color:var(--text-muted);margin-bottom:4px;">Ваш email</label>
+            <input type="email" id="c-email" name="email" autocomplete="email">
+
+            <label for="c-phone" style="display:block;font-size:0.875rem;color:var(--text-muted);margin-bottom:4px;">Ваш телефон</label>
+            <input type="tel" id="c-phone" name="phone" autocomplete="tel">
+
+            <label for="c-comment" style="display:block;font-size:0.875rem;color:var(--text-muted);margin-bottom:4px;">Комментарий</label>
+            <textarea id="c-comment" name="comment" rows="4"></textarea>
+
+            <label for="c-file" style="display:block;font-size:0.875rem;color:var(--text-muted);margin-bottom:8px;">Прикрепить файл</label>
+            <input type="file" id="c-file" name="file" style="width:auto;background:none;border:none;padding:0;margin-bottom:20px;color:var(--text-muted);">
+
+            <div style="margin-bottom:12px;display:flex;gap:10px;align-items:flex-start;">
+              <input type="checkbox" name="privacy" id="cb-priv" required style="width:auto;margin:3px 0 0;flex-shrink:0;">
+              <label for="cb-priv" style="font-size:0.875rem;color:var(--text-muted);cursor:pointer;">Я соглашаюсь на обработку персональных данных и ознакомлен(а) с Политикой конфиденциальности.</label>
+            </div>
+            <div style="margin-bottom:24px;display:flex;gap:10px;align-items:flex-start;">
+              <input type="checkbox" name="marketing" id="cb-mkt" style="width:auto;margin:3px 0 0;flex-shrink:0;">
+              <label for="cb-mkt" style="font-size:0.875rem;color:var(--text-muted);cursor:pointer;">Я согласен(а) на получение рекламных рассылок</label>
+            </div>
+
+            <button type="submit" class="btn-cta">Получить предложение</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">ИТиС <span>ЛАБ</span></div>
+          <div class="footer-tagline">Автоматизация и машинное зрение для производства</div>
+        </div>
+        <nav class="footer-nav">
+          <a href="about.html">О нас</a>
+          <a href="tasks.html">Типовые задачи</a>
+          <a href="industries.html">Решения по отраслям</a>
+          <a href="cases.html">Кейсы</a>
+          <a href="blog/index.html">Блог</a>
+          <a href="contacts.html">Контакты</a>
+        </nav>
+        <div class="footer-right">
+          <p><a href="contacts.html" class="btn-cta" style="font-size:0.875rem;">Обсудить проект</a></p>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <span><a href="privacy.html" style="color:var(--accent);">Политика конфиденциальности</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script>
+    var cf = document.getElementById('contact-form');
+    if (cf) cf.addEventListener('submit', function(e){ e.preventDefault(); });
+  </script>
+  <style>
+    @media (max-width: 768px) {
+      .container[style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+</body>
+</html>

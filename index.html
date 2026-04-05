@@ -3,515 +3,399 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ООО ИТиС ЛАБ — Разработка ПО с ИИ для бизнеса | Intelligent Technologies and Systems</title>
-  <meta name="description" content="Разработка ПО для бизнеса с упором на ИИ и Computer Vision. ООО открыто в ноябре 2025, деятельность в рамках СКБ — 3 года. УУНиТ, ОДК УМПО, БГК, ИТ Космос. Пройдите AI-диагностику.">
-  <meta name="keywords" content="Computer Vision, AI для бизнеса, машинное обучение, разработка ПО, ML, ИИ B2B, ИТиС ЛАБ, СКБ, УМНИК, ФСИ">
-  <link rel="canonical" href="https://lab-itis.ru">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@graph":[
-    {"@type":"Organization","name":"ООО ИТиС ЛАБ","url":"https://lab-itis.ru","description":"Разработка ПО для бизнеса с упором на ИИ и Computer Vision. Победитель грантов ФСИ и УМНИК, партнёры: ОДК УМПО, БГК, ИТ Космос. ООО с 2025, деятельность в рамках СКБ — с 2024.","foundingDate":"2025"},
-    {"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"Сколько стоит разработка?","acceptedAnswer":{"@type":"Answer","text":"Зависит от задачи, обсудим после диагностики."}},
-      {"@type":"Question","name":"Какие сроки?","acceptedAnswer":{"@type":"Answer","text":"От PoC за 3–5 недель до полного внедрения 2–6 месяцев."}},
-      {"@type":"Question","name":"Кто делает проект?","acceptedAnswer":{"@type":"Answer","text":"Наша команда специалистов по ИИ и разработке."}},
-      {"@type":"Question","name":"Есть ли гарантии?","acceptedAnswer":{"@type":"Answer","text":"Бесплатный аудит, NDA, поддержка."}},
-      {"@type":"Question","name":"Можно без диагностики?","acceptedAnswer":{"@type":"Answer","text":"Да, через модальную форму на сайте."}}
-    ]}
-  ]}
-  </script>
+  <meta name="description" content="ИТиС ЛАБ — автоматизация и машинное зрение для производства.">
+  <title>ИТиС ЛАБ — автоматизация производства</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Manrope&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    :root {
-      --bg: #050A0F;
-      --surface: #0D1B2A;
-      --accent: #00F5FF;
-      --accent-blue: #0066FF;
-      --text: #F0F4F8;
-      --text-muted: #8899AA;
-      --gradient: linear-gradient(135deg, #00F5FF, #0066FF);
-      --font-heading: 'Syne', sans-serif;
-      --font-body: 'Manrope', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --glass: rgba(13, 27, 42, 0.7);
-      --glass-border: rgba(0, 245, 255, 0.15);
-      --glow: 0 0 30px rgba(0, 245, 255, 0.3);
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: var(--font-body); font-size: 16px; color: var(--text); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
-    body.menu-open { overflow: hidden; }
-    ::selection { background: rgba(0, 245, 255, 0.3); color: var(--text); }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--surface); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
-    h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; margin: 0 0 1rem; }
-    h1 { font-size: 72px; line-height: 1.1; letter-spacing: -0.02em; }
-    h2 { font-size: 48px; font-weight: 600; }
-    h3 { font-size: 28px; font-weight: 600; }
-    p { margin: 0 0 1rem; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .section { padding: 64px 0; }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px; transition: background 0.3s, backdrop-filter 0.3s; }
-    .navbar.scrolled { background: var(--glass); backdrop-filter: blur(16px); border-bottom: 1px solid var(--glass-border); }
-    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-family: var(--font-heading); font-weight: 700; font-size: 1.35rem; color: var(--text); }
-    .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-    .nav-links a { color: var(--text); font-weight: 500; text-decoration: none; font-size: 0.9375rem; }
-    .nav-links a:hover { color: var(--accent); text-decoration: none; }
-    .nav-dropdown { position: relative; }
-    .nav-dropdown .dropdown-trigger { background: none; border: none; color: var(--text); font-family: var(--font-body); font-weight: 500; font-size: 0.9375rem; cursor: pointer; padding: 0; display: flex; align-items: center; gap: 4px; }
-    .nav-dropdown .dropdown-trigger:hover { color: var(--accent); }
-    .nav-dropdown .dropdown-trigger::after { content: ''; border: 4px solid transparent; border-top-color: currentColor; margin-left: 2px; }
-    .nav-dropdown .dropdown-menu { position: absolute; top: 100%; left: 0; margin-top: 8px; min-width: 180px; background: var(--glass); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 12px; padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: 0.2s; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
-    .nav-dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-    .nav-dropdown .dropdown-menu a { display: block; padding: 10px 16px; color: var(--text); font-size: 0.875rem; }
-    .nav-dropdown .dropdown-menu a:hover { background: rgba(0, 245, 255, 0.08); color: var(--accent); }
-    .btn-cta { display: inline-block; padding: 10px 20px; background: var(--gradient); color: var(--bg); font-family: var(--font-heading); font-weight: 600; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; transition: box-shadow 0.3s; font-size: 0.9375rem; }
-    .btn-cta:hover { box-shadow: var(--glow); text-decoration: none; color: var(--bg); }
-    .btn-outline { display: inline-block; padding: 10px 20px; background: transparent; color: var(--accent); font-family: var(--font-heading); font-weight: 600; border-radius: 999px; border: 2px solid var(--accent); cursor: pointer; text-decoration: none; transition: box-shadow 0.3s, background 0.3s; font-size: 0.9375rem; }
-    .btn-outline:hover { box-shadow: var(--glow); background: rgba(0, 245, 255, 0.1); text-decoration: none; color: var(--accent); }
-    .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
-    .burger span { display: block; width: 22px; height: 2px; background: var(--text); transition: 0.3s; }
-    .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .burger.active span:nth-child(2) { opacity: 0; }
-    .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-    .mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--glass); backdrop-filter: blur(16px); border-bottom: 1px solid var(--glass-border); padding: 20px; flex-direction: column; gap: 12px; z-index: 99; max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-    .mobile-menu.open { max-height: 360px; display: flex; }
-    .mobile-menu a { color: var(--text); font-size: 1rem; }
-    @media (max-width: 768px) { .nav-links { display: none; } .burger { display: flex; } .mobile-menu { display: flex; } h1 { font-size: 42px; } h2 { font-size: 32px; } h3 { font-size: 22px; } }
-
-    .hero { min-height: 85vh; position: relative; display: flex; flex-direction: column; justify-content: center; padding: 100px 0 60px; background: var(--bg); overflow: hidden; }
-    .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-    .hero-content { position: relative; z-index: 2; }
-    .hero-badge { display: inline-block; padding: 6px 14px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 999px; font-size: 0.8125rem; color: var(--accent); margin-bottom: 20px; }
-    .hero h1 .gradient { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .hero-sub { font-size: 1.0625rem; color: var(--text-muted); max-width: 520px; margin-bottom: 28px; }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .hero-btns .btn-cta:first-child { background: var(--gradient); }
-
-    .about-intro { margin-bottom: 32px; }
-    .about-intro p { color: var(--text-muted); }
-    .roadmap-list { position: relative; padding-left: 20px; border-left: 2px solid var(--glass-border); margin-left: 6px; }
-    .roadmap-item { position: relative; padding-bottom: 24px; padding-left: 20px; }
-    .roadmap-item:last-child { padding-bottom: 0; }
-    .roadmap-item::before { content: ''; position: absolute; left: -27px; top: 6px; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px rgba(0, 245, 255, 0.5); }
-    .roadmap-item h4 { font-family: var(--font-heading); font-size: 1rem; margin: 0 0 6px; color: var(--accent); }
-    .roadmap-item p { margin: 0; font-size: 0.875rem; color: var(--text-muted); }
-    .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 24px; }
-    .proof-in-about { margin-top: 0; margin-bottom: 40px; }
-    .proof-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 12px; padding: 16px; text-align: center; transition: box-shadow 0.3s, border-color 0.3s; }
-    .proof-card:hover { box-shadow: var(--glow); border-color: rgba(0, 245, 255, 0.25); }
-    .proof-card .icon { font-size: 40px; margin-bottom: 8px; line-height: 1; }
-    .proof-card h4 { font-family: var(--font-heading); font-size: 0.9375rem; margin: 0 0 6px; }
-    .proof-card p { font-size: 0.8125rem; color: var(--text-muted); margin: 0; }
-    @media (max-width: 768px) { .proof-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
-
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-    .service-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px; padding: 28px; transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s; }
-    .service-card:hover { box-shadow: var(--glow); border-color: rgba(0, 245, 255, 0.3); transform: translateY(-2px); }
-    .service-card .icon-wrap { margin-bottom: 16px; }
-    .service-card .icon-wrap svg { width: 40px; height: 40px; stroke: var(--accent); }
-    .service-card h3 { margin-bottom: 10px; font-size: 1.125rem; }
-    .service-card p { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 12px; }
-    .service-card .link { color: var(--accent); font-weight: 600; font-size: 0.9375rem; }
-    .service-card .link:hover { text-decoration: none; }
-    @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
-
-    .faq-list { max-width: 720px; margin: 0 auto; }
-    .faq-item { background: var(--glass); border: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
-    .faq-q { width: 100%; padding: 16px 20px; text-align: left; background: none; border: none; color: var(--text); font-family: var(--font-heading); font-weight: 600; font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-q:hover { color: var(--accent); }
-    .faq-a-inner a { display: inline-block; margin-top: 8px; }
-    .faq-q::after { content: '+'; color: var(--accent); font-size: 1.25rem; transition: transform 0.3s; }
-    .faq-item.open .faq-q::after { transform: rotate(45deg); }
-    .faq-a { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-    .faq-a-inner { padding: 0 0 16px; font-size: 0.9375rem; color: var(--text-muted); }
-
-    .portfolio-filters { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
-    .filter-btn { padding: 8px 18px; background: transparent; color: var(--text-muted); border: 1px solid var(--glass-border); border-radius: 999px; font-family: var(--font-body); font-size: 0.875rem; cursor: pointer; transition: 0.3s; }
-    .filter-btn:hover { color: var(--accent); border-color: var(--accent); }
-    .filter-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
-    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .portfolio-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; min-height: 280px; cursor: pointer; transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s; display: flex; flex-direction: column; position: relative; }
-    .portfolio-card:hover { box-shadow: var(--glow); border-color: rgba(0, 245, 255, 0.3); transform: translateY(-4px); }
-    .portfolio-card:hover .portfolio-card-img { opacity: 0.85; }
-    .portfolio-card-img-wrap { height: 140px; background: var(--surface); position: relative; }
-    .portfolio-card-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
-    .portfolio-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
-    .portfolio-card .category { position: absolute; top: 12px; left: 12px; padding: 5px 10px; background: rgba(0, 245, 255, 0.2); border-radius: 999px; font-size: 0.6875rem; color: var(--accent); z-index: 1; }
-    .portfolio-card .title { font-family: var(--font-heading); font-weight: 600; font-size: 1rem; margin: 0 0 8px; }
-    .portfolio-card .short-desc { font-size: 0.8125rem; color: var(--text-muted); margin: 0 0 10px; line-height: 1.4; }
-    .portfolio-card-metrics { display: flex; gap: 12px; flex-wrap: wrap; font-size: 0.75rem; color: var(--accent); }
-    .portfolio-card-metrics span { display: inline-flex; align-items: center; gap: 4px; }
-    .portfolio-card[data-hidden="true"] { opacity: 0; pointer-events: none; transform: scale(0.96); transition: opacity 0.35s, transform 0.35s; }
-    .portfolio-card[data-hidden="false"] { opacity: 1; pointer-events: auto; transform: scale(1); }
-    @media (max-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .portfolio-grid { grid-template-columns: 1fr; } }
-
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px; }
-    .modal-overlay.open { display: flex; }
-    .modal { background: var(--surface); border: 1px solid var(--glass-border); border-radius: 20px; max-width: 520px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 28px; position: relative; }
-    .modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; line-height: 1; }
-    .modal-close:hover { color: var(--accent); }
-    .modal .title { font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 12px; }
-    .modal .desc { font-size: 0.9375rem; color: var(--text-muted); margin-bottom: 16px; }
-    .modal .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .modal .stack span { padding: 4px 10px; border: 1px solid var(--accent); border-radius: 999px; font-size: 0.75rem; color: var(--accent); }
-    .modal .result { font-family: var(--font-mono); font-size: 0.875rem; color: var(--accent); }
-
-    .trust-section { }
-    .trust-reviews { margin-bottom: 40px; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .testimonial-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px; padding: 20px; transition: box-shadow 0.3s, border-color 0.3s; }
-    .testimonial-card:hover { box-shadow: var(--glow); border-color: rgba(0, 245, 255, 0.25); }
-    .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 1rem; font-weight: 700; color: var(--bg); margin-bottom: 12px; }
-    .testimonial-quote { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.55; }
-    .testimonial-author { font-weight: 600; font-size: 0.9375rem; margin-bottom: 2px; }
-    .testimonial-role { font-size: 0.8125rem; color: var(--text-muted); }
-    .partners-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; align-items: center; }
-    .partner-pill { padding: 14px 24px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 999px; font-family: var(--font-heading); font-weight: 600; font-size: 0.9375rem; text-align: center; }
-    .trust-guarantees { margin-top: 40px; }
-    .guarantees-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-    .guarantee-pill { padding: 10px 18px; background: rgba(0, 245, 255, 0.08); border: 1px solid var(--glass-border); border-radius: 999px; font-size: 0.875rem; color: var(--text-muted); }
-    @media (max-width: 1024px) { .testimonials-grid { grid-template-columns: repeat(2, 1fr); } .partners-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px) { .testimonials-grid { grid-template-columns: 1fr; } .partners-grid { grid-template-columns: repeat(2, 1fr); } }
-
-    #quiz .section-inner { background: linear-gradient(135deg, var(--surface) 0%, rgba(0, 102, 255, 0.12) 100%); border: 1px solid rgba(0, 245, 255, 0.25); border-radius: 24px; padding: 48px 32px; box-shadow: var(--glow); }
-    .quiz-head { text-align: center; margin-bottom: 32px; }
-    .quiz-head .quiz-icon { font-size: 48px; margin-bottom: 12px; display: block; }
-    .quiz-wrap { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px; padding: 40px; max-width: 640px; margin: 0 auto; }
-    .quiz-progress { height: 6px; background: var(--surface); border-radius: 3px; margin-bottom: 28px; overflow: hidden; }
-    .quiz-progress-bar { height: 100%; background: var(--gradient); border-radius: 3px; width: 33.33%; transition: width 0.4s ease; box-shadow: 0 0 12px rgba(0, 245, 255, 0.5); }
-    .quiz-progress-bar.step-2 { width: 66.66%; }
-    .quiz-progress-bar.step-3 { width: 100%; }
-    .quiz-step { display: none; }
-    .quiz-step.active { display: block; }
-    .quiz-step h3 { margin-bottom: 6px; font-size: 1.125rem; }
-    .quiz-step .subtitle { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 20px; }
-    .quiz-options { display: flex; flex-direction: column; gap: 10px; }
-    .quiz-option { display: block; width: 100%; text-align: left; padding: 14px 18px; background: rgba(5, 10, 15, 0.5); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text); font-family: var(--font-body); font-size: 0.9375rem; cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s; }
-    .quiz-option:hover { border-color: var(--accent); box-shadow: 0 0 16px rgba(0, 245, 255, 0.12); }
-    .quiz-option .opt-label { font-weight: 600; color: var(--accent); margin-bottom: 2px; }
-    .quiz-option .opt-desc { font-size: 0.8125rem; color: var(--text-muted); }
-    .quiz-result-block { padding: 20px; background: rgba(0, 245, 255, 0.06); border-radius: 14px; border: 1px solid var(--glass-border); margin-bottom: 20px; }
-    .quiz-result-block h4 { color: var(--accent); margin-bottom: 10px; font-size: 1rem; }
-    .quiz-result-block p { margin-bottom: 10px; font-size: 0.875rem; }
-    .quiz-result-block a { font-weight: 600; font-size: 0.9375rem; }
-    .quiz-form-below { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--glass-border); }
-    .quiz-form-below h4 { margin-bottom: 12px; font-size: 1rem; }
-    .quiz-form-below input { width: 100%; padding: 12px 16px; margin-bottom: 12px; background: rgba(5, 10, 15, 0.6); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text); font-family: var(--font-body); font-size: 1rem; }
-    .quiz-form-below input:focus { outline: none; border-color: var(--accent); }
-    .quiz-form-below input.error { border-color: #ff4444; }
-    .quiz-restart { margin-top: 12px; font-size: 0.8125rem; color: var(--text-muted); cursor: pointer; background: none; border: none; font-family: var(--font-body); }
-    .quiz-restart:hover { color: var(--accent); }
-    .quiz-form-below textarea { width: 100%; padding: 12px 16px; margin-bottom: 12px; background: rgba(5, 10, 15, 0.6); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text); font-family: var(--font-body); font-size: 1rem; min-height: 80px; resize: vertical; }
-    .quiz-form-below textarea:focus { outline: none; border-color: var(--accent); }
-    .quiz-no-diagnostic { margin-top: 20px; font-size: 0.875rem; color: var(--text-muted); }
-    .quiz-no-diagnostic a { color: var(--accent); }
-    .modal-simple-form input, .modal-simple-form textarea { width: 100%; padding: 12px 16px; margin-bottom: 12px; background: rgba(5, 10, 15, 0.6); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text); font-family: var(--font-body); font-size: 1rem; }
-    .modal-simple-form textarea { min-height: 80px; resize: vertical; }
-    .modal-simple-form input:focus, .modal-simple-form textarea:focus { outline: none; border-color: var(--accent); }
-
-    .contacts-cta { text-align: center; padding: 48px 24px; margin-bottom: 32px; border-radius: 20px; background: linear-gradient(135deg, rgba(0, 245, 255, 0.06), rgba(0, 102, 255, 0.06)); }
-    .contacts-cta h2 { margin-bottom: 12px; }
-    .contacts-cta p { color: var(--text-muted); margin-bottom: 20px; }
-    .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-    .contact-form-wrap { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px; padding: 28px; }
-    .contact-form-wrap input, .contact-form-wrap textarea, .contact-form-wrap select { width: 100%; padding: 12px 16px; margin-bottom: 14px; background: rgba(5, 10, 15, 0.6); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text); font-family: var(--font-body); font-size: 1rem; }
-    .contact-form-wrap input:focus, .contact-form-wrap textarea:focus, .contact-form-wrap select:focus { outline: none; border-color: var(--accent); }
-    .contact-form-wrap input.error { border-color: #ff4444; animation: shake 0.5s; }
-    @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-    .contact-form-wrap textarea { min-height: 100px; resize: vertical; }
-    .contact-form-wrap button[type="submit"] { width: 100%; padding: 14px; margin-top: 6px; cursor: pointer; font-family: var(--font-heading); font-size: 1rem; }
-    .form-error { color: #ff4444; font-size: 0.8125rem; margin-top: 6px; }
-    .form-success { text-align: center; padding: 40px 20px; display: none; }
-    .form-success.show { display: block; }
-    .form-success .checkmark { width: 64px; height: 64px; margin: 0 auto 20px; }
-    .form-success .checkmark path { stroke-dasharray: 80; stroke-dashoffset: 80; animation: drawCheck 0.5s ease forwards 0.15s; }
-    @keyframes drawCheck { to { stroke-dashoffset: 0; } }
-    .form-success h3 { margin-bottom: 8px; }
-    .form-success p { color: var(--text-muted); margin: 0; font-size: 0.9375rem; }
-    .contact-info { display: flex; flex-direction: column; gap: 16px; }
-    .contact-info-item a { color: var(--text); }
-    .contact-info-item a:hover { color: var(--accent); }
-    .contact-note { font-size: 0.8125rem; color: var(--text-muted); margin-top: 6px; }
-    .social-row { display: flex; gap: 12px; margin-top: 20px; }
-    .social-row a { color: var(--text-muted); transition: color 0.3s; }
-    .social-row a:hover { color: var(--accent); }
-    .social-row svg { width: 22px; height: 22px; }
-    @media (max-width: 768px) { .contacts-grid { grid-template-columns: 1fr; } }
-
-  </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="/" class="logo">ITiS <span>LAB</span></a>
+      <a href="index.html" class="logo">ИТиС <span>ЛАБ</span></a>
+
       <div class="nav-links">
-        <a href="/">Главная</a>
-        <div class="nav-dropdown" id="aboutDropdown">
-          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">О нас</button>
-          <div class="dropdown-menu">
-            <a href="/team/">Команда</a>
-            <a href="/competencies/">Компетенции</a>
-          </div>
-        </div>
-        <a href="/#services">Услуги</a>
-        <a href="/portfolio/">Портфолио</a>
-        <a href="/testimonials/">Отзывы</a>
-        <a href="/blog/">Блог</a>
-        <a href="/#quiz">Контакты</a>
-        <a href="/#quiz" class="btn-cta">Обсудить проект</a>
+        <a href="about.html">О нас</a>
+        <a href="tasks.html">Типовые задачи</a>
+        <a href="industries.html">Решения по отраслям</a>
+        <a href="cases.html">Кейсы</a>
+        <a href="blog/index.html">Блог</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="contacts.html" class="btn-cta">Обсудить проект</a>
       </div>
-      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="/">Главная</a>
-      <a href="/team/">Команда</a>
-      <a href="/competencies/">Компетенции</a>
-      <a href="/#services">Услуги</a>
-      <a href="/portfolio/">Портфолио</a>
-      <a href="/testimonials/">Отзывы</a>
-      <a href="/blog/">Блог</a>
-      <a href="/#quiz">Контакты</a>
-      <a href="/#quiz" class="btn-cta">Обсудить проект</a>
+
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <header class="hero">
-    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
-    <div class="container hero-content">
-      <h1>Разработка ПО с ИИ для бизнеса</h1>
-      <p class="hero-sub">Упор на Computer Vision и машинное обучение. ООО открыто в ноябре 2025, деятельность в рамках СКБ — 3 года.</p>
-      <div class="hero-btns">
-        <a href="#quiz" class="btn-cta">Пройти AI-диагностику</a>
-        <a href="#quiz" class="btn-outline">Обсудить проект</a>
-      </div>
-    </div>
-  </header>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+    <a href="about.html">О нас</a>
+    <a href="tasks.html">Типовые задачи</a>
+    <a href="industries.html">Решения по отраслям</a>
+    <a href="cases.html">Кейсы</a>
+    <a href="blog/index.html">Блог</a>
+    <a href="contacts.html">Контакты</a>
+    <a href="contacts.html" class="btn-cta">Обсудить проект</a>
+  </div>
 
   <main>
-    <section class="section" id="about">
-      <div class="container">
-        <h2 class="reveal">О нас</h2>
-        <div class="about-intro reveal">
-          <p>Специализация — разработка ПО для бизнеса (с упором на ИИ и CV). Партнёры: УУНиТ, ОДК УМПО, Техстройпроект, ИТ Космос, ООО «Башкирская генерирующая компания» (ООО «БГК»).</p>
-        </div>
-        <h3 class="reveal" style="margin-bottom: 16px;">Доказательство экспертизы</h3>
-        <div class="proof-grid proof-in-about reveal">
-          <div class="proof-card"><div class="icon">🏆</div><h4>Конкурсы</h4><p>Победитель грантовых конкурсов «Студенческий стартап <a href="https://fasie.ru" target="_blank" rel="noopener">ФСИ</a>», «<a href="https://umnik.fasie.ru" target="_blank" rel="noopener">УМНИК</a>», победитель хакатонов</p></div>
-          <div class="proof-card"><div class="icon">📜</div><h4>Гранты R&D</h4><p>Гранты от <a href="https://fasie.ru" target="_blank" rel="noopener">ФСИ</a> на разработку в области CV и ML</p></div>
-          <div class="proof-card"><div class="icon">🔬</div><h4>Пилоты</h4><p>Пилотные проекты для ОДК УМПО, БГК, ИТ Космос</p></div>
-          <div class="proof-card"><div class="icon">🎯</div><h4>Кейсы</h4><p>Участники научных конференций и выставок, есть публикации</p></div>
-        </div>
-        <p class="reveal" style="margin-top: 16px;"><a href="/team/">Команда</a> · <a href="/competencies/">Компетенции</a></p>
-        <h3 class="reveal" style="margin-bottom: 16px; margin-top: 40px;">Roadmap</h3>
-        <div class="roadmap-list reveal">
-          <div class="roadmap-item"><h4>2024</h4><p>Создание СКБ, начало деятельности</p></div>
-          <div class="roadmap-item"><h4>2025</h4><p>Открытие ООО</p></div>
+
+    <!-- HERO BANNER -->
+    <section class="hero">
+      <div class="container hero-content">
+        <h1 class="reveal">Старт работы с ИТиС ЛАБ: выберите свой сценарий</h1>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;max-width:720px;" class="reveal">
+          <a href="contacts.html" class="service-card" style="text-decoration:none;display:flex;align-items:center;justify-content:center;text-align:center;min-height:100px;">
+            <span style="font-family:var(--font-heading);font-size:1.1rem;font-weight:600;">Быстрая настройка за 2 минуты</span>
+          </a>
+          <a href="contacts.html" class="service-card" style="text-decoration:none;display:flex;align-items:center;justify-content:center;text-align:center;min-height:100px;">
+            <span style="font-family:var(--font-heading);font-size:1.1rem;font-weight:600;">Детальный проект под ключ</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="services">
+    <!-- EXPERTISE -->
+    <section class="section" id="expertise">
       <div class="container">
-        <h2 class="reveal" style="text-align: center; margin-bottom: 40px;">Услуги</h2>
-        <div class="services-grid">
-          <div class="service-card reveal">
-            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <h3>Computer Vision системы</h3>
-            <p>Автоматизация распознавания объектов и нарушений.</p>
-            <a href="#quiz" class="link">Обсудить проект →</a>
+        <h2 class="reveal">ИТиС ЛАБ в цифрах и фактах: наша экспертиза на деле</h2>
+
+        <!-- статистика (grid) -->
+        <div class="services-grid reveal" style="margin-top:40px;">
+          <div class="service-card" style="text-align:center;">
+            <p style="font-size:2rem;font-family:var(--font-heading);font-weight:700;color:var(--accent);">—</p>
+            <p style="color:var(--text-muted);font-size:0.875rem;">Плейсхолдер статистики</p>
           </div>
-          <div class="service-card reveal">
-            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><path d="M9 18l3 3 6-6"/></svg></div>
-            <h3>ML и предиктивная аналитика</h3>
-            <p>Прогнозирование ресурса оборудования.</p>
-            <a href="#quiz" class="link">Обсудить проект →</a>
+          <div class="service-card" style="text-align:center;">
+            <p style="font-size:2rem;font-family:var(--font-heading);font-weight:700;color:var(--accent);">—</p>
+            <p style="color:var(--text-muted);font-size:0.875rem;">Плейсхолдер статистики</p>
           </div>
-          <div class="service-card reveal">
-            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-            <h3>Веб-разработка</h3>
-            <p>Создание сайтов для бизнеса. Дизайн делает человек, а не нейросеть.</p>
-            <a href="#quiz" class="link">Обсудить проект →</a>
+          <div class="service-card" style="text-align:center;">
+            <p style="font-size:2rem;font-family:var(--font-heading);font-weight:700;color:var(--accent);">—</p>
+            <p style="color:var(--text-muted);font-size:0.875rem;">Плейсхолдер статистики</p>
           </div>
-          <div class="service-card reveal">
-            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-            <h3>Reinforcement Learning</h3>
-            <p>Обучение роботов и систем с подкреплением.</p>
-            <a href="#quiz" class="link">Обсудить проект →</a>
-          </div>
-          <div class="service-card reveal">
-            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
-            <h3>Интеграция ИИ в бизнес-процессы</h3>
-            <p>Кастомные решения под задачу клиента.</p>
-            <a href="#quiz" class="link">Обсудить проект →</a>
+          <div class="service-card" style="text-align:center;">
+            <p style="font-size:2rem;font-family:var(--font-heading);font-weight:700;color:var(--accent);">—</p>
+            <p style="color:var(--text-muted);font-size:0.875rem;">Плейсхолдер статистики</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="portfolio">
-      <div class="container">
-        <h2 class="reveal">Портфолио</h2>
-        <p class="reveal" style="color: var(--text-muted); margin-bottom: 24px;">Клик по карточке — подробности</p>
-        <div class="portfolio-filters reveal">
-          <button type="button" class="filter-btn active" data-filter="all">Все</button>
-          <button type="button" class="filter-btn" data-filter="cv">Computer Vision</button>
-          <button type="button" class="filter-btn" data-filter="ml">ML</button>
-          <button type="button" class="filter-btn" data-filter="web">Веб</button>
-        </div>
-        <div class="portfolio-grid" id="portfolioGrid" data-teaser="true"></div>
-        <div class="reveal" style="text-align: center; margin-top: 28px;"><a href="/portfolio/" class="btn-outline">Все проекты</a></div>
-      </div>
-    </section>
-
-    <div class="modal-overlay" id="portfolioModal">
-      <div class="modal">
-        <button type="button" class="modal-close" id="modalClose" aria-label="Закрыть">&times;</button>
-        <div id="modalContent"></div>
-      </div>
-    </div>
-
-    <section class="section" id="trust">
-      <div class="container">
-        <h2 class="reveal" style="text-align: center; margin-bottom: 40px;">Доверие</h2>
-        <div class="reveal">
-          <h3 style="text-align: center; margin-bottom: 24px; font-size: 1.125rem;">Партнёры</h3>
+        <!-- сертификаты / логотипы -->
+        <div class="reveal" style="margin-top:40px;">
+          <p style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;">Сертификаты / логотипы</p>
           <div class="partners-grid">
-            <span class="partner-pill">УУНиТ</span>
-            <span class="partner-pill">ОДК УМПО</span>
-            <span class="partner-pill">Техстройпроект</span>
-            <span class="partner-pill">ИТ Космос</span>
-            <span class="partner-pill">ООО «БГК»</span>
+            <div class="partner-pill">Partner 1</div>
+            <div class="partner-pill">Partner 2</div>
+            <div class="partner-pill">Partner 3</div>
+            <div class="partner-pill">Partner 4</div>
           </div>
         </div>
-        <div class="trust-reviews reveal" style="margin-top: 40px;">
-          <p style="text-align: center; color: var(--text-muted); padding: 24px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px;">Реальные отзывы появятся после первых внедрений.</p>
+
+        <!-- достижения -->
+        <div class="service-card reveal" style="margin-top:40px;">
+          <h3 style="margin-bottom:12px;">Достижения</h3>
+          <p style="color:var(--text-muted);">Плейсхолдер текста о ключевых достижениях компании.</p>
         </div>
-        <div class="trust-guarantees reveal">
-          <h3 style="text-align: center; margin-bottom: 20px; font-size: 1.125rem;">Гарантии</h3>
-          <div class="guarantees-list">
-            <span class="guarantee-pill">Бесплатный аудит данных</span>
-            <span class="guarantee-pill">NDA с первого звонка</span>
-            <span class="guarantee-pill">Поддержка после внедрения</span>
-          </div>
-        </div>
-        <div class="reveal" style="text-align: center; margin-top: 32px;"><a href="/testimonials/" class="btn-outline">Все отзывы</a></div>
       </div>
     </section>
 
-    <section class="section" id="quiz">
+    <!-- USE CASES -->
+    <section class="section" id="use-cases" style="background:var(--surface);">
       <div class="container">
-        <div class="section-inner reveal">
-          <div class="quiz-head">
-            <span class="quiz-icon" aria-hidden="true">🤖</span>
-            <h2>AI-диагностика: узнайте за 60 сек, какая нейросеть закроет вашу главную боль и сколько вы сэкономите</h2>
-            <p style="color: var(--text-muted); margin-bottom: 0;">Пройдите 3 вопроса → получите персональную рекомендацию + расчёт окупаемости → отправьте заявку</p>
-          </div>
-        <div class="quiz-wrap">
-          <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
-          <div class="quiz-step active" data-step="1">
-            <h3>Вопрос 1. С чем у вас проблемы?</h3>
-            <p class="subtitle">Выберите ближайший вариант</p>
-            <div class="quiz-options" data-q="1">
-              <button type="button" class="quiz-option" data-value="A"><span class="opt-label">📉 Спад продаж</span><span class="opt-desc"> Клиенты уходят, конкуренты демпингуют</span></button>
-              <button type="button" class="quiz-option" data-value="B"><span class="opt-label">🤯 Операционный хаос</span><span class="opt-desc"> Рутина, документы теряются, процессы тормозят</span></button>
-              <button type="button" class="quiz-option" data-value="C"><span class="opt-label">👁 Слепые зоны</span><span class="opt-desc"> Не видим производство / магазин / поля</span></button>
-              <button type="button" class="quiz-option" data-value="D"><span class="opt-label">📊 Слепая аналитика</span><span class="opt-desc"> Данные в Excel, прогнозов нет</span></button>
-            </div>
-          </div>
-          <div class="quiz-step" data-step="2">
-            <h3>Вопрос 2. Где болит сильнее?</h3>
-            <p class="subtitle">Конкретизируем сферу</p>
-            <div class="quiz-options quiz-q2-options" data-q="2"></div>
-          </div>
-          <div class="quiz-step" data-step="3">
-            <h3>Вопрос 3. Что хотите получить?</h3>
-            <p class="subtitle">Выберите цель</p>
-            <div class="quiz-options" data-q="3">
-              <button type="button" class="quiz-option" data-value="growth">🚀 Рост продаж</button>
-              <button type="button" class="quiz-option" data-value="auto">⚙️ Автоматизация и порядок</button>
-              <button type="button" class="quiz-option" data-value="transparent">🔍 Прозрачность и контроль</button>
-              <button type="button" class="quiz-option" data-value="forecast">📈 Прогнозы и дашборды</button>
-            </div>
-          </div>
-          <div class="quiz-step" data-step="result">
-            <h3>Ваш результат</h3>
-            <div id="quizResultContainer"></div>
-            <div class="quiz-form-below" id="quizFormBelow">
-              <h4>Получить КП по этой диагностике</h4>
-              <form id="quizLeadForm">
-                <input type="hidden" name="diagnostics_result" id="quizResultHidden" value="">
-                <input type="hidden" name="quiz_result" id="quizResultHiddenLegacy" value="">
-                <input type="text" name="name" placeholder="Имя *" required>
-                <input type="email" name="email" placeholder="Email *" required>
-                <input type="text" name="telegram_phone" placeholder="Телеграм / Телефон">
-                <textarea name="message" id="quizMessageField" placeholder="Моя боль по диагностике: [будет подставлено автоматически]"></textarea>
-                <button type="submit" class="btn-cta">Получить персональное КП и расчёт окупаемости</button>
-              </form>
-            </div>
-            <p class="quiz-no-diagnostic">Хотите оставить заявку без диагностики? <a href="#" id="openNoQuizModal">Открыть простую форму</a></p>
-            <button type="button" class="quiz-restart" id="quizRestart">← Пройти заново</button>
-          </div>
+        <h2 class="reveal">Где ИТиС ЛАБ раскрывает потенциал: от контроля качества до логистики</h2>
+
+        <div class="portfolio-filters reveal" style="margin-top:32px;justify-content:flex-start;">
+          <button class="filter-btn active" data-tab="uc1">Контроль качества</button>
+          <button class="filter-btn" data-tab="uc2">Логистика</button>
+          <button class="filter-btn" data-tab="uc3">Производство</button>
         </div>
+
+        <div id="uc1" class="tab-panel services-grid" style="margin-top:24px;">
+          <div class="service-card reveal"><h3>Плейсхолдер</h3><p>Описание сценария использования.</p></div>
+          <div class="service-card reveal"><h3>Плейсхолдер</h3><p>Описание сценария использования.</p></div>
+          <div class="service-card reveal"><h3>Плейсхолдер</h3><p>Описание сценария использования.</p></div>
+        </div>
+        <div id="uc2" class="tab-panel services-grid" style="display:none;margin-top:24px;">
+          <div class="service-card"><h3>Плейсхолдер</h3><p>Описание сценария.</p></div>
+          <div class="service-card"><h3>Плейсхолдер</h3><p>Описание сценария.</p></div>
+        </div>
+        <div id="uc3" class="tab-panel services-grid" style="display:none;margin-top:24px;">
+          <div class="service-card"><h3>Плейсхолдер</h3><p>Описание сценария.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="faq">
+    <!-- SCENARIOS -->
+    <section class="section" id="scenarios">
       <div class="container">
-        <h2 class="reveal" style="text-align: center; margin-bottom: 32px;">Частые вопросы</h2>
-        <div class="faq-list reveal">
-          <div class="faq-item"><button type="button" class="faq-q">Сколько стоит разработка?</button><div class="faq-a"><div class="faq-a-inner">Зависит от задачи, обсудим после диагностики. <a href="#quiz">Пройти диагностику →</a></div></div></div>
-          <div class="faq-item"><button type="button" class="faq-q">Какие сроки?</button><div class="faq-a"><div class="faq-a-inner">От PoC за 3–5 недель до полного внедрения 2–6 месяцев. <a href="#quiz">Обсудить →</a></div></div></div>
-          <div class="faq-item"><button type="button" class="faq-q">Кто делает проект?</button><div class="faq-a"><div class="faq-a-inner">Наша команда, смотрите <a href="/team/">команду</a>. <a href="#quiz">Связаться →</a></div></div></div>
-          <div class="faq-item"><button type="button" class="faq-q">Есть ли гарантии?</button><div class="faq-a"><div class="faq-a-inner">Бесплатный аудит, NDA, поддержка. <a href="#quiz">Обсудить →</a></div></div></div>
-          <div class="faq-item"><button type="button" class="faq-q">Можно без диагностики?</button><div class="faq-a"><div class="faq-a-inner">Да, через модальную форму (ссылка под формой квиза). <a href="#" id="faqNoQuizLink">Открыть форму без диагностики</a></div></div></div>
+        <h2 class="reveal">В действии: живые сценарии на вашем производстве</h2>
+        <div class="services-grid reveal" style="margin-top:40px;">
+          <div class="service-card"><h3>Сценарий 1</h3><p style="color:var(--text-muted);">Плейсхолдер живого сценария.</p></div>
+          <div class="service-card"><h3>Сценарий 2</h3><p style="color:var(--text-muted);">Плейсхолдер живого сценария.</p></div>
+          <div class="service-card"><h3>Сценарий 3</h3><p style="color:var(--text-muted);">Плейсхолдер живого сценария.</p></div>
         </div>
       </div>
     </section>
 
-    <div class="modal-overlay" id="noQuizModal">
-      <div class="modal">
-        <button type="button" class="modal-close" id="closeNoQuizModal" aria-label="Закрыть">&times;</button>
-        <h3 style="margin-bottom: 16px;">Заявка без диагностики</h3>
-        <form id="noQuizForm" class="modal-simple-form">
-          <input type="text" name="name" placeholder="Имя *" required>
-          <input type="email" name="email" placeholder="Email *" required>
-          <textarea name="message" placeholder="Сообщение"></textarea>
-          <button type="submit" class="btn-cta">Отправить</button>
-        </form>
-        <div id="noQuizFormSuccess" class="form-success" style="display: none;">
-          <h3>Спасибо!</h3>
-          <p>Мы свяжемся с вами в течение 24 часов.</p>
+    <!-- CTA + FORM -->
+    <section class="section" id="cta-form" style="background:var(--surface);">
+      <div class="container">
+        <h2 class="reveal">Рассчитайте персональное предложение ИТиС ЛАБ</h2>
+
+        <div class="service-card reveal" style="max-width:640px;margin-top:40px;padding:36px;">
+          <h3 style="margin-bottom:6px;">Расскажите нам о своей задаче</h3>
+          <p style="color:var(--text-muted);margin-bottom:28px;">Мы поможем ее решить!</p>
+
+          <form id="lead-form" action="#" method="post" novalidate>
+            <label for="f-name" style="display:block;font-size:0.875rem;color:var(--text-muted);margin-bottom:4px;">Ваше имя</label>
+            <input type="text" id="f-name" name="name" autocomplete="name">
+
+            <label for="f-email" style="display:block;font-size:0.875rem;color:var(--text-muted);margin-bottom:4px;">Ваш email</label>
+            <input type="email" id="f-email" name="email" autocomplete="email">
+
+            <label for="f-phone" style="display:block;font-size:0.875rem;color:var(--text-muted);margin-bottom:4px;">Ваш телефон</label>
+            <input type="tel" id="f-phone" name="phone" autocomplete="tel">
+
+            <label for="f-comment" style="display:block;font-size:0.875rem;color:var(--text-muted);margin-bottom:4px;">Комментарий</label>
+            <textarea id="f-comment" name="comment" rows="4"></textarea>
+
+            <label for="f-file" style="display:block;font-size:0.875rem;color:var(--text-muted);margin-bottom:8px;">Прикрепить файл</label>
+            <input type="file" id="f-file" name="file" style="width:auto;background:none;border:none;padding:0;margin-bottom:20px;color:var(--text-muted);">
+
+            <div style="margin-bottom:12px;display:flex;gap:10px;align-items:flex-start;">
+              <input type="checkbox" name="privacy" id="cb-privacy" required style="width:auto;margin:3px 0 0;flex-shrink:0;">
+              <label for="cb-privacy" style="font-size:0.875rem;color:var(--text-muted);cursor:pointer;">Я соглашаюсь на обработку персональных данных и ознакомлен(а) с Политикой конфиденциальности.</label>
+            </div>
+            <div style="margin-bottom:24px;display:flex;gap:10px;align-items:flex-start;">
+              <input type="checkbox" name="marketing" id="cb-marketing" style="width:auto;margin:3px 0 0;flex-shrink:0;">
+              <label for="cb-marketing" style="font-size:0.875rem;color:var(--text-muted);cursor:pointer;">Я согласен(а) на получение рекламных рассылок</label>
+            </div>
+
+            <button type="submit" class="btn-cta">Получить предложение</button>
+          </form>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section" id="capabilities">
+      <div class="container">
+        <h2 class="reveal">Что умеет ИТиС ЛАБ: полный арсенал для автоматизации</h2>
+        <div class="services-grid reveal" style="margin-top:40px;">
+          <div class="service-card"><h3>Возможность 1</h3><p style="color:var(--text-muted);">Плейсхолдер описания.</p></div>
+          <div class="service-card"><h3>Возможность 2</h3><p style="color:var(--text-muted);">Плейсхолдер описания.</p></div>
+          <div class="service-card"><h3>Возможность 3</h3><p style="color:var(--text-muted);">Плейсхолдер описания.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how-it-works" style="background:var(--surface);">
+      <div class="container">
+        <h2 class="reveal">Принцип работы системы ИТиС ЛАБ</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;margin-top:40px;">
+          <div class="service-card reveal"><p style="font-size:2rem;font-family:var(--font-mono);color:var(--accent);">01</p><h3>Шаг первый</h3><p style="color:var(--text-muted);">Плейсхолдер.</p></div>
+          <div class="service-card reveal"><p style="font-size:2rem;font-family:var(--font-mono);color:var(--accent);">02</p><h3>Шаг второй</h3><p style="color:var(--text-muted);">Плейсхолдер.</p></div>
+          <div class="service-card reveal"><p style="font-size:2rem;font-family:var(--font-mono);color:var(--accent);">03</p><h3>Шаг третий</h3><p style="color:var(--text-muted);">Плейсхолдер.</p></div>
+          <div class="service-card reveal"><p style="font-size:2rem;font-family:var(--font-mono);color:var(--accent);">04</p><h3>Шаг четвёртый</h3><p style="color:var(--text-muted);">Плейсхолдер.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONSULTATION -->
+    <section class="section" id="consultation">
+      <div class="container">
+        <div class="service-card reveal" style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+          <h2 style="margin:0;max-width:600px;">Проконсультируем по вашей задаче без обязательств</h2>
+          <a href="contacts.html" class="btn-cta" style="white-space:nowrap;">Оставить заявку</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI -->
+    <section class="section" id="roi" style="background:var(--surface);">
+      <div class="container">
+        <h2 class="reveal">Почему ИТиС ЛАБ окупается быстрее альтернатив: 5 ключевых отличий</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;margin-top:40px;">
+          <div class="service-card reveal"><p style="font-size:2rem;font-family:var(--font-mono);color:var(--accent);">01</p><h3>Отличие</h3><p style="color:var(--text-muted);">Плейсхолдер.</p></div>
+          <div class="service-card reveal"><p style="font-size:2rem;font-family:var(--font-mono);color:var(--accent);">02</p><h3>Отличие</h3><p style="color:var(--text-muted);">Плейсхолдер.</p></div>
+          <div class="service-card reveal"><p style="font-size:2rem;font-family:var(--font-mono);color:var(--accent);">03</p><h3>Отличие</h3><p style="color:var(--text-muted);">Плейсхолдер.</p></div>
+          <div class="service-card reveal"><p style="font-size:2rem;font-family:var(--font-mono);color:var(--accent);">04</p><h3>Отличие</h3><p style="color:var(--text-muted);">Плейсхолдер.</p></div>
+          <div class="service-card reveal"><p style="font-size:2rem;font-family:var(--font-mono);color:var(--accent);">05</p><h3>Отличие</h3><p style="color:var(--text-muted);">Плейсхолдер.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="service-card reveal" style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+          <h2 style="margin:0;max-width:600px;">Увидеть ИТиС ЛАБ в деле под вашу задачу</h2>
+          <a href="contacts.html" class="btn-cta" style="white-space:nowrap;">Запросить демонстрацию</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASES -->
+    <section class="section" id="cases-section" style="background:var(--surface);">
+      <div class="container">
+        <h2 class="reveal">Как мы решили реальные задачи клиентов</h2>
+        <div class="portfolio-grid reveal" style="margin-top:40px;">
+          <div class="portfolio-card">
+            <div class="portfolio-card-img-wrap"></div>
+            <div class="portfolio-card-body">
+              <span class="category">Машиностроение</span>
+              <p class="title">Кейс 1</p>
+              <p class="short-desc">Плейсхолдер описания.</p>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-img-wrap"></div>
+            <div class="portfolio-card-body">
+              <span class="category">Логистика</span>
+              <p class="title">Кейс 2</p>
+              <p class="short-desc">Плейсхолдер описания.</p>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-img-wrap"></div>
+            <div class="portfolio-card-body">
+              <span class="category">Фармацевтика</span>
+              <p class="title">Кейс 3</p>
+              <p class="short-desc">Плейсхолдер описания.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGES -->
+    <section class="section" id="stages">
+      <div class="container">
+        <h2 class="reveal">Этапы внедрения ИТиС ЛАБ. От старта до результата: ваш путь</h2>
+        <div style="max-width:720px;margin-top:40px;">
+          <div class="service-card reveal" style="display:flex;gap:20px;margin-bottom:16px;">
+            <span style="font-size:1.5rem;font-family:var(--font-mono);color:var(--accent);flex-shrink:0;">01</span>
+            <div><h3 style="font-size:1rem;margin-bottom:6px;">Плейсхолдер этапа</h3><p style="color:var(--text-muted);margin:0;">Описание.</p></div>
+          </div>
+          <div class="service-card reveal" style="display:flex;gap:20px;margin-bottom:16px;">
+            <span style="font-size:1.5rem;font-family:var(--font-mono);color:var(--accent);flex-shrink:0;">02</span>
+            <div><h3 style="font-size:1rem;margin-bottom:6px;">Плейсхолдер этапа</h3><p style="color:var(--text-muted);margin:0;">Описание.</p></div>
+          </div>
+          <div class="service-card reveal" style="display:flex;gap:20px;margin-bottom:16px;">
+            <span style="font-size:1.5rem;font-family:var(--font-mono);color:var(--accent);flex-shrink:0;">03</span>
+            <div><h3 style="font-size:1rem;margin-bottom:6px;">Плейсхолдер этапа</h3><p style="color:var(--text-muted);margin:0;">Описание.</p></div>
+          </div>
+          <div class="service-card reveal" style="display:flex;gap:20px;">
+            <span style="font-size:1.5rem;font-family:var(--font-mono);color:var(--accent);flex-shrink:0;">04</span>
+            <div><h3 style="font-size:1rem;margin-bottom:6px;">Плейсхолдер этапа</h3><p style="color:var(--text-muted);margin:0;">Описание.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing" style="background:var(--surface);">
+      <div class="container">
+        <div class="service-card reveal" style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+          <h2 style="margin:0;max-width:600px;">Инвестиции в ИТиС ЛАБ: прозрачный расчёт под вашу конфигурацию</h2>
+          <a href="contacts.html" class="btn-cta" style="white-space:nowrap;">Получить точное КП и расчёт стоимости</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section class="section" id="contacts-block">
+      <div class="container">
+        <h2 class="reveal">Связь с командой ИТиС ЛАБ: обсудим ваш проект</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-top:40px;">
+          <div class="service-card reveal">
+            <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Телефон</p>
+            <p style="font-size:1.125rem;font-family:var(--font-heading);font-weight:600;">+7 (000) 000-00-00</p>
+          </div>
+          <div class="service-card reveal">
+            <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Email</p>
+            <p style="font-size:1.125rem;font-family:var(--font-heading);font-weight:600;">info@lab-itis.ru</p>
+          </div>
+          <div class="service-card reveal">
+            <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Адрес</p>
+            <p style="color:var(--text-muted);">000000, г. Город, ул. Примерная, д. 0</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVANCED -->
+    <section class="section" id="advanced" style="background:var(--surface);">
+      <div class="container">
+        <h2 class="reveal">ИТиС ЛАБ шире, чем машинное зрение: решаем нестандартные задачи автоматизации</h2>
+        <p class="reveal" style="color:var(--text-muted);max-width:720px;margin-top:20px;">Плейсхолдер: описание расширенных компетенций и нестандартных интеграций.</p>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section" id="final-cta">
+      <div class="container">
+        <div class="service-card reveal" style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+          <h2 style="margin:0;max-width:600px;">Раскройте полный потенциал ИТиС ЛАБ: получите расширенный обзор</h2>
+          <a href="contacts.html" class="btn-cta" style="white-space:nowrap;">Получить обзор</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div><div class="footer-logo">ITiS <span>LAB</span></div><p class="footer-tagline">Интеллектуальные технологии и системы</p><p class="footer-tagline" style="margin-top: 8px;">📧 info@itislab.ru · 💬 @itislab</p></div>
-        <div class="footer-nav">
-          <a href="/">Главная</a><a href="/team/">Команда</a><a href="/competencies/">Компетенции</a><a href="/#services">Услуги</a><a href="/portfolio/">Портфолио</a><a href="/testimonials/">Отзывы</a><a href="/blog/">Блог</a><a href="/#faq">FAQ</a><a href="/#quiz">Обсудить проект</a>
+        <div>
+          <div class="footer-logo">ИТиС <span>ЛАБ</span></div>
+          <div class="footer-tagline">Автоматизация и машинное зрение для производства</div>
         </div>
-        <div class="footer-right"><p>© 2026 ООО ИТиС ЛАБ</p><p>ИНН: XXXXXXXXXX</p><p>Актуально на февраль 2026</p></div>
+        <nav class="footer-nav">
+          <a href="about.html">О нас</a>
+          <a href="tasks.html">Типовые задачи</a>
+          <a href="industries.html">Решения по отраслям</a>
+          <a href="cases.html">Кейсы</a>
+          <a href="blog/index.html">Блог</a>
+          <a href="contacts.html">Контакты</a>
+        </nav>
+        <div class="footer-right">
+          <p><a href="contacts.html" class="btn-cta" style="font-size:0.875rem;">Обсудить проект</a></p>
+        </div>
       </div>
-      <div class="footer-bar"><span>Разработано с ❤️ и AI</span></div>
+      <div class="footer-bar">
+        <span><a href="privacy.html" style="color:var(--accent);">Политика конфиденциальности</a></span>
+      </div>
     </div>
   </footer>
-  <script src="scripts.js" defer></script>
+
+  <script src="scripts.js"></script>
+  <script>
+    // Форма: не уводить со страницы
+    var lf = document.getElementById('lead-form');
+    if (lf) lf.addEventListener('submit', function(e){ e.preventDefault(); });
+
+    // Табы для Use Cases
+    var tabBtns = document.querySelectorAll('.filter-btn[data-tab]');
+    var tabPanels = document.querySelectorAll('.tab-panel');
+    tabBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        tabBtns.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var target = btn.getAttribute('data-tab');
+        tabPanels.forEach(function(p){
+          p.style.display = (p.id === target) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
