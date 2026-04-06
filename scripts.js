@@ -1168,7 +1168,7 @@
       var benefitValue = getByAliases(row, ['Короткая оцифровка выгоды/закрытие боли', 'Оцифровка']) || '—';
       var resultValue = getByAliases(row, ['Результаты внедрения системы машинного зрения', 'Результаты']) || '—';
       var principleValue = getByAliases(row, ['Принцип работы машинного зрения с этой операцией', 'Принцип работы']) || '—';
-      var featuresValue = getByAliases(row, ['Функциональные возможности ML Sense Контроль фракций', 'Функциональные возможности ML Sense']) || '—';
+      var featuresValue = getByAliases(row, ['Функциональные возможности ИТиС ЛАБ Контроль фракций', 'Функциональные возможности ИТиС ЛАБ']) || '—';
       var consValue = getByAliases(row, ['Минусы традиционных методов анализа', 'Минусы']) || '—';
       slides = [
         'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80',
@@ -1196,7 +1196,7 @@
         '<div><h4>Принцип работы машинного зрения</h4><p>' +
         escapeHtml(principleValue) +
         '</p></div>' +
-        '<div><h4>Функциональные возможности ML Sense</h4><p>' +
+        '<div><h4>Функциональные возможности ИТиС ЛАБ</h4><p>' +
         escapeHtml(featuresValue) +
         '</p></div>' +
         '<details><summary>Минусы традиционных методов</summary><p>' +
