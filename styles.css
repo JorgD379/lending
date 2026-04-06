@@ -1074,6 +1074,7 @@ input.error {
 /* Solutions by industries */
 .solutions-nav-dropdown {
   position: relative;
+  padding-bottom: 8px;
 }
 
 .solutions-dropdown-trigger {
@@ -1092,14 +1093,16 @@ input.error {
 
 .solutions-mega-menu {
   position: absolute;
-  top: calc(100% + 12px);
+  top: calc(100% + 2px);
   left: 50%;
   transform: translateX(-50%);
   width: min(1100px, 90vw);
-  background: #0f1622;
-  border: 1px solid rgba(255, 208, 0, 0.3);
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0.98), rgba(5, 10, 15, 0.98));
+  border: 1px solid rgba(0, 245, 255, 0.2);
   border-radius: 16px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(0, 245, 255, 0.14);
   padding: 20px;
   opacity: 0;
   visibility: hidden;
@@ -1121,10 +1124,10 @@ input.error {
 }
 
 .industry-folder-card {
-  background: linear-gradient(180deg, #ffd748, #f7b500);
-  color: #171717;
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0.95), rgba(5, 10, 15, 0.95));
+  color: var(--text);
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 245, 255, 0.16);
   padding: 12px;
   min-height: 74px;
   display: flex;
@@ -1136,14 +1139,18 @@ input.error {
 
 .industry-folder-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.28),
+    0 0 20px rgba(0, 245, 255, 0.22);
   text-decoration: none;
-  color: #171717;
+  color: var(--text);
+  border-color: rgba(0, 245, 255, 0.4);
 }
 
 .industry-folder-id {
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  color: var(--accent);
 }
 
 .industry-folder-title {

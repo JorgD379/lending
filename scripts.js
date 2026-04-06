@@ -919,18 +919,50 @@
 
         industriesAnchor.replaceWith(wrap);
         var trigger = wrap.querySelector('.solutions-dropdown-trigger');
+        var closeTimer = null;
 
-        wrap.addEventListener('mouseenter', function () {
+        function openMenu() {
+          if (closeTimer) {
+            clearTimeout(closeTimer);
+            closeTimer = null;
+          }
           wrap.classList.add('open');
           trigger.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMenuWithDelay() {
+          if (closeTimer) clearTimeout(closeTimer);
+          closeTimer = setTimeout(function () {
+            wrap.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+          }, 220);
+        }
+
+        wrap.addEventListener('mouseenter', function () {
+          openMenu();
         });
         wrap.addEventListener('mouseleave', function () {
-          wrap.classList.remove('open');
-          trigger.setAttribute('aria-expanded', 'false');
+          closeMenuWithDelay();
+        });
+        wrap.addEventListener('focusin', function () {
+          openMenu();
+        });
+        wrap.addEventListener('focusout', function () {
+          closeMenuWithDelay();
         });
         trigger.addEventListener('click', function () {
-          var opened = wrap.classList.toggle('open');
-          trigger.setAttribute('aria-expanded', opened ? 'true' : 'false');
+          if (wrap.classList.contains('open')) {
+            wrap.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+            return;
+          }
+          openMenu();
+        });
+        document.addEventListener('click', function (e) {
+          if (!wrap.contains(e.target)) {
+            wrap.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+          }
         });
       })
       .catch(function () {
