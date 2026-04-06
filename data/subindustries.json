@@ -1,0 +1,96 @@
+{
+  "tyazhelaya-promyshlennost": [
+    { "title": "1.Металлургия(черная и цветная).xlsx", "slug": "metallurgiya-chernaya-i-tsvetnaya", "processesFile": "metallurgy-chernaya-i-tsvetnaya" },
+    { "title": "2.Литейное производство.xlsx", "slug": "liteynoe-proizvodstvo" },
+    { "title": "3.Кузнечно-прессовое производство.xlsx", "slug": "kuznechno-pressovoe-proizvodstvo" },
+    { "title": "4.Производство труб и проката.xlsx", "slug": "proizvodstvo-trub-i-prokata" },
+    { "title": "5.Производство металлоконструкций.xlsx", "slug": "proizvodstvo-metallokonstruktsiy" },
+    { "title": "6.Судостроение.xlsx", "slug": "sudostroenie" },
+    { "title": "7.Авиастроение.xlsx", "slug": "aviastroenie" },
+    { "title": "8.Ракетно-космическая промышленность.xlsx", "slug": "raketno-kosmicheskaya-promyshlennost" },
+    { "title": "9.Оборонная промышленность.xlsx", "slug": "oboronnaya-promyshlennost" }
+  ],
+  "mashinostroenie": [
+    { "title": "1.Автомобилестроение.xlsx", "slug": "avtomobilestroenie" },
+    { "title": "2.Станкостроение.xlsx", "slug": "stankostroenie" },
+    { "title": "3.Робототехника.xlsx", "slug": "robototehnika" }
+  ],
+  "elektronika": [
+    { "title": "1.Производство полупроводников.xlsx", "slug": "poluprovodniki" },
+    { "title": "2.Производство печатных плат (PCB).xlsx", "slug": "pechatnye-platy-pcb" },
+    { "title": "3.Сборка электроники (EMS).xlsx", "slug": "sborka-elektroniki-ems" }
+  ],
+  "himiya-neftehimiya": [
+    { "title": "1.Нефтепереработка.xlsx", "slug": "neftepererabotka" },
+    { "title": "2.Нефтехимия.xlsx", "slug": "neftehimiya" },
+    { "title": "3.Производство пластмасс.xlsx", "slug": "plastmassy" }
+  ],
+  "dobyvayushchaya": [
+    { "title": "1.Добыча нефти.xlsx", "slug": "dobycha-nefti" },
+    { "title": "2.Добыча газа.xlsx", "slug": "dobycha-gaza" }
+  ],
+  "energetika": [
+    { "title": "1.Тепловая энергетика (ТЭС).xlsx", "slug": "tes" },
+    { "title": "2.Гидроэнергетика (ГЭС).xlsx", "slug": "ges" }
+  ],
+  "stroitelnye-materialy": [
+    { "title": "1.Производство цемента.xlsx", "slug": "tsement" },
+    { "title": "2.Производство бетона.xlsx", "slug": "beton" }
+  ],
+  "legkaya-promyshlennost": [
+    { "title": "1.Текстильная промышленность.xlsx", "slug": "tekstil" },
+    { "title": "2.Швейное производство.xlsx", "slug": "shveynoe-proizvodstvo" }
+  ],
+  "pishchevaya": [
+    { "title": "1.Мясопереработка.xlsx", "slug": "myasopererabotka" },
+    { "title": "2.Рыбная промышленность.xlsx", "slug": "rybnaya-promyshlennost" }
+  ],
+  "farmatsevtika": [
+    { "title": "1.Производство лекарств.xlsx", "slug": "lekarstva" },
+    { "title": "2.Биотехнологическое производство.xlsx", "slug": "bioteh-proizvodstvo" }
+  ],
+  "logistika-sklady": [
+    { "title": "1.Складские комплексы.xlsx", "slug": "skladskie-kompleksy" },
+    { "title": "2.Фулфилмент-центры.xlsx", "slug": "fulfilment-tsentry" }
+  ],
+  "upakovka-poligrafiya": [
+    { "title": "1.Производство упаковки.xlsx", "slug": "proizvodstvo-upakovki" },
+    { "title": "2.Полиграфия.xlsx", "slug": "poligrafiya" }
+  ],
+  "lesnaya-promyshlennost": [
+    { "title": "1.Лесозаготовка.xlsx", "slug": "lesozagotovka" },
+    { "title": "2.Производство пиломатериалов.xlsx", "slug": "pilomaterialy" }
+  ],
+  "agroprom": [
+    { "title": "1.Растениеводство.xlsx", "slug": "rastenievodstvo" },
+    { "title": "2.Животноводство.xlsx", "slug": "zhivotnovodstvo" }
+  ],
+  "fmcg": [
+    { "title": "1.Производство косметики.xlsx", "slug": "fmcg-kosmetika" },
+    { "title": "2.Производство бытовой химии.xlsx", "slug": "fmcg-bytovaya-himiya" }
+  ],
+  "hightech": [
+    { "title": "1.Производство электромобилей.xlsx", "slug": "elektromobili" },
+    { "title": "2.Производство водородных технологий.xlsx", "slug": "vodorodnye-tehnologii" }
+  ],
+  "nishevye": [
+    { "title": "1.Производство криогенных продуктов.xlsx", "slug": "kriogennye-produkty" },
+    { "title": "2.Ювелирное производство.xlsx", "slug": "yuvelirnoe-proizvodstvo" }
+  ],
+  "smezhnye": [
+    { "title": "1.Индустриальное строительство.xlsx", "slug": "industrialnoe-stroitelstvo" },
+    { "title": "2.Ремонт и обслуживание оборудования (MRO).xlsx", "slug": "remont-i-obsluzhivanie-mro" }
+  ],
+  "kommunalnaya": [
+    { "title": "1.Водоснабжение.xlsx", "slug": "vodosnabzhenie" },
+    { "title": "2.Очистка сточных вод.xlsx", "slug": "ochistka-stochnyh-vod" }
+  ],
+  "industrialnaya-bezopasnost": [
+    { "title": "1.Производство систем видеонаблюдения.xlsx", "slug": "videonablyudenie" },
+    { "title": "2.Производство систем контроля доступа.xlsx", "slug": "skud" }
+  ],
+  "ekologicheskiy-monitoring": [
+    { "title": "1.Контроль выбросов.xlsx", "slug": "kontrol-vybrosov" },
+    { "title": "2.Мониторинг загрязнений.xlsx", "slug": "monitoring-zagryazneniy" }
+  ]
+}

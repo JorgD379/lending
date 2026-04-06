@@ -1,0 +1,23 @@
+[
+  { "id": "01", "title": "01.Тяжелая промышленность", "slug": "tyazhelaya-promyshlennost" },
+  { "id": "02", "title": "02.Машиностроение и оборудование", "slug": "mashinostroenie" },
+  { "id": "03", "title": "03.Электроника и электротехника", "slug": "elektronika" },
+  { "id": "04", "title": "04.Химическая и нефтехимическая промышленность", "slug": "himiya-neftehimiya" },
+  { "id": "05", "title": "05.Добывающая промышленность", "slug": "dobyvayushchaya" },
+  { "id": "06", "title": "06.Энергетика", "slug": "energetika" },
+  { "id": "07", "title": "07.Строительные материалы", "slug": "stroitelnye-materialy" },
+  { "id": "08", "title": "08.Лёгкая промышленность", "slug": "legkaya-promyshlennost" },
+  { "id": "09", "title": "09.Пищевая промышленность", "slug": "pishchevaya" },
+  { "id": "10", "title": "10.Фармацевтика и биотехнологии", "slug": "farmatsevtika" },
+  { "id": "11", "title": "11.Логистика и склады", "slug": "logistika-sklady" },
+  { "id": "12", "title": "12.Упаковка и полиграфия", "slug": "upakovka-poligrafiya" },
+  { "id": "13", "title": "13.Лесная промышленность", "slug": "lesnaya-promyshlennost" },
+  { "id": "14", "title": "14.Агропромышленный комплекс", "slug": "agroprom" },
+  { "id": "15", "title": "15.FMCG производство", "slug": "fmcg" },
+  { "id": "16", "title": "16.Новые технологии и high-tech", "slug": "hightech" },
+  { "id": "17", "title": "17.Нишевые производства", "slug": "nishevye" },
+  { "id": "18", "title": "18.Смежные индустрии", "slug": "smezhnye" },
+  { "id": "19", "title": "19.Коммунальная и водная инфраструктура", "slug": "kommunalnaya" },
+  { "id": "20", "title": "20.Индустриальная безопасность и контроль", "slug": "industrialnaya-bezopasnost" },
+  { "id": "21", "title": "21.Экологический мониторинг", "slug": "ekologicheskiy-monitoring" }
+]
