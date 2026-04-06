@@ -882,10 +882,17 @@
     }
   }
 
+  function cleanFileTitle(value) {
+    return String(value || '').replace(/\.xlsx$/i, '').trim();
+  }
+
   function initSolutionsMegaMenu() {
     var navLinks = document.querySelector('.nav-links');
     if (!navLinks) return;
-    var industriesAnchor = navLinks.querySelector('a[href="industries.html"]');
+    var industriesAnchor =
+      navLinks.querySelector('a[href="industries.html"]') ||
+      navLinks.querySelector('a[href="/industries/"]') ||
+      navLinks.querySelector('a[href="industries/"]');
     if (!industriesAnchor) return;
 
     fetch('data/industries.json')
@@ -902,7 +909,7 @@
           industries
             .map(function (it) {
               return (
-                '<a class="industry-folder-card" href="industry.html?industry=' +
+                '<a class="industry-folder-card" href="/industry/?industry=' +
                 encodeURIComponent(it.slug) +
                 '">' +
                 '<span class="industry-folder-id">' +
@@ -971,7 +978,10 @@
 
     var mobileMenu = document.getElementById('mobileMenu');
     if (!mobileMenu) return;
-    var mobileIndustryLink = mobileMenu.querySelector('a[href="industries.html"]');
+    var mobileIndustryLink =
+      mobileMenu.querySelector('a[href="industries.html"]') ||
+      mobileMenu.querySelector('a[href="/industries/"]') ||
+      mobileMenu.querySelector('a[href="industries/"]');
     if (!mobileIndustryLink) return;
     mobileIndustryLink.classList.add('mobile-solutions-trigger');
     mobileIndustryLink.setAttribute('href', '#');
@@ -1006,7 +1016,7 @@
           list.innerHTML = industries
             .map(function (it) {
               return (
-                '<a href="industry.html?industry=' +
+                '<a href="/industry/?industry=' +
                 encodeURIComponent(it.slug) +
                 '">' +
                 escapeHtml(it.title) +
@@ -1029,7 +1039,7 @@
         root.innerHTML = industries
           .map(function (it) {
             return (
-              '<a class="industry-folder-card reveal visible" href="industry.html?industry=' +
+              '<a class="industry-folder-card reveal visible" href="/industry/?industry=' +
               encodeURIComponent(it.slug) +
               '">' +
               '<span class="industry-folder-id">' +
@@ -1071,7 +1081,7 @@
         root.innerHTML = list
           .map(function (sub) {
             return (
-              '<a class="service-card subindustry-card reveal visible" href="subindustry.html?industry=' +
+              '<a class="service-card subindustry-card reveal visible" href="/subindustry/?industry=' +
               encodeURIComponent(industrySlug) +
               '&sub=' +
               encodeURIComponent(sub.slug) +
@@ -1079,7 +1089,7 @@
               encodeURIComponent(sub.processesFile || '') +
               '">' +
               '<h3>' +
-              escapeHtml(sub.title) +
+              escapeHtml(cleanFileTitle(sub.title)) +
               '</h3>' +
               '<p class="text-muted">Открыть таблицу процессов</p>' +
               '</a>'
@@ -1096,6 +1106,16 @@
     var closeBtn = document.getElementById('solutionProcessModalClose');
     var imgIndex = 0;
     var slides = [];
+
+    function getByAliases(row, aliases) {
+      for (var i = 0; i < aliases.length; i++) {
+        var key = aliases[i];
+        if (Object.prototype.hasOwnProperty.call(row, key) && row[key] !== null && row[key] !== '') {
+          return row[key];
+        }
+      }
+      return '';
+    }
 
     function renderSlides() {
       var frame = modal.querySelector('.solution-carousel-track');
@@ -1144,6 +1164,14 @@
       var raw = trigger.getAttribute('data-process-row');
       if (!raw) return;
       var row = JSON.parse(raw);
+      var processValue = getByAliases(row, ['Процесс', 'Process']) || 'Без названия процесса';
+      var controlValue = getByAliases(row, ['Что контролировать', 'Контроль', 'Control']) || '—';
+      var whyValue = getByAliases(row, ['Почему это полезно, какие проблемы решаем', 'Польза']) || '—';
+      var benefitValue = getByAliases(row, ['Короткая оцифровка выгоды/закрытие боли', 'Оцифровка']) || '—';
+      var resultValue = getByAliases(row, ['Результаты внедрения системы машинного зрения', 'Результаты']) || '—';
+      var principleValue = getByAliases(row, ['Принцип работы машинного зрения с этой операцией', 'Принцип работы']) || '—';
+      var featuresValue = getByAliases(row, ['Функциональные возможности ML Sense Контроль фракций', 'Функциональные возможности ML Sense']) || '—';
+      var consValue = getByAliases(row, ['Минусы традиционных методов анализа', 'Минусы']) || '—';
       slides = [
         'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80',
         'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1400&q=80',
@@ -1153,28 +1181,28 @@
       renderSlides();
       modalBody.innerHTML =
         '<h3 class="title">' +
-        escapeHtml(row['Процесс']) +
+        escapeHtml(processValue) +
         '</h3>' +
         '<div class="solution-info-grid">' +
         '<div><h4>Что контролировать</h4><p>' +
-        escapeHtml(row['Что контролировать']) +
+        escapeHtml(controlValue) +
         '</p></div>' +
         '<div><h4>Почему это полезно</h4><p>' +
-        escapeHtml(row['Почему это полезно, какие проблемы решаем']) +
+        escapeHtml(whyValue) +
         '</p><p class="text-muted">' +
-        escapeHtml(row['Короткая оцифровка выгоды/закрытие боли']) +
+        escapeHtml(benefitValue) +
         '</p></div>' +
         '<div><h4>Результаты внедрения</h4><p>' +
-        escapeHtml(row['Результаты внедрения системы машинного зрения']) +
+        escapeHtml(resultValue) +
         '</p></div>' +
         '<div><h4>Принцип работы машинного зрения</h4><p>' +
-        escapeHtml(row['Принцип работы машинного зрения с этой операцией']) +
+        escapeHtml(principleValue) +
         '</p></div>' +
         '<div><h4>Функциональные возможности ML Sense</h4><p>' +
-        escapeHtml(row['Функциональные возможности ML Sense Контроль фракций']) +
+        escapeHtml(featuresValue) +
         '</p></div>' +
         '<details><summary>Минусы традиционных методов</summary><p>' +
-        escapeHtml(row['Минусы традиционных методов анализа']) +
+        escapeHtml(consValue) +
         '</p></details>' +
         '</div>' +
         '<div class="solution-modal-actions">' +
@@ -1205,6 +1233,16 @@
           tableRoot.innerHTML = '<div class="service-card">Для этой подотрасли данных пока нет.</div>';
           return;
         }
+        function getByAliases(row, aliases) {
+          for (var i = 0; i < aliases.length; i++) {
+            var key = aliases[i];
+            if (Object.prototype.hasOwnProperty.call(row, key) && row[key] !== null && row[key] !== '') {
+              return row[key];
+            }
+          }
+          return '';
+        }
+
         tableRoot.innerHTML =
           '<div class="process-table-wrap"><table class="process-table">' +
           '<thead><tr>' +
@@ -1215,21 +1253,29 @@
           '</tr></thead><tbody>' +
           rows
             .map(function (row) {
+              var processValue = getByAliases(row, ['Процесс', 'Process']) || 'Без названия процесса';
+              var controlValue = getByAliases(row, ['Что контролировать', 'Контроль', 'Control']);
+              var benefitValue = getByAliases(row, [
+                'Короткая оцифровка выгоды/закрытие боли',
+                'Почему это полезно, какие проблемы решаем',
+                'Польза'
+              ]);
+              var resultValue = getByAliases(row, ['Результаты внедрения системы машинного зрения', 'Результаты']);
               return (
                 '<tr>' +
                 '<td><button class="process-link" type="button" data-process-row="' +
                 escapeHtml(JSON.stringify(row)) +
                 '">' +
-                escapeHtml(row['Процесс']) +
+                escapeHtml(processValue) +
                 '</button></td>' +
                 '<td>' +
-                escapeHtml(row['Что контролировать']) +
+                escapeHtml(controlValue || '—') +
                 '</td>' +
                 '<td>' +
-                escapeHtml(row['Короткая оцифровка выгоды/закрытие боли']) +
+                escapeHtml(benefitValue || '—') +
                 '</td>' +
                 '<td>' +
-                escapeHtml(row['Результаты внедрения системы машинного зрения']) +
+                escapeHtml(resultValue || '—') +
                 '</td>' +
                 '</tr>'
               );

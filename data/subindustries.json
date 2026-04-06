@@ -1,96 +1,634 @@
 {
   "tyazhelaya-promyshlennost": [
-    { "title": "1.Металлургия(черная и цветная).xlsx", "slug": "metallurgiya-chernaya-i-tsvetnaya", "processesFile": "metallurgy-chernaya-i-tsvetnaya" },
-    { "title": "2.Литейное производство.xlsx", "slug": "liteynoe-proizvodstvo" },
-    { "title": "3.Кузнечно-прессовое производство.xlsx", "slug": "kuznechno-pressovoe-proizvodstvo" },
-    { "title": "4.Производство труб и проката.xlsx", "slug": "proizvodstvo-trub-i-prokata" },
-    { "title": "5.Производство металлоконструкций.xlsx", "slug": "proizvodstvo-metallokonstruktsiy" },
-    { "title": "6.Судостроение.xlsx", "slug": "sudostroenie" },
-    { "title": "7.Авиастроение.xlsx", "slug": "aviastroenie" },
-    { "title": "8.Ракетно-космическая промышленность.xlsx", "slug": "raketno-kosmicheskaya-promyshlennost" },
-    { "title": "9.Оборонная промышленность.xlsx", "slug": "oboronnaya-promyshlennost" }
+    {
+      "title": "1.Металургия(черная и цветная)",
+      "slug": "1-metalurgiya-chernaya-i-tsvetnaya",
+      "processesFile": "tyazhelaya-promyshlennost--1-metalurgiya-chernaya-i-tsvetnaya"
+    },
+    {
+      "title": "2.Литейное производство",
+      "slug": "2-liteynoe-proizvodstvo",
+      "processesFile": "tyazhelaya-promyshlennost--2-liteynoe-proizvodstvo"
+    },
+    {
+      "title": "3.Кузнечно прессовое производств",
+      "slug": "3-kuznechno-pressovoe-proizvodstv",
+      "processesFile": "tyazhelaya-promyshlennost--3-kuznechno-pressovoe-proizvodstv"
+    },
+    {
+      "title": "4.Производство труб и проката",
+      "slug": "4-proizvodstvo-trub-i-prokata",
+      "processesFile": "tyazhelaya-promyshlennost--4-proizvodstvo-trub-i-prokata"
+    },
+    {
+      "title": "5.Производство металлоконструкций",
+      "slug": "5-proizvodstvo-metallokonstruktsiy",
+      "processesFile": "tyazhelaya-promyshlennost--5-proizvodstvo-metallokonstruktsiy"
+    },
+    {
+      "title": "6.Судостроение",
+      "slug": "6-sudostroenie",
+      "processesFile": "tyazhelaya-promyshlennost--6-sudostroenie"
+    },
+    {
+      "title": "7.Авиастроение",
+      "slug": "7-aviastroenie",
+      "processesFile": "tyazhelaya-promyshlennost--7-aviastroenie"
+    },
+    {
+      "title": "8.Ракетно-космическая промышленность",
+      "slug": "8-raketno-kosmicheskaya-promyshlennost",
+      "processesFile": "tyazhelaya-promyshlennost--8-raketno-kosmicheskaya-promyshlennost"
+    },
+    {
+      "title": "9.Оборонная промышленность",
+      "slug": "9-oboronnaya-promyshlennost",
+      "processesFile": "tyazhelaya-promyshlennost--9-oboronnaya-promyshlennost"
+    }
   ],
   "mashinostroenie": [
-    { "title": "1.Автомобилестроение.xlsx", "slug": "avtomobilestroenie" },
-    { "title": "2.Станкостроение.xlsx", "slug": "stankostroenie" },
-    { "title": "3.Робототехника.xlsx", "slug": "robototehnika" }
+    {
+      "title": "1.Автомобилестроение",
+      "slug": "1-avtomobilestroenie",
+      "processesFile": "mashinostroenie--1-avtomobilestroenie"
+    },
+    {
+      "title": "2.Станкостроение",
+      "slug": "2-stankostroenie",
+      "processesFile": "mashinostroenie--2-stankostroenie"
+    },
+    {
+      "title": "3.Робототехника",
+      "slug": "3-robototehnika",
+      "processesFile": "mashinostroenie--3-robototehnika"
+    },
+    {
+      "title": "4.Производство двигателей",
+      "slug": "4-proizvodstvo-dvigateley",
+      "processesFile": "mashinostroenie--4-proizvodstvo-dvigateley"
+    },
+    {
+      "title": "5.Производство подшипников",
+      "slug": "5-proizvodstvo-podshipnikov",
+      "processesFile": "mashinostroenie--5-proizvodstvo-podshipnikov"
+    },
+    {
+      "title": "6.Производство гидравлики и пневматики",
+      "slug": "6-proizvodstvo-gidravliki-i-pnevmatiki",
+      "processesFile": "mashinostroenie--6-proizvodstvo-gidravliki-i-pnevmatiki"
+    },
+    {
+      "title": "7.Приборостроение",
+      "slug": "7-priborostroenie",
+      "processesFile": "mashinostroenie--7-priborostroenie"
+    },
+    {
+      "title": "8.Производством промышленного оборудования",
+      "slug": "8-proizvodstvom-promyshlennogo-oborudovaniya",
+      "processesFile": "mashinostroenie--8-proizvodstvom-promyshlennogo-oborudovaniya"
+    }
   ],
   "elektronika": [
-    { "title": "1.Производство полупроводников.xlsx", "slug": "poluprovodniki" },
-    { "title": "2.Производство печатных плат (PCB).xlsx", "slug": "pechatnye-platy-pcb" },
-    { "title": "3.Сборка электроники (EMS).xlsx", "slug": "sborka-elektroniki-ems" }
+    {
+      "title": "1.Производство полупроводников",
+      "slug": "1-proizvodstvo-poluprovodnikov",
+      "processesFile": "elektronika--1-proizvodstvo-poluprovodnikov"
+    },
+    {
+      "title": "2.Производство печатных плат (PCB)",
+      "slug": "2-proizvodstvo-pechatnyh-plat-pcb",
+      "processesFile": "elektronika--2-proizvodstvo-pechatnyh-plat-pcb"
+    },
+    {
+      "title": "3.Сборка электроники (EMS)",
+      "slug": "3-sborka-elektroniki-ems",
+      "processesFile": "elektronika--3-sborka-elektroniki-ems"
+    },
+    {
+      "title": "4.Производство микрочипов",
+      "slug": "4-proizvodstvo-mikrochipov",
+      "processesFile": "elektronika--4-proizvodstvo-mikrochipov"
+    },
+    {
+      "title": "5.Производство бытовой электроники",
+      "slug": "5-proizvodstvo-bytovoy-elektroniki",
+      "processesFile": "elektronika--5-proizvodstvo-bytovoy-elektroniki"
+    },
+    {
+      "title": "6.Производство кабелей и проводов",
+      "slug": "6-proizvodstvo-kabeley-i-provodov",
+      "processesFile": "elektronika--6-proizvodstvo-kabeley-i-provodov"
+    },
+    {
+      "title": "7.Производство аккумуляторов и батарей",
+      "slug": "7-proizvodstvo-akkumulyatorov-i-batarey",
+      "processesFile": "elektronika--7-proizvodstvo-akkumulyatorov-i-batarey"
+    }
   ],
   "himiya-neftehimiya": [
-    { "title": "1.Нефтепереработка.xlsx", "slug": "neftepererabotka" },
-    { "title": "2.Нефтехимия.xlsx", "slug": "neftehimiya" },
-    { "title": "3.Производство пластмасс.xlsx", "slug": "plastmassy" }
+    {
+      "title": "1. Нефтепереработка",
+      "slug": "1-neftepererabotka",
+      "processesFile": "himiya-neftehimiya--1-neftepererabotka"
+    },
+    {
+      "title": "2. Нефтехимия",
+      "slug": "2-neftehimiya",
+      "processesFile": "himiya-neftehimiya--2-neftehimiya"
+    },
+    {
+      "title": "3. Производство пластмасс",
+      "slug": "3-proizvodstvo-plastmass",
+      "processesFile": "himiya-neftehimiya--3-proizvodstvo-plastmass"
+    },
+    {
+      "title": "4. Производство удобрений",
+      "slug": "4-proizvodstvo-udobreniy",
+      "processesFile": "himiya-neftehimiya--4-proizvodstvo-udobreniy"
+    },
+    {
+      "title": "5. Производство лакокрасочных материалов",
+      "slug": "5-proizvodstvo-lakokrasochnyh-materialov",
+      "processesFile": "himiya-neftehimiya--5-proizvodstvo-lakokrasochnyh-materialov"
+    },
+    {
+      "title": "6. Производство промышленных газов",
+      "slug": "6-proizvodstvo-promyshlennyh-gazov",
+      "processesFile": "himiya-neftehimiya--6-proizvodstvo-promyshlennyh-gazov"
+    },
+    {
+      "title": "7. Производство резины и каучука",
+      "slug": "7-proizvodstvo-reziny-i-kauchuka",
+      "processesFile": "himiya-neftehimiya--7-proizvodstvo-reziny-i-kauchuka"
+    }
   ],
   "dobyvayushchaya": [
-    { "title": "1.Добыча нефти.xlsx", "slug": "dobycha-nefti" },
-    { "title": "2.Добыча газа.xlsx", "slug": "dobycha-gaza" }
+    {
+      "title": "1. Добыча нефти",
+      "slug": "1-dobycha-nefti",
+      "processesFile": "dobyvayushchaya--1-dobycha-nefti"
+    },
+    {
+      "title": "2. Добыча газа",
+      "slug": "2-dobycha-gaza",
+      "processesFile": "dobyvayushchaya--2-dobycha-gaza"
+    },
+    {
+      "title": "3. Угольная промышленность",
+      "slug": "3-ugolnaya-promyshlennost",
+      "processesFile": "dobyvayushchaya--3-ugolnaya-promyshlennost"
+    },
+    {
+      "title": "4. Горнодобывающая промышленность",
+      "slug": "4-gornodobyvayuschaya-promyshlennost",
+      "processesFile": "dobyvayushchaya--4-gornodobyvayuschaya-promyshlennost"
+    },
+    {
+      "title": "5. Карьеры и щебёночное производство",
+      "slug": "5-karery-i-schebenochnoe-proizvodstvo",
+      "processesFile": "dobyvayushchaya--5-karery-i-schebenochnoe-proizvodstvo"
+    }
   ],
   "energetika": [
-    { "title": "1.Тепловая энергетика (ТЭС).xlsx", "slug": "tes" },
-    { "title": "2.Гидроэнергетика (ГЭС).xlsx", "slug": "ges" }
+    {
+      "title": "1. Тепловая энергетика (ТЭС)",
+      "slug": "1-teplovaya-energetika-tes",
+      "processesFile": "energetika--1-teplovaya-energetika-tes"
+    },
+    {
+      "title": "2. Гидроэнергетика (ГЭС)",
+      "slug": "2-gidroenergetika-ges",
+      "processesFile": "energetika--2-gidroenergetika-ges"
+    },
+    {
+      "title": "3. Атомная энергетика (АЭС)",
+      "slug": "3-atomnaya-energetika-aes",
+      "processesFile": "energetika--3-atomnaya-energetika-aes"
+    },
+    {
+      "title": "4. Ветряная энергетика",
+      "slug": "4-vetryanaya-energetika",
+      "processesFile": "energetika--4-vetryanaya-energetika"
+    },
+    {
+      "title": "5. Солнечная энергетика",
+      "slug": "5-solnechnaya-energetika",
+      "processesFile": "energetika--5-solnechnaya-energetika"
+    },
+    {
+      "title": "6. Электросетевое хозяйство",
+      "slug": "6-elektrosetevoe-hozyaystvo",
+      "processesFile": "energetika--6-elektrosetevoe-hozyaystvo"
+    }
   ],
   "stroitelnye-materialy": [
-    { "title": "1.Производство цемента.xlsx", "slug": "tsement" },
-    { "title": "2.Производство бетона.xlsx", "slug": "beton" }
+    {
+      "title": "1. Производство цемента",
+      "slug": "1-proizvodstvo-tsementa",
+      "processesFile": "stroitelnye-materialy--1-proizvodstvo-tsementa"
+    },
+    {
+      "title": "2. Производство бетона",
+      "slug": "2-proizvodstvo-betona",
+      "processesFile": "stroitelnye-materialy--2-proizvodstvo-betona"
+    },
+    {
+      "title": "3. Производство кирпича",
+      "slug": "3-proizvodstvo-kirpicha",
+      "processesFile": "stroitelnye-materialy--3-proizvodstvo-kirpicha"
+    },
+    {
+      "title": "4. Производство стекла",
+      "slug": "4-proizvodstvo-stekla",
+      "processesFile": "stroitelnye-materialy--4-proizvodstvo-stekla"
+    },
+    {
+      "title": "5. Производство керамики",
+      "slug": "5-proizvodstvo-keramiki",
+      "processesFile": "stroitelnye-materialy--5-proizvodstvo-keramiki"
+    },
+    {
+      "title": "6. Производство гипса и сухих смесей",
+      "slug": "6-proizvodstvo-gipsa-i-suhih-smesey",
+      "processesFile": "stroitelnye-materialy--6-proizvodstvo-gipsa-i-suhih-smesey"
+    }
   ],
   "legkaya-promyshlennost": [
-    { "title": "1.Текстильная промышленность.xlsx", "slug": "tekstil" },
-    { "title": "2.Швейное производство.xlsx", "slug": "shveynoe-proizvodstvo" }
+    {
+      "title": "1. Текстильная промышленность",
+      "slug": "1-tekstilnaya-promyshlennost",
+      "processesFile": "legkaya-promyshlennost--1-tekstilnaya-promyshlennost"
+    },
+    {
+      "title": "2. Швейное производство",
+      "slug": "2-shveynoe-proizvodstvo",
+      "processesFile": "legkaya-promyshlennost--2-shveynoe-proizvodstvo"
+    },
+    {
+      "title": "3. Кожевенная промышленность",
+      "slug": "3-kozhevennaya-promyshlennost",
+      "processesFile": "legkaya-promyshlennost--3-kozhevennaya-promyshlennost"
+    },
+    {
+      "title": "4. Производство обуви",
+      "slug": "4-proizvodstvo-obuvi",
+      "processesFile": "legkaya-promyshlennost--4-proizvodstvo-obuvi"
+    },
+    {
+      "title": "5. Производство меховых изделий",
+      "slug": "5-proizvodstvo-mehovyh-izdeliy",
+      "processesFile": "legkaya-promyshlennost--5-proizvodstvo-mehovyh-izdeliy"
+    }
   ],
   "pishchevaya": [
-    { "title": "1.Мясопереработка.xlsx", "slug": "myasopererabotka" },
-    { "title": "2.Рыбная промышленность.xlsx", "slug": "rybnaya-promyshlennost" }
+    {
+      "title": "1. Мясопереработка",
+      "slug": "1-myasopererabotka",
+      "processesFile": "pishchevaya--1-myasopererabotka"
+    },
+    {
+      "title": "2. Рыбная промышленность",
+      "slug": "2-rybnaya-promyshlennost",
+      "processesFile": "pishchevaya--2-rybnaya-promyshlennost"
+    },
+    {
+      "title": "3. Молочная промышленность",
+      "slug": "3-molochnaya-promyshlennost",
+      "processesFile": "pishchevaya--3-molochnaya-promyshlennost"
+    },
+    {
+      "title": "4. Хлебопекарная промышленность",
+      "slug": "4-hlebopekarnaya-promyshlennost",
+      "processesFile": "pishchevaya--4-hlebopekarnaya-promyshlennost"
+    },
+    {
+      "title": "5. Кондитерская промышленность",
+      "slug": "5-konditerskaya-promyshlennost",
+      "processesFile": "pishchevaya--5-konditerskaya-promyshlennost"
+    },
+    {
+      "title": "6. Производство напитков",
+      "slug": "6-proizvodstvo-napitkov",
+      "processesFile": "pishchevaya--6-proizvodstvo-napitkov"
+    },
+    {
+      "title": "7. Переработка овощей и фруктов",
+      "slug": "7-pererabotka-ovoschey-i-fruktov",
+      "processesFile": "pishchevaya--7-pererabotka-ovoschey-i-fruktov"
+    },
+    {
+      "title": "8. Производство полуфабрикатов",
+      "slug": "8-proizvodstvo-polufabrikatov",
+      "processesFile": "pishchevaya--8-proizvodstvo-polufabrikatov"
+    }
   ],
   "farmatsevtika": [
-    { "title": "1.Производство лекарств.xlsx", "slug": "lekarstva" },
-    { "title": "2.Биотехнологическое производство.xlsx", "slug": "bioteh-proizvodstvo" }
+    {
+      "title": "1. Производство лекарств",
+      "slug": "1-proizvodstvo-lekarstv",
+      "processesFile": "farmatsevtika--1-proizvodstvo-lekarstv"
+    },
+    {
+      "title": "2. Биотехнологическое производство",
+      "slug": "2-biotehnologicheskoe-proizvodstvo",
+      "processesFile": "farmatsevtika--2-biotehnologicheskoe-proizvodstvo"
+    },
+    {
+      "title": "3. Производство вакцин",
+      "slug": "3-proizvodstvo-vaktsin",
+      "processesFile": "farmatsevtika--3-proizvodstvo-vaktsin"
+    },
+    {
+      "title": "4. Производство медицинских изделий",
+      "slug": "4-proizvodstvo-meditsinskih-izdeliy",
+      "processesFile": "farmatsevtika--4-proizvodstvo-meditsinskih-izdeliy"
+    },
+    {
+      "title": "5. Производство БАДов",
+      "slug": "5-proizvodstvo-badov",
+      "processesFile": "farmatsevtika--5-proizvodstvo-badov"
+    }
   ],
   "logistika-sklady": [
-    { "title": "1.Складские комплексы.xlsx", "slug": "skladskie-kompleksy" },
-    { "title": "2.Фулфилмент-центры.xlsx", "slug": "fulfilment-tsentry" }
+    {
+      "title": "1. Складские комплексы",
+      "slug": "1-skladskie-kompleksy",
+      "processesFile": "logistika-sklady--1-skladskie-kompleksy"
+    },
+    {
+      "title": "2. Фулфилмент-центры",
+      "slug": "2-fulfilment-tsentry",
+      "processesFile": "logistika-sklady--2-fulfilment-tsentry"
+    },
+    {
+      "title": "3. Сортировочные центры",
+      "slug": "3-sortirovochnye-tsentry",
+      "processesFile": "logistika-sklady--3-sortirovochnye-tsentry"
+    },
+    {
+      "title": "4. Портовая логистика",
+      "slug": "4-portovaya-logistika",
+      "processesFile": "logistika-sklady--4-portovaya-logistika"
+    },
+    {
+      "title": "5. Железнодорожные терминалы",
+      "slug": "5-zheleznodorozhnye-terminaly",
+      "processesFile": "logistika-sklady--5-zheleznodorozhnye-terminaly"
+    },
+    {
+      "title": "6. Аэропортовые грузовые хабы",
+      "slug": "6-aeroportovye-gruzovye-haby",
+      "processesFile": "logistika-sklady--6-aeroportovye-gruzovye-haby"
+    }
   ],
   "upakovka-poligrafiya": [
-    { "title": "1.Производство упаковки.xlsx", "slug": "proizvodstvo-upakovki" },
-    { "title": "2.Полиграфия.xlsx", "slug": "poligrafiya" }
+    {
+      "title": "1. Производство упаковки",
+      "slug": "1-proizvodstvo-upakovki",
+      "processesFile": "upakovka-poligrafiya--1-proizvodstvo-upakovki"
+    },
+    {
+      "title": "2. Полиграфия",
+      "slug": "2-poligrafiya",
+      "processesFile": "upakovka-poligrafiya--2-poligrafiya"
+    },
+    {
+      "title": "3. Производство этикеток",
+      "slug": "3-proizvodstvo-etiketok",
+      "processesFile": "upakovka-poligrafiya--3-proizvodstvo-etiketok"
+    },
+    {
+      "title": "4. Производство тары",
+      "slug": "4-proizvodstvo-tary",
+      "processesFile": "upakovka-poligrafiya--4-proizvodstvo-tary"
+    }
   ],
   "lesnaya-promyshlennost": [
-    { "title": "1.Лесозаготовка.xlsx", "slug": "lesozagotovka" },
-    { "title": "2.Производство пиломатериалов.xlsx", "slug": "pilomaterialy" }
+    {
+      "title": "1. Лесозаготовка",
+      "slug": "1-lesozagotovka",
+      "processesFile": "lesnaya-promyshlennost--1-lesozagotovka"
+    },
+    {
+      "title": "2. Производство пиломатериалов",
+      "slug": "2-proizvodstvo-pilomaterialov",
+      "processesFile": "lesnaya-promyshlennost--2-proizvodstvo-pilomaterialov"
+    },
+    {
+      "title": "3. Производство мебели",
+      "slug": "3-proizvodstvo-mebeli",
+      "processesFile": "lesnaya-promyshlennost--3-proizvodstvo-mebeli"
+    },
+    {
+      "title": "4. Производство фанеры и ДСП",
+      "slug": "4-proizvodstvo-fanery-i-dsp",
+      "processesFile": "lesnaya-promyshlennost--4-proizvodstvo-fanery-i-dsp"
+    },
+    {
+      "title": "5. Целлюлозно-бумажная промышленность",
+      "slug": "5-tsellyulozno-bumazhnaya-promyshlennost",
+      "processesFile": "lesnaya-promyshlennost--5-tsellyulozno-bumazhnaya-promyshlennost"
+    }
   ],
   "agroprom": [
-    { "title": "1.Растениеводство.xlsx", "slug": "rastenievodstvo" },
-    { "title": "2.Животноводство.xlsx", "slug": "zhivotnovodstvo" }
+    {
+      "title": "1. Растениеводство",
+      "slug": "1-rastenievodstvo",
+      "processesFile": "agroprom--1-rastenievodstvo"
+    },
+    {
+      "title": "2. Животноводство",
+      "slug": "2-zhivotnovodstvo",
+      "processesFile": "agroprom--2-zhivotnovodstvo"
+    },
+    {
+      "title": "3. Тепличные комплексы",
+      "slug": "3-teplichnye-kompleksy",
+      "processesFile": "agroprom--3-teplichnye-kompleksy"
+    },
+    {
+      "title": "4. Переработка сельхозпродукции",
+      "slug": "4-pererabotka-selhozproduktsii",
+      "processesFile": "agroprom--4-pererabotka-selhozproduktsii"
+    }
   ],
   "fmcg": [
-    { "title": "1.Производство косметики.xlsx", "slug": "fmcg-kosmetika" },
-    { "title": "2.Производство бытовой химии.xlsx", "slug": "fmcg-bytovaya-himiya" }
+    {
+      "title": "1. Производство косметики",
+      "slug": "1-proizvodstvo-kosmetiki",
+      "processesFile": "fmcg--1-proizvodstvo-kosmetiki"
+    },
+    {
+      "title": "2. Производство бытовой химии",
+      "slug": "2-proizvodstvo-bytovoy-himii",
+      "processesFile": "fmcg--2-proizvodstvo-bytovoy-himii"
+    },
+    {
+      "title": "3. Производство средств гигиены",
+      "slug": "3-proizvodstvo-sredstv-gigieny",
+      "processesFile": "fmcg--3-proizvodstvo-sredstv-gigieny"
+    },
+    {
+      "title": "4. Производство упаковочных товаров FMCG",
+      "slug": "4-proizvodstvo-upakovochnyh-tovarov-fmcg",
+      "processesFile": "fmcg--4-proizvodstvo-upakovochnyh-tovarov-fmcg"
+    }
   ],
   "hightech": [
-    { "title": "1.Производство электромобилей.xlsx", "slug": "elektromobili" },
-    { "title": "2.Производство водородных технологий.xlsx", "slug": "vodorodnye-tehnologii" }
+    {
+      "title": "1. Производство электромобилей",
+      "slug": "1-proizvodstvo-elektromobiley",
+      "processesFile": "hightech--1-proizvodstvo-elektromobiley"
+    },
+    {
+      "title": "2. Производство водородных технологий",
+      "slug": "2-proizvodstvo-vodorodnyh-tehnologiy",
+      "processesFile": "hightech--2-proizvodstvo-vodorodnyh-tehnologiy"
+    },
+    {
+      "title": "3. Производство солнечных панелей",
+      "slug": "3-proizvodstvo-solnechnyh-paneley",
+      "processesFile": "hightech--3-proizvodstvo-solnechnyh-paneley"
+    },
+    {
+      "title": "4. Производство дронов",
+      "slug": "4-proizvodstvo-dronov",
+      "processesFile": "hightech--4-proizvodstvo-dronov"
+    },
+    {
+      "title": "5. Аддитивное производство (3D-печать)",
+      "slug": "5-additivnoe-proizvodstvo-3d-pechat",
+      "processesFile": "hightech--5-additivnoe-proizvodstvo-3d-pechat"
+    },
+    {
+      "title": "6. Нанотехнологии",
+      "slug": "6-nanotehnologii",
+      "processesFile": "hightech--6-nanotehnologii"
+    },
+    {
+      "title": "7. Производство роботизированных систем",
+      "slug": "7-proizvodstvo-robotizirovannyh-sistem",
+      "processesFile": "hightech--7-proizvodstvo-robotizirovannyh-sistem"
+    }
   ],
   "nishevye": [
-    { "title": "1.Производство криогенных продуктов.xlsx", "slug": "kriogennye-produkty" },
-    { "title": "2.Ювелирное производство.xlsx", "slug": "yuvelirnoe-proizvodstvo" }
+    {
+      "title": "1. Производство криогенных продуктов",
+      "slug": "1-proizvodstvo-kriogennyh-produktov",
+      "processesFile": "nishevye--1-proizvodstvo-kriogennyh-produktov"
+    },
+    {
+      "title": "2. Ювелирное производство",
+      "slug": "2-yuvelirnoe-proizvodstvo",
+      "processesFile": "nishevye--2-yuvelirnoe-proizvodstvo"
+    },
+    {
+      "title": "3. Часовая промышленность",
+      "slug": "3-chasovaya-promyshlennost",
+      "processesFile": "nishevye--3-chasovaya-promyshlennost"
+    },
+    {
+      "title": "4. Производство спортивного оборудования",
+      "slug": "4-proizvodstvo-sportivnogo-oborudovaniya",
+      "processesFile": "nishevye--4-proizvodstvo-sportivnogo-oborudovaniya"
+    },
+    {
+      "title": "5. Производство музыкальных инструментов",
+      "slug": "5-proizvodstvo-muzykalnyh-instrumentov",
+      "processesFile": "nishevye--5-proizvodstvo-muzykalnyh-instrumentov"
+    },
+    {
+      "title": "6. Производство игрушек",
+      "slug": "6-proizvodstvo-igrushek",
+      "processesFile": "nishevye--6-proizvodstvo-igrushek"
+    },
+    {
+      "title": "7. Производство оптики",
+      "slug": "7-proizvodstvo-optiki",
+      "processesFile": "nishevye--7-proizvodstvo-optiki"
+    }
   ],
   "smezhnye": [
-    { "title": "1.Индустриальное строительство.xlsx", "slug": "industrialnoe-stroitelstvo" },
-    { "title": "2.Ремонт и обслуживание оборудования (MRO).xlsx", "slug": "remont-i-obsluzhivanie-mro" }
+    {
+      "title": "1. Индустриальное строительство",
+      "slug": "1-industrialnoe-stroitelstvo",
+      "processesFile": "smezhnye--1-industrialnoe-stroitelstvo"
+    },
+    {
+      "title": "2. Ремонт и обслуживание оборудования (MRO)",
+      "slug": "2-remont-i-obsluzhivanie-oborudovaniya-mro",
+      "processesFile": "smezhnye--2-remont-i-obsluzhivanie-oborudovaniya-mro"
+    },
+    {
+      "title": "3. Демонтаж и переработка",
+      "slug": "3-demontazh-i-pererabotka",
+      "processesFile": "smezhnye--3-demontazh-i-pererabotka"
+    },
+    {
+      "title": "4. Утилизация отходов",
+      "slug": "4-utilizatsiya-othodov",
+      "processesFile": "smezhnye--4-utilizatsiya-othodov"
+    },
+    {
+      "title": "5. Вторичная переработка материалов",
+      "slug": "5-vtorichnaya-pererabotka-materialov",
+      "processesFile": "smezhnye--5-vtorichnaya-pererabotka-materialov"
+    }
   ],
   "kommunalnaya": [
-    { "title": "1.Водоснабжение.xlsx", "slug": "vodosnabzhenie" },
-    { "title": "2.Очистка сточных вод.xlsx", "slug": "ochistka-stochnyh-vod" }
+    {
+      "title": "1. Водоснабжение",
+      "slug": "1-vodosnabzhenie",
+      "processesFile": "kommunalnaya--1-vodosnabzhenie"
+    },
+    {
+      "title": "2. Очистка сточных вод",
+      "slug": "2-ochistka-stochnyh-vod",
+      "processesFile": "kommunalnaya--2-ochistka-stochnyh-vod"
+    },
+    {
+      "title": "3. Канализационные системы",
+      "slug": "3-kanalizatsionnye-sistemy",
+      "processesFile": "kommunalnaya--3-kanalizatsionnye-sistemy"
+    },
+    {
+      "title": "4. Опреснение воды",
+      "slug": "4-opresnenie-vody",
+      "processesFile": "kommunalnaya--4-opresnenie-vody"
+    }
   ],
   "industrialnaya-bezopasnost": [
-    { "title": "1.Производство систем видеонаблюдения.xlsx", "slug": "videonablyudenie" },
-    { "title": "2.Производство систем контроля доступа.xlsx", "slug": "skud" }
+    {
+      "title": "1. Производство систем видеонаблюдения",
+      "slug": "1-proizvodstvo-sistem-videonablyudeniya",
+      "processesFile": "industrialnaya-bezopasnost--1-proizvodstvo-sistem-videonablyudeniya"
+    },
+    {
+      "title": "2. Производство систем контроля доступа",
+      "slug": "2-proizvodstvo-sistem-kontrolya-dostupa",
+      "processesFile": "industrialnaya-bezopasnost--2-proizvodstvo-sistem-kontrolya-dostupa"
+    },
+    {
+      "title": "3. Производство охранных систем",
+      "slug": "3-proizvodstvo-ohrannyh-sistem",
+      "processesFile": "industrialnaya-bezopasnost--3-proizvodstvo-ohrannyh-sistem"
+    }
   ],
   "ekologicheskiy-monitoring": [
-    { "title": "1.Контроль выбросов.xlsx", "slug": "kontrol-vybrosov" },
-    { "title": "2.Мониторинг загрязнений.xlsx", "slug": "monitoring-zagryazneniy" }
+    {
+      "title": "1. Контроль выбросов",
+      "slug": "1-kontrol-vybrosov",
+      "processesFile": "ekologicheskiy-monitoring--1-kontrol-vybrosov"
+    },
+    {
+      "title": "2. Мониторинг загрязнений",
+      "slug": "2-monitoring-zagryazneniy",
+      "processesFile": "ekologicheskiy-monitoring--2-monitoring-zagryazneniy"
+    },
+    {
+      "title": "3. Индустриальная экология",
+      "slug": "3-industrialnaya-ekologiya",
+      "processesFile": "ekologicheskiy-monitoring--3-industrialnaya-ekologiya"
+    }
   ]
 }
