@@ -1115,6 +1115,17 @@
       return '';
     }
 
+    function getByKeyIncludes(row, needle) {
+      var keys = Object.keys(row || {});
+      for (var i = 0; i < keys.length; i++) {
+        if (String(keys[i]).indexOf(needle) !== -1) {
+          var value = row[keys[i]];
+          if (value !== null && value !== '') return value;
+        }
+      }
+      return '';
+    }
+
     function renderSlides() {
       var frame = modal.querySelector('.solution-carousel-track');
       if (!frame || !slides.length) return;
@@ -1168,7 +1179,13 @@
       var benefitValue = getByAliases(row, ['Короткая оцифровка выгоды/закрытие боли', 'Оцифровка']) || '—';
       var resultValue = getByAliases(row, ['Результаты внедрения системы машинного зрения', 'Результаты']) || '—';
       var principleValue = getByAliases(row, ['Принцип работы машинного зрения с этой операцией', 'Принцип работы']) || '—';
-      var featuresValue = getByAliases(row, ['Функциональные возможности ИТиС ЛАБ Контроль фракций', 'Функциональные возможности ИТиС ЛАБ']) || '—';
+      var featuresValue =
+        getByAliases(row, [
+          'Функциональные возможности ИТиС ЛАБ Контроль фракций',
+          'Функциональные возможности ИТиС ЛАБ'
+        ]) ||
+        getByKeyIncludes(row, 'Функциональные возможности') ||
+        '—';
       var consValue = getByAliases(row, ['Минусы традиционных методов анализа', 'Минусы']) || '—';
       slides = [
         'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80',
