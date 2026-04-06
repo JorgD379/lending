@@ -890,7 +890,6 @@
     var navLinks = document.querySelector('.nav-links');
     if (!navLinks) return;
     var industriesAnchor =
-      navLinks.querySelector('a[href="industries.html"]') ||
       navLinks.querySelector('a[href="/industries/"]') ||
       navLinks.querySelector('a[href="industries/"]');
     if (!industriesAnchor) return;
@@ -979,7 +978,6 @@
     var mobileMenu = document.getElementById('mobileMenu');
     if (!mobileMenu) return;
     var mobileIndustryLink =
-      mobileMenu.querySelector('a[href="industries.html"]') ||
       mobileMenu.querySelector('a[href="/industries/"]') ||
       mobileMenu.querySelector('a[href="industries/"]');
     if (!mobileIndustryLink) return;
