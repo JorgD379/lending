@@ -895,7 +895,7 @@
       navLinks.querySelector('a[href="industries/"]');
     if (!industriesAnchor) return;
 
-    fetch('data/industries.json')
+    fetch('/data/industries.json')
       .then(function (r) {
         return r.json();
       })
@@ -1007,7 +1007,7 @@
         document.body.classList.remove('solutions-mobile-open');
       });
 
-      fetch('data/industries.json')
+      fetch('/data/industries.json')
         .then(function (r) {
           return r.json();
         })
@@ -1031,7 +1031,7 @@
   function initIndustriesPage() {
     var root = document.getElementById('industriesRoot');
     if (!root) return;
-    fetch('data/industries.json')
+    fetch('/data/industries.json')
       .then(function (r) {
         return r.json();
       })
@@ -1066,7 +1066,7 @@
       root.innerHTML = '<div class="service-card">Не передана отрасль.</div>';
       return;
     }
-    fetch('data/subindustries.json')
+    fetch('/data/subindustries.json')
       .then(function (r) {
         return r.json();
       })
@@ -1220,8 +1220,8 @@
     var sub = getQueryParam('sub');
 
     var endpoint = file
-      ? 'data/processes/' + file + '.json'
-      : 'data/processes/' + slugFromTitle(sub || '') + '.json';
+      ? '/data/processes/' + file + '.json'
+      : '/data/processes/' + slugFromTitle(sub || '') + '.json';
 
     fetch(endpoint)
       .then(function (r) {
