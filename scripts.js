@@ -1204,8 +1204,8 @@
         '</p></details>' +
         '</div>' +
         '<div class="solution-modal-actions">' +
-        '<a href="contacts.html" class="btn-cta">Заказать это решение</a>' +
-        '<a href="contacts.html" class="btn-outline">Обсудить внедрение</a>' +
+        '<a href="/contacts/" class="btn-cta">Заказать это решение</a>' +
+        '<a href="/contacts/" class="btn-outline">Обсудить внедрение</a>' +
         '</div>';
       modal.classList.add('open');
     });
