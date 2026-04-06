@@ -857,6 +857,360 @@
     }
   }
 
+  function slugFromTitle(title) {
+    return String(title || '')
+      .toLowerCase()
+      .replace(/\.xlsx$/i, '')
+      .replace(/[^a-zа-я0-9]+/gi, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function escapeHtml(value) {
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function getQueryParam(key) {
+    try {
+      return new URLSearchParams(window.location.search).get(key);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function initSolutionsMegaMenu() {
+    var navLinks = document.querySelector('.nav-links');
+    if (!navLinks) return;
+    var industriesAnchor = navLinks.querySelector('a[href="industries.html"]');
+    if (!industriesAnchor) return;
+
+    fetch('data/industries.json')
+      .then(function (r) {
+        return r.json();
+      })
+      .then(function (industries) {
+        var wrap = document.createElement('div');
+        wrap.className = 'solutions-nav-dropdown';
+        wrap.innerHTML =
+          '<button class="solutions-dropdown-trigger" type="button" aria-expanded="false">Решения по отраслям</button>' +
+          '<div class="solutions-mega-menu" role="menu">' +
+          '<div class="solutions-mega-grid">' +
+          industries
+            .map(function (it) {
+              return (
+                '<a class="industry-folder-card" href="industry.html?industry=' +
+                encodeURIComponent(it.slug) +
+                '">' +
+                '<span class="industry-folder-id">' +
+                escapeHtml(it.id) +
+                '</span>' +
+                '<span class="industry-folder-title">' +
+                escapeHtml(it.title) +
+                '</span>' +
+                '</a>'
+              );
+            })
+            .join('') +
+          '</div></div>';
+
+        industriesAnchor.replaceWith(wrap);
+        var trigger = wrap.querySelector('.solutions-dropdown-trigger');
+
+        wrap.addEventListener('mouseenter', function () {
+          wrap.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        });
+        wrap.addEventListener('mouseleave', function () {
+          wrap.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+        });
+        trigger.addEventListener('click', function () {
+          var opened = wrap.classList.toggle('open');
+          trigger.setAttribute('aria-expanded', opened ? 'true' : 'false');
+        });
+      })
+      .catch(function () {
+        /* noop */
+      });
+
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (!mobileMenu) return;
+    var mobileIndustryLink = mobileMenu.querySelector('a[href="industries.html"]');
+    if (!mobileIndustryLink) return;
+    mobileIndustryLink.classList.add('mobile-solutions-trigger');
+    mobileIndustryLink.setAttribute('href', '#');
+    mobileIndustryLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.body.classList.toggle('solutions-mobile-open');
+      var panel = document.getElementById('solutionsMobilePanel');
+      if (panel) panel.classList.toggle('open');
+    });
+
+    if (!document.getElementById('solutionsMobilePanel')) {
+      var panel = document.createElement('div');
+      panel.id = 'solutionsMobilePanel';
+      panel.className = 'solutions-mobile-panel';
+      panel.innerHTML =
+        '<div class="solutions-mobile-panel-head">' +
+        '<strong>Решения по отраслям</strong>' +
+        '<button type="button" id="solutionsMobileClose" class="modal-close">×</button>' +
+        '</div><div id="solutionsMobileList" class="solutions-mobile-list"></div>';
+      document.body.appendChild(panel);
+      panel.querySelector('#solutionsMobileClose').addEventListener('click', function () {
+        panel.classList.remove('open');
+        document.body.classList.remove('solutions-mobile-open');
+      });
+
+      fetch('data/industries.json')
+        .then(function (r) {
+          return r.json();
+        })
+        .then(function (industries) {
+          var list = panel.querySelector('#solutionsMobileList');
+          list.innerHTML = industries
+            .map(function (it) {
+              return (
+                '<a href="industry.html?industry=' +
+                encodeURIComponent(it.slug) +
+                '">' +
+                escapeHtml(it.title) +
+                '</a>'
+              );
+            })
+            .join('');
+        });
+    }
+  }
+
+  function initIndustriesPage() {
+    var root = document.getElementById('industriesRoot');
+    if (!root) return;
+    fetch('data/industries.json')
+      .then(function (r) {
+        return r.json();
+      })
+      .then(function (industries) {
+        root.innerHTML = industries
+          .map(function (it) {
+            return (
+              '<a class="industry-folder-card reveal visible" href="industry.html?industry=' +
+              encodeURIComponent(it.slug) +
+              '">' +
+              '<span class="industry-folder-id">' +
+              escapeHtml(it.id) +
+              '</span>' +
+              '<span class="industry-folder-title">' +
+              escapeHtml(it.title) +
+              '</span>' +
+              '</a>'
+            );
+          })
+          .join('');
+      })
+      .catch(function () {
+        root.innerHTML = '<div class="service-card">Не удалось загрузить отрасли.</div>';
+      });
+  }
+
+  function initIndustryPage() {
+    var root = document.getElementById('subindustriesRoot');
+    if (!root) return;
+    var industrySlug = getQueryParam('industry');
+    if (!industrySlug) {
+      root.innerHTML = '<div class="service-card">Не передана отрасль.</div>';
+      return;
+    }
+    fetch('data/subindustries.json')
+      .then(function (r) {
+        return r.json();
+      })
+      .then(function (map) {
+        var list = map[industrySlug] || [];
+        var titleEl = document.getElementById('industryPageTitle');
+        if (titleEl) titleEl.textContent = 'Подотрасли';
+        if (!list.length) {
+          root.innerHTML = '<div class="service-card">Пока нет данных по этой отрасли.</div>';
+          return;
+        }
+        root.innerHTML = list
+          .map(function (sub) {
+            return (
+              '<a class="service-card subindustry-card reveal visible" href="subindustry.html?industry=' +
+              encodeURIComponent(industrySlug) +
+              '&sub=' +
+              encodeURIComponent(sub.slug) +
+              '&file=' +
+              encodeURIComponent(sub.processesFile || '') +
+              '">' +
+              '<h3>' +
+              escapeHtml(sub.title) +
+              '</h3>' +
+              '<p class="text-muted">Открыть таблицу процессов</p>' +
+              '</a>'
+            );
+          })
+          .join('');
+      });
+  }
+
+  function initProcessModal() {
+    var modal = document.getElementById('solutionProcessModal');
+    if (!modal) return;
+    var modalBody = document.getElementById('solutionProcessModalBody');
+    var closeBtn = document.getElementById('solutionProcessModalClose');
+    var imgIndex = 0;
+    var slides = [];
+
+    function renderSlides() {
+      var frame = modal.querySelector('.solution-carousel-track');
+      if (!frame || !slides.length) return;
+      frame.innerHTML = slides
+        .map(function (src, i) {
+          return (
+            '<img class="solution-carousel-image' +
+            (i === imgIndex ? ' active' : '') +
+            '" src="' +
+            src +
+            '" alt="industrial process image">'
+          );
+        })
+        .join('');
+    }
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.classList.remove('open');
+    });
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        modal.classList.remove('open');
+      });
+    }
+    var prev = modal.querySelector('.solution-carousel-prev');
+    var next = modal.querySelector('.solution-carousel-next');
+    if (prev) {
+      prev.addEventListener('click', function () {
+        if (!slides.length) return;
+        imgIndex = (imgIndex - 1 + slides.length) % slides.length;
+        renderSlides();
+      });
+    }
+    if (next) {
+      next.addEventListener('click', function () {
+        if (!slides.length) return;
+        imgIndex = (imgIndex + 1) % slides.length;
+        renderSlides();
+      });
+    }
+
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest('.process-link');
+      if (!trigger) return;
+      var raw = trigger.getAttribute('data-process-row');
+      if (!raw) return;
+      var row = JSON.parse(raw);
+      slides = [
+        'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80',
+        'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1400&q=80',
+        'https://images.unsplash.com/photo-1581092919535-7146ff1a590b?w=1400&q=80'
+      ];
+      imgIndex = 0;
+      renderSlides();
+      modalBody.innerHTML =
+        '<h3 class="title">' +
+        escapeHtml(row['Процесс']) +
+        '</h3>' +
+        '<div class="solution-info-grid">' +
+        '<div><h4>Что контролировать</h4><p>' +
+        escapeHtml(row['Что контролировать']) +
+        '</p></div>' +
+        '<div><h4>Почему это полезно</h4><p>' +
+        escapeHtml(row['Почему это полезно, какие проблемы решаем']) +
+        '</p><p class="text-muted">' +
+        escapeHtml(row['Короткая оцифровка выгоды/закрытие боли']) +
+        '</p></div>' +
+        '<div><h4>Результаты внедрения</h4><p>' +
+        escapeHtml(row['Результаты внедрения системы машинного зрения']) +
+        '</p></div>' +
+        '<div><h4>Принцип работы машинного зрения</h4><p>' +
+        escapeHtml(row['Принцип работы машинного зрения с этой операцией']) +
+        '</p></div>' +
+        '<div><h4>Функциональные возможности ML Sense</h4><p>' +
+        escapeHtml(row['Функциональные возможности ML Sense Контроль фракций']) +
+        '</p></div>' +
+        '<details><summary>Минусы традиционных методов</summary><p>' +
+        escapeHtml(row['Минусы традиционных методов анализа']) +
+        '</p></details>' +
+        '</div>' +
+        '<div class="solution-modal-actions">' +
+        '<a href="contacts.html" class="btn-cta">Заказать это решение</a>' +
+        '<a href="contacts.html" class="btn-outline">Обсудить внедрение</a>' +
+        '</div>';
+      modal.classList.add('open');
+    });
+  }
+
+  function initSubIndustryPage() {
+    var tableRoot = document.getElementById('processTableRoot');
+    if (!tableRoot) return;
+    var file = getQueryParam('file');
+    var sub = getQueryParam('sub');
+
+    var endpoint = file
+      ? 'data/processes/' + file + '.json'
+      : 'data/processes/' + slugFromTitle(sub || '') + '.json';
+
+    fetch(endpoint)
+      .then(function (r) {
+        if (!r.ok) throw new Error('no-file');
+        return r.json();
+      })
+      .then(function (rows) {
+        if (!rows || !rows.length) {
+          tableRoot.innerHTML = '<div class="service-card">Для этой подотрасли данных пока нет.</div>';
+          return;
+        }
+        tableRoot.innerHTML =
+          '<div class="process-table-wrap"><table class="process-table">' +
+          '<thead><tr>' +
+          '<th>Процесс</th>' +
+          '<th>Что контролировать</th>' +
+          '<th>Почему это полезно</th>' +
+          '<th>Результаты внедрения</th>' +
+          '</tr></thead><tbody>' +
+          rows
+            .map(function (row) {
+              return (
+                '<tr>' +
+                '<td><button class="process-link" type="button" data-process-row="' +
+                escapeHtml(JSON.stringify(row)) +
+                '">' +
+                escapeHtml(row['Процесс']) +
+                '</button></td>' +
+                '<td>' +
+                escapeHtml(row['Что контролировать']) +
+                '</td>' +
+                '<td>' +
+                escapeHtml(row['Короткая оцифровка выгоды/закрытие боли']) +
+                '</td>' +
+                '<td>' +
+                escapeHtml(row['Результаты внедрения системы машинного зрения']) +
+                '</td>' +
+                '</tr>'
+              );
+            })
+            .join('') +
+          '</tbody></table></div>';
+      })
+      .catch(function () {
+        tableRoot.innerHTML =
+          '<div class="service-card">Таблица для этой подотрасли пока в подготовке. Добавим после выгрузки JSON.</div>';
+      });
+  }
+
   function init() {
     initNavbar();
     initDropdown();
@@ -869,6 +1223,11 @@
     initFaq();
     initQuiz();
     initNoQuizModal();
+    initSolutionsMegaMenu();
+    initIndustriesPage();
+    initIndustryPage();
+    initSubIndustryPage();
+    initProcessModal();
   }
 
   init();
