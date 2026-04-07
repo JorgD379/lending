@@ -886,6 +886,48 @@
     return String(value || '').replace(/\.xlsx$/i, '').trim();
   }
 
+  function getProcessSlides(row, getByAliasesFn) {
+    var getByAliasesLocal =
+      typeof getByAliasesFn === 'function'
+        ? getByAliasesFn
+        : function (source, aliases) {
+            for (var i = 0; i < aliases.length; i++) {
+              var key = aliases[i];
+              if (
+                Object.prototype.hasOwnProperty.call(source, key) &&
+                source[key] !== null &&
+                source[key] !== ''
+              ) {
+                return source[key];
+              }
+            }
+            return '';
+          };
+
+    var processValue = String(getByAliasesLocal(row || {}, ['Процесс', 'Process']) || '').toLowerCase();
+    var isSafety = processValue.indexOf('безопас') !== -1 || processValue.indexOf('сиз') !== -1;
+    var isPaint = processValue.indexOf('окрас') !== -1 || processValue.indexOf('лак') !== -1;
+    if (isSafety) {
+      return [
+        'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1400&q=80',
+        'https://images.unsplash.com/photo-1581092919535-7146ff1a590b?w=1400&q=80',
+        'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80'
+      ];
+    }
+    if (isPaint) {
+      return [
+        'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1400&q=80',
+        'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1400&q=80',
+        'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80'
+      ];
+    }
+    return [
+      'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80',
+      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1400&q=80',
+      'https://images.unsplash.com/photo-1581092919535-7146ff1a590b?w=1400&q=80'
+    ];
+  }
+
   function initSolutionsMegaMenu() {
     var navLinks = document.querySelector('.nav-links');
     if (!navLinks) return;
@@ -1187,11 +1229,7 @@
         getByKeyIncludes(row, 'Функциональные возможности') ||
         '—';
       var consValue = getByAliases(row, ['Минусы традиционных методов анализа', 'Минусы']) || '—';
-      slides = [
-        'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80',
-        'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1400&q=80',
-        'https://images.unsplash.com/photo-1581092919535-7146ff1a590b?w=1400&q=80'
-      ];
+      slides = getProcessSlides(row, getByAliases);
       imgIndex = 0;
       renderSlides();
       modalBody.innerHTML =
@@ -1258,45 +1296,29 @@
           return '';
         }
 
+        var firstRow = rows[0];
+        var processValue = getByAliases(firstRow, ['Процесс', 'Process']) || 'Без названия процесса';
+        var controlValue = getByAliases(firstRow, ['Что контролировать', 'Контроль', 'Control']) || '—';
+        var coverImage = getProcessSlides(firstRow, getByAliases)[0];
+
         tableRoot.innerHTML =
-          '<div class="process-table-wrap"><table class="process-table">' +
-          '<thead><tr>' +
-          '<th>Процесс</th>' +
-          '<th>Что контролировать</th>' +
-          '<th>Почему это полезно</th>' +
-          '<th>Результаты внедрения</th>' +
-          '</tr></thead><tbody>' +
-          rows
-            .map(function (row) {
-              var processValue = getByAliases(row, ['Процесс', 'Process']) || 'Без названия процесса';
-              var controlValue = getByAliases(row, ['Что контролировать', 'Контроль', 'Control']);
-              var benefitValue = getByAliases(row, [
-                'Короткая оцифровка выгоды/закрытие боли',
-                'Почему это полезно, какие проблемы решаем',
-                'Польза'
-              ]);
-              var resultValue = getByAliases(row, ['Результаты внедрения системы машинного зрения', 'Результаты']);
-              return (
-                '<tr>' +
-                '<td><button class="process-link" type="button" data-process-row="' +
-                escapeHtml(JSON.stringify(row)) +
-                '">' +
-                escapeHtml(processValue) +
-                '</button></td>' +
-                '<td>' +
-                escapeHtml(controlValue || '—') +
-                '</td>' +
-                '<td>' +
-                escapeHtml(benefitValue || '—') +
-                '</td>' +
-                '<td>' +
-                escapeHtml(resultValue || '—') +
-                '</td>' +
-                '</tr>'
-              );
-            })
-            .join('') +
-          '</tbody></table></div>';
+          '<div class="process-cards-wrap">' +
+          '<button class="process-link process-feature-card reveal visible" type="button" data-process-row="' +
+          escapeHtml(JSON.stringify(firstRow)) +
+          '" style="background-image: linear-gradient(135deg, rgba(5,10,15,0.82), rgba(5,10,15,0.55)), url(\'' +
+          coverImage +
+          '\');">' +
+          '<div class="process-feature-card-meta">1 процесс</div>' +
+          '<h3 class="process-feature-card-title">' +
+          escapeHtml(processValue) +
+          '</h3>' +
+          '<p class="process-feature-card-control-label">Что контролировать</p>' +
+          '<p class="process-feature-card-control-value">' +
+          escapeHtml(controlValue) +
+          '</p>' +
+          '<span class="process-feature-card-more">Читать далее</span>' +
+          '</button>' +
+          '</div>';
       })
       .catch(function () {
         tableRoot.innerHTML =
