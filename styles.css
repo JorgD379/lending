@@ -1200,25 +1200,23 @@ input.error {
 
 .process-cards-wrap {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 14px;
 }
 
 .process-feature-card {
   width: 100%;
-  min-height: 300px;
-  border-radius: 18px;
+  min-height: 210px;
+  border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  padding: 28px;
-  background-size: cover;
-  background-position: center;
+  padding: 0;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: 8px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: stretch;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0.95), rgba(5, 10, 15, 0.95));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
   transition:
     transform 0.2s ease,
     box-shadow 0.25s ease,
@@ -1232,6 +1230,27 @@ input.error {
   text-decoration: none;
 }
 
+.process-feature-card-content {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.process-feature-card-media {
+  position: relative;
+  min-height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.process-feature-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .process-feature-card-meta {
   font-size: 0.75rem;
   font-family: var(--font-mono);
@@ -1240,15 +1259,15 @@ input.error {
 }
 
 .process-feature-card-title {
-  font-size: clamp(1.2rem, 2vw, 2rem);
-  line-height: 1.25;
-  margin: 0;
-  max-width: 92%;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  line-height: 1.3;
+  margin: 0 0 4px;
+  max-width: 100%;
 }
 
 .process-feature-card-control-label {
   margin: 2px 0 0;
-  font-size: 0.76rem;
+  font-size: 0.7rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.76);
@@ -1256,9 +1275,9 @@ input.error {
 
 .process-feature-card-control-value {
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  max-width: 92%;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  max-width: 100%;
   color: rgba(255, 255, 255, 0.96);
 }
 
@@ -1394,14 +1413,17 @@ input.error {
     grid-template-columns: 1fr;
   }
 
-  .process-feature-card {
-    min-height: 260px;
-    padding: 22px;
+  .process-cards-wrap {
+    grid-template-columns: 1fr;
   }
 
-  .process-feature-card-title,
-  .process-feature-card-control-value {
-    max-width: 100%;
+  .process-feature-card {
+    grid-template-columns: 1fr;
+    min-height: 220px;
+  }
+
+  .process-feature-card-media {
+    max-height: 150px;
   }
 }
 

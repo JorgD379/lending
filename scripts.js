@@ -1254,12 +1254,11 @@
         '<div><h4>Функциональные возможности ИТиС ЛАБ</h4><p>' +
         escapeHtml(featuresValue) +
         '</p></div>' +
-        '<details><summary>Минусы традиционных методов</summary><p>' +
+        '<div><h4>Минусы традиционных методов</h4><p>' +
         escapeHtml(consValue) +
-        '</p></details>' +
+        '</p></div>' +
         '</div>' +
         '<div class="solution-modal-actions">' +
-        '<a href="/contacts/" class="btn-cta">Заказать это решение</a>' +
         '<a href="/contacts/" class="btn-outline">Обсудить внедрение</a>' +
         '</div>';
       modal.classList.add('open');
@@ -1296,28 +1295,39 @@
           return '';
         }
 
-        var firstRow = rows[0];
-        var processValue = getByAliases(firstRow, ['Процесс', 'Process']) || 'Без названия процесса';
-        var controlValue = getByAliases(firstRow, ['Что контролировать', 'Контроль', 'Control']) || '—';
-        var coverImage = getProcessSlides(firstRow, getByAliases)[0];
-
         tableRoot.innerHTML =
           '<div class="process-cards-wrap">' +
-          '<button class="process-link process-feature-card reveal visible" type="button" data-process-row="' +
-          escapeHtml(JSON.stringify(firstRow)) +
-          '" style="background-image: linear-gradient(135deg, rgba(5,10,15,0.82), rgba(5,10,15,0.55)), url(\'' +
-          coverImage +
-          '\');">' +
-          '<div class="process-feature-card-meta">1 процесс</div>' +
-          '<h3 class="process-feature-card-title">' +
-          escapeHtml(processValue) +
-          '</h3>' +
-          '<p class="process-feature-card-control-label">Что контролировать</p>' +
-          '<p class="process-feature-card-control-value">' +
-          escapeHtml(controlValue) +
-          '</p>' +
-          '<span class="process-feature-card-more">Читать далее</span>' +
-          '</button>' +
+          rows
+            .map(function (row, index) {
+              var processValue = getByAliases(row, ['Процесс', 'Process']) || 'Без названия процесса';
+              var controlValue = getByAliases(row, ['Что контролировать', 'Контроль', 'Control']) || '—';
+              var coverImage = getProcessSlides(row, getByAliases)[0];
+              return (
+                '<button class="process-link process-feature-card reveal visible" type="button" data-process-row="' +
+                escapeHtml(JSON.stringify(row)) +
+                '">' +
+                '<div class="process-feature-card-content">' +
+                '<div class="process-feature-card-meta">Процесс ' +
+                (index + 1) +
+                '</div>' +
+                '<h3 class="process-feature-card-title">' +
+                escapeHtml(processValue) +
+                '</h3>' +
+                '<p class="process-feature-card-control-label">Что контролировать</p>' +
+                '<p class="process-feature-card-control-value">' +
+                escapeHtml(controlValue) +
+                '</p>' +
+                '<span class="process-feature-card-more">Читать далее</span>' +
+                '</div>' +
+                '<div class="process-feature-card-media">' +
+                '<img src="' +
+                coverImage +
+                '" alt="Иллюстрация решения" loading="lazy">' +
+                '</div>' +
+                '</button>'
+              );
+            })
+            .join('') +
           '</div>';
       })
       .catch(function () {
