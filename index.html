@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ИТиС ЛАБ — Автоматизация и машинное зрение</title>
+  <meta name="description" content="ИТиС ЛАБ — системы машинного зрения и промышленной автоматизации. Контроль качества, логистика, производство. 50+ проектов, 18 отраслей.">
+  <link rel="canonical" href="https://lab-itis.ru/">
+  <meta property="og:title" content="ИТиС ЛАБ — Автоматизация и машинное зрение">
+  <meta property="og:description" content="Системы машинного зрения для промышленности. 50+ проектов, 18 отраслей, 99% точность детекции.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lab-itis.ru/">
+  <meta property="og:image" content="https://lab-itis.ru/assets/images/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+
+<!-- ── HOME ── -->
+<div style="padding-top:69px;">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="wrap hero-inner">
+      <div>
+        <div class="hero-tag rv">Машинное зрение · Промышленная автоматизация</div>
+        <h1 class="rv d1" style="font-size:33px">Старт работы с ИТиС ЛАБ:<br>выберите свой сценарий</h1>
+        <div class="hero-cta-row rv d2">
+          <div class="hero-cta-card" onclick="openForm('simple')">
+            <span class="hct">Быстрая настройка за 2 минуты</span>
+            <span class="hca">→</span>
+          </div>
+          <div class="hero-cta-card" onclick="openForm('complex')">
+            <span class="hct">Детальный проект под ключ</span>
+            <span class="hca">→</span>
+          </div>
+        </div>
+        <div class="hero-stats rv d3">
+          <div class="hero-stat">
+            <div class="hs-val"><span class="cnt" data-t="50">0</span>+</div>
+            <div class="hs-lbl">Завершённых проектов</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hs-val"><span class="cnt" data-t="18">0</span></div>
+            <div class="hs-lbl">Охваченных отраслей</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hs-val">99%</div>
+            <div class="hs-lbl">Точность детекции</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-mv rv d2">
+        <svg viewBox="0 0 520 390" xmlns="http://www.w3.org/2000/svg" style="width:521px;height:400px;">
+          <rect width="520" height="390" fill="#0E0E0E"/>
+          <g stroke="#fff" stroke-opacity="0.03" stroke-width="1">
+            <line x1="0" y1="65" x2="520" y2="65"/><line x1="0" y1="130" x2="520" y2="130"/>
+            <line x1="0" y1="195" x2="520" y2="195"/><line x1="0" y1="260" x2="520" y2="260"/>
+            <line x1="0" y1="325" x2="520" y2="325"/>
+            <line x1="65" y1="0" x2="65" y2="390"/><line x1="130" y1="0" x2="130" y2="390"/>
+            <line x1="195" y1="0" x2="195" y2="390"/><line x1="260" y1="0" x2="260" y2="390"/>
+            <line x1="325" y1="0" x2="325" y2="390"/><line x1="390" y1="0" x2="390" y2="390"/>
+            <line x1="455" y1="0" x2="455" y2="390"/>
+          </g>
+          <rect x="50" y="190" width="130" height="90" fill="#181818" stroke="#222" stroke-width="1"/>
+          <rect x="200" y="165" width="115" height="115" fill="#181818" stroke="#222" stroke-width="1"/>
+          <rect x="335" y="180" width="105" height="100" fill="#181818" stroke="#222" stroke-width="1"/>
+          <rect x="46" y="186" width="138" height="98" fill="none" stroke="#F0F0F0" stroke-width="1.5"/>
+          <path d="M46,206 L46,186 L66,186" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+          <path d="M164,186 L184,186 L184,206" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+          <path d="M46,264 L46,284 L66,284" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+          <path d="M164,284 L184,284 L184,264" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+          <rect x="46" y="165" width="76" height="20" fill="#F0F0F0"/>
+          <text x="54" y="179" fill="#090909" font-size="10" font-family="'JetBrains Mono',monospace" font-weight="600">OK  98.2%</text>
+          <rect x="196" y="161" width="123" height="123" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="7,4"/>
+          <rect x="196" y="141" width="72" height="20" fill="#333"/>
+          <text x="204" y="155" fill="#F0F0F0" font-size="10" font-family="'JetBrains Mono',monospace" font-weight="600">ERR 71%</text>
+          <rect x="331" y="176" width="113" height="108" fill="none" stroke="#F0F0F0" stroke-width="1.5"/>
+          <path d="M331,196 L331,176 L351,176" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+          <path d="M424,176 L444,176 L444,196" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+          <path d="M331,264 L331,284 L351,284" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+          <path d="M424,284 L444,284 L444,264" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+          <rect x="331" y="155" width="76" height="20" fill="#F0F0F0"/>
+          <text x="339" y="169" fill="#090909" font-size="10" font-family="'JetBrains Mono',monospace" font-weight="600">OK  99.7%</text>
+          <defs>
+            <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#fff" stop-opacity="0.04"/>
+              <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+            <clipPath id="mvc"><rect width="520" height="390"/></clipPath>
+          </defs>
+          <g clip-path="url(#mvc)" class="mvscan">
+            <rect x="0" y="-8" width="520" height="70" fill="url(#sg)"/>
+            <line x1="0" y1="27" x2="520" y2="27" stroke="#fff" stroke-opacity="0.15" stroke-width="1"/>
+          </g>
+          <path d="M10,22 L10,10 L22,10" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5" fill="none"/>
+          <path d="M498,10 L510,10 L510,22" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5" fill="none"/>
+          <path d="M10,368 L10,380 L22,380" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5" fill="none"/>
+          <path d="M498,380 L510,380 L510,368" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5" fill="none"/>
+          <rect x="0" y="362" width="520" height="28" fill="#0A0A0A"/>
+          <circle cx="14" cy="376" r="4" fill="#F0F0F0" class="mvblink"/>
+          <text x="26" y="380" fill="#555" font-size="9" font-family="'JetBrains Mono',monospace">LIVE · CAM_01 · 60 FPS · 2024×1512</text>
+          <text x="466" y="380" fill="#333" font-size="9" font-family="'JetBrains Mono',monospace">▸ REC</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 / EXPERTISE -->
+  <section class="section" id="s-expertise">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">02 / Экспертиза</div>
+          <h2>ИТиС ЛАБ в цифрах и фактах: наша экспертиза на деле</h2>
+        </div>
+      </div>
+      <div class="stats-row rv">
+        <div class="stat-cell"><div class="sv"><span class="cnt" data-t="50">0</span>+</div><div class="sl">Завершённых проектов</div></div>
+        <div class="stat-cell"><div class="sv"><span class="cnt" data-t="18">0</span></div><div class="sl">Промышленных отраслей</div></div>
+        <div class="stat-cell"><div class="sv">99%</div><div class="sl">Точность детекции дефектов</div></div>
+        <div class="stat-cell"><div class="sv">8–14</div><div class="sl">Месяцев — срок окупаемости</div></div>
+      </div>
+      <div class="partners rv">
+        <div class="p-pill">—</div>
+        <div class="p-pill">—</div>
+        <div class="p-pill">—</div>
+        <div class="p-pill">—</div>
+      </div>
+      <div class="card rv" style="margin-top:2px;padding:44px 40px;">
+        <h3 style="margin-bottom:12px;">Достижения</h3>
+        <p>—</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 / USE CASES -->
+  <section class="section" id="s-usecases">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">03 / Применение</div>
+          <h2>Где ИТиС ЛАБ раскрывает потенциал: от контроля качества до логистики</h2>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="tabs-row">
+          <button class="tab on" data-tab="uc1">Контроль качества</button>
+          <button class="tab" data-tab="uc2">Логистика</button>
+          <button class="tab" data-tab="uc3">Производство</button>
+        </div>
+        <div id="uc1" class="tabp on g3">
+          <div class="card"><div class="cn">01 / КК</div><h3>Плейсхолдер</h3><p>—</p></div>
+          <div class="card"><div class="cn">02 / КК</div><h3>Плейсхолдер</h3><p>—</p></div>
+          <div class="card"><div class="cn">03 / КК</div><h3>Плейсхолдер</h3><p>—</p></div>
+        </div>
+        <div id="uc2" class="tabp g3">
+          <div class="card"><div class="cn">01 / ЛГ</div><h3>Плейсхолдер</h3><p>—</p></div>
+          <div class="card"><div class="cn">02 / ЛГ</div><h3>Плейсхолдер</h3><p>—</p></div>
+        </div>
+        <div id="uc3" class="tabp g3">
+          <div class="card"><div class="cn">01 / ПР</div><h3>Плейсхолдер</h3><p>—</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 / FORM -->
+  <section class="section" id="s-form">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">04 / Заявка</div>
+          <h2>Рассчитайте персональное предложение ИТиС ЛАБ</h2>
+        </div>
+      </div>
+      <div class="form-wrap rv">
+        <div>
+          <p style="font-size:17px;color:var(--m2);margin-bottom:36px;max-width:360px;">Расскажите нам о своей задаче — мы поможем её решить!</p>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div><div class="mono" style="margin-bottom:6px;">Пилот за 2 недели</div><p style="font-size:14px;">—</p></div>
+            <div><div class="mono" style="margin-bottom:6px;">Ответ за 24 часа</div><p style="font-size:14px;">—</p></div>
+          </div>
+        </div>
+        <form novalidate onsubmit="return false;">
+          <div class="form-body">
+            <div class="fld"><label>Ваше имя</label><input type="text" autocomplete="name"></div>
+            <div class="fld"><label>Email</label><input type="email" autocomplete="email"></div>
+            <div class="fld"><label>Телефон</label><input type="tel" autocomplete="tel"></div>
+            <div class="fld"><label>Комментарий</label><textarea rows="3"></textarea></div>
+            <div class="fld"><label>Прикрепить файл</label><input type="file"></div>
+          </div>
+          <div class="cb-row"><input type="checkbox" id="cb1" required><label for="cb1">Соглашаюсь на обработку персональных данных</label></div>
+          <div class="cb-row" style="margin-top:10px;"><input type="checkbox" id="cb2"><label for="cb2">Согласен на получение рекламных рассылок</label></div>
+          <button type="submit" class="form-submit">Получить предложение</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 / CAPABILITIES -->
+  <section class="section" id="s-cap">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">05 / Возможности</div>
+          <h2>Что умеет ИТиС ЛАБ: полный арсенал для автоматизации</h2>
+        </div>
+      </div>
+      <div class="g3 rv">
+        <div class="card"><div class="cn">А01</div><h3>Плейсхолдер</h3><p>—</p></div>
+        <div class="card"><div class="cn">А02</div><h3>Плейсхолдер</h3><p>—</p></div>
+        <div class="card"><div class="cn">А03</div><h3>Плейсхолдер</h3><p>—</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 / HOW IT WORKS -->
+  <section class="section" id="s-how">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">06 / Принцип работы</div>
+          <h2>Принцип работы системы ИТиС ЛАБ</h2>
+        </div>
+      </div>
+      <div class="g4 rv">
+        <div class="card"><div class="cn">Шаг 01</div><h3>Захват изображения</h3><p>Камеры и сенсоры фиксируют объект на конвейере в реальном времени.</p></div>
+        <div class="card"><div class="cn">Шаг 02</div><h3>Обработка ИИ</h3><p>Нейросетевой алгоритм анализирует кадр и классифицирует дефекты за миллисекунды.</p></div>
+        <div class="card"><div class="cn">Шаг 03</div><h3>Решение</h3><p>Система выдаёт сигнал на отбраковку, сортировку или оповещение оператора.</p></div>
+        <div class="card"><div class="cn">Шаг 04</div><h3>Аналитика</h3><p>Все данные поступают в дашборд и интегрируются в MES / SCADA.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 / CONSULT CTA -->
+  <section class="section" style="padding:0;border:none;">
+    <div class="wrap">
+      <div class="cta-strip rv">
+        <h2>Проконсультируем по вашей задаче без обязательств</h2>
+        <button class="btn btn-w" onclick="openForm('simple')">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 / ROI -->
+  <section class="section" id="s-roi">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">08 / Отличия</div>
+          <h2>Почему ИТиС ЛАБ окупается быстрее альтернатив: 5 ключевых отличий</h2>
+        </div>
+      </div>
+      <div class="g5 rv">
+        <div class="card"><div class="cn">01</div><h3>Плейсхолдер</h3><p>—</p></div>
+        <div class="card"><div class="cn">02</div><h3>Плейсхолдер</h3><p>—</p></div>
+        <div class="card"><div class="cn">03</div><h3>Плейсхолдер</h3><p>—</p></div>
+        <div class="card"><div class="cn">04</div><h3>Плейсхолдер</h3><p>—</p></div>
+        <div class="card"><div class="cn">05</div><h3>Плейсхолдер</h3><p>—</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 / DEMO CTA -->
+  <section class="section" style="padding:0;border:none;">
+    <div class="wrap">
+      <div class="cta-strip rv">
+        <h2>Увидеть ИТиС ЛАБ в деле под вашу задачу</h2>
+        <button class="btn btn-w" onclick="openForm('simple')">Запросить демонстрацию</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 / CASES -->
+  <section class="section" id="s-cases">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">10 / Кейсы</div>
+          <h2>Как мы решили реальные задачи клиентов</h2>
+        </div>
+        <a href="/cases.html" class="btn btn-g">Все кейсы →</a>
+      </div>
+      <div class="portfolio-grid rv">
+        <div class="pc">
+          <div class="pc-img"><div class="pc-img-g"></div><div class="pc-badge">МАШИНОСТРОЕНИЕ</div></div>
+          <div class="pc-body"><div class="pc-title">Кейс 1</div><div class="pc-desc">—</div></div>
+        </div>
+        <div class="pc">
+          <div class="pc-img"><div class="pc-img-g"></div><div class="pc-badge">ЛОГИСТИКА</div></div>
+          <div class="pc-body"><div class="pc-title">Кейс 2</div><div class="pc-desc">—</div></div>
+        </div>
+        <div class="pc">
+          <div class="pc-img"><div class="pc-img-g"></div><div class="pc-badge">ФАРМАЦЕВТИКА</div></div>
+          <div class="pc-body"><div class="pc-title">Кейс 3</div><div class="pc-desc">—</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 / STAGES -->
+  <section class="section" id="s-stages">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">11 / Методология</div>
+          <h2>Этапы внедрения ИТиС ЛАБ. От старта до результата: ваш путь</h2>
+        </div>
+      </div>
+      <div class="stage-list rv">
+        <div class="si"><div class="si-num">01</div><div><div class="si-time">3–5 рабочих дней</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
+        <div class="si"><div class="si-num">02</div><div><div class="si-time">2–4 недели</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
+        <div class="si"><div class="si-num">03</div><div><div class="si-time">1–2 недели</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
+        <div class="si"><div class="si-num">04</div><div><div class="si-time">Постоянно</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 / PRICING CTA -->
+  <section class="section" style="padding:0;border:none;">
+    <div class="wrap">
+      <div class="cta-strip rv">
+        <h2>Инвестиции в ИТиС ЛАБ: прозрачный расчёт под вашу конфигурацию</h2>
+        <button class="btn btn-w" onclick="openForm('complex')">Получить точное КП и расчёт стоимости</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 / CONTACTS -->
+  <section class="section" id="s-contacts">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">13 / Контакты</div>
+          <h2>Связь с командой ИТиС ЛАБ: обсудим ваш проект</h2>
+        </div>
+      </div>
+      <div class="contacts-row rv">
+        <div class="cc"><div class="cc-type">Телефон</div><a href="tel:+70000000000" class="cc-val">+7 (000) 000-00-00</a></div>
+        <div class="cc"><div class="cc-type">Email</div><a href="mailto:info@lab-itis.ru" class="cc-val">info@lab-itis.ru</a></div>
+        <div class="cc"><div class="cc-type">Адрес</div><div class="cc-val">—</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 / ADVANCED -->
+  <section class="section" id="s-adv">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">14 / Расширенные возможности</div>
+          <h2>ИТиС ЛАБ шире, чем машинное зрение: решаем нестандартные задачи автоматизации</h2>
+        </div>
+      </div>
+      <p class="rv" style="max-width:600px;font-size:17px;">—</p>
+    </div>
+  </section>
+
+  <!-- 15 / FINAL CTA -->
+  <section class="section" style="padding:0 0 120px;border:none;">
+    <div class="wrap">
+      <div class="cta-strip rv">
+        <h2>Раскройте полный потенциал ИТиС ЛАБ: получите расширенный обзор</h2>
+        <button class="btn btn-w" onclick="openForm('complex')">Получить обзор</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div id="footer-root"></div>
+
+<script src="/js/data.js"></script>
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
+<script>
+  initComponents();
+  initPage();
+</script>
+</body>
+</html>

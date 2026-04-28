@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — ИТиС ЛАБ</title>
+  <meta name="description" content="Контакты ИТиС ЛАБ. Свяжитесь с нами для обсуждения вашего проекта по автоматизации производства.">
+  <link rel="canonical" href="https://lab-itis.ru/contacts.html">
+  <meta property="og:title" content="Контакты — ИТиС ЛАБ">
+  <meta property="og:description" content="Свяжитесь с нами для обсуждения вашего проекта по автоматизации производства.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lab-itis.ru/contacts.html">
+  <meta property="og:image" content="https://lab-itis.ru/assets/images/og-default.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+
+<div class="page-top">
+  <div class="pg-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="/index.html">Главная</a>
+        <span>/</span>
+        <span>Контакты</span>
+      </div>
+      <h1 class="rv" style="margin-bottom:48px;">Связь с командой ИТиС ЛАБ</h1>
+      <div class="contacts-row rv d1">
+        <div class="cc">
+          <div class="cc-type">Телефон</div>
+          <a href="tel:+70000000000" class="cc-val">+7 (000) 000-00-00</a>
+        </div>
+        <div class="cc">
+          <div class="cc-type">Email</div>
+          <a href="mailto:info@lab-itis.ru" class="cc-val">info@lab-itis.ru</a>
+        </div>
+        <div class="cc">
+          <div class="cc-type">Адрес</div>
+          <div class="cc-val">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">01 / Форма</div>
+          <h2>Расскажите нам о своей задаче</h2>
+        </div>
+      </div>
+      <div class="form-wrap rv">
+        <div>
+          <p style="font-size:17px;color:var(--m2);margin-bottom:36px;max-width:360px;">Мы поможем её решить! Ответим в течение 24 часов.</p>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div><div class="mono" style="margin-bottom:6px;">Пилот за 2 недели</div><p style="font-size:14px;">—</p></div>
+            <div><div class="mono" style="margin-bottom:6px;">Ответ за 24 часа</div><p style="font-size:14px;">—</p></div>
+          </div>
+        </div>
+        <form novalidate onsubmit="return false;">
+          <div class="form-body">
+            <div class="fld"><label>Ваше имя</label><input type="text" autocomplete="name"></div>
+            <div class="fld"><label>Email</label><input type="email" autocomplete="email"></div>
+            <div class="fld"><label>Телефон</label><input type="tel" autocomplete="tel"></div>
+            <div class="fld"><label>Комментарий</label><textarea rows="4"></textarea></div>
+            <div class="fld"><label>Прикрепить файл</label><input type="file"></div>
+          </div>
+          <div class="cb-row"><input type="checkbox" id="cb1" required><label for="cb1">Соглашаюсь на обработку персональных данных в соответствии с <a href="/privacy.html" style="color:var(--text);text-decoration:underline;">Политикой конфиденциальности</a></label></div>
+          <div class="cb-row" style="margin-top:10px;"><input type="checkbox" id="cb2"><label for="cb2">Согласен на получение рекламных рассылок</label></div>
+          <button type="submit" class="form-submit">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div style="padding-bottom:80px;"></div>
+</div>
+
+<div id="footer-root"></div>
+
+<script src="/js/data.js"></script>
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
+<script>
+  initComponents();
+  initPage();
+</script>
+</body>
+</html>

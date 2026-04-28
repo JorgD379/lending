@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Решения по отраслям — ИТиС ЛАБ</title>
+  <meta name="description" content="Системы машинного зрения для 18+ промышленных отраслей. Выберите свою отрасль и найдите готовые решения.">
+  <link rel="canonical" href="https://lab-itis.ru/industries.html">
+  <meta property="og:title" content="Решения по отраслям — ИТиС ЛАБ">
+  <meta property="og:description" content="Системы машинного зрения для 18+ промышленных отраслей.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lab-itis.ru/industries.html">
+  <meta property="og:image" content="https://lab-itis.ru/assets/images/og-default.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+
+<div class="page-top">
+  <div class="pg-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="/index.html">Главная</a>
+        <span>/</span>
+        <span>Решения по отраслям</span>
+      </div>
+      <h1 class="rv" style="margin-bottom:14px;">Решения по отраслям</h1>
+      <p class="rv d1" style="max-width:480px;">Выберите вашу отрасль — мы подготовили решения машинного зрения для каждого производственного процесса.</p>
+      <div class="sub-grid rv d2" id="indGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-root"></div>
+
+<script src="/js/data.js"></script>
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
+<script>
+  initComponents();
+  initPage();
+
+  document.getElementById('indGrid').innerHTML = INDUSTRIES.map(i => `
+    <a href="/industry.html?id=${i.id}" class="sub-card">
+      <div class="sub-num">${String(i.id).padStart(2,'0')}</div>
+      <div class="sub-title">${i.name}</div>
+      <div class="sub-link">Перейти к решениям →</div>
+    </a>`).join('');
+</script>
+</body>
+</html>
