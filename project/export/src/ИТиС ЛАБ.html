@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ИТиС ЛАБ — Автоматизация и машинное зрение</title>
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80">
+      <rect width="120" height="80" fill="#090909"/>
+      <rect x="18" y="18" width="84" height="44" fill="none" stroke="#F0F0F0" stroke-width="1.5"/>
+      <rect x="28" y="28" width="24" height="24" fill="none" stroke="#F0F0F0" stroke-width="1"/>
+      <circle cx="40" cy="40" r="5" fill="#F0F0F0"/>
+      <line x1="18" y1="18" x2="28" y2="28" stroke="#F0F0F0" stroke-width="0.8"/>
+      <line x1="102" y1="18" x2="92" y2="28" stroke="#F0F0F0" stroke-width="0.8"/>
+      <line x1="18" y1="62" x2="28" y2="52" stroke="#F0F0F0" stroke-width="0.8"/>
+      <line x1="102" y1="62" x2="92" y2="52" stroke="#F0F0F0" stroke-width="0.8"/>
+    </svg>
+  </template>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:    #090909;
+      --s1:    #111111;
+      --s2:    #161616;
+      --s3:    #1C1C1C;
+      --line:  #1E1E1E;
+      --line2: #2A2A2A;
+      --text:  #F0F0F0;
+      --m:     #555555;
+      --m2:    #888888;
+      --fh: 'Unbounded', sans-serif;
+      --fb: 'Manrope', sans-serif;
+      --fm: 'JetBrains Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--fb); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+    ::selection { background: rgba(255,255,255,0.15); }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #333; }
+    h1 { font-family: var(--fh); font-size: clamp(36px,5.5vw,84px); font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; color: var(--text); }
+    h2 { font-family: var(--fh); font-size: clamp(28px,3.8vw,58px); font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; color: var(--text); }
+    h3 { font-family: var(--fh); font-size: clamp(14px,1.6vw,19px); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; color: var(--text); }
+    p { color: var(--m2); font-size: 15px; line-height: 1.7; }
+    a { color: var(--text); text-decoration: none; }
+    button { font-family: var(--fb); cursor: pointer; border: none; background: none; color: inherit; }
+
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+    @media(max-width:768px){ .wrap { padding: 0 24px; } }
+    .section { padding: 100px 0; border-top: 1px solid var(--line); }
+    .mono { font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: 0.1em; text-transform: uppercase; }
+    .sec-num { margin-bottom: 16px; }
+    .sec-hd { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 64px; gap: 24px; flex-wrap: wrap; }
+    .sep { border: none; border-top: 1px solid var(--line); }
+
+    /* ── BUTTONS ── */
+    .btn { display: inline-block; padding: 15px 36px; font-family: var(--fb); font-size: 14px; font-weight: 700; transition: opacity .2s, transform .2s; text-align: center; }
+    .btn:hover { opacity: .82; transform: translateY(-1px); }
+    .btn-w { background: var(--text); color: var(--bg); }
+    .btn-g { background: transparent; color: var(--text); border: 1px solid var(--line2); }
+    .btn-g:hover { border-color: #555; opacity: 1; }
+    .btn-sm { padding: 10px 22px; font-size: 13px; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; border-bottom: 1px solid transparent; transition: background .3s, border-color .3s; padding: 20px 0; }
+    nav.on { background: rgba(9,9,9,0.93); backdrop-filter: blur(16px); border-color: var(--line); }
+    .nav-row { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-family: var(--fh); font-size: 16px; font-weight: 900; letter-spacing: -0.02em; color: var(--text); flex-shrink: 0; }
+    .logo-icon { width: 28px; height: 28px; flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a, .nav-dd-btn { font-size: 13px; font-weight: 500; color: var(--m2); transition: color .2s; white-space: nowrap; padding: 0; background: none; border: none; font-family: var(--fb); }
+    .nav-links a:hover, .nav-dd-btn:hover { color: var(--text); }
+    .nav-cta { padding: 10px 22px; background: var(--text); color: var(--bg); font-family: var(--fb); font-size: 13px; font-weight: 700; border: none; flex-shrink: 0; transition: opacity .2s; }
+    .nav-cta:hover { opacity: .85; }
+    .burger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+    .burger span { width: 22px; height: 1.5px; background: var(--text); display: block; transition: all .3s; }
+    @media(max-width:1060px){ .nav-links { gap: 18px; } }
+    @media(max-width:860px){ .nav-links { display: none; } .burger { display: flex; } }
+
+    /* Mega dropdown — full width */
+    .nav-dd { position: static; }
+    .dd-panel {
+      position: fixed; top: 69px; left: 0; right: 0; z-index: 290;
+      background: var(--s1); border-bottom: 1px solid var(--line2);
+      padding: 32px 48px 40px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity .2s, transform .2s, visibility .2s;
+    }
+    .nav-dd:hover .dd-panel,
+    .dd-panel:hover { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
+    .dd-inner { max-width: 1280px; margin: 0 auto; }
+    .dd-title { font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
+    .dd-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; }
+    @media(max-width:1100px){ .dd-grid { grid-template-columns: repeat(4,1fr); } }
+    @media(max-width:860px){ .dd-grid { grid-template-columns: repeat(3,1fr); } }
+    .dd-item { background: var(--s2); padding: 14px 16px; cursor: pointer; transition: background .15s; }
+    .dd-item:hover { background: var(--s3); }
+    .dd-num { font-family: var(--fm); font-size: 9px; color: var(--m); margin-bottom: 5px; }
+    .dd-name { font-family: var(--fb); font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.3; }
+
+    /* Mobile menu */
+    .mob { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 299; flex-direction: column; align-items: flex-start; justify-content: center; padding: 0 48px; gap: 28px; }
+    .mob.open { display: flex; }
+    .mob a, .mob button { font-family: var(--fh); font-size: 22px; font-weight: 900; color: var(--text); padding: 0; }
+
+    /* ── HERO ── */
+    .hero { min-height: 100vh; display: flex; align-items: flex-end; padding: 160px 0 0; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 60% 50% at 75% 35%, rgba(255,255,255,0.022) 0%, transparent 60%); }
+    .hero-grid-bg { position: absolute; inset: 0; z-index: 0; background-image: linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 0%, transparent 100%); }
+    .hero-inner { position: relative; z-index: 2; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    @media(max-width:900px){ .hero-inner { grid-template-columns: 1fr; } .hero-mv { display: none; } }
+    .hero-tag { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 36px; display: flex; align-items: center; gap: 12px; }
+    .hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--m); display: inline-block; flex-shrink: 0; }
+    .hero h1 { margin-bottom: 0; }
+    .hero-cta-row { display: flex; gap: 2px; margin-top: 56px; }
+    @media(max-width:640px){ .hero-cta-row { flex-direction: column; } }
+    .hero-cta-card { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: var(--s1); padding: 22px 28px; cursor: pointer; transition: background .2s; }
+    .hero-cta-card:hover { background: var(--s2); }
+    .hero-cta-card:hover .hca { transform: translateX(4px); }
+    .hct { font-family: var(--fh); font-size: clamp(13px,1.4vw,16px); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+    .hca { color: var(--m); font-size: 18px; flex-shrink: 0; transition: transform .2s; }
+    .hero-stats { display: flex; gap: 0; margin-top: 64px; padding: 40px 0 60px; border-top: 1px solid var(--line); }
+    .hero-stat { flex: 1; padding-right: 32px; margin-right: 32px; border-right: 1px solid var(--line); }
+    .hero-stat:last-child { border-right: none; margin-right: 0; }
+    .hs-val { font-family: var(--fh); font-size: clamp(26px,2.8vw,40px); font-weight: 900; line-height: 1; letter-spacing: -0.03em; margin-bottom: 6px; }
+    .hs-lbl { font-size: 12px; color: var(--m); }
+    @media(max-width:600px){ .hero-stats { flex-direction: column; gap: 24px; } .hero-stat { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 24px; margin: 0; } .hero-stat:last-child { border-bottom: none; } }
+
+    /* MV PANEL */
+    .hero-mv { aspect-ratio: 4/3; background: var(--s2); border: 1px solid var(--line2); overflow: hidden; position: relative; }
+    .hero-mv svg { width: 100%; height: 100%; display: block; }
+    @keyframes mvscan { from { transform: translateY(-100%); } to { transform: translateY(400%); } }
+    @keyframes mvblink { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+    .mvscan { animation: mvscan 3.2s linear infinite; }
+    .mvblink { animation: mvblink 1.2s ease-in-out infinite; }
+
+    /* ── CARDS ── */
+    .card { background: var(--s1); padding: 36px; transition: background .2s; }
+    .card:hover { background: var(--s2); }
+    .cn { font-family: var(--fm); font-size: 10px; color: var(--m); margin-bottom: 18px; }
+    .card h3 { margin-bottom: 10px; }
+    .g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    .g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
+    .g5 { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; }
+    @media(max-width:1024px){ .g3 { grid-template-columns: repeat(2,1fr); } .g5 { grid-template-columns: repeat(3,1fr); } .g4 { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:640px){ .g3, .g4, .g5 { grid-template-columns: 1fr; } }
+
+    /* STATS */
+    .stats-row { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); }
+    @media(max-width:768px){ .stats-row { grid-template-columns: repeat(2,1fr); } }
+    .stat-cell { padding: 44px 36px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .stat-cell:nth-child(4n){ border-right: none; }
+    @media(max-width:768px){ .stat-cell:nth-child(2n){ border-right: none; } .stat-cell:nth-child(4n){ border-right: 1px solid var(--line); } .stat-cell:last-child{ border-right: none; } }
+    .sv { font-family: var(--fh); font-size: clamp(30px,4vw,52px); font-weight: 900; line-height: 1; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .sl { font-size: 13px; color: var(--m); }
+
+    /* TABS */
+    .tabs-row { display: flex; gap: 2px; margin-bottom: 40px; flex-wrap: wrap; }
+    .tab { padding: 12px 24px; background: var(--s1); font-size: 13px; font-weight: 600; color: var(--m2); transition: background .15s, color .15s; }
+    .tab:hover { color: var(--text); }
+    .tab.on { background: var(--text); color: var(--bg); }
+    .tabp { display: none; }
+    .tabp.on { display: grid; }
+
+    /* CTA STRIP */
+    .cta-strip { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; padding: 64px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .cta-strip h2 { margin: 0; max-width: 680px; }
+
+    /* PORTFOLIO */
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    @media(max-width:900px){ .portfolio-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:600px){ .portfolio-grid { grid-template-columns: 1fr; } }
+    .pc { background: var(--s1); cursor: pointer; transition: background .2s; }
+    .pc:hover { background: var(--s2); }
+    .pc-img { aspect-ratio: 16/10; background: var(--s2); position: relative; overflow: hidden; }
+    .pc-img-g { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 28px 28px; }
+    .pc-badge { position: absolute; top: 12px; left: 12px; background: var(--bg); font-family: var(--fm); font-size: 9px; color: var(--m); padding: 5px 10px; z-index: 2; letter-spacing: 0.08em; }
+    .pc-body { padding: 22px 26px 26px; }
+    .pc-title { font-family: var(--fh); font-size: 15px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 8px; }
+    .pc-desc { font-size: 13px; color: var(--m); line-height: 1.6; }
+
+    /* STAGES */
+    .stage-list { border-top: 1px solid var(--line); max-width: 960px; }
+    .si { display: grid; grid-template-columns: 72px 1fr; border-bottom: 1px solid var(--line); padding: 36px 0; transition: background .15s; }
+    .si:hover { background: var(--s1); margin: 0 -48px; padding-left: 48px; padding-right: 48px; }
+    @media(max-width:768px){ .si:hover { margin: 0; padding-left: 0; padding-right: 0; } }
+    .si-num { font-family: var(--fm); font-size: 12px; color: var(--m); padding-top: 3px; }
+    .si-time { font-family: var(--fm); font-size: 9px; color: var(--m); letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 8px; }
+    .si h3 { margin-bottom: 8px; }
+
+    /* CONTACTS */
+    .contacts-row { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); }
+    @media(max-width:700px){ .contacts-row { grid-template-columns: 1fr; } }
+    .cc { padding: 44px 40px 44px 0; border-right: 1px solid var(--line); margin-right: 40px; }
+    .cc:last-child { border-right: none; margin-right: 0; }
+    @media(max-width:700px){ .cc { border-right: none; border-bottom: 1px solid var(--line); padding: 28px 0; margin: 0; } .cc:last-child { border-bottom: none; } }
+    .cc-type { font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+    .cc-val { font-family: var(--fh); font-size: clamp(14px,1.8vw,20px); font-weight: 700; letter-spacing: -0.02em; }
+
+    /* PARTNERS */
+    .partners { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 36px; }
+    .p-pill { background: var(--s1); padding: 12px 24px; font-size: 13px; font-weight: 600; color: var(--m); }
+
+    /* FORMS */
+    .form-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    @media(max-width:900px){ .form-wrap { grid-template-columns: 1fr; gap: 48px; } }
+    .form-body { display: flex; flex-direction: column; gap: 2px; }
+    .fld { display: flex; flex-direction: column; }
+    .fld label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--m); padding: 13px 18px 0; background: var(--s1); }
+    .fld input, .fld textarea { background: var(--s1); border: none; border-bottom: 2px solid transparent; padding: 8px 18px 14px; color: var(--text); font-family: var(--fb); font-size: 15px; outline: none; width: 100%; transition: border-color .2s; }
+    .fld input:focus, .fld textarea:focus { border-color: var(--text); }
+    .fld textarea { resize: none; min-height: 80px; }
+    .fld input[type=file] { padding: 12px 18px; font-size: 13px; color: var(--m); }
+    .cb-row { display: flex; align-items: flex-start; gap: 12px; margin-top: 18px; }
+    .cb-row input[type=checkbox] { width: 16px; height: 16px; flex-shrink: 0; accent-color: var(--text); margin-top: 3px; }
+    .cb-row label { font-size: 12px; color: var(--m); line-height: 1.5; }
+    .form-submit { margin-top: 20px; width: 100%; padding: 18px; background: var(--text); color: var(--bg); font-family: var(--fb); font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: opacity .2s; }
+    .form-submit:hover { opacity: .85; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--line); padding: 60px 0 40px; }
+    .footer-row { display: grid; grid-template-columns: 1fr auto auto; gap: 80px; align-items: start; margin-bottom: 52px; }
+    @media(max-width:768px){ .footer-row { grid-template-columns: 1fr; gap: 36px; } }
+    .footer-logo { display: flex; align-items: center; gap: 10px; font-family: var(--fh); font-size: 18px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .footer-tagline { font-size: 13px; color: var(--m); max-width: 260px; }
+    .footer-nav { display: flex; flex-direction: column; gap: 10px; }
+    .footer-nav a { font-size: 13px; color: var(--m); transition: color .2s; }
+    .footer-nav a:hover { color: var(--text); }
+    .footer-bar { display: flex; justify-content: space-between; padding-top: 28px; border-top: 1px solid var(--line); font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: 0.05em; flex-wrap: wrap; gap: 12px; }
+    .footer-bar a { color: var(--m); transition: color .2s; }
+    .footer-bar a:hover { color: var(--text); }
+
+    /* REVEAL */
+    .rv { opacity: 0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
+    .rv.vis { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
+
+    /* ── SPA PAGES ── */
+    #app { padding-top: 69px; }
+    .page { display: none; }
+    .page.on { display: block; }
+
+    /* INDUSTRY / SUBINDUSTRY */
+    .pg-hero { padding: 72px 0 56px; border-bottom: 1px solid var(--line); }
+    .breadcrumb { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: 0.06em; margin-bottom: 22px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--m); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--text); }
+    .breadcrumb span { color: var(--line2); }
+    .sub-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 48px; }
+    @media(max-width:900px){ .sub-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:540px){ .sub-grid { grid-template-columns: 1fr; } }
+    .sub-card { background: var(--s1); padding: 24px 22px; cursor: pointer; transition: background .15s; display: flex; flex-direction: column; gap: 18px; min-height: 130px; }
+    .sub-card:hover { background: var(--s2); }
+    .sub-num { font-family: var(--fm); font-size: 9px; color: var(--m); }
+    .sub-title { font-family: var(--fh); font-size: 13px; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; flex: 1; }
+    .sub-link { font-family: var(--fm); font-size: 9px; color: var(--m); letter-spacing: 0.06em; margin-top: auto; transition: color .15s; }
+    .sub-card:hover .sub-link { color: var(--text); }
+
+    /* PROCESS CARDS — horizontal */
+    .proc-list { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; }
+    .proc-row { display: grid; grid-template-columns: 320px 1fr; background: var(--s1); cursor: pointer; transition: background .15s; min-height: 200px; }
+    .proc-row:hover { background: var(--s2); }
+    @media(max-width:700px){ .proc-row { grid-template-columns: 1fr; } }
+    .proc-img { background: var(--s2); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 180px; }
+    .proc-img-g { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 28px 28px; }
+    .proc-body { padding: 28px 32px; display: flex; flex-direction: column; gap: 10px; }
+    .proc-num { font-family: var(--fm); font-size: 9px; color: var(--m); }
+    .proc-title { font-family: var(--fh); font-size: 15px; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; }
+    .proc-what-lbl { font-family: var(--fm); font-size: 9px; color: var(--m); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+    .proc-what { font-size: 13px; color: var(--m2); line-height: 1.5; }
+    .proc-more { font-family: var(--fm); font-size: 10px; color: var(--m); margin-top: auto; padding-top: 8px; transition: color .15s; }
+    .proc-row:hover .proc-more { color: var(--text); }
+
+    /* ── MODAL ── */
+    .overlay { position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,0.88); display: none; align-items: center; justify-content: center; padding: 40px 24px; overflow-y: auto; }
+    .overlay.on { display: flex; }
+    .mbox { background: var(--bg); border: 1px solid var(--line2); width: 100%; max-width: 920px; position: relative; max-height: 90vh; overflow-y: auto; animation: mi .22s ease; }
+    @keyframes mi { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: none; } }
+    .mcl { position: absolute; top: 14px; right: 14px; background: var(--s1); color: var(--m2); width: 34px; height: 34px; font-size: 17px; z-index: 10; display: flex; align-items: center; justify-content: center; transition: color .2s; }
+    .mcl:hover { color: var(--text); }
+    .m-img { width: 100%; aspect-ratio: 21/9; background: var(--s2); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .m-img-g { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 40px 40px; }
+    .m-img-lbl { font-family: var(--fm); font-size: 11px; color: var(--m); z-index: 1; }
+    .m-body { padding: 40px; }
+    .m-title { font-family: var(--fh); font-size: clamp(17px,2.4vw,26px); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 36px; }
+    .m-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    @media(max-width:640px){ .m-grid { grid-template-columns: 1fr; } }
+    .m-sec-t { font-family: var(--fh); font-size: 13px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
+    .m-sec-b { font-size: 14px; color: var(--m2); line-height: 1.7; }
+    .m-footer { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── MODAL FORMS ── */
+    .form-overlay { position: fixed; inset: 0; z-index: 600; background: rgba(0,0,0,0.92); display: none; align-items: center; justify-content: center; padding: 40px 24px; }
+    .form-overlay.on { display: flex; }
+    .fbox { background: var(--bg); border: 1px solid var(--line2); width: 100%; max-width: 560px; position: relative; padding: 48px; animation: mi .22s ease; }
+    @media(max-width:640px){ .fbox { padding: 32px 24px; } }
+    .fcl { position: absolute; top: 14px; right: 14px; background: var(--s1); color: var(--m2); width: 34px; height: 34px; font-size: 17px; display: flex; align-items: center; justify-content: center; transition: color .2s; cursor: pointer; }
+    .fcl:hover { color: var(--text); }
+    .fbox h3 { font-family: var(--fh); font-size: clamp(18px,2vw,24px); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .fbox .sub { font-size: 14px; color: var(--m2); margin-bottom: 28px; }
+
+    /* STUB PAGE */
+    .stub { padding: 100px 0; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="wrap nav-row">
+    <a href="#" class="logo" onclick="goPage('home');return false;">
+      <svg class="logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="26" height="26" stroke="#F0F0F0" stroke-width="1.2"/>
+        <rect x="7" y="7" width="14" height="14" stroke="#F0F0F0" stroke-width="1.2"/>
+        <circle cx="14" cy="14" r="3" fill="#F0F0F0"/>
+        <line x1="1" y1="1" x2="7" y2="7" stroke="#F0F0F0" stroke-width="1"/>
+        <line x1="27" y1="1" x2="21" y2="7" stroke="#F0F0F0" stroke-width="1"/>
+        <line x1="1" y1="27" x2="7" y2="21" stroke="#F0F0F0" stroke-width="1"/>
+        <line x1="27" y1="27" x2="21" y2="21" stroke="#F0F0F0" stroke-width="1"/>
+      </svg>
+      ИТиС ЛАБ
+    </a>
+    <div class="nav-links">
+      <a href="#" onclick="goPage('about');return false;">О нас</a>
+      <a href="#" onclick="goPage('tasks');return false;">Типовые задачи</a>
+      <div class="nav-dd">
+        <button class="nav-dd-btn">Решения по отраслям ▾</button>
+        <div class="dd-panel" id="ddPanel">
+          <div class="dd-inner">
+            <div class="dd-title">Выберите отрасль</div>
+            <div class="dd-grid" id="ddGrid"></div>
+          </div>
+        </div>
+      </div>
+      <a href="#" onclick="goPage('cases');return false;">Кейсы</a>
+      <a href="#" onclick="goPage('blog');return false;">Блог</a>
+      <a href="#" onclick="goPage('contacts');return false;">Контакты</a>
+      <button class="nav-cta" onclick="openForm('simple')">Обсудить проект</button>
+    </div>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob" id="mob">
+  <a href="#" onclick="goPage('about');closeMob();">О нас</a>
+  <a href="#" onclick="goPage('tasks');closeMob();">Типовые задачи</a>
+  <a href="#" onclick="goPage('industries');closeMob();">Решения по отраслям</a>
+  <a href="#" onclick="goPage('cases');closeMob();">Кейсы</a>
+  <a href="#" onclick="goPage('blog');closeMob();">Блог</a>
+  <a href="#" onclick="goPage('contacts');closeMob();">Контакты</a>
+  <button onclick="openForm('simple');closeMob();">Обсудить проект</button>
+</div>
+
+<!-- PROCESS MODAL -->
+<div class="overlay" id="procOverlay" onclick="closeOverlay(event,'procOverlay')">
+  <div class="mbox" id="procBox">
+    <button class="mcl" onclick="closeById('procOverlay')">✕</button>
+    <div id="procContent"></div>
+  </div>
+</div>
+
+<!-- FORM MODAL: SIMPLE -->
+<div class="form-overlay" id="formSimple" onclick="closeOverlay(event,'formSimple')">
+  <div class="fbox">
+    <button class="fcl" onclick="closeById('formSimple')">✕</button>
+    <h3>Расскажите о задаче</h3>
+    <p class="sub">Мы свяжемся с вами в течение 24 часов</p>
+    <div class="form-body">
+      <div class="fld"><label>Ваше имя</label><input type="text" autocomplete="name"></div>
+      <div class="fld"><label>Телефон</label><input type="tel" autocomplete="tel"></div>
+      <div class="fld"><label>Email</label><input type="email" autocomplete="email"></div>
+    </div>
+    <div class="cb-row"><input type="checkbox" id="cbs1" required><label for="cbs1">Соглашаюсь на обработку персональных данных в соответствии с <a href="#" style="color:var(--text);text-decoration:underline;">Политикой конфиденциальности</a></label></div>
+    <button class="form-submit" onclick="closeById('formSimple')">Отправить заявку</button>
+  </div>
+</div>
+
+<!-- FORM MODAL: COMPLEX -->
+<div class="form-overlay" id="formComplex" onclick="closeOverlay(event,'formComplex')">
+  <div class="fbox" style="max-width:680px;overflow-y:auto;max-height:90vh;">
+    <button class="fcl" onclick="closeById('formComplex')">✕</button>
+    <h3>Детальный проект</h3>
+    <p class="sub">Заполните анкету — рассчитаем КП и сроки</p>
+    <div class="form-body">
+      <div class="fld"><label>Ваше имя</label><input type="text" autocomplete="name"></div>
+      <div class="fld"><label>Email</label><input type="email" autocomplete="email"></div>
+      <div class="fld"><label>Телефон</label><input type="tel" autocomplete="tel"></div>
+      <div class="fld"><label>Компания</label><input type="text"></div>
+      <div class="fld"><label>Отрасль</label><input type="text" placeholder="Например: машиностроение"></div>
+      <div class="fld"><label>Описание задачи</label><textarea rows="4"></textarea></div>
+      <div class="fld"><label>Прикрепить файл (ТЗ, схема)</label><input type="file"></div>
+    </div>
+    <div class="cb-row"><input type="checkbox" id="cbc1" required><label for="cbc1">Соглашаюсь на обработку персональных данных</label></div>
+    <div class="cb-row" style="margin-top:10px;"><input type="checkbox" id="cbc2"><label for="cbc2">Согласен на получение рекламных рассылок</label></div>
+    <button class="form-submit" onclick="closeById('formComplex')">Получить предложение</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+  <!-- ━━━━━━━━ HOME ━━━━━━━━ -->
+  <div class="page on" id="page-home">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div><div class="hero-grid-bg"></div>
+      <div class="wrap hero-inner">
+        <div>
+          <div class="hero-tag rv">Машинное зрение · Промышленная автоматизация</div>
+          <h1 class="rv d1">Старт работы с ИТиС ЛАБ: выберите свой сценарий</h1>
+          <div class="hero-cta-row rv d2">
+            <div class="hero-cta-card" onclick="openForm('simple')">
+              <span class="hct">Быстрая настройка за 2 минуты</span>
+              <span class="hca">→</span>
+            </div>
+            <div class="hero-cta-card" onclick="openForm('complex')">
+              <span class="hct">Детальный проект под ключ</span>
+              <span class="hca">→</span>
+            </div>
+          </div>
+          <div class="hero-stats rv d3">
+            <div class="hero-stat"><div class="hs-val"><span class="cnt" data-t="50">0</span>+</div><div class="hs-lbl">Завершённых проектов</div></div>
+            <div class="hero-stat"><div class="hs-val"><span class="cnt" data-t="18">0</span></div><div class="hs-lbl">Охваченных отраслей</div></div>
+            <div class="hero-stat"><div class="hs-val">99%</div><div class="hs-lbl">Точность детекции</div></div>
+          </div>
+        </div>
+        <div class="hero-mv rv d2">
+          <svg viewBox="0 0 520 390" xmlns="http://www.w3.org/2000/svg">
+            <rect width="520" height="390" fill="#0E0E0E"/>
+            <g stroke="#fff" stroke-opacity="0.03" stroke-width="1">
+              <line x1="0" y1="65" x2="520" y2="65"/><line x1="0" y1="130" x2="520" y2="130"/><line x1="0" y1="195" x2="520" y2="195"/><line x1="0" y1="260" x2="520" y2="260"/><line x1="0" y1="325" x2="520" y2="325"/>
+              <line x1="65" y1="0" x2="65" y2="390"/><line x1="130" y1="0" x2="130" y2="390"/><line x1="195" y1="0" x2="195" y2="390"/><line x1="260" y1="0" x2="260" y2="390"/><line x1="325" y1="0" x2="325" y2="390"/><line x1="390" y1="0" x2="390" y2="390"/><line x1="455" y1="0" x2="455" y2="390"/>
+            </g>
+            <rect x="50" y="190" width="130" height="90" fill="#181818" stroke="#222" stroke-width="1"/>
+            <rect x="200" y="165" width="115" height="115" fill="#181818" stroke="#222" stroke-width="1"/>
+            <rect x="335" y="180" width="105" height="100" fill="#181818" stroke="#222" stroke-width="1"/>
+            <rect x="46" y="186" width="138" height="98" fill="none" stroke="#F0F0F0" stroke-width="1.5"/>
+            <path d="M46,206 L46,186 L66,186" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+            <path d="M164,186 L184,186 L184,206" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+            <path d="M46,264 L46,284 L66,284" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+            <path d="M164,284 L184,284 L184,264" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+            <rect x="46" y="165" width="76" height="20" fill="#F0F0F0"/>
+            <text x="54" y="179" fill="#090909" font-size="10" font-family="'JetBrains Mono',monospace" font-weight="600">OK  98.2%</text>
+            <rect x="196" y="161" width="123" height="123" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="7,4"/>
+            <rect x="196" y="141" width="72" height="20" fill="#333"/>
+            <text x="204" y="155" fill="#F0F0F0" font-size="10" font-family="'JetBrains Mono',monospace" font-weight="600">ERR 71%</text>
+            <rect x="331" y="176" width="113" height="108" fill="none" stroke="#F0F0F0" stroke-width="1.5"/>
+            <path d="M331,196 L331,176 L351,176" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+            <path d="M424,176 L444,176 L444,196" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+            <path d="M331,264 L331,284 L351,284" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+            <path d="M424,284 L444,284 L444,264" stroke="#F0F0F0" stroke-width="2" fill="none"/>
+            <rect x="331" y="155" width="76" height="20" fill="#F0F0F0"/>
+            <text x="339" y="169" fill="#090909" font-size="10" font-family="'JetBrains Mono',monospace" font-weight="600">OK  99.7%</text>
+            <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity="0"/><stop offset="50%" stop-color="#fff" stop-opacity="0.04"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></linearGradient><clipPath id="mvc"><rect width="520" height="390"/></clipPath></defs>
+            <g clip-path="url(#mvc)" class="mvscan"><rect x="0" y="-8" width="520" height="70" fill="url(#sg)"/><line x1="0" y1="27" x2="520" y2="27" stroke="#fff" stroke-opacity="0.15" stroke-width="1"/></g>
+            <path d="M10,22 L10,10 L22,10" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5" fill="none"/>
+            <path d="M498,10 L510,10 L510,22" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5" fill="none"/>
+            <path d="M10,368 L10,380 L22,380" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5" fill="none"/>
+            <path d="M498,380 L510,380 L510,368" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5" fill="none"/>
+            <rect x="0" y="362" width="520" height="28" fill="#0A0A0A"/>
+            <circle cx="14" cy="376" r="4" fill="#F0F0F0" class="mvblink"/>
+            <text x="26" y="380" fill="#555" font-size="9" font-family="'JetBrains Mono',monospace">LIVE · CAM_01 · 60 FPS · 2024×1512</text>
+            <text x="466" y="380" fill="#333" font-size="9" font-family="'JetBrains Mono',monospace">▸ REC</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
+    <section class="section" id="s-expertise">
+      <div class="wrap">
+        <div class="sec-hd rv"><div><div class="mono sec-num">02 / Экспертиза</div><h2>ИТиС ЛАБ в цифрах и фактах: наша экспертиза на деле</h2></div></div>
+        <div class="stats-row rv">
+          <div class="stat-cell"><div class="sv"><span class="cnt" data-t="50">0</span>+</div><div class="sl">Завершённых проектов</div></div>
+          <div class="stat-cell"><div class="sv"><span class="cnt" data-t="18">0</span></div><div class="sl">Промышленных отраслей</div></div>
+          <div class="stat-cell"><div class="sv">99%</div><div class="sl">Точность детекции дефектов</div></div>
+          <div class="stat-cell"><div class="sv">8–14</div><div class="sl">Месяцев — срок окупаемости</div></div>
+        </div>
+        <div class="partners rv">
+          <div class="p-pill">—</div><div class="p-pill">—</div><div class="p-pill">—</div><div class="p-pill">—</div>
+        </div>
+        <div class="card rv" style="margin-top:2px;padding:44px 40px;">
+          <h3 style="margin-bottom:12px;">Достижения</h3><p>—</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="section" id="s-usecases">
+      <div class="wrap">
+        <div class="sec-hd rv"><div><div class="mono sec-num">03 / Применение</div><h2>Где ИТиС ЛАБ раскрывает потенциал: от контроля качества до логистики</h2></div></div>
+        <div class="rv">
+          <div class="tabs-row">
+            <button class="tab on" data-tab="uc1">Контроль качества</button>
+            <button class="tab" data-tab="uc2">Логистика</button>
+            <button class="tab" data-tab="uc3">Производство</button>
+          </div>
+          <div id="uc1" class="tabp on g3">
+            <div class="card"><div class="cn">01 / КК</div><h3>Плейсхолдер</h3><p>—</p></div>
+            <div class="card"><div class="cn">02 / КК</div><h3>Плейсхолдер</h3><p>—</p></div>
+            <div class="card"><div class="cn">03 / КК</div><h3>Плейсхолдер</h3><p>—</p></div>
+          </div>
+          <div id="uc2" class="tabp g3">
+            <div class="card"><div class="cn">01 / ЛГ</div><h3>Плейсхолдер</h3><p>—</p></div>
+            <div class="card"><div class="cn">02 / ЛГ</div><h3>Плейсхолдер</h3><p>—</p></div>
+          </div>
+          <div id="uc3" class="tabp g3">
+            <div class="card"><div class="cn">01 / ПР</div><h3>Плейсхолдер</h3><p>—</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="section" id="s-form">
+      <div class="wrap">
+        <div class="sec-hd rv"><div><div class="mono sec-num">04 / Заявка</div><h2>Рассчитайте персональное предложение ИТиС ЛАБ</h2></div></div>
+        <div class="form-wrap rv">
+          <div>
+            <p style="font-size:17px;color:var(--m2);margin-bottom:36px;max-width:360px;">Расскажите нам о своей задаче — мы поможем её решить!</p>
+            <div style="display:flex;flex-direction:column;gap:20px;">
+              <div><div class="mono" style="margin-bottom:6px;">Пилот за 2 недели</div><p style="font-size:14px;">—</p></div>
+              <div><div class="mono" style="margin-bottom:6px;">Ответ за 24 часа</div><p style="font-size:14px;">—</p></div>
+            </div>
+          </div>
+          <form novalidate onsubmit="return false;">
+            <div class="form-body">
+              <div class="fld"><label>Ваше имя</label><input type="text" autocomplete="name"></div>
+              <div class="fld"><label>Email</label><input type="email" autocomplete="email"></div>
+              <div class="fld"><label>Телефон</label><input type="tel" autocomplete="tel"></div>
+              <div class="fld"><label>Комментарий</label><textarea rows="3"></textarea></div>
+              <div class="fld"><label>Прикрепить файл</label><input type="file"></div>
+            </div>
+            <div class="cb-row"><input type="checkbox" id="cb1" required><label for="cb1">Соглашаюсь на обработку персональных данных</label></div>
+            <div class="cb-row" style="margin-top:10px;"><input type="checkbox" id="cb2"><label for="cb2">Согласен на получение рекламных рассылок</label></div>
+            <button type="submit" class="form-submit">Получить предложение</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section" id="s-cap">
+      <div class="wrap">
+        <div class="sec-hd rv"><div><div class="mono sec-num">05 / Возможности</div><h2>Что умеет ИТиС ЛАБ: полный арсенал для автоматизации</h2></div></div>
+        <div class="g3 rv">
+          <div class="card"><div class="cn">А01</div><h3>Плейсхолдер</h3><p>—</p></div>
+          <div class="card"><div class="cn">А02</div><h3>Плейсхолдер</h3><p>—</p></div>
+          <div class="card"><div class="cn">А03</div><h3>Плейсхолдер</h3><p>—</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="s-how">
+      <div class="wrap">
+        <div class="sec-hd rv"><div><div class="mono sec-num">06 / Принцип работы</div><h2>Принцип работы системы ИТиС ЛАБ</h2></div></div>
+        <div class="g4 rv">
+          <div class="card"><div class="cn">Шаг 01</div><h3>Захват изображения</h3><p>Камеры и сенсоры фиксируют объект на конвейере в реальном времени.</p></div>
+          <div class="card"><div class="cn">Шаг 02</div><h3>Обработка ИИ</h3><p>Нейросетевой алгоритм анализирует кадр и классифицирует дефекты за миллисекунды.</p></div>
+          <div class="card"><div class="cn">Шаг 03</div><h3>Решение</h3><p>Система выдаёт сигнал на отбраковку, сортировку или оповещение оператора.</p></div>
+          <div class="card"><div class="cn">Шаг 04</div><h3>Аналитика</h3><p>Все данные поступают в дашборд и интегрируются в MES / SCADA.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONSULT CTA -->
+    <section class="section" style="padding:0;border:none;">
+      <div class="wrap">
+        <div class="cta-strip rv">
+          <h2>Проконсультируем по вашей задаче без обязательств</h2>
+          <button class="btn btn-w" onclick="openForm('simple')">Оставить заявку</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI -->
+    <section class="section" id="s-roi">
+      <div class="wrap">
+        <div class="sec-hd rv"><div><div class="mono sec-num">08 / Отличия</div><h2>Почему ИТиС ЛАБ окупается быстрее альтернатив: 5 ключевых отличий</h2></div></div>
+        <div class="g5 rv">
+          <div class="card"><div class="cn">01</div><h3>Плейсхолдер</h3><p>—</p></div>
+          <div class="card"><div class="cn">02</div><h3>Плейсхолдер</h3><p>—</p></div>
+          <div class="card"><div class="cn">03</div><h3>Плейсхолдер</h3><p>—</p></div>
+          <div class="card"><div class="cn">04</div><h3>Плейсхолдер</h3><p>—</p></div>
+          <div class="card"><div class="cn">05</div><h3>Плейсхолдер</h3><p>—</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO CTA -->
+    <section class="section" style="padding:0;border:none;">
+      <div class="wrap">
+        <div class="cta-strip rv">
+          <h2>Увидеть ИТиС ЛАБ в деле под вашу задачу</h2>
+          <button class="btn btn-w" onclick="openForm('simple')">Запросить демонстрацию</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASES -->
+    <section class="section" id="s-cases">
+      <div class="wrap">
+        <div class="sec-hd rv">
+          <div><div class="mono sec-num">10 / Кейсы</div><h2>Как мы решили реальные задачи клиентов</h2></div>
+          <button class="btn btn-g" onclick="goPage('cases')">Все кейсы →</button>
+        </div>
+        <div class="portfolio-grid rv">
+          <div class="pc"><div class="pc-img"><div class="pc-img-g"></div><div class="pc-badge">МАШИНОСТРОЕНИЕ</div></div><div class="pc-body"><div class="pc-title">Кейс 1</div><div class="pc-desc">—</div></div></div>
+          <div class="pc"><div class="pc-img"><div class="pc-img-g"></div><div class="pc-badge">ЛОГИСТИКА</div></div><div class="pc-body"><div class="pc-title">Кейс 2</div><div class="pc-desc">—</div></div></div>
+          <div class="pc"><div class="pc-img"><div class="pc-img-g"></div><div class="pc-badge">ФАРМАЦЕВТИКА</div></div><div class="pc-body"><div class="pc-title">Кейс 3</div><div class="pc-desc">—</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGES -->
+    <section class="section" id="s-stages">
+      <div class="wrap">
+        <div class="sec-hd rv"><div><div class="mono sec-num">11 / Методология</div><h2>Этапы внедрения ИТиС ЛАБ. От старта до результата: ваш путь</h2></div></div>
+        <div class="stage-list rv">
+          <div class="si"><div class="si-num">01</div><div><div class="si-time">3–5 рабочих дней</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
+          <div class="si"><div class="si-num">02</div><div><div class="si-time">2–4 недели</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
+          <div class="si"><div class="si-num">03</div><div><div class="si-time">1–2 недели</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
+          <div class="si"><div class="si-num">04</div><div><div class="si-time">Постоянно</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING CTA -->
+    <section class="section" style="padding:0;border:none;">
+      <div class="wrap">
+        <div class="cta-strip rv">
+          <h2>Инвестиции в ИТиС ЛАБ: прозрачный расчёт под вашу конфигурацию</h2>
+          <button class="btn btn-w" onclick="openForm('complex')">Получить точное КП и расчёт стоимости</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section class="section" id="s-contacts">
+      <div class="wrap">
+        <div class="sec-hd rv"><div><div class="mono sec-num">13 / Контакты</div><h2>Связь с командой ИТиС ЛАБ: обсудим ваш проект</h2></div></div>
+        <div class="contacts-row rv">
+          <div class="cc"><div class="cc-type">Телефон</div><a href="tel:+70000000000" class="cc-val">+7 (000) 000-00-00</a></div>
+          <div class="cc"><div class="cc-type">Email</div><a href="mailto:info@lab-itis.ru" class="cc-val">info@lab-itis.ru</a></div>
+          <div class="cc"><div class="cc-type">Адрес</div><div class="cc-val">—</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVANCED -->
+    <section class="section" id="s-adv">
+      <div class="wrap">
+        <div class="sec-hd rv"><div><div class="mono sec-num">14 / Расширенные возможности</div><h2>ИТиС ЛАБ шире, чем машинное зрение: решаем нестандартные задачи автоматизации</h2></div></div>
+        <p class="rv" style="max-width:600px;font-size:17px;">—</p>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section" style="padding:0 0 120px;border:none;">
+      <div class="wrap">
+        <div class="cta-strip rv">
+          <h2>Раскройте полный потенциал ИТиС ЛАБ: получите расширенный обзор</h2>
+          <button class="btn btn-w" onclick="openForm('complex')">Получить обзор</button>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /home -->
+
+  <!-- ━━━━━━━━ INDUSTRIES ━━━━━━━━ -->
+  <div class="page" id="page-industries">
+    <div class="pg-hero">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="#" onclick="goPage('home');return false;">Главная</a><span>/</span><span>Решения по отраслям</span></div>
+        <h1 style="margin-bottom:14px;">Решения по отраслям</h1>
+        <p style="max-width:480px;">Выберите вашу отрасль — мы подготовили решения машинного зрения для каждого производственного процесса.</p>
+        <div class="sub-grid" id="indGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━ INDUSTRY DETAIL ━━━━━━━━ -->
+  <div class="page" id="page-industry">
+    <div class="pg-hero">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="#" onclick="goPage('industries');return false;">Решения по отраслям</a><span>/</span><span id="indBreadcrumb">—</span></div>
+        <h1 id="indTitle" style="margin-bottom:14px;">—</h1>
+        <p>Выберите подотрасль — откроется список процессов с детальными описаниями.</p>
+        <div class="sub-grid" id="subGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━ SUBINDUSTRY ━━━━━━━━ -->
+  <div class="page" id="page-subindustry">
+    <div class="pg-hero">
+      <div class="wrap">
+        <div class="breadcrumb">
+          <a href="#" onclick="goPage('industries');return false;">Решения по отраслям</a><span>/</span>
+          <a href="#" id="subBack1" onclick="backToIndustry();return false;">—</a><span>/</span>
+          <span id="subBreadcrumb">—</span>
+        </div>
+        <h1 id="subTitle" style="margin-bottom:14px;">—</h1>
+        <p id="subDesc">—</p>
+        <div class="proc-list" id="procList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━ STUB PAGES ━━━━━━━━ -->
+  <div class="page" id="page-about"><div class="stub"><div class="wrap"><div class="mono" style="margin-bottom:16px;">О нас</div><h1 style="margin-bottom:32px;">О компании ИТиС ЛАБ</h1><p style="max-width:600px;">—</p></div></div></div>
+  <div class="page" id="page-tasks"><div class="stub"><div class="wrap"><div class="mono" style="margin-bottom:16px;">Типовые задачи</div><h1 style="margin-bottom:32px;">Типовые задачи</h1><p>—</p></div></div></div>
+  <div class="page" id="page-cases"><div class="stub"><div class="wrap"><div class="mono" style="margin-bottom:16px;">Кейсы</div><h1 style="margin-bottom:32px;">Кейсы</h1><p>—</p></div></div></div>
+  <div class="page" id="page-blog"><div class="stub"><div class="wrap"><div class="mono" style="margin-bottom:16px;">Блог</div><h1 style="margin-bottom:32px;">Блог</h1><p>—</p></div></div></div>
+  <div class="page" id="page-contacts">
+    <div class="stub">
+      <div class="wrap">
+        <div class="mono" style="margin-bottom:16px;">Контакты</div>
+        <h1 style="margin-bottom:48px;">Связь с командой ИТиС ЛАБ</h1>
+        <div class="contacts-row">
+          <div class="cc"><div class="cc-type">Телефон</div><a href="tel:+70000000000" class="cc-val">+7 (000) 000-00-00</a></div>
+          <div class="cc"><div class="cc-type">Email</div><a href="mailto:info@lab-itis.ru" class="cc-val">info@lab-itis.ru</a></div>
+          <div class="cc"><div class="cc-type">Адрес</div><div class="cc-val">—</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /app -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div>
+        <div class="footer-logo">
+          <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="26" height="26" stroke="#F0F0F0" stroke-width="1.2"/><rect x="7" y="7" width="14" height="14" stroke="#F0F0F0" stroke-width="1.2"/><circle cx="14" cy="14" r="3" fill="#F0F0F0"/><line x1="1" y1="1" x2="7" y2="7" stroke="#F0F0F0" stroke-width="1"/><line x1="27" y1="1" x2="21" y2="7" stroke="#F0F0F0" stroke-width="1"/><line x1="1" y1="27" x2="7" y2="21" stroke="#F0F0F0" stroke-width="1"/><line x1="27" y1="27" x2="21" y2="21" stroke="#F0F0F0" stroke-width="1"/></svg>
+          ИТиС ЛАБ
+        </div>
+        <div class="footer-tagline">Автоматизация и машинное зрение для производства</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="#" onclick="goPage('about');return false;">О нас</a>
+        <a href="#" onclick="goPage('tasks');return false;">Типовые задачи</a>
+        <a href="#" onclick="goPage('industries');return false;">Решения по отраслям</a>
+        <a href="#" onclick="goPage('cases');return false;">Кейсы</a>
+        <a href="#" onclick="goPage('blog');return false;">Блог</a>
+        <a href="#" onclick="goPage('contacts');return false;">Контакты</a>
+      </nav>
+      <div>
+        <button class="btn btn-w btn-sm" onclick="openForm('simple')">Обсудить проект</button>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>© 2025 ИТиС ЛАБ. Все права защищены.</span>
+      <a href="#">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── DATA ── */
+const INDUSTRIES = [
+  {id:1,name:"Тяжёлая промышленность"},{id:2,name:"Машиностроение и оборудование"},
+  {id:3,name:"Электроника и электротехника"},{id:4,name:"Химическая и нефтехимическая"},
+  {id:5,name:"Добывающая промышленность"},{id:6,name:"Энергетика"},
+  {id:7,name:"Строительные материалы"},{id:8,name:"Лёгкая промышленность"},
+  {id:9,name:"Пищевая промышленность"},{id:10,name:"Фармацевтика и биотех"},
+  {id:11,name:"Логистика и склады"},{id:12,name:"Упаковка и полиграфия"},
+  {id:13,name:"Лесная промышленность"},{id:14,name:"Агропромышленный комплекс"},
+  {id:15,name:"FMCG производство"},{id:16,name:"Новые технологии и high-tech"},
+  {id:17,name:"Нишевые производства"},{id:18,name:"Смежные индустрии"},
+  {id:19,name:"Коммунальная и водная инфраструктура"},{id:20,name:"Экологический мониторинг"},
+];
+const SUBS = {
+  1:[{id:1,name:"Металлургия"},{id:2,name:"Литейное производство"},{id:3,name:"Кузнечно-прессовое"},{id:4,name:"Производство труб и проката"},{id:5,name:"Металлоконструкции"},{id:6,name:"Судостроение"},{id:7,name:"Авиастроение"},{id:8,name:"Ракетно-космическая"},{id:9,name:"Оборонная промышленность"}],
+  2:[{id:1,name:"Производство двигателей"},{id:2,name:"Станкостроение"},{id:3,name:"Насосы и компрессоры"},{id:4,name:"Подшипники"},{id:5,name:"Сборочные производства"}],
+  3:[{id:1,name:"Производство PCB"},{id:2,name:"SMT-монтаж"},{id:3,name:"Кабели и провода"},{id:4,name:"Электрощитовое оборудование"}],
+  9:[{id:1,name:"Мясопереработка"},{id:2,name:"Молочная промышленность"},{id:3,name:"Хлебобулочные изделия"},{id:4,name:"Производство напитков"},{id:5,name:"Кондитерская"}],
+  11:[{id:1,name:"Распределительные центры"},{id:2,name:"Таможенные терминалы"},{id:3,name:"Холодные склады"},{id:4,name:"Фулфилмент e-commerce"}],
+};
+const PROCS = {
+  '1-4':[
+    {id:1,title:"Контроль поверхности проката",what:"Трещины, царапины, раковины, вмятины, окалина, пятна",why:"100% контроль вместо выборочного. Снижение брака на 10–40%.",results:"Снижение пропусков дефектов; цифровой архив брака.",principle:"Камеры над линией анализируют непрерывный поток металла.",features:"Детекция и классификация дефектов, фотофиксация, тревоги.",traditional:"Выборочный визуальный контроль нестабилен."},
+    {id:2,title:"Контроль геометрии и размеров проката",what:"Толщина, ширина, овальность, прямолинейность, кромка",why:"Снижение выхода вне допуска на 60–80%.",results:"Автоматическая корректировка прокатного стана.",principle:"Лазерные профилометры измеряют геометрию на скорости до 20 м/с.",features:"Измерение до 0.05 мм; статистика SPC; интеграция с МЭС.",traditional:"Ручные замеры выборочны."},
+  ],
+  '1-1':[
+    {id:1,title:"Контроль поверхности слябов",what:"Трещины, плены, расслоения, раковины, закаты",why:"Раннее обнаружение экономит затраты на дальнейшую обработку.",results:"Снижение дефектной продукции на 35%.",principle:"Камеры высокого разрешения сканируют поверхность горячих слябов.",features:"Работа при высоких температурах; реальное время.",traditional:"Зачистка всей поверхности без диагностики."},
+  ],
+};
+function getSubs(indId){ return SUBS[indId]||[{id:1,name:"Подотрасль 1"},{id:2,name:"Подотрасль 2"},{id:3,name:"Подотрасль 3"}]; }
+function getProcs(indId,subId){ return PROCS[`${indId}-${subId}`]||[{id:1,title:"Процесс 1",what:"—",why:"—",results:"—",principle:"—",features:"—",traditional:"—"},{id:2,title:"Процесс 2",what:"—",why:"—",results:"—",principle:"—",features:"—",traditional:"—"}]; }
+
+/* ── ROUTER ── */
+let curInd=null, curSub=null;
+function goPage(id,params){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  const p=document.getElementById('page-'+id);
+  if(p) p.classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(triggerReveal,60);
+  if(id==='industries') renderInds();
+  if(id==='industry'&&params){ curInd=params.id; renderInd(params.id); }
+  if(id==='subindustry'&&params){ curSub=params.subId; renderSub(params.indId,params.subId); }
+}
+function backToIndustry(){ goPage('industry',{id:curInd}); }
+
+function renderInds(){
+  document.getElementById('indGrid').innerHTML=INDUSTRIES.map(i=>`
+    <div class="sub-card" onclick="goPage('industry',{id:${i.id}})">
+      <div class="sub-num">${String(i.id).padStart(2,'0')}</div>
+      <div class="sub-title">${i.id}. ${i.name}</div>
+      <div class="sub-link">Перейти к решениям →</div>
+    </div>`).join('');
+}
+function renderInd(id){
+  const ind=INDUSTRIES.find(i=>i.id===id);
+  if(!ind) return;
+  document.getElementById('indBreadcrumb').textContent=ind.name;
+  document.getElementById('indTitle').textContent=ind.name;
+  const subs=getSubs(id);
+  document.getElementById('subGrid').innerHTML=subs.map(s=>`
+    <div class="sub-card" onclick="goPage('subindustry',{indId:${id},subId:${s.id}})">
+      <div class="sub-num">${String(s.id).padStart(2,'0')}</div>
+      <div class="sub-title">${s.id}. ${s.name}</div>
+      <div class="sub-link">Открыть процессы →</div>
+    </div>`).join('');
+}
+function renderSub(indId,subId){
+  const ind=INDUSTRIES.find(i=>i.id===indId);
+  const subs=getSubs(indId);
+  const sub=subs.find(s=>s.id===subId);
+  if(!ind||!sub) return;
+  document.getElementById('subBack1').textContent=ind.name;
+  document.getElementById('subBreadcrumb').textContent=sub.name;
+  document.getElementById('subTitle').textContent=sub.name;
+  document.getElementById('subDesc').textContent='Нажмите на карточку — откроется подробное описание решения.';
+  const procs=getProcs(indId,subId);
+  document.getElementById('procList').innerHTML=procs.map(p=>`
+    <div class="proc-row" onclick="openProcModal(${indId},${subId},${p.id})">
+      <div class="proc-img"><div class="proc-img-g"></div></div>
+      <div class="proc-body">
+        <div class="proc-num">Процесс ${p.id}</div>
+        <div class="proc-title">${p.title}</div>
+        <div class="proc-what-lbl">Что контролировать</div>
+        <div class="proc-what">${p.what}</div>
+        <div class="proc-more">Читать подробнее →</div>
+      </div>
+    </div>`).join('');
+}
+
+/* ── MEGA DD ── */
+function buildDD(){
+  document.getElementById('ddGrid').innerHTML=INDUSTRIES.map(i=>`
+    <div class="dd-item" onclick="goPage('industry',{id:${i.id}})">
+      <div class="dd-num">${String(i.id).padStart(2,'0')}</div>
+      <div class="dd-name">${i.name}</div>
+    </div>`).join('');
+}
+
+/* ── MODAL PROCESS ── */
+function openProcModal(indId,subId,procId){
+  const procs=getProcs(indId,subId);
+  const p=procs.find(x=>x.id===procId);
+  if(!p) return;
+  document.getElementById('procContent').innerHTML=`
+    <div class="m-img"><div class="m-img-g"></div><span class="m-img-lbl">[ Фото / визуализация процесса ]</span></div>
+    <div class="m-body">
+      <div class="m-title">${p.title}</div>
+      <div class="m-grid">
+        <div><div class="m-sec-t">Что контролировать</div><div class="m-sec-b">${p.what}</div></div>
+        <div><div class="m-sec-t">Почему это полезно</div><div class="m-sec-b">${p.why}</div></div>
+        <div><div class="m-sec-t">Результаты внедрения</div><div class="m-sec-b">${p.results}</div></div>
+        <div><div class="m-sec-t">Принцип работы ИИ</div><div class="m-sec-b">${p.principle}</div></div>
+        <div><div class="m-sec-t">Функции ИТиС ЛАБ</div><div class="m-sec-b">${p.features}</div></div>
+        <div><div class="m-sec-t">Минусы традиционных методов</div><div class="m-sec-b">${p.traditional}</div></div>
+      </div>
+      <div class="m-footer">
+        <button class="btn btn-w btn-sm" onclick="closeById('procOverlay');openForm('simple')">Обсудить этот процесс</button>
+        <button class="btn btn-g btn-sm" onclick="closeById('procOverlay')">Закрыть</button>
+      </div>
+    </div>`;
+  openOverlay('procOverlay');
+}
+
+/* ── FORMS ── */
+function openForm(type){
+  openOverlay(type==='simple'?'formSimple':'formComplex');
+}
+function openOverlay(id){ document.getElementById(id).classList.add('on'); document.body.style.overflow='hidden'; }
+function closeById(id){ document.getElementById(id).classList.remove('on'); document.body.style.overflow=''; }
+function closeOverlay(e,id){ if(e.target===document.getElementById(id)) closeById(id); }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ ['procOverlay','formSimple','formComplex'].forEach(id=>closeById(id)); } });
+
+/* ── NAV ── */
+window.addEventListener('scroll',()=>{ document.getElementById('nav').classList.toggle('on',window.scrollY>40); },{passive:true});
+document.getElementById('burger').addEventListener('click',()=>{
+  const m=document.getElementById('mob'); m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+});
+function closeMob(){ document.getElementById('mob').classList.remove('open'); document.body.style.overflow=''; }
+
+/* ── TABS ── */
+document.addEventListener('click',e=>{
+  const t=e.target.closest('.tab[data-tab]');
+  if(!t) return;
+  t.parentElement.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  t.classList.add('on');
+  document.querySelectorAll('.tabp').forEach(p=>p.classList.toggle('on',p.id===t.dataset.tab));
+});
+
+/* ── REVEAL ── */
+function triggerReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  },{threshold:0.09});
+  document.querySelectorAll('.rv:not(.vis)').forEach(el=>obs.observe(el));
+}
+triggerReveal();
+
+/* ── COUNTERS ── */
+function animCnt(el){
+  const t=parseInt(el.dataset.t,10), dur=1400, s=performance.now();
+  (function tick(n){ const p=Math.min((n-s)/dur,1); el.textContent=Math.round((1-Math.pow(1-p,3))*t); if(p<1) requestAnimationFrame(tick); })(performance.now());
+}
+const co=new IntersectionObserver(e=>{ e.forEach(x=>{ if(x.isIntersecting){ animCnt(x.target); co.unobserve(x.target); } }); },{threshold:.5});
+document.querySelectorAll('.cnt').forEach(el=>co.observe(el));
+
+/* ── INIT ── */
+buildDD();
+document.querySelectorAll('form').forEach(f=>f.addEventListener('submit',e=>e.preventDefault()));
+</script>
+</body>
+</html>
