@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Блог — ИТиС ЛАБ</title>
+  <meta name="description" content="Статьи о машинном зрении, промышленной автоматизации и ИИ для производства от команды ИТиС ЛАБ.">
+  <link rel="canonical" href="https://lab-itis.ru/blog.html">
+  <meta property="og:title" content="Блог — ИТиС ЛАБ">
+  <meta property="og:description" content="Статьи о машинном зрении, промышленной автоматизации и ИИ для производства.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lab-itis.ru/blog.html">
+  <meta property="og:image" content="https://lab-itis.ru/assets/images/og-default.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+
+<div class="page-top">
+
+  <!-- Page hero -->
+  <div class="pg-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="index.html">Главная</a>
+        <span>/</span>
+        <span>Блог</span>
+      </div>
+      <h1 class="rv" style="margin-bottom:14px;">Блог</h1>
+      <p class="rv d1" style="max-width:520px;">Материалы о машинном зрении, автоматизации производства и промышленном ИИ.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+
+      <!-- ═══════════════════════════════════════════════════════════════
+           КАК ДОБАВИТЬ НОВУЮ СТАТЬЮ:
+           1. Скопируйте файл /blog/_template.html → /blog/ваш-slug.html
+           2. Заполните контент в новом файле
+           3. Добавьте фото обложки в /assets/blog/ваш-slug/cover.jpg
+           4. Скопируйте блок <a class="bp"> ниже и вставьте его ПЕРЕД
+              существующими статьями (новые — сверху!)
+           5. Обновите href, заголовок, описание, дату и тег
+      ═══════════════════════════════════════════════════════════════ -->
+
+      <div class="blog-grid">
+
+        <!-- ── СТАТЬЯ 1 (образец) ──────────────────────────────── -->
+        <a class="bp rv" href="blog/kak-rabotaet-mashinnoe-zrenie.html">
+          <div class="bp-cover">
+            <!-- Если есть фото: <img src="/assets/blog/kak-rabotaet-mashinnoe-zrenie/cover.jpg" alt="Как работает машинное зрение"> -->
+            <div class="bp-cover-placeholder"></div>
+          </div>
+          <div class="bp-body">
+            <div class="bp-meta">
+              <span class="bp-tag">Машинное зрение</span>
+              <span class="bp-date">28 апреля 2025</span>
+            </div>
+            <div class="bp-title">Как работает машинное зрение на производстве: от камеры до решения</div>
+            <div class="bp-desc">Разбираем полный цикл — захват изображения, нейросетевая обработка, классификация дефектов и интеграция с МЭС/SCADA.</div>
+            <div class="bp-read">Читать статью →</div>
+          </div>
+        </a>
+        <!-- ── КОНЕЦ СТАТЬИ 1 ─────────────────────────────────── -->
+
+        <!-- ── СТАТЬЯ 2 (образец) ──────────────────────────────── -->
+        <a class="bp rv d1" href="blog/roi-mashinnogo-zreniya.html">
+          <div class="bp-cover">
+            <div class="bp-cover-placeholder"></div>
+          </div>
+          <div class="bp-body">
+            <div class="bp-meta">
+              <span class="bp-tag">Экономика</span>
+              <span class="bp-date">15 апреля 2025</span>
+            </div>
+            <div class="bp-title">ROI машинного зрения: как считать окупаемость для вашего производства</div>
+            <div class="bp-desc">Методика расчёта ROI, типовые статьи затрат и экономии, реальные цифры из наших проектов.</div>
+            <div class="bp-read">Читать статью →</div>
+          </div>
+        </a>
+        <!-- ── КОНЕЦ СТАТЬИ 2 ─────────────────────────────────── -->
+
+        <!-- ── СТАТЬЯ 3 (образец) ──────────────────────────────── -->
+        <a class="bp rv d2" href="blog/defekty-metalla-klassifikatsiya.html">
+          <div class="bp-cover">
+            <div class="bp-cover-placeholder"></div>
+          </div>
+          <div class="bp-body">
+            <div class="bp-meta">
+              <span class="bp-tag">Металлургия</span>
+              <span class="bp-date">3 апреля 2025</span>
+            </div>
+            <div class="bp-title">Дефекты металлопроката: классификация и методы автоматического обнаружения</div>
+            <div class="bp-desc">Систематизируем типы дефектов поверхности и объясняем, какие алгоритмы зрения справляются с каждым видом.</div>
+            <div class="bp-read">Читать статью →</div>
+          </div>
+        </a>
+        <!-- ── КОНЕЦ СТАТЬИ 3 ─────────────────────────────────── -->
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding:0 0 120px;border:none;">
+    <div class="wrap">
+      <div class="cta-strip rv">
+        <h2>Есть вопрос по вашему производству?</h2>
+        <button class="btn btn-w" onclick="openForm('simple')">Проконсультироваться</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div id="footer-root"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+  initComponents();
+  initPage();
+</script>
+</body>
+</html>
+
+
+

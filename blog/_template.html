@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════════
+       ЗАПОЛНИТЕ: title, description, canonical, og:*
+       Для каждой статьи свои уникальные значения!
+  ═══════════════════════════════════════════════ -->
+  <title>ЗАГОЛОВОК СТАТЬИ — ИТиС ЛАБ</title>
+  <meta name="description" content="КРАТКОЕ ОПИСАНИЕ ДЛЯ ПОИСКОВИКОВ (150–160 символов)">
+  <link rel="canonical" href="https://lab-itis.ru/blog/ВАШ-SLUG.html">
+
+  <!-- Open Graph (соцсети, мессенджеры) -->
+  <meta property="og:title" content="ЗАГОЛОВОК СТАТЬИ">
+  <meta property="og:description" content="КРАТКОЕ ОПИСАНИЕ">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://lab-itis.ru/blog/ВАШ-SLUG.html">
+  <meta property="og:image" content="https://lab-itis.ru/assets/blog/ВАШ-SLUG/cover.jpg">
+  <meta property="article:published_time" content="2025-01-01">
+  <meta property="article:author" content="ИТиС ЛАБ">
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ЗАГОЛОВОК СТАТЬИ",
+    "description": "КРАТКОЕ ОПИСАНИЕ",
+    "datePublished": "2025-01-01",
+    "author": {"@type": "Organization", "name": "ИТиС ЛАБ"},
+    "publisher": {"@type": "Organization", "name": "ИТиС ЛАБ", "url": "https://lab-itis.ru"},
+    "image": "https://lab-itis.ru/assets/blog/ВАШ-SLUG/cover.jpg",
+    "url": "https://lab-itis.ru/blog/ВАШ-SLUG.html"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+
+<div class="page-top">
+
+  <!-- ARTICLE HERO -->
+  <div class="article-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a>
+        <span>/</span>
+        <a href="../blog.html">Блог</a>
+        <span>/</span>
+        <span>ЗАГОЛОВОК СТАТЬИ (укороченный)</span>
+      </div>
+
+      <div class="article-meta">
+        <span class="article-tag">КАТЕГОРИЯ</span>
+        <span class="article-date">1 января 2025</span>
+        <span class="article-read">5 мин. чтения</span>
+      </div>
+
+      <h1 class="rv">ЗАГОЛОВОК СТАТЬИ</h1>
+    </div>
+  </div>
+
+  <!-- COVER IMAGE -->
+  <div class="wrap">
+    <div class="article-cover">
+      <!-- Вариант с фото: -->
+      <!-- <img src="/assets/blog/ВАШ-SLUG/cover.jpg" alt="ОПИСАНИЕ ФОТО"> -->
+      <!-- Вариант-заглушка (удалите после добавления фото): -->
+      <div class="article-cover-placeholder"></div>
+    </div>
+  </div>
+
+  <!-- ARTICLE BODY -->
+  <section class="section" style="border:none;padding-top:0;">
+    <div class="wrap">
+      <div class="article-body">
+
+        <!-- ── CONTENT ────────────────────────────────────────── -->
+        <div class="article-prose rv">
+
+          <h2>Первый раздел</h2>
+          <p>Текст параграфа. Пишите здесь основной контент статьи.</p>
+          <p>Второй параграф. <strong>Выделенный текст</strong> для ключевых мыслей.</p>
+
+          <h2>Второй раздел</h2>
+          <p>Текст.</p>
+          <ul>
+            <li>Пункт списка 1</li>
+            <li>Пункт списка 2</li>
+            <li>Пункт списка 3</li>
+          </ul>
+
+          <!-- Вставка изображения внутри статьи -->
+          <!-- <img src="/assets/blog/ВАШ-SLUG/image-1.jpg" alt="ОПИСАНИЕ"> -->
+
+          <h2>Цитата или важная заметка</h2>
+          <blockquote>
+            <p>Важная цитата или ключевой тезис статьи.</p>
+          </blockquote>
+
+          <div class="note">
+            <p><strong>На заметку:</strong> Блок для важных пометок, советов или предупреждений.</p>
+          </div>
+
+          <h2>Заключение</h2>
+          <p>Итоговые мысли.</p>
+
+          <!-- CTA внутри статьи -->
+          <div class="article-cta">
+            <div class="cta-strip" style="border:none;padding:0;">
+              <h2 style="font-size:clamp(22px,2.6vw,36px);">Хотите внедрить это на вашем производстве?</h2>
+              <button class="btn btn-w" onclick="openForm('simple')">Обсудить проект</button>
+            </div>
+          </div>
+
+        </div>
+        <!-- ── END CONTENT ─────────────────────────────────── -->
+
+        <!-- ── SIDEBAR ────────────────────────────────────── -->
+        <aside class="article-sidebar rv d2">
+          <div class="sidebar-toc">
+            <div class="toc-title">Содержание</div>
+            <ul class="toc-list">
+              <li><a href="#section-1">Первый раздел</a></li>
+              <li><a href="#section-2">Второй раздел</a></li>
+              <li><a href="#section-3">Третий раздел</a></li>
+              <li><a href="#conclusion">Заключение</a></li>
+            </ul>
+          </div>
+        </aside>
+        <!-- ── END SIDEBAR ────────────────────────────────── -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED ARTICLES -->
+  <div class="related-articles">
+    <div class="wrap">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">Ещё материалы</div>
+          <h2>Читайте также</h2>
+        </div>
+        <a href="../blog.html" class="btn btn-g">Все статьи →</a>
+      </div>
+      <div class="blog-grid rv">
+        <!-- Вставьте 2–3 карточки статей (скопируйте из blog.html) -->
+        <a class="bp" href="../blog/kak-rabotaet-mashinnoe-zrenie.html">
+          <div class="bp-cover"><div class="bp-cover-placeholder"></div></div>
+          <div class="bp-body">
+            <div class="bp-meta"><span class="bp-tag">Машинное зрение</span><span class="bp-date">28 апр 2025</span></div>
+            <div class="bp-title">Как работает машинное зрение на производстве</div>
+            <div class="bp-read">Читать →</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="footer-root"></div>
+
+<script src="../js/data.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  initComponents();
+  initPage();
+</script>
+</body>
+</html>
+
+
+

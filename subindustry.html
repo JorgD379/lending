@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Процессы — ИТиС ЛАБ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+
+<div class="page-top">
+  <div class="pg-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="index.html">Главная</a>
+        <span>/</span>
+        <a href="industries.html">Решения по отраслям</a>
+        <span>/</span>
+        <a href="#" id="backLink">—</a>
+        <span>/</span>
+        <span id="subBreadcrumb">—</span>
+      </div>
+      <h1 id="subTitle" class="rv" style="margin-bottom:14px;">—</h1>
+      <p class="rv d1">Нажмите на карточку — откроется подробное описание решения.</p>
+      <div class="proc-list rv d2" id="procList"></div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-root"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+  initComponents();
+  initPage();
+
+  const params = new URLSearchParams(window.location.search);
+  const indId = parseInt(params.get('ind'), 10);
+  const subId = parseInt(params.get('sub'), 10);
+
+  const ind = INDUSTRIES.find(i => i.id === indId);
+  const subs = getSubs(indId);
+  const sub = subs.find(s => s.id === subId);
+
+  if (ind && sub) {
+    document.title = `${sub.name} — ${ind.name} — ИТиС ЛАБ`;
+    document.getElementById('backLink').textContent = ind.name;
+    document.getElementById('backLink').href = `industry.html?id=${indId}`;
+    document.getElementById('subBreadcrumb').textContent = sub.name;
+    document.getElementById('subTitle').textContent = sub.name;
+
+    const procs = getProcs(indId, subId);
+    document.getElementById('procList').innerHTML = procs.map(p => `
+      <div class="proc-row" onclick="openProcModal(${indId},${subId},${p.id})">
+        <div class="proc-img"><div class="proc-img-g"></div></div>
+        <div class="proc-body">
+          <div class="proc-num">Процесс ${p.id}</div>
+          <div class="proc-title">${p.title}</div>
+          <div class="proc-what-lbl">Что контролировать</div>
+          <div class="proc-what">${p.what}</div>
+          <div class="proc-more">Читать подробнее →</div>
+        </div>
+      </div>`).join('');
+  } else {
+    window.location.href = 'industries.html';
+  }
+</script>
+</body>
+</html>
+
+
+

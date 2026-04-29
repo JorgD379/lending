@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отрасль — ИТиС ЛАБ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+
+<div class="page-top">
+  <div class="pg-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="index.html">Главная</a>
+        <span>/</span>
+        <a href="industries.html">Решения по отраслям</a>
+        <span>/</span>
+        <span id="indBreadcrumb">—</span>
+      </div>
+      <h1 id="indTitle" class="rv" style="margin-bottom:14px;">—</h1>
+      <p class="rv d1">Выберите подотрасль — откроется список процессов с детальными описаниями.</p>
+      <div class="sub-grid rv d2" id="subGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-root"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+  initComponents();
+  initPage();
+
+  const params = new URLSearchParams(window.location.search);
+  const indId = parseInt(params.get('id'), 10);
+  const ind = INDUSTRIES.find(i => i.id === indId);
+
+  if (ind) {
+    document.title = `${ind.name} — ИТиС ЛАБ`;
+    document.getElementById('indBreadcrumb').textContent = ind.name;
+    document.getElementById('indTitle').textContent = ind.name;
+
+    const subs = getSubs(indId);
+    document.getElementById('subGrid').innerHTML = subs.map(s => `
+      <a href="subindustry.html?ind=${indId}&sub=${s.id}" class="sub-card">
+        <div class="sub-num">${String(s.id).padStart(2,'0')}</div>
+        <div class="sub-title">${s.name}</div>
+        <div class="sub-link">Открыть процессы →</div>
+      </a>`).join('');
+  } else {
+    window.location.href = 'industries.html';
+  }
+</script>
+</body>
+</html>
+
+
+
