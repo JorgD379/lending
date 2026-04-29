@@ -64,6 +64,32 @@ const counterObs = new IntersectionObserver(entries => {
   });
 }, {threshold: .5});
 
+function taskCard(task) {
+  return `<div class="card"><div class="cn">${task.id}</div><h3>${task.title}</h3><p>${task.desc}</p></div>`;
+}
+
+function renderTypicalTasks() {
+  const tasksGrid = document.getElementById('tasksGrid');
+  if (tasksGrid) {
+    tasksGrid.innerHTML = TYPICAL_TASKS.map(taskCard).join('');
+  }
+
+  const uc1 = document.getElementById('uc1');
+  const uc2 = document.getElementById('uc2');
+  const uc3 = document.getElementById('uc3');
+  if (!uc1 || !uc2 || !uc3) return;
+
+  const grp = {
+    quality: TYPICAL_TASKS.filter(x => x.group === 'quality'),
+    logistics: TYPICAL_TASKS.filter(x => x.group === 'logistics'),
+    production: TYPICAL_TASKS.filter(x => x.group === 'production')
+  };
+
+  uc1.innerHTML = grp.quality.map((x, i) => taskCard({...x, id: `0${i + 1} / КК`})).join('');
+  uc2.innerHTML = grp.logistics.map((x, i) => taskCard({...x, id: `0${i + 1} / ЛГ`})).join('');
+  uc3.innerHTML = grp.production.map((x, i) => taskCard({...x, id: `0${i + 1} / ПР`})).join('');
+}
+
 /* ── PROCESS MODAL ── */
 function openProcModal(indId, subId, procId) {
   const procs = getProcs(indId, subId);
@@ -91,6 +117,7 @@ function openProcModal(indId, subId, procId) {
 
 /* ── INIT (called after DOM ready) ── */
 function initPage() {
+  renderTypicalTasks();
   triggerReveal();
   document.querySelectorAll('.cnt').forEach(el => counterObs.observe(el));
   document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => e.preventDefault()));
