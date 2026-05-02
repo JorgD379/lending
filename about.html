@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -15,6 +15,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* About page specific */
+    .about-photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 48px; }
+    @media(max-width:900px){ .about-photos { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:540px){ .about-photos { grid-template-columns: 1fr; } }
+    .about-photo { aspect-ratio: 3/4; background: var(--s2); position: relative; overflow: hidden; }
+    .about-photo-inner { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 28px 28px; display: flex; align-items: flex-end; padding: 16px; }
+    .about-photo-label { font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: 0.06em; }
+    .about-section-title { font-family: var(--fh); font-size: clamp(32px,4vw,64px); font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 8px; }
+  </style>
 </head>
 <body>
 
@@ -29,35 +39,75 @@
         <span>/</span>
         <span>О нас</span>
       </div>
-      <h1 class="rv" style="margin-bottom:32px;">О компании ИТиС ЛАБ</h1>
-      <p class="rv d1" style="max-width:600px;font-size:17px;">ИТиС ЛАБ — команда, которая внедряет AI / производство: от пилота до промышленной эксплуатации. Мы помогаем предприятиям снижать брак, усиливать контроль качества и повышать устойчивость линий через автоматизацию производства.</p>
+      <h1 class="rv" style="margin-bottom:14px;">О нас</h1>
+      <p class="rv d1" style="max-width:600px;font-size:17px;">ИТиС ЛАБ — команда, которая внедряет AI в производство: от пилота до промышленной эксплуатации.</p>
     </div>
   </div>
 
-  <section class="section">
+  <!-- ── О НАС ── -->
+  <section class="section" id="about-us">
     <div class="wrap">
-      <div class="sec-hd rv">
-        <div>
-          <div class="mono sec-num">01 / Миссия</div>
-          <h2>Оптимизация производственных процессов через прикладной ИИ</h2>
+      <div class="rv">
+        <div class="about-section-title">О нас</div>
+      </div>
+      <p class="rv d1" style="max-width:720px;font-size:17px;margin-top:24px;">Мы помогаем предприятиям снижать брак, усиливать контроль качества и повышать устойчивость линий через автоматизацию производства. Проект стартовал в 2024 как студенческое инженерное бюро, в 2025 оформлен как ООО. Сейчас в портфеле — внедрения для реальных производственных задач.</p>
+      <div class="about-photos rv d2">
+        <div class="about-photo">
+          <div class="about-photo-inner">
+            <span class="about-photo-label">Фото 01 — Офис</span>
+          </div>
+        </div>
+        <div class="about-photo">
+          <div class="about-photo-inner">
+            <span class="about-photo-label">Фото 02 — Лаборатория</span>
+          </div>
+        </div>
+        <div class="about-photo">
+          <div class="about-photo-inner">
+            <span class="about-photo-label">Фото 03 — Производство</span>
+          </div>
+        </div>
+        <div class="about-photo">
+          <div class="about-photo-inner">
+            <span class="about-photo-label">Фото 04 — Команда</span>
+          </div>
         </div>
       </div>
-      <p class="rv" style="max-width:700px;font-size:17px;">Наша миссия — делать AI / производство рабочим инструментом для цеха, а не демонстрацией ради демонстрации. Мы проектируем решения под реальную технологическую цепочку: контроль качества, оптимизация производственных процессов, автоматизация производства и предиктивная аналитика для предотвращения простоев и потерь.</p>
     </div>
   </section>
 
-  <section class="section">
+  <!-- ── НАША МИССИЯ ── -->
+  <section class="section" id="about-mission">
     <div class="wrap">
-      <div class="sec-hd rv">
-        <div>
-          <div class="mono sec-num">02 / Команда</div>
-          <h2>Команда ИТиС ЛАБ</h2>
-        </div>
+      <div class="rv">
+        <div class="about-section-title">Наша миссия</div>
       </div>
-      <div class="g3 rv">
-        <div class="card"><div class="cn">Руководство</div><h3>Галицков Богдан — директор</h3><p>Отвечает за стратегию, запуск проектов и интеграцию решений в производственный контур заказчика.</p></div>
-        <div class="card"><div class="cn">Machine Learning</div><h3>Максимов Максим — ML-специалист</h3><p>Разрабатывает и обучает модели компьютерного зрения, отвечает за точность детекции и стабильность в реальных условиях.</p></div>
-        <div class="card"><div class="cn">История</div><h3>От студенческого бюро к промышленным внедрениям</h3><p>Проект стартовал в 2024 как студенческое инженерное бюро, в 2025 оформлен как ООО. Сейчас в портфеле — внедрения для реальных производственных задач.</p></div>
+      <p class="rv d1" style="max-width:700px;font-size:17px;margin-top:24px;">Наша миссия — делать AI / производство рабочим инструментом для цеха, а не демонстрацией ради демонстрации. Мы проектируем решения под реальную технологическую цепочку: контроль качества, оптимизация производственных процессов, автоматизация производства и предиктивная аналитика для предотвращения простоев и потерь.</p>
+    </div>
+  </section>
+
+  <!-- ── КОМАНДА ── -->
+  <section class="section" id="about-team">
+    <div class="wrap">
+      <div class="rv">
+        <div class="about-section-title">Команда</div>
+      </div>
+      <div class="g3 rv d1" style="margin-top:48px;">
+        <div class="card">
+          <div class="cn">Руководство</div>
+          <h3>Галицков Богдан — директор</h3>
+          <p>Отвечает за стратегию, запуск проектов и интеграцию решений в производственный контур заказчика.</p>
+        </div>
+        <div class="card">
+          <div class="cn">Machine Learning</div>
+          <h3>Максимов Максим — ML-специалист</h3>
+          <p>Разрабатывает и обучает модели компьютерного зрения, отвечает за точность детекции и стабильность в реальных условиях.</p>
+        </div>
+        <div class="card">
+          <div class="cn">История</div>
+          <h3>От студенческого бюро к промышленным внедрениям</h3>
+          <p>Проект стартовал в 2024 как студенческое инженерное бюро, в 2025 оформлен как ООО. Сейчас в портфеле — внедрения для реальных производственных задач.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -83,6 +133,3 @@
 </script>
 </body>
 </html>
-
-
-
