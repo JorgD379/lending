@@ -85,9 +85,12 @@ button { font-family: var(--fb); cursor: pointer; border: none; background: none
 .dd-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; }
 @media(max-width:1100px){ .dd-grid { grid-template-columns: repeat(4,1fr); } }
 @media(max-width:860px){ .dd-grid { grid-template-columns: repeat(3,1fr); } }
-.dd-item { background: var(--s2); padding: 14px 16px; cursor: pointer; transition: background .15s; }
+.dd-item { background: var(--s2); padding: 14px 16px; cursor: pointer; transition: background .15s; display: flex; flex-direction: column; gap: 10px; }
 .dd-item:hover { background: var(--s3); }
-.dd-num { font-family: var(--fm); font-size: 9px; color: var(--m); margin-bottom: 5px; }
+.dd-item:hover .dd-icon { color: var(--text); }
+.dd-item-top { display: flex; align-items: center; justify-content: space-between; }
+.dd-num { font-family: var(--fm); font-size: 9px; color: var(--m); }
+.dd-icon { color: var(--m); transition: color .15s; display: flex; align-items: center; }
 .dd-name { font-family: var(--fb); font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.3; }
 
 /* Mobile menu */
@@ -338,8 +341,9 @@ button { font-family: var(--fb); cursor: pointer; border: none; background: none
 @keyframes mi { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: none; } }
 .mcl { position: absolute; top: 14px; right: 14px; background: var(--s1); color: var(--m2); width: 34px; height: 34px; font-size: 17px; z-index: 10; display: flex; align-items: center; justify-content: center; transition: color .2s; cursor: pointer; }
 .mcl:hover { color: var(--text); }
-.m-img { width: 100%; aspect-ratio: 21/9; background: var(--s2); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.m-img { width: 100%; aspect-ratio: 16/9; background: var(--s2); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .m-img-g { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 40px 40px; }
+.m-img img, .proc-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
 .m-img-lbl { font-family: var(--fm); font-size: 11px; color: var(--m); z-index: 1; }
 .m-body { padding: 40px; }
 .m-title { font-family: var(--fh); font-size: clamp(17px,2.4vw,26px); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 36px; }

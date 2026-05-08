@@ -60,7 +60,7 @@
     const procs = getProcs(indId, subId);
     document.getElementById('procList').innerHTML = procs.map(p => `
       <div class="proc-row" onclick="openProcModal(${indId},${subId},${p.id})">
-        <div class="proc-img"><div class="proc-img-g"></div></div>
+        <div class="proc-img"><div class="proc-img-g"></div><img src="assets/images/processes/${String(indId).padStart(2,'0')}.${String(subId).padStart(2,'0')}.${String(p.id).padStart(2,'0')}.jpg" alt="${p.title}" onerror="this.style.display='none'" loading="lazy"></div>
         <div class="proc-body">
           <div class="proc-num">Процесс ${p.id} &nbsp;·&nbsp; Что контролировать</div>
           <div class="proc-title">${p.title}</div>
