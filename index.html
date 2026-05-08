@@ -14,6 +14,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -32,14 +33,26 @@
     <div class="wrap hero-inner">
       <div>
         <div class="hero-tag rv">Машинное зрение · Промышленная автоматизация</div>
-        <h1 class="rv d1" style="font-size:33px">Компьютерное зрение для оптимизации производства</h1>
+        <h1 class="rv d1">Машинное зрение, которое окупается за 8–14 месяцев</h1>
+        <p class="rv d1 hero-sub">Помогаем заводам, складам и фарме автоматизировать контроль качества и логистику.</p>
+        <div class="hero-metrics rv d2">
+          <span>100+ проектов</span><span class="hero-metrics-dot">·</span>
+          <span>18 отраслей</span><span class="hero-metrics-dot">·</span>
+          <span>99% точность</span>
+        </div>
         <div class="hero-cta-row rv d2">
           <div class="hero-cta-card" onclick="openForm('simple')">
-            <span class="hct">Быстрая настройка за 2 минуты</span>
+            <div>
+              <span class="hct">Быстрая настройка</span>
+              <span class="hcd">Заполните бриф за 2 минуты — получите КП за 24 часа</span>
+            </div>
             <span class="hca">→</span>
           </div>
           <div class="hero-cta-card" onclick="openForm('complex')">
-            <span class="hct">Детальный проект под ключ</span>
+            <div>
+              <span class="hct">Детальный проект</span>
+              <span class="hcd">Расчёт ROI, сроков и стоимости под вашу задачу</span>
+            </div>
             <span class="hca">→</span>
           </div>
         </div>
@@ -117,8 +130,12 @@
         <div class="stat-cell"><div class="sv">8–14</div><div class="sl">Месяцев — срок окупаемости</div></div>
       </div>
       <div class="card rv" style="margin-top:2px;padding:44px 40px;">
-        <h3 style="margin-bottom:12px;">О компании</h3>
-        <p>Реализуем проекты для промышленных задач в формате пилотов и тиражирования. Участвуем в грантовых программах, развиваем собственные НИОКР и ведем эксперименты в СКБ для проверки гипотез до выхода на производство.</p>
+        <h3 style="margin-bottom:16px;">Что мы умеем</h3>
+        <ul style="padding-left:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="color:var(--m2);font-size:15px;">→ Разрабатываем и внедряем системы машинного зрения для контроля качества, логистики и производства</li>
+          <li style="color:var(--m2);font-size:15px;">→ Запускаем рабочий пилот за 2 недели — вы видите результат до оплаты полного проекта</li>
+          <li style="color:var(--m2);font-size:15px;">→ Участвуем в грантовых программах, развиваем НИОКР, тестируем гипотезы в СКБ до выхода на производство</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -148,38 +165,8 @@
     </div>
   </section>
 
-  <!-- 03 / PARTNERS -->
-  <section class="section" id="s-partners">
-    <div class="wrap">
-      <div class="sec-hd rv">
-        <div>
-          <div class="mono sec-num">03 / Партнёры</div>
-          <h2>Наши партнёры</h2>
-        </div>
-      </div>
-    </div>
-    <div class="partners-ticker rv">
-      <div class="partners-track">
-        <div class="partner-logo">Партнёр 01</div>
-        <div class="partner-logo">Партнёр 02</div>
-        <div class="partner-logo">Партнёр 03</div>
-        <div class="partner-logo">Партнёр 04</div>
-        <div class="partner-logo">Партнёр 05</div>
-        <div class="partner-logo">Партнёр 06</div>
-        <div class="partner-logo">Партнёр 07</div>
-        <div class="partner-logo">Партнёр 08</div>
-        <!-- Дублируем для бесшовного скролла -->
-        <div class="partner-logo">Партнёр 01</div>
-        <div class="partner-logo">Партнёр 02</div>
-        <div class="partner-logo">Партнёр 03</div>
-        <div class="partner-logo">Партнёр 04</div>
-        <div class="partner-logo">Партнёр 05</div>
-        <div class="partner-logo">Партнёр 06</div>
-        <div class="partner-logo">Партнёр 07</div>
-        <div class="partner-logo">Партнёр 08</div>
-      </div>
-    </div>
-  </section>
+  <!-- 03 / PARTNERS — скрыт до появления реальных логотипов -->
+  <!-- <section class="section" id="s-partners"> ... </section> -->
 
   <!-- 04 / FORM -->
   <section class="section" id="s-form">
@@ -194,8 +181,8 @@
         <div>
           <p style="font-size:17px;color:var(--m2);margin-bottom:36px;max-width:360px;">Расскажите нам о своей задаче — мы поможем её решить!</p>
           <div style="display:flex;flex-direction:column;gap:20px;">
-            <div><div class="mono" style="margin-bottom:6px;">Пилот за 2 недели</div><p style="font-size:14px;">—</p></div>
-            <div><div class="mono" style="margin-bottom:6px;">Ответ за 24 часа</div><p style="font-size:14px;">—</p></div>
+            <div><div class="mono" style="margin-bottom:6px;">Пилот за 2 недели</div><p style="font-size:14px;">Запускаем прототип на вашем производстве. Вы видите результат до того, как платите за полный проект.</p></div>
+            <div><div class="mono" style="margin-bottom:6px;">Ответ за 24 часа</div><p style="font-size:14px;">Составляем коммерческое предложение в течение суток после запроса — без лишних согласований и брифов.</p></div>
           </div>
         </div>
         <form novalidate onsubmit="return false;">
@@ -233,14 +220,62 @@
           <h2>Почему ИТиС ЛАБ окупается быстрее альтернатив</h2>
         </div>
       </div>
-      <!-- Roadmap diagram — animated -->
-      <div class="roadmap-wrap rv" id="roadmapWrap">
-        <div class="roadmap-timeline">
-          <div class="roadmap-line-bg"></div>
-          <div class="roadmap-line" id="roadmapLine"></div>
-          <div class="roadmap-points" id="roadmapPoints"></div>
+      <!-- Вертикальный таймлайн -->
+      <div class="vt-wrap rv">
+        <div class="vt-item">
+          <div class="vt-left">
+            <div class="vt-dot"></div>
+            <div class="vt-line"></div>
+          </div>
+          <div class="vt-body">
+            <div class="vt-meta">ШАГ 01 · 24 часа</div>
+            <h3 class="vt-title">Коммерческое предложение</h3>
+            <p class="vt-desc">Составляем КП в течение суток после запроса — без лишних согласований и брифов на 40 страниц.</p>
+          </div>
         </div>
-        <div class="roadmap-descriptions" id="roadmapDescs"></div>
+        <div class="vt-item">
+          <div class="vt-left">
+            <div class="vt-dot"></div>
+            <div class="vt-line"></div>
+          </div>
+          <div class="vt-body">
+            <div class="vt-meta">ШАГ 02 · 2 недели</div>
+            <h3 class="vt-title">Рабочий пилот на ваших данных</h3>
+            <p class="vt-desc">Запускаем прототип на вашем производстве. Вы видите результат до того, как платите за полный проект.</p>
+          </div>
+        </div>
+        <div class="vt-item">
+          <div class="vt-left">
+            <div class="vt-dot"></div>
+            <div class="vt-line"></div>
+          </div>
+          <div class="vt-body">
+            <div class="vt-meta">ШАГ 03 · промышленные условия</div>
+            <h3 class="vt-title">99% точность детекции</h3>
+            <p class="vt-desc">Модели обучены на специализированных датасетах под промышленную задачу — не общими сетками из коробки.</p>
+          </div>
+        </div>
+        <div class="vt-item">
+          <div class="vt-left">
+            <div class="vt-dot"></div>
+            <div class="vt-line"></div>
+          </div>
+          <div class="vt-body">
+            <div class="vt-meta">ШАГ 04 · 8–14 месяцев</div>
+            <h3 class="vt-title">Окупаемость</h3>
+            <p class="vt-desc">Считаем ROI совместно с вами ещё на этапе пилота — без сюрпризов на этапе масштабирования.</p>
+          </div>
+        </div>
+        <div class="vt-item vt-item--last">
+          <div class="vt-left">
+            <div class="vt-dot"></div>
+          </div>
+          <div class="vt-body">
+            <div class="vt-meta">ШАГ 05 · без замены оборудования</div>
+            <h3 class="vt-title">Интеграция с MES, SCADA, ERP</h3>
+            <p class="vt-desc">Система встраивается в существующую инфраструктуру через стандартные протоколы. Не нужно покупать новые камеры или контроллеры.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -266,18 +301,39 @@
         <a href="cases.html" class="btn btn-g">Все кейсы →</a>
       </div>
       <div class="portfolio-grid rv">
-        <div class="pc">
-          <div class="pc-img"><div class="pc-img-g"></div><div class="pc-badge">МАШИНОСТРОЕНИЕ</div></div>
-          <div class="pc-body"><div class="pc-title">Кейс 1</div><div class="pc-desc">—</div></div>
-        </div>
-        <div class="pc">
-          <div class="pc-img"><div class="pc-img-g"></div><div class="pc-badge">ЛОГИСТИКА</div></div>
-          <div class="pc-body"><div class="pc-title">Кейс 2</div><div class="pc-desc">—</div></div>
-        </div>
-        <div class="pc">
-          <div class="pc-img"><div class="pc-img-g"></div><div class="pc-badge">ФАРМАЦЕВТИКА</div></div>
-          <div class="pc-body"><div class="pc-title">Кейс 3</div><div class="pc-desc">—</div></div>
-        </div>
+        <a class="pc" href="cases/kontrol-kachestva-metalla.html">
+          <div class="pc-img">
+            <div class="pc-img-g"></div>
+            <div class="pc-badge">БЕЗОПАСНОСТЬ</div>
+            <div class="pc-metric">−85%<span>нарушений ОТ</span></div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">Контроль СИЗ на производстве</div>
+            <div class="pc-desc">Мониторинг соблюдения требований охраны труда на производственных участках в реальном времени.</div>
+          </div>
+        </a>
+        <a class="pc" href="cases/identifikatsiya-na-sklade.html">
+          <div class="pc-img">
+            <div class="pc-img-g"></div>
+            <div class="pc-badge">ТРАНСПОРТ</div>
+            <div class="pc-metric">×4<span>скорость инвентаризации</span></div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">PVSignDetector — детекция знаков по ГОСТ</div>
+            <div class="pc-desc">Детекция и классификация дорожных знаков из видео с GPS. Десктопное приложение для инвентаризации.</div>
+          </div>
+        </a>
+        <a class="pc" href="cases/kontrol-upakovki-lekarstv.html">
+          <div class="pc-img">
+            <div class="pc-img-g"></div>
+            <div class="pc-badge">МАШИНОСТРОЕНИЕ</div>
+            <div class="pc-metric">99%<span>точность</span></div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">FastenAI — детекция крепёжных элементов</div>
+            <div class="pc-desc">Автоматическая детекция, измерение и категоризация крепёжных элементов на производственной линии.</div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -292,10 +348,38 @@
         </div>
       </div>
       <div class="stage-list rv">
-        <div class="si"><div class="si-num">01</div><div><div class="si-time">3–5 рабочих дней</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
-        <div class="si"><div class="si-num">02</div><div><div class="si-time">2–4 недели</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
-        <div class="si"><div class="si-num">03</div><div><div class="si-time">1–2 недели</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
-        <div class="si"><div class="si-num">04</div><div><div class="si-time">Постоянно</div><h3>Плейсхолдер этапа</h3><p style="margin-top:8px;">—</p></div></div>
+        <div class="si">
+          <div class="si-num">01</div>
+          <div>
+            <div class="si-time">3–5 рабочих дней</div>
+            <h3>Аудит и техническое задание</h3>
+            <p style="margin-top:8px;">Изучаем производственный процесс, определяем метрики задачи, формируем ТЗ и план пилота. Выезжаем на объект или работаем удалённо с вашими данными.</p>
+          </div>
+        </div>
+        <div class="si">
+          <div class="si-num">02</div>
+          <div>
+            <div class="si-time">2–4 недели</div>
+            <h3>Пилотный проект</h3>
+            <p style="margin-top:8px;">Разрабатываем и обучаем модель на ваших данных, разворачиваем прототип на производстве. Вы видите реальные результаты детекции до подписания основного договора.</p>
+          </div>
+        </div>
+        <div class="si">
+          <div class="si-num">03</div>
+          <div>
+            <div class="si-time">1–2 недели</div>
+            <h3>Промышленное внедрение</h3>
+            <p style="margin-top:8px;">Интегрируем систему в существующую инфраструктуру: MES, SCADA, ERP. Обучаем операторов, настраиваем отчётность и тревоги.</p>
+          </div>
+        </div>
+        <div class="si">
+          <div class="si-num">04</div>
+          <div>
+            <div class="si-time">Постоянно</div>
+            <h3>Поддержка и развитие</h3>
+            <p style="margin-top:8px;">Мониторим точность моделей, дообучаем при изменении условий производства. SLA-поддержка, обновления и масштабирование на новые участки.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -320,9 +404,9 @@
         </div>
       </div>
       <div class="contacts-row rv">
-        <div class="cc"><div class="cc-type">Телефон</div><a href="tel:+70000000000" class="cc-val">+7 (000) 000-00-00</a></div>
+        <div class="cc"><div class="cc-type">Телефон</div><a href="tel:+79656401726" class="cc-val">+7 (965) 640-17-26</a></div>
         <div class="cc"><div class="cc-type">Email</div><a href="mailto:info@lab-itis.ru" class="cc-val">info@lab-itis.ru</a></div>
-        <div class="cc"><div class="cc-type">Адрес</div><div class="cc-val">—</div></div>
+        <div class="cc"><div class="cc-type">Telegram</div><a href="https://t.me/lab_itis" class="cc-val">@lab_itis</a></div>
       </div>
     </div>
   </section>
@@ -337,66 +421,6 @@
 <script>
   initComponents();
   initPage();
-
-  // ── ROADMAP ANIMATION ──
-  const ROADMAP_ITEMS = [
-    { label: 'КП за 24 часа',        desc: 'Составляем коммерческое предложение за 24 часа после вашего запроса — без лишних согласований.' },
-    { label: 'Пилот за 2 недели',    desc: 'Запускаем рабочий прототип на вашем производстве в срок до 2 недель — вы видите результат до оплаты полного проекта.' },
-    { label: '99% точность',         desc: 'Наши модели достигают 99% точности детекции дефектов в промышленных условиях благодаря специализированным датасетам.' },
-    { label: 'Окупаемость 8–14 мес', desc: 'Средний срок окупаемости внедрения — 8–14 месяцев. Считаем ROI совместно с вами ещё на этапе пилота.' },
-    { label: 'Интеграция с MES/SCADA', desc: 'Система встраивается в существующую инфраструктуру: MES, SCADA, ERP — без замены оборудования.' },
-  ];
-
-  function initRoadmap() {
-    const wrap = document.getElementById('roadmapWrap');
-    const pointsEl = document.getElementById('roadmapPoints');
-    const descsEl = document.getElementById('roadmapDescs');
-    const lineEl = document.getElementById('roadmapLine');
-    if (!wrap || !pointsEl) return;
-
-    // Build HTML
-    pointsEl.innerHTML = ROADMAP_ITEMS.map((item, i) => `
-      <div class="rm-point-wrap" style="left:${(i / (ROADMAP_ITEMS.length - 1)) * 100}%">
-        <div class="rm-dot" id="rmd${i}"></div>
-        <div class="rm-label">${item.label}</div>
-      </div>`).join('');
-
-    descsEl.innerHTML = ROADMAP_ITEMS.map((item, i) => `
-      <div class="rm-desc" id="rmdc${i}">
-        <div class="rm-desc-num">0${i + 1}</div>
-        <div class="rm-desc-text">${item.desc}</div>
-      </div>`).join('');
-
-    // Animate when visible
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        obs.unobserve(e.target);
-        let current = 0;
-        function showNext() {
-          if (current >= ROADMAP_ITEMS.length) return;
-          // Animate line progress
-          lineEl.style.width = `${(current / (ROADMAP_ITEMS.length - 1)) * 100}%`;
-          // Activate dot
-          const dot = document.getElementById('rmd' + current);
-          if (dot) { dot.classList.add('active'); }
-          // Show desc
-          const desc = document.getElementById('rmdc' + current);
-          if (desc) { desc.classList.add('active'); }
-          current++;
-          if (current < ROADMAP_ITEMS.length) {
-            setTimeout(showNext, 700);
-          } else {
-            lineEl.style.width = '100%';
-          }
-        }
-        setTimeout(showNext, 400);
-      });
-    }, { threshold: 0.3 });
-    obs.observe(wrap);
-  }
-
-  initRoadmap();
 </script>
 </body>
 </html>
