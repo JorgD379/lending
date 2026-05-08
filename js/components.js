@@ -184,7 +184,7 @@ function buildDD() {
     <div class="dd-item" onclick="window.location.href='${ddBase}industry.html?id=${i.id}'">
       <div class="dd-item-top">
         <div class="dd-num">${String(i.id).padStart(2,'0')}</div>
-        <img class="dd-icon" src="${ddBase}assets/icons/industries/${String(i.id).padStart(2,'0')}.svg" alt="" width="18" height="18" onerror="this.style.display='none'">
+        <img class="dd-icon" src="${ddBase}assets/icons/industries/${i.id}.svg" alt="" width="18" height="18" onerror="this.style.display='none'">
       </div>
       <div class="dd-name">${i.name}</div>
     </div>`).join('');
