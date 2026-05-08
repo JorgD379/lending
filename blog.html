@@ -16,6 +16,39 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* === BLOG HERO === */
+    .bl-hero { padding: 80px 0 48px; }
+    .bl-bc { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-bottom: 36px; }
+    .bl-bc a { color: var(--m2); } .bl-bc .sep { margin: 0 10px; color: var(--line2); }
+    .bl-hero-h { font-family: var(--fh); font-weight: 900; font-size: clamp(56px,9vw,140px); line-height: .92; letter-spacing: -.045em; margin-bottom: 28px; }
+    .bl-hero-d { max-width: 560px; font-size: 17px; color: var(--m2); line-height: 1.6; }
+
+    /* === FILTERS === */
+    .fl-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 48px; }
+    .fl-l { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .1em; text-transform: uppercase; margin-right: 12px; }
+    .fl-c { padding: 9px 16px; font-family: var(--fm); font-size: 11px; color: var(--m2); letter-spacing: .05em; background: var(--s1); border: 1px solid var(--line); transition: all .15s; cursor: pointer; }
+    .fl-c:hover { background: var(--s2); color: var(--text); }
+    .fl-c.is-on { background: var(--text); color: #000; border-color: var(--text); }
+    .fl-c-c { margin-left: 6px; opacity: .5; }
+
+    /* === GRID A — 3-col blog cards === */
+    .bg-a { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    @media(max-width:1000px) { .bg-a { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:600px) { .bg-a { grid-template-columns: 1fr; } }
+    .bp-a { background: var(--s1); display: flex; flex-direction: column; cursor: pointer; transition: background .2s; text-decoration: none; color: inherit; }
+    .bp-a:hover { background: var(--s2); }
+    .bp-a-c { aspect-ratio: 16/10; background: var(--s2); position: relative; overflow: hidden; }
+    .bp-a-c-g { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size: 32px 32px; transition: filter .25s; }
+    .bp-a:hover .bp-a-c-g { filter: brightness(1.4); }
+    .bp-a-tag { position: absolute; top: 14px; left: 14px; font-family: var(--fm); font-size: 10px; color: var(--ok); letter-spacing: .1em; background: rgba(9,9,9,.7); backdrop-filter: blur(8px); padding: 6px 10px; border: 1px solid var(--line2); }
+    .bp-a-body { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .bp-a-meta { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .06em; display: flex; justify-content: space-between; }
+    .bp-a-t { font-family: var(--fh); font-weight: 700; font-size: 18px; line-height: 1.2; letter-spacing: -.01em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.6em; }
+    .bp-a-d { color: var(--m2); font-size: 14px; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex: 1; }
+    .bp-a-r { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-top: 6px; transition: color .2s, transform .2s; }
+    .bp-a:hover .bp-a-r { color: var(--text); transform: translateX(4px); }
+  </style>
 </head>
 <body>
 
@@ -24,91 +57,129 @@
 
 <div class="page-top">
 
-  <!-- Page hero -->
-  <div class="pg-hero">
-    <div class="wrap">
-      <div class="breadcrumb">
-        <a href="index.html">Главная</a>
-        <span class="sep">/</span>
-        <span class="cur">Блог</span>
+  <!-- ── HERO ── -->
+  <section style="padding-top:0;border-top:none;border-bottom:1px solid var(--line);">
+    <div class="bl-hero">
+      <div class="wrap">
+        <div class="bl-bc">
+          <a href="index.html">Главная</a><span class="sep">/</span><span style="color:var(--text);">Блог</span>
+        </div>
+        <h1 class="bl-hero-h">Блог</h1>
+        <p class="bl-hero-d">Материалы о машинном зрении, автоматизации производства и промышленном AI. Технические разборы и экономика.</p>
       </div>
-      <h1 class="rv" style="margin-bottom:14px;">Блог</h1>
-      <p class="rv d1" style="max-width:520px;">Материалы о машинном зрении, автоматизации производства и промышленном ИИ.</p>
     </div>
-  </div>
+  </section>
 
-  <section class="section">
+  <!-- ── GRID A — 3-col карточки ── -->
+  <section class="section" id="blog">
     <div class="wrap">
+      <div class="section-num">01 / СТАТЬИ</div>
+      <h2 class="section-h" style="margin-bottom:48px;margin-top:16px;">6 материалов</h2>
 
-      <!-- ═══════════════════════════════════════════════════════════════
-           КАК ДОБАВИТЬ НОВУЮ СТАТЬЮ:
-           1. Скопируйте файл /blog/_template.html → /blog/ваш-slug.html
-           2. Заполните контент в новом файле
-           3. Добавьте фото обложки в /assets/blog/ваш-slug/cover.jpg
-           4. Скопируйте блок <a class="bp"> ниже и вставьте его ПЕРЕД
-              существующими статьями (новые — сверху!)
-           5. Обновите href, заголовок, описание, дату и тег
-      ═══════════════════════════════════════════════════════════════ -->
+      <!-- Фильтры -->
+      <div class="fl-bar" id="blog-filters">
+        <span class="fl-l">Тема:</span>
+        <button class="fl-c is-on" data-filter="all">Все <span class="fl-c-c">6</span></button>
+        <button class="fl-c" data-filter="cv">Машинное зрение <span class="fl-c-c">1</span></button>
+        <button class="fl-c" data-filter="economy">Экономика <span class="fl-c-c">1</span></button>
+        <button class="fl-c" data-filter="metal">Металлургия <span class="fl-c-c">1</span></button>
+        <button class="fl-c" data-filter="safety">ОТ · СИЗ <span class="fl-c-c">1</span></button>
+        <button class="fl-c" data-filter="edge">Edge <span class="fl-c-c">1</span></button>
+        <button class="fl-c" data-filter="data">Datasets <span class="fl-c-c">1</span></button>
+      </div>
 
-      <div class="blog-grid" style="gap:18px;">
+      <div class="bg-a" id="blog-grid">
 
-        <!-- ── СТАТЬЯ 1 (образец) ──────────────────────────────── -->
-        <a class="bp rv" href="blog/kak-rabotaet-mashinnoe-zrenie.html">
-          <div class="bp-cover">
-            <!-- Если есть фото: <img src="/assets/blog/kak-rabotaet-mashinnoe-zrenie/cover.jpg" alt="Как работает машинное зрение"> -->
-            <div class="bp-cover-placeholder"></div>
+        <!-- Статья 1 -->
+        <a class="bp-a" href="blog/kak-rabotaet-mashinnoe-zrenie.html" data-topic="cv">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">МАШИННОЕ ЗРЕНИЕ</div>
           </div>
-          <div class="bp-body">
-            <div class="bp-meta">
-              <span class="bp-tag">Машинное зрение</span>
-              <span class="bp-date">28 апреля 2025</span>
-            </div>
-            <div class="bp-title">Как работает машинное зрение на производстве: от камеры до решения</div>
-            <div class="bp-desc">Разбираем полный цикл — захват изображения, нейросетевая обработка, классификация дефектов и интеграция с МЭС/SCADA.</div>
-            <div class="bp-read">Читать статью →</div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>28 апр 2025</span><span>12 мин</span></div>
+            <div class="bp-a-t">Как работает машинное зрение на производстве: от камеры до решения</div>
+            <div class="bp-a-d">Полный цикл — захват изображения, нейросетевая обработка, классификация дефектов и интеграция с MES/SCADA.</div>
+            <div class="bp-a-r">Дмитрий Новиков →</div>
           </div>
         </a>
-        <!-- ── КОНЕЦ СТАТЬИ 1 ─────────────────────────────────── -->
 
-        <!-- ── СТАТЬЯ 2 (образец) ──────────────────────────────── -->
-        <a class="bp rv d1" href="blog/roi-mashinnogo-zreniya.html">
-          <div class="bp-cover">
-            <div class="bp-cover-placeholder"></div>
+        <!-- Статья 2 -->
+        <a class="bp-a" href="blog/roi-mashinnogo-zreniya.html" data-topic="economy">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">ЭКОНОМИКА</div>
           </div>
-          <div class="bp-body">
-            <div class="bp-meta">
-              <span class="bp-tag">Экономика</span>
-              <span class="bp-date">15 апреля 2025</span>
-            </div>
-            <div class="bp-title">ROI машинного зрения: как считать окупаемость для вашего производства</div>
-            <div class="bp-desc">Методика расчёта ROI, типовые статьи затрат и экономии, реальные цифры из наших проектов.</div>
-            <div class="bp-read">Читать статью →</div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>15 апр 2025</span><span>9 мин</span></div>
+            <div class="bp-a-t">ROI машинного зрения: как считать окупаемость для производства</div>
+            <div class="bp-a-d">Методика расчёта ROI, типовые статьи затрат и экономии, реальные цифры из наших проектов.</div>
+            <div class="bp-a-r">Илья Ковалёв →</div>
           </div>
         </a>
-        <!-- ── КОНЕЦ СТАТЬИ 2 ─────────────────────────────────── -->
 
-        <!-- ── СТАТЬЯ 3 (образец) ──────────────────────────────── -->
-        <a class="bp rv d2" href="blog/defekty-metalla-klassifikatsiya.html">
-          <div class="bp-cover">
-            <div class="bp-cover-placeholder"></div>
+        <!-- Статья 3 -->
+        <a class="bp-a" href="blog/defekty-metalla-klassifikatsiya.html" data-topic="metal">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">МЕТАЛЛУРГИЯ</div>
           </div>
-          <div class="bp-body">
-            <div class="bp-meta">
-              <span class="bp-tag">Металлургия</span>
-              <span class="bp-date">3 апреля 2025</span>
-            </div>
-            <div class="bp-title">Дефекты металлопроката: классификация и методы автоматического обнаружения</div>
-            <div class="bp-desc">Систематизируем типы дефектов поверхности и объясняем, какие алгоритмы зрения справляются с каждым видом.</div>
-            <div class="bp-read">Читать статью →</div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>3 апр 2025</span><span>15 мин</span></div>
+            <div class="bp-a-t">Дефекты металлопроката: классификация и методы автоматического обнаружения</div>
+            <div class="bp-a-d">Систематизируем типы дефектов поверхности и алгоритмы зрения, которые справляются с каждым видом.</div>
+            <div class="bp-a-r">Дмитрий Новиков →</div>
           </div>
         </a>
-        <!-- ── КОНЕЦ СТАТЬИ 3 ─────────────────────────────────── -->
+
+        <!-- Статья 4 -->
+        <a class="bp-a" href="#" data-topic="safety">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">ОТ · СИЗ</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>22 мар 2025</span><span>10 мин</span></div>
+            <div class="bp-a-t">Контроль СИЗ камерами: что считается, как внедрять, юридические аспекты</div>
+            <div class="bp-a-d">Какие нарушения детектируем, как оформить с учётом ТК РФ, типовые ошибки внедрения.</div>
+            <div class="bp-a-r">Елена Петрова →</div>
+          </div>
+        </a>
+
+        <!-- Статья 5 -->
+        <a class="bp-a" href="#" data-topic="edge">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">EDGE</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>14 мар 2025</span><span>11 мин</span></div>
+            <div class="bp-a-t">Edge-инференс на производстве: NVIDIA Jetson против обычного сервера</div>
+            <div class="bp-a-d">Сравниваем производительность, стоимость и надёжность edge-устройств vs серверной инсталляции.</div>
+            <div class="bp-a-r">Артём Лебедев →</div>
+          </div>
+        </a>
+
+        <!-- Статья 6 -->
+        <a class="bp-a" href="#" data-topic="data">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">DATASETS</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>2 мар 2025</span><span>8 мин</span></div>
+            <div class="bp-a-t">Сбор датасета на новом производстве: 5 типовых ошибок</div>
+            <div class="bp-a-d">Чек-лист сбора и разметки данных под промышленное CV, исходя из 100+ проектов.</div>
+            <div class="bp-a-r">Ольга Морозова →</div>
+          </div>
+        </a>
 
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding:0 0 120px;border:none;">
+  <!-- ── CTA ── -->
+  <section class="section" style="padding:64px 0;border-bottom:none;">
     <div class="wrap">
       <div class="cta-strip rv">
         <h2>Есть вопрос по вашему производству?</h2>
@@ -117,7 +188,7 @@
     </div>
   </section>
 
-</div>
+</div><!-- /.page-top -->
 
 <div id="footer-root"></div>
 
@@ -127,5 +198,26 @@
 <script>
   initComponents();
   initPage();
+
+  // Фильтрация блога
+  (function() {
+    var btns = document.querySelectorAll('#blog-filters .fl-c');
+    var cards = document.querySelectorAll('#blog-grid .bp-a');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        btns.forEach(function(b) { b.classList.remove('is-on'); });
+        btn.classList.add('is-on');
+        var f = btn.dataset.filter;
+        cards.forEach(function(card) {
+          if (f === 'all' || card.dataset.topic === f) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
 </script>
-</bo
+</body>
+</html>

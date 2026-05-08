@@ -5,11 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Типовые задачи — ИТиС ЛАБ</title>
   <meta name="description" content="Типовые задачи автоматизации производства, которые решает ИТиС ЛАБ: контроль качества, дефектоскопия, идентификация, сортировка.">
+  <link rel="canonical" href="https://lab-itis.ru/tasks.html">
+  <meta property="og:title" content="Типовые задачи — ИТиС ЛАБ">
+  <meta property="og:description" content="Задачи машинного зрения для промышленности: контроль качества, СИЗ, учёт, эффективность.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lab-itis.ru/tasks.html">
+  <meta property="og:image" content="https://lab-itis.ru/assets/images/og-default.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* === TASKS HERO === */
+    .tk-hero { padding: 80px 0 56px; border-bottom: 1px solid var(--line); }
+    .tk-bc { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-bottom: 36px; }
+    .tk-bc a { color: var(--m2); } .tk-bc .sep { margin: 0 10px; color: var(--line2); }
+    .tk-hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: end; }
+    @media(max-width:920px) { .tk-hero-grid { grid-template-columns: 1fr; gap: 36px; } }
+    .tk-hero-h { font-family: var(--fh); font-weight: 900; font-size: clamp(44px,7vw,96px); line-height: .94; letter-spacing: -.04em; margin-bottom: 24px; }
+    .tk-hero-d { max-width: 560px; font-size: 17px; color: var(--m2); line-height: 1.6; }
+    .tk-hero-stats { display: grid; grid-template-columns: 1fr 1fr; border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+    .tk-hero-st { padding: 20px 22px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
+    .tk-hero-st .v { font-family: var(--fh); font-weight: 800; font-size: 32px; letter-spacing: -.025em; line-height: 1; }
+    .tk-hero-st .l { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .06em; margin-top: 8px; }
+
+    /* === FILTERS === */
+    .gf { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; align-items: center; }
+    .gf-l { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .1em; text-transform: uppercase; margin-right: 12px; }
+    .gf-c { padding: 9px 16px; font-family: var(--fm); font-size: 11px; color: var(--m2); letter-spacing: .05em; background: var(--s1); border: 1px solid var(--line); cursor: pointer; transition: all .15s; }
+    .gf-c:hover { background: var(--s2); color: var(--text); }
+    .gf-c.is-on { background: var(--text); color: #000; border-color: var(--text); }
+
+    /* === GRID A — bento task cards === */
+    .ga { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    @media(max-width:1000px) { .ga { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:600px) { .ga { grid-template-columns: 1fr; } }
+    .ta { background: var(--s1); padding: 32px 28px 28px; display: flex; flex-direction: column; gap: 14px; cursor: pointer; transition: background .2s; min-height: 300px; position: relative; overflow: hidden; text-decoration: none; color: inherit; }
+    .ta:hover { background: var(--s2); }
+    .ta-num { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; display: flex; justify-content: space-between; }
+    .ta-num .cat { color: var(--ok); }
+    .ta-h { font-family: var(--fh); font-weight: 700; font-size: 19px; letter-spacing: -.01em; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .ta-d { color: var(--m2); font-size: 13.5px; line-height: 1.55; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .ta-metric { display: flex; align-items: baseline; gap: 8px; padding-top: 12px; border-top: 1px solid var(--line); }
+    .ta-metric .v { font-family: var(--fh); font-weight: 800; font-size: 22px; letter-spacing: -.02em; color: var(--ok); }
+    .ta-metric .l { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .06em; }
+    .ta-r { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; transition: color .2s, transform .2s; }
+    .ta:hover .ta-r { color: var(--ok); transform: translateX(4px); }
+
+    /* CTA bar */
+    .cta-bar { padding: 48px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .cta-bar-h { font-family: var(--fh); font-weight: 800; font-size: clamp(20px,2.4vw,28px); letter-spacing: -.015em; line-height: 1.2; max-width: 24ch; }
+    .cta-btn-ok { display: inline-flex; align-items: center; gap: 12px; padding: 18px 28px; background: var(--ok); color: #000; font-family: var(--fm); font-size: 11.5px; font-weight: 600; letter-spacing: .1em; cursor: pointer; transition: transform .15s; border: none; text-decoration: none; }
+    .cta-btn-ok:hover { transform: translateX(4px); }
+  </style>
 </head>
 <body>
 
@@ -17,33 +66,139 @@
 <div id="modals-root"></div>
 
 <div class="page-top">
-  <div class="pg-hero">
-    <div class="wrap">
-      <div class="breadcrumb">
-        <a href="index.html">Главная</a>
-        <span class="sep">/</span>
-        <span class="cur">Типовые задачи</span>
-      </div>
-      <h1 class="rv" style="margin-bottom:14px;">Типовые задачи</h1>
-      <p class="rv d1" style="max-width:520px;">Решения для стандартных производственных задач — от контроля качества до управления потоками.</p>
-    </div>
-  </div>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="g3 rv" id="tasksGrid"></div>
-    </div>
-  </section>
-
-  <section class="section" style="padding:0 0 120px;border:none;">
-    <div class="wrap">
-      <div class="cta-strip rv">
-        <h2>Не нашли свою задачу? Обсудим индивидуально</h2>
-        <button class="btn btn-w" onclick="openForm('simple')">Описать задачу</button>
+  <!-- ── HERO — split с мини-статами ── -->
+  <section style="padding-top:0;border-top:none;">
+    <div class="tk-hero">
+      <div class="wrap">
+        <div class="tk-bc">
+          <a href="index.html">Главная</a><span class="sep">/</span><span style="color:var(--text);">Типовые задачи</span>
+        </div>
+        <div class="tk-hero-grid">
+          <div>
+            <h1 class="tk-hero-h">Задачи, которые мы решаем зрением</h1>
+            <p class="tk-hero-d">9 типовых сценариев. От поверхностных дефектов до контроля СИЗ — все они работают на одном движке и одной инфраструктуре.</p>
+          </div>
+          <div class="tk-hero-stats">
+            <div class="tk-hero-st"><div class="v">9</div><div class="l">ЗАДАЧ</div></div>
+            <div class="tk-hero-st"><div class="v">4</div><div class="l">КАТЕГОРИИ</div></div>
+            <div class="tk-hero-st"><div class="v">97%</div><div class="l">ТОЧНОСТЬ ср.</div></div>
+            <div class="tk-hero-st"><div class="v">7 мес</div><div class="l">ОКУПАЕМОСТЬ</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-</div>
+
+  <!-- ── GRID A — bento карточки ── -->
+  <section class="section" id="tasks">
+    <div class="wrap">
+      <div class="section-num">01 / ТИПОВЫЕ ЗАДАЧИ</div>
+      <h2 class="section-h" style="margin-bottom:48px;margin-top:16px;">9 сценариев</h2>
+
+      <!-- Фильтры -->
+      <div class="gf" id="tasks-filters">
+        <span class="gf-l">Категория:</span>
+        <button class="gf-c is-on" data-filter="all">Все · 9</button>
+        <button class="gf-c" data-filter="quality">Качество · 3</button>
+        <button class="gf-c" data-filter="safety">Безопасность · 3</button>
+        <button class="gf-c" data-filter="accounting">Учёт · 2</button>
+        <button class="gf-c" data-filter="efficiency">Эффективность · 1</button>
+      </div>
+
+      <div class="ga" id="tasks-grid">
+
+        <!-- 01 Качество -->
+        <a class="ta" href="#" data-cat="quality">
+          <div class="ta-num"><span>/ 01</span><span class="cat">КАЧЕСТВО</span></div>
+          <div class="ta-h">Контроль дефектов поверхности проката</div>
+          <div class="ta-d">Детекция царапин, плён, рисок, вмятин на горячекатаном и холоднокатаном прокате на скоростях до 12 м/с.</div>
+          <div class="ta-metric"><span class="v">97.2%</span><span class="l">ТОЧНОСТЬ</span></div>
+          <div class="ta-r">КЕЙСЫ С ЗАДАЧЕЙ →</div>
+        </a>
+
+        <!-- 02 Безопасность -->
+        <a class="ta" href="#" data-cat="safety">
+          <div class="ta-num"><span>/ 02</span><span class="cat">БЕЗОПАСНОСТЬ</span></div>
+          <div class="ta-h">Контроль СИЗ в опасных зонах</div>
+          <div class="ta-d">Каска, очки, жилет, перчатки, обувь. Учёт по ТК РФ, нотификация мастера, журнал нарушений.</div>
+          <div class="ta-metric"><span class="v">8 мес</span><span class="l">ОКУПАЕМОСТЬ</span></div>
+          <div class="ta-r">КЕЙСЫ С ЗАДАЧЕЙ →</div>
+        </a>
+
+        <!-- 03 Учёт -->
+        <a class="ta" href="#" data-cat="accounting">
+          <div class="ta-num"><span>/ 03</span><span class="cat">УЧЁТ</span></div>
+          <div class="ta-h">Учёт палет и SKU без сканеров</div>
+          <div class="ta-d">Распознавание палет на доках и в зонах хранения. Интеграция с WMS по REST/RFID-fallback.</div>
+          <div class="ta-metric"><span class="v">99.0%</span><span class="l">ТОЧНОСТЬ</span></div>
+          <div class="ta-r">КЕЙСЫ С ЗАДАЧЕЙ →</div>
+        </a>
+
+        <!-- 04 Качество -->
+        <a class="ta" href="#" data-cat="quality">
+          <div class="ta-num"><span>/ 04</span><span class="cat">КАЧЕСТВО</span></div>
+          <div class="ta-h">Контроль маркировки и сроков</div>
+          <div class="ta-d">OCR этикетки, проверка дат, серий, штрих-кодов. Соответствие HACCP/ГОСТ.</div>
+          <div class="ta-metric"><span class="v">99.4%</span><span class="l">OCR</span></div>
+          <div class="ta-r">КЕЙСЫ С ЗАДАЧЕЙ →</div>
+        </a>
+
+        <!-- 05 Безопасность -->
+        <a class="ta" href="#" data-cat="safety">
+          <div class="ta-num"><span>/ 05</span><span class="cat">БЕЗОПАСНОСТЬ</span></div>
+          <div class="ta-h">Детекция пламени и дыма</div>
+          <div class="ta-d">ATEX-исполнение для нефтегаза. Реакция за 3 секунды, fallback на тепловизор.</div>
+          <div class="ta-metric"><span class="v">3 сек</span><span class="l">РЕАКЦИЯ</span></div>
+          <div class="ta-r">КЕЙСЫ С ЗАДАЧЕЙ →</div>
+        </a>
+
+        <!-- 06 Эффективность -->
+        <a class="ta" href="#" data-cat="efficiency">
+          <div class="ta-num"><span>/ 06</span><span class="cat">ЭФФЕКТИВНОСТЬ</span></div>
+          <div class="ta-h">OEE и простой техники</div>
+          <div class="ta-d">Распознавание состояний оборудования по визуальному поведению. Учёт переналадок.</div>
+          <div class="ta-metric"><span class="v">+11 п.п.</span><span class="l">OEE</span></div>
+          <div class="ta-r">КЕЙСЫ С ЗАДАЧЕЙ →</div>
+        </a>
+
+        <!-- 07 Качество -->
+        <a class="ta" href="#" data-cat="quality">
+          <div class="ta-num"><span>/ 07</span><span class="cat">КАЧЕСТВО</span></div>
+          <div class="ta-h">Геометрия сварных швов</div>
+          <div class="ta-d">3D-сканирование шва, классификация по типам дефектов: поры, подрезы, трещины.</div>
+          <div class="ta-metric"><span class="v">96.8%</span><span class="l">ТОЧНОСТЬ</span></div>
+          <div class="ta-r">КЕЙСЫ С ЗАДАЧЕЙ →</div>
+        </a>
+
+        <!-- 08 Учёт -->
+        <a class="ta" href="#" data-cat="accounting">
+          <div class="ta-num"><span>/ 08</span><span class="cat">УЧЁТ</span></div>
+          <div class="ta-h">Распознавание автотранспорта на КПП</div>
+          <div class="ta-d">Номера, типы ТС, водитель, отметка о визите. Интеграция с СКУД.</div>
+          <div class="ta-metric"><span class="v">99.8%</span><span class="l">РАСПОЗН.</span></div>
+          <div class="ta-r">КЕЙСЫ С ЗАДАЧЕЙ →</div>
+        </a>
+
+        <!-- 09 Безопасность -->
+        <a class="ta" href="#" data-cat="safety">
+          <div class="ta-num"><span>/ 09</span><span class="cat">БЕЗОПАСНОСТЬ</span></div>
+          <div class="ta-h">Контроль присутствия в опасных зонах</div>
+          <div class="ta-d">Зоны как полигоны. Авто-стоп оборудования при входе человека. PSR-сертификация.</div>
+          <div class="ta-metric"><span class="v">&lt; 1 с</span><span class="l">СТОП</span></div>
+          <div class="ta-r">КЕЙСЫ С ЗАДАЧЕЙ →</div>
+        </a>
+
+      </div>
+
+      <div class="cta-bar">
+        <div class="cta-bar-h">Не нашли свою задачу? Опишите её — соберём пилот за 2 недели.</div>
+        <a class="cta-btn-ok" href="#" onclick="openForm('simple');return false;">ОБСУДИТЬ ЗАДАЧУ →</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /.page-top -->
 
 <div id="footer-root"></div>
 
@@ -53,4 +208,26 @@
 <script>
   initComponents();
   initPage();
+
+  // Фильтрация задач
+  (function() {
+    var btns = document.querySelectorAll('#tasks-filters .gf-c');
+    var cards = document.querySelectorAll('#tasks-grid .ta');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        btns.forEach(function(b) { b.classList.remove('is-on'); });
+        btn.classList.add('is-on');
+        var f = btn.dataset.filter;
+        cards.forEach(function(card) {
+          if (f === 'all' || card.dataset.cat === f) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
 </script>
+</body>
+</html>

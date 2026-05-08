@@ -17,14 +17,54 @@
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* About page specific */
-    .about-photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 48px; }
-    @media(max-width:900px){ .about-photos { grid-template-columns: repeat(2,1fr); } }
-    @media(max-width:540px){ .about-photos { grid-template-columns: 1fr; } }
-    .about-photo { aspect-ratio: 3/4; background: var(--s2); position: relative; overflow: hidden; }
-    .about-photo-inner { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 28px 28px; display: flex; align-items: flex-end; padding: 16px; }
-    .about-photo-label { font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: 0.06em; }
-    .about-section-title { font-family: var(--fh); font-size: clamp(32px,4vw,64px); font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 8px; }
+    /* === HERO C (about) === */
+    .hr-c { padding: 120px 0 80px; text-align: center; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+    .hr-c::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle at 50% 30%, rgba(74,222,128,.04), transparent 60%); pointer-events: none; }
+    .hr-c-tag { font-family: var(--fm); font-size: 11px; color: var(--ok); letter-spacing: .15em; margin-bottom: 28px; position: relative; }
+    .hr-c-h { font-family: var(--fh); font-weight: 900; font-size: clamp(40px,5.5vw,84px); line-height: 1.05; letter-spacing: -.03em; max-width: 980px; margin: 0 auto 32px; position: relative; }
+    .hr-c-h em { font-style: normal; color: var(--ok); }
+    .hr-c-d { max-width: 620px; margin: 0 auto; font-size: 17px; color: var(--m2); line-height: 1.6; position: relative; }
+
+    /* === STORY A timeline === */
+    .st-a-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+    @media(max-width:920px) { .st-a-grid { grid-template-columns: 1fr; gap: 36px; } }
+    .st-a-side h2 { font-family: var(--fh); font-weight: 800; font-size: clamp(28px,3vw,44px); line-height: 1.05; letter-spacing: -.025em; margin-bottom: 20px; }
+    .st-a-side .lead { color: var(--m2); font-size: 16px; line-height: 1.65; }
+    .st-a-list { position: relative; padding-left: 32px; }
+    .st-a-list::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 1px; background: var(--line2); }
+    .st-a-event { position: relative; padding-bottom: 42px; }
+    .st-a-event:last-child { padding-bottom: 0; }
+    .st-a-event::before { content: ""; position: absolute; left: -29px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); border: 2px solid var(--m2); }
+    .st-a-event.ok::before { border-color: var(--ok); background: var(--ok); }
+    .st-a-event-y { font-family: var(--fm); font-size: 11px; color: var(--ok); letter-spacing: .1em; margin-bottom: 6px; }
+    .st-a-event-h { font-family: var(--fh); font-weight: 700; font-size: 18px; line-height: 1.25; letter-spacing: -.01em; margin-bottom: 8px; }
+    .st-a-event-d { color: var(--m2); font-size: 14px; line-height: 1.6; max-width: 520px; }
+
+    /* === PRINCIPLES === */
+    .st-c-h { font-family: var(--fh); font-weight: 800; font-size: clamp(28px,3vw,44px); line-height: 1.05; letter-spacing: -.025em; margin-bottom: 48px; max-width: 780px; }
+    .st-c-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; }
+    @media(max-width:840px) { .st-c-grid { grid-template-columns: 1fr; } }
+    .st-c-card { background: var(--s1); padding: 40px 36px; display: flex; flex-direction: column; gap: 18px; transition: background .2s; min-height: 280px; }
+    .st-c-card:hover { background: var(--s2); }
+    .st-c-card-n { font-family: var(--fh); font-weight: 900; font-size: 48px; letter-spacing: -.04em; color: var(--ok); line-height: 1; }
+    .st-c-card-h { font-family: var(--fh); font-weight: 700; font-size: 22px; line-height: 1.2; letter-spacing: -.015em; }
+    .st-c-card-d { color: var(--m2); font-size: 14.5px; line-height: 1.6; }
+    .st-c-card-d strong { color: var(--text); font-weight: 600; }
+
+    /* === TEAM C === */
+    .tm-c-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
+    @media(max-width:920px) { .tm-c-grid { grid-template-columns: 1fr; gap: 36px; } }
+    .tm-c-photo { aspect-ratio: 3/2; background: var(--s2); position: relative; overflow: hidden; }
+    .tm-c-photo-inner { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size: 32px 32px; display: flex; align-items: flex-end; padding: 24px; }
+    .tm-c-photo-l { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .06em; }
+    .tm-c-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; background: var(--line); }
+    .tm-c-stat { background: var(--bg); padding: 32px 24px; }
+    .tm-c-stat .v { font-family: var(--fh); font-weight: 900; font-size: clamp(36px,4vw,52px); letter-spacing: -.04em; line-height: 1; margin-bottom: 10px; }
+    .tm-c-stat .v.ok { color: var(--ok); }
+    .tm-c-stat .l { font-size: 13px; color: var(--m2); line-height: 1.4; }
+    .tm-c-roles-l { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .1em; margin: 24px 0 14px; text-transform: uppercase; }
+    .tm-c-roles { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tm-c-roles span { font-family: var(--fm); font-size: 11px; color: var(--m2); background: var(--s1); padding: 7px 12px; border: 1px solid var(--line); }
   </style>
 </head>
 <body>
@@ -33,54 +73,128 @@
 <div id="modals-root"></div>
 
 <div class="page-top">
-  <div class="pg-hero">
-    <div class="wrap">
-      <div class="breadcrumb">
-        <a href="index.html">Главная</a>
-        <span class="sep">/</span>
-        <span class="cur">О нас</span>
-      </div>
-      <h1 class="rv" style="margin-bottom:14px;">О нас</h1>
-      <p class="rv d1" style="max-width:600px;font-size:17px;">ИТиС ЛАБ — команда, которая внедряет AI в производство: от пилота до промышленной эксплуатации.</p>
-    </div>
-  </div>
 
-  <!-- ── О НАС ── -->
-  <section class="section" id="about-us">
-    <div class="wrap">
-      <div class="rv">
-        <div class="about-section-title">О нас</div>
+  <!-- ── HERO C — манифест ── -->
+  <section style="padding-top:0;border-top:none;">
+    <div class="hr-c">
+      <div class="wrap">
+        <div class="hr-c-tag">/ КТО МЫ</div>
+        <h1 class="hr-c-h">Мы строим машинное зрение, которое <em>работает в цеху</em> и окупается за 8–14 месяцев</h1>
+        <p class="hr-c-d">ИТиС ЛАБ — команда из 8 человек: ML-инженеры, разработчики железа, продакт. С 2024 года внедряем CV на металл, фарму, склад и логистику.</p>
       </div>
-      <p class="rv d1" style="max-width:720px;font-size:17px;margin-top:24px;">Мы помогаем предприятиям снижать брак, усиливать контроль качества и повышать устойчивость линий через автоматизацию производства. Проект стартовал в 2024 как студенческое инженерное бюро, в 2025 оформлен как ООО. Сейчас в портфеле — внедрения для реальных производственных задач.</p>
-      <div class="about-photos rv d2">
-        <div class="about-photo">
-          <div class="about-photo-inner">
-            <span class="about-photo-label">Фото 01 — Офис</span>
-          </div>
+    </div>
+  </section>
+
+  <!-- ── ИСТОРИЯ — вертикальный таймлайн ── -->
+  <section class="section" id="story">
+    <div class="wrap">
+      <div class="section-num">01 / ИСТОРИЯ</div>
+      <div class="st-a-grid" style="margin-top:48px;">
+        <div class="st-a-side">
+          <h2>История компании</h2>
+          <p class="lead">Из студенческого инженерного бюро — в команду, которая ставит CV-системы на металл, фарму и склад.</p>
         </div>
-        <div class="about-photo">
-          <div class="about-photo-inner">
-            <span class="about-photo-label">Фото 02 — Лаборатория</span>
+        <div class="st-a-list">
+          <div class="st-a-event ok">
+            <div class="st-a-event-y">2024</div>
+            <div class="st-a-event-h">Старт в СКБ</div>
+            <div class="st-a-event-d">Проект стартовал как студенческое инженерное бюро при кафедре ИТиС. Первые гипотезы и пилоты под малый промышленный заказ.</div>
           </div>
-        </div>
-        <div class="about-photo">
-          <div class="about-photo-inner">
-            <span class="about-photo-label">Фото 03 — Производство</span>
+          <div class="st-a-event">
+            <div class="st-a-event-y">2024</div>
+            <div class="st-a-event-h">Первое внедрение</div>
+            <div class="st-a-event-d">Контроль качества на металлургическом производстве: детекция поверхностных дефектов проката в потоке.</div>
           </div>
-        </div>
-        <div class="about-photo">
-          <div class="about-photo-inner">
-            <span class="about-photo-label">Фото 04 — Команда</span>
+          <div class="st-a-event">
+            <div class="st-a-event-y">2025</div>
+            <div class="st-a-event-h">Регистрация ООО</div>
+            <div class="st-a-event-d">Оформление как самостоятельной компании. Партнёрства с НИИ и промышленными вузами по НИОКР.</div>
+          </div>
+          <div class="st-a-event">
+            <div class="st-a-event-y">2025</div>
+            <div class="st-a-event-h">Грантовые программы</div>
+            <div class="st-a-event-d">Участие в Сколково и НТИ. Расширение R&D, разработка собственных архитектур моделей под edge-устройства.</div>
+          </div>
+          <div class="st-a-event">
+            <div class="st-a-event-y">2026</div>
+            <div class="st-a-event-h">Тиражирование</div>
+            <div class="st-a-event-d">Переход от пилотов к промышленной эксплуатации. Сейчас — 100+ объектов в 18 отраслях.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── НАША МИССИЯ ── -->
-  <section class="section" id="about-mission">
+  <!-- ── ПРИНЦИПЫ ── -->
+  <section class="section" id="principles">
     <div class="wrap">
-      <div class="rv">
-        <div class="about-section-title">Наша миссия</div>
+      <div class="section-num">02 / ПРИНЦИПЫ</div>
+      <h2 class="st-c-h" style="margin-top:16px;">Принципы, по которым мы делаем проекты</h2>
+      <div class="st-c-grid">
+        <div class="st-c-card">
+          <div class="st-c-card-n">01</div>
+          <div class="st-c-card-h">Решение под цех, не под слайды</div>
+          <div class="st-c-card-d">Мы не делаем демо-моделей «которые когда-нибудь поедут в прод». Каждый проект — <strong>сразу под промышленную эксплуатацию</strong>: edge-инференс, отказоустойчивость, SLA.</div>
+        </div>
+        <div class="st-c-card">
+          <div class="st-c-card-n">02</div>
+          <div class="st-c-card-h">ROI — на этапе пилота</div>
+          <div class="st-c-card-d">Считаем окупаемость до старта. Если пилот за 2 недели не подтверждает экономику — закрываем проект и возвращаем деньги. <strong>8–14 месяцев</strong> — типовая окупаемость.</div>
+        </div>
+        <div class="st-c-card">
+          <div class="st-c-card-n">03</div>
+          <div class="st-c-card-h">Своя архитектура, не «обёртки»</div>
+          <div class="st-c-card-d">Не навешиваем слой UI на YOLO «как оно есть». Под каждую задачу — своя архитектура, оптимизированная под класс дефектов и железо клиента.</div>
+        </div>
+        <div class="st-c-card">
+          <div class="st-c-card-n">04</div>
+          <div class="st-c-card-h">Передача компетенций заказчику</div>
+          <div class="st-c-card-d">Документация, обучение операторов и инженеров заказчика. После проекта система <strong>работает без нас</strong> и развивается силами команды клиента.</div>
+        </div>
       </div>
-      <p class="rv d1" style="max-width:700px;font-size:17px;margin-top:24px;">Наша миссия — делать AI / производство рабочим инструментом для цеха, а не демонстрацией ради демонстрации. Мы проектируем решения под реальную технологическую цепоч
+    </div>
+  </section>
+
+  <!-- ── КОМАНДА C ── -->
+  <section class="section" id="team">
+    <div class="wrap" style="margin-bottom:48px;">
+      <div class="section-num">03 / КОМАНДА</div>
+      <h2 class="section-h">Кто стоит за проектами</h2>
+    </div>
+    <div class="wrap">
+      <div class="tm-c-grid">
+        <div class="tm-c-photo">
+          <div class="tm-c-photo-inner">
+            <div class="tm-c-photo-l">Команда · Санкт-Петербург · 2026</div>
+          </div>
+        </div>
+        <div>
+          <div class="tm-c-stats">
+            <div class="tm-c-stat"><div class="v ok">8</div><div class="l">человек в команде</div></div>
+            <div class="tm-c-stat"><div class="v">5+</div><div class="l">средний опыт в годах</div></div>
+            <div class="tm-c-stat"><div class="v ok">3</div><div class="l">PhD по CV / ML</div></div>
+            <div class="tm-c-stat"><div class="v">100%</div><div class="l">фуллтайм, в офисе</div></div>
+          </div>
+          <div class="tm-c-roles-l">Роли в команде</div>
+          <div class="tm-c-roles">
+            <span>CEO · CTO</span>
+            <span>Lead ML Engineer</span>
+            <span>Industrial Designer</span>
+            <span>Hardware Engineer</span>
+            <span>Project Manager</span>
+            <span>Backend Engineer</span>
+            <span>Data Engineer</span>
+            <span>DevOps · MLOps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /.page-top -->
+
+<div id="footer-root"></div>
+
+<script src="js/components.js"></script>
+</body>
+</html>

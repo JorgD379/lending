@@ -16,6 +16,51 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* === HERO B (cases) === */
+    .cs-hero { padding: 80px 0 56px; border-bottom: 1px solid var(--line); }
+    .cs-bc { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-bottom: 36px; }
+    .cs-bc a { color: var(--m2); } .cs-bc .sep { margin: 0 10px; color: var(--line2); }
+    .cs-hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end; }
+    @media(max-width:920px) { .cs-hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .cs-hero-h { font-family: var(--fh); font-weight: 900; font-size: clamp(44px,6vw,84px); line-height: .95; letter-spacing: -.04em; margin-bottom: 22px; }
+    .cs-hero-d { max-width: 520px; font-size: 16px; color: var(--m2); line-height: 1.6; }
+    .cs-hero-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .cs-hero-stat { padding: 24px 0; border-right: 1px solid var(--line); padding-right: 24px; }
+    .cs-hero-stat:last-child { border-right: 0; padding-left: 24px; padding-right: 0; }
+    .cs-hero-stat:nth-child(3) { border-right: 1px solid var(--line); padding-left: 0; padding-right: 24px; }
+    .cs-hero-stat .v { font-family: var(--fh); font-weight: 900; font-size: 36px; letter-spacing: -.03em; line-height: 1; margin-bottom: 8px; }
+    .cs-hero-stat .v.ok { color: var(--ok); }
+    .cs-hero-stat .l { font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: .08em; text-transform: uppercase; }
+
+    /* === FILTERS === */
+    .fl-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 48px; }
+    .fl-l { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .1em; text-transform: uppercase; margin-right: 12px; }
+    .fl-c { padding: 9px 16px; font-family: var(--fm); font-size: 11px; color: var(--m2); letter-spacing: .05em; background: var(--s1); border: 1px solid var(--line); transition: all .15s; cursor: pointer; }
+    .fl-c:hover { background: var(--s2); color: var(--text); }
+    .fl-c.is-on { background: var(--text); color: #000; border-color: var(--text); }
+    .fl-c-c { margin-left: 6px; color: inherit; opacity: .5; }
+
+    /* === GRID A — 3-col cards === */
+    .gr-a { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    @media(max-width:1000px) { .gr-a { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:600px) { .gr-a { grid-template-columns: 1fr; } }
+    .gr-a-c { background: var(--s1); display: flex; flex-direction: column; cursor: pointer; transition: background .2s; text-decoration: none; color: inherit; }
+    .gr-a-c:hover { background: var(--s2); }
+    .gr-a-c-img { aspect-ratio: 4/3; background: var(--s2); position: relative; overflow: hidden; }
+    .gr-a-c-img-g { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size: 32px 32px; transition: filter .25s; }
+    .gr-a-c:hover .gr-a-c-img-g { filter: brightness(1.4); }
+    .gr-a-c-badge { position: absolute; top: 14px; left: 14px; font-family: var(--fm); font-size: 10px; color: var(--ok); letter-spacing: .1em; background: rgba(9,9,9,.7); backdrop-filter: blur(8px); padding: 6px 10px; border: 1px solid var(--line2); }
+    .gr-a-c-body { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .gr-a-c-t { font-family: var(--fh); font-weight: 700; font-size: 18px; line-height: 1.2; letter-spacing: -.01em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.4em; }
+    .gr-a-c-d { color: var(--m2); font-size: 14px; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex: 1; }
+    .gr-a-c-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; border-top: 1px solid var(--line); padding-top: 16px; margin-top: 6px; }
+    .gr-a-c-stat .v { font-family: var(--fh); font-weight: 700; font-size: 18px; letter-spacing: -.02em; line-height: 1; margin-bottom: 4px; }
+    .gr-a-c-stat .v.ok { color: var(--ok); }
+    .gr-a-c-stat .l { font-family: var(--fm); font-size: 9.5px; color: var(--m); letter-spacing: .08em; }
+    .gr-a-c-arr { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-top: 6px; transition: color .2s, transform .2s; }
+    .gr-a-c:hover .gr-a-c-arr { color: var(--text); transform: translateX(4px); }
+  </style>
 </head>
 <body>
 
@@ -23,78 +68,148 @@
 <div id="modals-root"></div>
 
 <div class="page-top">
-  <div class="pg-hero">
-    <div class="wrap">
-      <div class="breadcrumb">
-        <a href="index.html">Главная</a>
-        <span class="sep">/</span>
-        <span class="cur">Кейсы</span>
+
+  <!-- ── HERO B — split с метриками ── -->
+  <section style="padding-top:0;border-top:none;">
+    <div class="cs-hero">
+      <div class="wrap">
+        <div class="cs-bc">
+          <a href="index.html">Главная</a><span class="sep">/</span><span style="color:var(--text);">Кейсы</span>
+        </div>
+        <div class="cs-hero-grid">
+          <div>
+            <h1 class="cs-hero-h">Что мы уже сделали для промышленности</h1>
+            <p class="cs-hero-d">Каждый кейс — реальный проект с измеримой экономикой. Без «успешных кейсов» в кавычках.</p>
+          </div>
+          <div class="cs-hero-stats">
+            <div class="cs-hero-stat"><div class="v ok">6+</div><div class="l">кейсов в базе</div></div>
+            <div class="cs-hero-stat"><div class="v">6</div><div class="l">отраслей</div></div>
+            <div class="cs-hero-stat"><div class="v ok">8–14</div><div class="l">мес окупаемость</div></div>
+            <div class="cs-hero-stat"><div class="v">100%</div><div class="l">в проде</div></div>
+          </div>
+        </div>
       </div>
-      <h1 class="rv" style="margin-bottom:14px;">Кейсы</h1>
-      <p class="rv d1" style="max-width:520px;">Реализованные проекты — от пилотного тестирования до промышленного внедрения.</p>
     </div>
-  </div>
+  </section>
 
-  <section class="section">
+  <!-- ── GRID A — 3-col карточки с метриками ── -->
+  <section class="section" id="cases">
     <div class="wrap">
+      <div class="section-num">01 / КЕЙСЫ</div>
 
-      <!-- ═══════════════════════════════════════════════════════════════
-           КАК ДОБАВИТЬ НОВЫЙ КЕЙС:
-           1. Скопируйте /cases/_template.html → /cases/ваш-slug.html
-           2. Добавьте фото в /assets/cases/ваш-slug/cover.jpg
-           3. Скопируйте карточку <a class="pc"> ниже, вставьте перед
-              существующими (новые — сверху!)
-           4. Обновите href, заголовок, описание и бейдж отрасли
-      ═══════════════════════════════════════════════════════════════ -->
+      <!-- Фильтры по отраслям -->
+      <div class="fl-bar" style="margin-top:32px;" id="cases-filters">
+        <span class="fl-l">Отрасль:</span>
+        <button class="fl-c is-on" data-filter="all">Все <span class="fl-c-c">6</span></button>
+        <button class="fl-c" data-filter="metallurgy">Металлургия <span class="fl-c-c">1</span></button>
+        <button class="fl-c" data-filter="logistics">Логистика <span class="fl-c-c">1</span></button>
+        <button class="fl-c" data-filter="pharma">Фармацевтика <span class="fl-c-c">1</span></button>
+        <button class="fl-c" data-filter="oil">Нефтесервис <span class="fl-c-c">1</span></button>
+        <button class="fl-c" data-filter="machines">Машиностроение <span class="fl-c-c">1</span></button>
+        <button class="fl-c" data-filter="food">Пищевка <span class="fl-c-c">1</span></button>
+      </div>
 
-      <div class="portfolio-grid rv">
+      <div class="gr-a" id="cases-grid">
 
-        <!-- ── КЕЙС 1 (образец) ─────────────────────────────────── -->
-        <a class="pc" href="cases/kontrol-kachestva-metalla.html">
-          <div class="pc-img">
-            <!-- <img src="/assets/cases/kontrol-kachestva-metalla/cover.jpg" alt="Контроль качества металлопроката" style="width:100%;height:100%;object-fit:cover;display:block;"> -->
-            <div class="pc-img-g"></div>
-            <div class="pc-badge">МЕТАЛЛУРГИЯ</div>
+        <!-- Кейс 1 -->
+        <a class="gr-a-c" href="cases/kontrol-kachestva-metalla.html" data-industry="metallurgy">
+          <div class="gr-a-c-img">
+            <div class="gr-a-c-img-g"></div>
+            <div class="gr-a-c-badge">МЕТАЛЛУРГИЯ</div>
           </div>
-          <div class="pc-body">
-            <div class="pc-title">Контроль СИЗ</div>
-            <div class="pc-desc">Система мониторинга соблюдения требований охраны труда на производственных участках в режиме реального времени.</div>
+          <div class="gr-a-c-body">
+            <div class="gr-a-c-t">Контроль СИЗ на металлургическом производстве</div>
+            <div class="gr-a-c-d">Мониторинг каски, очков, жилета на 8 участках в реальном времени. Алёрт оператору ОТ за 2 секунды.</div>
+            <div class="gr-a-c-stats">
+              <div class="gr-a-c-stat"><div class="v ok">−78%</div><div class="l">нарушений ОТ</div></div>
+              <div class="gr-a-c-stat"><div class="v">24/7</div><div class="l">мониторинг</div></div>
+            </div>
+            <div class="gr-a-c-arr">01 · 2025 →</div>
           </div>
         </a>
 
-        <!-- ── КЕЙС 2 (образец) ─────────────────────────────────── -->
-        <a class="pc" href="cases/identifikatsiya-na-sklade.html">
-          <div class="pc-img">
-            <div class="pc-img-g"></div>
-            <div class="pc-badge">ЛОГИСТИКА</div>
+        <!-- Кейс 2 -->
+        <a class="gr-a-c" href="cases/identifikatsiya-na-sklade.html" data-industry="logistics">
+          <div class="gr-a-c-img">
+            <div class="gr-a-c-img-g"></div>
+            <div class="gr-a-c-badge">ЛОГИСТИКА</div>
           </div>
-          <div class="pc-body">
-            <div class="pc-title">PVSignDetector — детекция и классификация знаков по ГОСТ</div>
-            <div class="pc-desc">Десктоп-приложение для автоматической детекции и классификации дорожных знаков по ГОСТ из видео с GPS.</div>
-          </div>
-        </a>
-
-        <!-- ── КЕЙС 3 (образец) ─────────────────────────────────── -->
-        <a class="pc" href="cases/kontrol-upakovki-lekarstv.html">
-          <div class="pc-img">
-            <div class="pc-img-g"></div>
-            <div class="pc-badge">ФАРМАЦЕВТИКА</div>
-          </div>
-          <div class="pc-body">
-            <div class="pc-title">FastenAI — детекция и категоризация крепежных элементов</div>
-            <div class="pc-desc">Десктопное приложение на Python для автоматической детекции, измерения и категоризации крепежных элементов.</div>
+          <div class="gr-a-c-body">
+            <div class="gr-a-c-t">PVSignDetector — детекция знаков по ГОСТ</div>
+            <div class="gr-a-c-d">Десктоп для автоматической детекции и классификации дорожных знаков из видео GoPro с GPS-привязкой. Работает оффлайн.</div>
+            <div class="gr-a-c-stats">
+              <div class="gr-a-c-stat"><div class="v ok">94%</div><div class="l">recall</div></div>
+              <div class="gr-a-c-stat"><div class="v">12 мс</div><div class="l">latency</div></div>
+            </div>
+            <div class="gr-a-c-arr">02 · 2025 →</div>
           </div>
         </a>
 
-        <!-- ── КЕЙС 4 ─────────────────────────────────────────── -->
-        <a class="pc" href="cases/opredelenie-remontoprigodnosti-neftyanyh-dolot.html">
-          <div class="pc-img">
-            <div class="pc-img-g"></div>
-            <div class="pc-badge">НЕФТЕСЕРВИС</div>
+        <!-- Кейс 3 -->
+        <a class="gr-a-c" href="cases/kontrol-upakovki-lekarstv.html" data-industry="pharma">
+          <div class="gr-a-c-img">
+            <div class="gr-a-c-img-g"></div>
+            <div class="gr-a-c-badge">ФАРМАЦЕВТИКА</div>
           </div>
-          <div class="pc-body">
-            <div class="pc-title">Определение ремонтопригодности нефтяных долот</div>
-            <div class="pc-desc">Система компьютерного зрения для оценки состояния долот и ускорения решения о ремонте или списании.</div>
+          <div class="gr-a-c-body">
+            <div class="gr-a-c-t">FastenAI — детекция крепёжных элементов</div>
+            <div class="gr-a-c-d">Автоматическое распознавание, измерение и категоризация болтов, гаек, шайб с точностью до 0.05 мм.</div>
+            <div class="gr-a-c-stats">
+              <div class="gr-a-c-stat"><div class="v ok">99.2%</div><div class="l">точность</div></div>
+              <div class="gr-a-c-stat"><div class="v">200 шт/мин</div><div class="l">поток</div></div>
+            </div>
+            <div class="gr-a-c-arr">03 · 2025 →</div>
+          </div>
+        </a>
+
+        <!-- Кейс 4 -->
+        <a class="gr-a-c" href="cases/opredelenie-remontoprigodnosti-neftyanyh-dolot.html" data-industry="oil">
+          <div class="gr-a-c-img">
+            <div class="gr-a-c-img-g"></div>
+            <div class="gr-a-c-badge">НЕФТЕСЕРВИС</div>
+          </div>
+          <div class="gr-a-c-body">
+            <div class="gr-a-c-t">Ремонтопригодность нефтяных долот</div>
+            <div class="gr-a-c-d">CV-система оценки состояния шарошечных долот для ускорения решения о ремонте или списании.</div>
+            <div class="gr-a-c-stats">
+              <div class="gr-a-c-stat"><div class="v ok">×3</div><div class="l">быстрее</div></div>
+              <div class="gr-a-c-stat"><div class="v">4</div><div class="l">класса</div></div>
+            </div>
+            <div class="gr-a-c-arr">04 · 2024 →</div>
+          </div>
+        </a>
+
+        <!-- Кейс 5 -->
+        <a class="gr-a-c" href="#" data-industry="machines">
+          <div class="gr-a-c-img">
+            <div class="gr-a-c-img-g"></div>
+            <div class="gr-a-c-badge">МАШИНОСТРОЕНИЕ</div>
+          </div>
+          <div class="gr-a-c-body">
+            <div class="gr-a-c-t">Автоматическая инвентаризация склада</div>
+            <div class="gr-a-c-d">OCR номеров вагонов и контейнеров на въезде, подсчёт паллет без бумажных пропусков.</div>
+            <div class="gr-a-c-stats">
+              <div class="gr-a-c-stat"><div class="v ok">−65%</div><div class="l">время сверки</div></div>
+              <div class="gr-a-c-stat"><div class="v">99.5%</div><div class="l">OCR</div></div>
+            </div>
+            <div class="gr-a-c-arr">05 · 2024 →</div>
+          </div>
+        </a>
+
+        <!-- Кейс 6 -->
+        <a class="gr-a-c" href="#" data-industry="food">
+          <div class="gr-a-c-img">
+            <div class="gr-a-c-img-g"></div>
+            <div class="gr-a-c-badge">ПИЩЕВКА</div>
+          </div>
+          <div class="gr-a-c-body">
+            <div class="gr-a-c-t">Сортировка овощей по сортам</div>
+            <div class="gr-a-c-d">Классификация продукции по форме, размеру и наличию повреждений на ленте 80 кг/мин.</div>
+            <div class="gr-a-c-stats">
+              <div class="gr-a-c-stat"><div class="v ok">+18%</div><div class="l">сорт А</div></div>
+              <div class="gr-a-c-stat"><div class="v">80 кг/мин</div><div class="l">поток</div></div>
+            </div>
+            <div class="gr-a-c-arr">06 · 2024 →</div>
           </div>
         </a>
 
@@ -102,7 +217,8 @@
     </div>
   </section>
 
-  <section class="section" style="padding:0 0 120px;border:none;">
+  <!-- ── CTA ── -->
+  <section class="section" style="padding:64px 0;border-bottom:none;">
     <div class="wrap">
       <div class="cta-strip rv">
         <h2>Хотите похожий результат на своём производстве?</h2>
@@ -110,7 +226,8 @@
       </div>
     </div>
   </section>
-</div>
+
+</div><!-- /.page-top -->
 
 <div id="footer-root"></div>
 
@@ -120,4 +237,26 @@
 <script>
   initComponents();
   initPage();
-</scr
+
+  // Фильтрация кейсов
+  (function() {
+    var btns = document.querySelectorAll('#cases-filters .fl-c');
+    var cards = document.querySelectorAll('#cases-grid .gr-a-c');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        btns.forEach(function(b) { b.classList.remove('is-on'); });
+        btn.classList.add('is-on');
+        var f = btn.dataset.filter;
+        cards.forEach(function(card) {
+          if (f === 'all' || card.dataset.industry === f) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
