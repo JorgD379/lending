@@ -104,6 +104,7 @@ button { font-family: var(--fb); cursor: pointer; border: none; background: none
 
 /* ── HERO ── */
 .hero { min-height: 100vh; display: flex; align-items: center; padding: 64px 0 0; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.hero > .wrap { width: 100%; min-width: 0; }
 .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 60% 50% at 75% 35%, rgba(255,255,255,0.022) 0%, transparent 60%); }
 .hero-grid-bg { position: absolute; inset: 0; z-index: 0; background-image: linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 0%, transparent 100%); }
 .hero-tag { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 36px; display: flex; align-items: center; gap: 12px; }
@@ -538,8 +539,9 @@ textarea:focus-visible,
 
 /* ── HERO C SPLIT ── */
 .hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; min-height: calc(100vh - 64px); }
+.hero-split > * { min-width: 0; }
 @media(max-width:1000px) { .hero-split { grid-template-columns: 1fr; gap: 32px; } }
-.hero-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; aspect-ratio: 1; max-width: 640px; margin-left: auto; }
+.hero-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; aspect-ratio: 1; width: 100%; max-width: min(640px, 100%); margin-left: auto; justify-self: end; box-sizing: border-box; }
 @media(max-width:1000px) { .hero-tiles { margin-left: 0; max-width: 480px; } }
 @media(max-width:640px) {
   .hero-tiles { max-width: min(100%, 360px); margin-left: auto; margin-right: auto; gap: 6px; }
