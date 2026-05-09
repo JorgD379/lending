@@ -11,26 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .cs-hero{padding:80px 0 56px;border-bottom:1px solid var(--line)}
-    .cs-bc{font-family:var(--fm);font-size:11px;color:var(--m);letter-spacing:.08em;margin-bottom:36px}
-    .cs-bc a{color:var(--m2)}.cs-bc .sep{margin:0 10px;color:var(--line2)}
-    .cs-hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:end}
-    @media(max-width:920px){.cs-hero-grid{grid-template-columns:1fr;gap:40px}}
-    .cs-hero-h{font-family:var(--fh);font-weight:900;font-size:clamp(44px,6vw,84px);line-height:.95;letter-spacing:-.04em;margin-bottom:22px}
-    .cs-hero-d{max-width:520px;font-size:16px;color:var(--m2);line-height:1.6}
-    .cs-hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .cs-hero-stat{padding:24px 0;border-right:1px solid var(--line);padding-right:24px}
-    .cs-hero-stat:last-child{border-right:0;padding-left:24px;padding-right:0}
-    .cs-hero-stat:nth-child(3){border-right:1px solid var(--line);padding-left:0;padding-right:24px}
-    .cs-hero-stat .v{font-family:var(--fh);font-weight:900;font-size:36px;letter-spacing:-.03em;line-height:1;margin-bottom:8px}
-    .cs-hero-stat .v.ok{color:var(--ok)}
-    .cs-hero-stat .l{font-family:var(--fm);font-size:10px;color:var(--m);letter-spacing:.08em;text-transform:uppercase}
-    .fl-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:48px}
-    .fl-l{font-family:var(--fm);font-size:10.5px;color:var(--m);letter-spacing:.1em;text-transform:uppercase;margin-right:12px}
-    .fl-c{padding:9px 16px;font-family:var(--fm);font-size:11px;color:var(--m2);letter-spacing:.05em;background:var(--s1);border:1px solid var(--line);transition:all .15s;cursor:pointer}
-    .fl-c:hover{background:var(--s2);color:var(--text)}
-    .fl-c.is-on{background:var(--text);color:#000;border-color:var(--text)}
-    .fl-c-c{margin-left:6px;color:inherit;opacity:.5}
     .gr-a{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
     @media(max-width:1000px){.gr-a{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:600px){.gr-a{grid-template-columns:1fr}}
@@ -56,40 +36,10 @@
 <div id="modals-root"></div>
 <div class="page-top">
 
-  <section style="padding-top:0;border-top:none;">
-    <div class="cs-hero">
-      <div class="wrap">
-        <div class="cs-bc"><a href="index.html">Главная</a><span class="sep">/</span><span style="color:var(--text);">Кейсы</span></div>
-        <div class="cs-hero-grid">
-          <div>
-            <h1 class="cs-hero-h">Что мы уже сделали для промышленности</h1>
-            <p class="cs-hero-d">Каждый кейс — реальный проект с измеримой экономикой. Без «успешных кейсов» в кавычках.</p>
-          </div>
-          <div class="cs-hero-stats">
-            <div class="cs-hero-stat"><div class="v ok">6+</div><div class="l">кейсов в базе</div></div>
-            <div class="cs-hero-stat"><div class="v">6</div><div class="l">отраслей</div></div>
-            <div class="cs-hero-stat"><div class="v ok">8–14</div><div class="l">мес окупаемость</div></div>
-            <div class="cs-hero-stat"><div class="v">100%</div><div class="l">в проде</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section" id="cases">
     <div class="wrap">
       <div class="section-num">01 / КЕЙСЫ</div>
-      <div class="fl-bar" style="margin-top:32px;" id="cases-filters">
-        <span class="fl-l">Отрасль:</span>
-        <button class="fl-c is-on" data-filter="all">Все <span class="fl-c-c">6</span></button>
-        <button class="fl-c" data-filter="metallurgy">Металлургия <span class="fl-c-c">1</span></button>
-        <button class="fl-c" data-filter="logistics">Логистика <span class="fl-c-c">1</span></button>
-        <button class="fl-c" data-filter="pharma">Фармацевтика <span class="fl-c-c">1</span></button>
-        <button class="fl-c" data-filter="oil">Нефтесервис <span class="fl-c-c">1</span></button>
-        <button class="fl-c" data-filter="machines">Машиностроение <span class="fl-c-c">1</span></button>
-        <button class="fl-c" data-filter="food">Пищевка <span class="fl-c-c">1</span></button>
-      </div>
-      <div class="gr-a" id="cases-grid">
+      <div class="gr-a" style="margin-top:48px;" id="cases-grid">
 
         <a class="gr-a-c" href="cases/kontrol-kachestva-metalla.html" data-industry="metallurgy">
           <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">МЕТАЛЛУРГИЯ</div></div>
@@ -190,20 +140,6 @@
 <script>
   initComponents();
   initPage();
-  (function(){
-    var btns=document.querySelectorAll('#cases-filters .fl-c');
-    var cards=document.querySelectorAll('#cases-grid .gr-a-c');
-    btns.forEach(function(btn){
-      btn.addEventListener('click',function(){
-        btns.forEach(function(b){b.classList.remove('is-on')});
-        btn.classList.add('is-on');
-        var f=btn.dataset.filter;
-        cards.forEach(function(card){
-          card.style.display=(f==='all'||card.dataset.industry===f)?'':'none';
-        });
-      });
-    });
-  })();
 </script>
 </body>
 </html>

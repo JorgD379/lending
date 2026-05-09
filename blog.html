@@ -17,21 +17,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* === BLOG HERO === */
-    .bl-hero { padding: 80px 0 48px; }
-    .bl-bc { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-bottom: 36px; }
-    .bl-bc a { color: var(--m2); } .bl-bc .sep { margin: 0 10px; color: var(--line2); }
-    .bl-hero-h { font-family: var(--fh); font-weight: 900; font-size: clamp(56px,9vw,140px); line-height: .92; letter-spacing: -.045em; margin-bottom: 28px; }
-    .bl-hero-d { max-width: 560px; font-size: 17px; color: var(--m2); line-height: 1.6; }
-
-    /* === FILTERS === */
-    .fl-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 48px; }
-    .fl-l { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .1em; text-transform: uppercase; margin-right: 12px; }
-    .fl-c { padding: 9px 16px; font-family: var(--fm); font-size: 11px; color: var(--m2); letter-spacing: .05em; background: var(--s1); border: 1px solid var(--line); transition: all .15s; cursor: pointer; }
-    .fl-c:hover { background: var(--s2); color: var(--text); }
-    .fl-c.is-on { background: var(--text); color: #000; border-color: var(--text); }
-    .fl-c-c { margin-left: 6px; opacity: .5; }
-
     /* === GRID A — 3-col blog cards === */
     .bg-a { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
     @media(max-width:1000px) { .bg-a { grid-template-columns: repeat(2,1fr); } }
@@ -57,36 +42,11 @@
 
 <div class="page-top">
 
-  <!-- ── HERO ── -->
-  <section style="padding-top:0;border-top:none;border-bottom:1px solid var(--line);">
-    <div class="bl-hero">
-      <div class="wrap">
-        <div class="bl-bc">
-          <a href="index.html">Главная</a><span class="sep">/</span><span style="color:var(--text);">Блог</span>
-        </div>
-        <h1 class="bl-hero-h">Блог</h1>
-        <p class="bl-hero-d">Материалы о машинном зрении, автоматизации производства и промышленном AI. Технические разборы и экономика.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ── GRID A — 3-col карточки ── -->
   <section class="section" id="blog">
     <div class="wrap">
       <div class="section-num">01 / СТАТЬИ</div>
       <h2 class="section-h" style="margin-bottom:48px;margin-top:16px;">6 материалов</h2>
-
-      <!-- Фильтры -->
-      <div class="fl-bar" id="blog-filters">
-        <span class="fl-l">Тема:</span>
-        <button class="fl-c is-on" data-filter="all">Все <span class="fl-c-c">6</span></button>
-        <button class="fl-c" data-filter="cv">Машинное зрение <span class="fl-c-c">1</span></button>
-        <button class="fl-c" data-filter="economy">Экономика <span class="fl-c-c">1</span></button>
-        <button class="fl-c" data-filter="metal">Металлургия <span class="fl-c-c">1</span></button>
-        <button class="fl-c" data-filter="safety">ОТ · СИЗ <span class="fl-c-c">1</span></button>
-        <button class="fl-c" data-filter="edge">Edge <span class="fl-c-c">1</span></button>
-        <button class="fl-c" data-filter="data">Datasets <span class="fl-c-c">1</span></button>
-      </div>
 
       <div class="bg-a" id="blog-grid">
 
@@ -198,26 +158,6 @@
 <script>
   initComponents();
   initPage();
-
-  // Фильтрация блога
-  (function() {
-    var btns = document.querySelectorAll('#blog-filters .fl-c');
-    var cards = document.querySelectorAll('#blog-grid .bp-a');
-    btns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        btns.forEach(function(b) { b.classList.remove('is-on'); });
-        btn.classList.add('is-on');
-        var f = btn.dataset.filter;
-        cards.forEach(function(card) {
-          if (f === 'all' || card.dataset.topic === f) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-  })();
 </script>
 </body>
 </html>

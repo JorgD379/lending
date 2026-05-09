@@ -17,26 +17,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* === TASKS HERO === */
-    .tk-hero { padding: 80px 0 56px; border-bottom: 1px solid var(--line); }
-    .tk-bc { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-bottom: 36px; }
-    .tk-bc a { color: var(--m2); } .tk-bc .sep { margin: 0 10px; color: var(--line2); }
-    .tk-hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: end; }
-    @media(max-width:920px) { .tk-hero-grid { grid-template-columns: 1fr; gap: 36px; } }
-    .tk-hero-h { font-family: var(--fh); font-weight: 900; font-size: clamp(44px,7vw,96px); line-height: .94; letter-spacing: -.04em; margin-bottom: 24px; }
-    .tk-hero-d { max-width: 560px; font-size: 17px; color: var(--m2); line-height: 1.6; }
-    .tk-hero-stats { display: grid; grid-template-columns: 1fr 1fr; border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
-    .tk-hero-st { padding: 20px 22px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
-    .tk-hero-st .v { font-family: var(--fh); font-weight: 800; font-size: 32px; letter-spacing: -.025em; line-height: 1; }
-    .tk-hero-st .l { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .06em; margin-top: 8px; }
-
-    /* === FILTERS === */
-    .gf { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; align-items: center; }
-    .gf-l { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .1em; text-transform: uppercase; margin-right: 12px; }
-    .gf-c { padding: 9px 16px; font-family: var(--fm); font-size: 11px; color: var(--m2); letter-spacing: .05em; background: var(--s1); border: 1px solid var(--line); cursor: pointer; transition: all .15s; }
-    .gf-c:hover { background: var(--s2); color: var(--text); }
-    .gf-c.is-on { background: var(--text); color: #000; border-color: var(--text); }
-
     /* === GRID A — bento task cards === */
     .ga { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
     @media(max-width:1000px) { .ga { grid-template-columns: repeat(2,1fr); } }
@@ -67,44 +47,11 @@
 
 <div class="page-top">
 
-  <!-- ── HERO — split с мини-статами ── -->
-  <section style="padding-top:0;border-top:none;">
-    <div class="tk-hero">
-      <div class="wrap">
-        <div class="tk-bc">
-          <a href="index.html">Главная</a><span class="sep">/</span><span style="color:var(--text);">Типовые задачи</span>
-        </div>
-        <div class="tk-hero-grid">
-          <div>
-            <h1 class="tk-hero-h">Задачи, которые мы решаем зрением</h1>
-            <p class="tk-hero-d">9 типовых сценариев. От поверхностных дефектов до контроля СИЗ — все они работают на одном движке и одной инфраструктуре.</p>
-          </div>
-          <div class="tk-hero-stats">
-            <div class="tk-hero-st"><div class="v">9</div><div class="l">ЗАДАЧ</div></div>
-            <div class="tk-hero-st"><div class="v">4</div><div class="l">КАТЕГОРИИ</div></div>
-            <div class="tk-hero-st"><div class="v">97%</div><div class="l">ТОЧНОСТЬ ср.</div></div>
-            <div class="tk-hero-st"><div class="v">7 мес</div><div class="l">ОКУПАЕМОСТЬ</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── GRID A — bento карточки ── -->
   <section class="section" id="tasks">
     <div class="wrap">
       <div class="section-num">01 / ТИПОВЫЕ ЗАДАЧИ</div>
       <h2 class="section-h" style="margin-bottom:48px;margin-top:16px;">9 сценариев</h2>
-
-      <!-- Фильтры -->
-      <div class="gf" id="tasks-filters">
-        <span class="gf-l">Категория:</span>
-        <button class="gf-c is-on" data-filter="all">Все · 9</button>
-        <button class="gf-c" data-filter="quality">Качество · 3</button>
-        <button class="gf-c" data-filter="safety">Безопасность · 3</button>
-        <button class="gf-c" data-filter="accounting">Учёт · 2</button>
-        <button class="gf-c" data-filter="efficiency">Эффективность · 1</button>
-      </div>
 
       <div class="ga" id="tasks-grid">
 
@@ -208,26 +155,6 @@
 <script>
   initComponents();
   initPage();
-
-  // Фильтрация задач
-  (function() {
-    var btns = document.querySelectorAll('#tasks-filters .gf-c');
-    var cards = document.querySelectorAll('#tasks-grid .ta');
-    btns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        btns.forEach(function(b) { b.classList.remove('is-on'); });
-        btn.classList.add('is-on');
-        var f = btn.dataset.filter;
-        cards.forEach(function(card) {
-          if (f === 'all' || card.dataset.cat === f) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-  })();
 </script>
 </body>
 </html>

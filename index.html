@@ -17,6 +17,19 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Partners ticker */
+    .pt-ticker { position: relative; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--s1); }
+    .pt-ticker-before,
+    .pt-ticker-after { content: ""; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+    .pt-ticker-before { left: 0; background: linear-gradient(90deg, var(--s1), transparent); }
+    .pt-ticker-after { right: 0; background: linear-gradient(-90deg, var(--s1), transparent); }
+    .pt-ticker-track { display: flex; animation: pt-scroll 50s linear infinite; width: max-content; }
+    .pt-ticker-logo { flex-shrink: 0; width: 220px; height: 120px; display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--line); font-family: var(--fh); font-weight: 700; font-size: 15px; color: var(--m2); letter-spacing: .02em; transition: color .2s; cursor: default; }
+    .pt-ticker-logo:hover { color: var(--text); }
+    .pt-ticker-logo small { font-family: var(--fm); font-size: 9px; display: block; color: var(--m); margin-top: 4px; letter-spacing: .1em; text-align: center; font-weight: 400; }
+    @keyframes pt-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  </style>
 </head>
 <body class="home-page">
 
@@ -172,8 +185,41 @@
     </div>
   </section>
 
-  <!-- 03 / PARTNERS — скрыт до появления реальных логотипов -->
-  <!-- <section class="section" id="s-partners"> ... </section> -->
+  <!-- 03 / PARTNERS -->
+  <section class="section" id="s-partners">
+    <div class="wrap" style="margin-bottom:64px;">
+      <div class="sec-hd rv">
+        <div>
+          <div class="mono sec-num">03 / Партнёры</div>
+          <h2>С нами работают лидеры отраслей</h2>
+          <p style="margin-top:12px;color:var(--m2);font-size:16px;max-width:560px;">Компании, для которых мы запускали пилоты и тиражировали решения.</p>
+        </div>
+      </div>
+    </div>
+    <div class="pt-ticker">
+      <div class="pt-ticker-before"></div>
+      <div class="pt-ticker-after"></div>
+      <div class="pt-ticker-track">
+        <div class="pt-ticker-logo"><div>СЕВЕРСТАЛЬ<small>МЕТАЛЛ</small></div></div>
+        <div class="pt-ticker-logo"><div>РОСАТОМ<small>ЭНЕРГЕТИКА</small></div></div>
+        <div class="pt-ticker-logo"><div>КАМАЗ<small>МАШИНОСТР</small></div></div>
+        <div class="pt-ticker-logo"><div>РЖД<small>ТРАНСПОРТ</small></div></div>
+        <div class="pt-ticker-logo"><div>МАГНИТОГОРСК<small>МЕТАЛЛ</small></div></div>
+        <div class="pt-ticker-logo"><div>ГАЗПРОМ<small>НЕФТЕГАЗ</small></div></div>
+        <div class="pt-ticker-logo"><div>СИБУР<small>ХИМИЯ</small></div></div>
+        <div class="pt-ticker-logo"><div>X5 GROUP<small>РИТЕЙЛ</small></div></div>
+        <!-- duplicate for seamless loop -->
+        <div class="pt-ticker-logo"><div>СЕВЕРСТАЛЬ<small>МЕТАЛЛ</small></div></div>
+        <div class="pt-ticker-logo"><div>РОСАТОМ<small>ЭНЕРГЕТИКА</small></div></div>
+        <div class="pt-ticker-logo"><div>КАМАЗ<small>МАШИНОСТР</small></div></div>
+        <div class="pt-ticker-logo"><div>РЖД<small>ТРАНСПОРТ</small></div></div>
+        <div class="pt-ticker-logo"><div>МАГНИТОГОРСК<small>МЕТАЛЛ</small></div></div>
+        <div class="pt-ticker-logo"><div>ГАЗПРОМ<small>НЕФТЕГАЗ</small></div></div>
+        <div class="pt-ticker-logo"><div>СИБУР<small>ХИМИЯ</small></div></div>
+        <div class="pt-ticker-logo"><div>X5 GROUP<small>РИТЕЙЛ</small></div></div>
+      </div>
+    </div>
+  </section>
 
   <!-- 04 / FORM -->
   <section class="section" id="s-form">
@@ -223,7 +269,7 @@
     <div class="wrap">
       <div class="sec-hd rv">
         <div>
-          <div class="mono sec-num">06 / Отличия</div>
+          <div class="mono sec-num">05 / Отличия</div>
           <h2>Почему ИТиС ЛАБ окупается быстрее альтернатив</h2>
         </div>
       </div>
@@ -295,7 +341,7 @@
     <div class="wrap">
       <div class="sec-hd rv">
         <div>
-          <div class="mono sec-num">08 / Кейсы</div>
+          <div class="mono sec-num">06 / Кейсы</div>
           <h2>Как мы решили реальные задачи клиентов</h2>
         </div>
         <a href="cases.html" class="btn btn-g">Все кейсы →</a>
@@ -379,7 +425,7 @@
     <div class="wrap">
       <div class="sec-hd rv">
         <div>
-          <div class="mono sec-num">09 / Методология</div>
+          <div class="mono sec-num">07 / Методология</div>
           <h2>Этапы внедрения ИТиС ЛАБ. От старта до результата: ваш путь</h2>
         </div>
       </div>
@@ -435,7 +481,7 @@
     <div class="wrap">
       <div class="sec-hd rv">
         <div>
-          <div class="mono sec-num">11 / Контакты</div>
+          <div class="mono sec-num">08 / Контакты</div>
           <h2>Связь с командой ИТиС ЛАБ: обсудим ваш проект</h2>
         </div>
       </div>
