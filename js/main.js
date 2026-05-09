@@ -115,9 +115,78 @@ function openProcModal(indId, subId, procId) {
   openOverlay('procOverlay');
 }
 
+/* ── CASE CAROUSELS (index / cases grid) ── */
+function initCaseCarousels() {
+  document.querySelectorAll('[data-case-carousel]').forEach(root => {
+    const track = root.querySelector('.case-carousel-track');
+    const slides = root.querySelectorAll('.case-carousel-slide');
+    const prev = root.querySelector('.case-carousel-prev');
+    const next = root.querySelector('.case-carousel-next');
+    const dotsRoot = root.querySelector('.case-carousel-dots');
+    if (!track || slides.length < 2) return;
+
+    let idx = 0;
+    let dotBtns = [];
+
+    function setTransform() {
+      track.style.transform = `translateX(${-idx * 100}%)`;
+      dotBtns.forEach((b, j) => b.classList.toggle('on', j === idx));
+    }
+
+    function go(delta) {
+      idx = (idx + delta + slides.length) % slides.length;
+      setTransform();
+    }
+
+    if (dotsRoot) {
+      dotsRoot.innerHTML = '';
+      dotBtns = Array.from(slides).map((_, j) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'case-carousel-dot' + (j === 0 ? ' on' : '');
+        b.setAttribute('aria-label', 'Слайд ' + (j + 1));
+        b.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopPropagation();
+          idx = j;
+          setTransform();
+        });
+        dotsRoot.appendChild(b);
+        return b;
+      });
+    }
+
+    prev?.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      go(-1);
+    });
+    next?.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      go(1);
+    });
+
+    let tx0 = null;
+    root.addEventListener('touchstart', e => {
+      if (e.touches.length === 1) tx0 = e.touches[0].clientX;
+    }, { passive: true });
+    root.addEventListener('touchend', e => {
+      if (tx0 == null || !e.changedTouches.length) return;
+      const dx = e.changedTouches[0].clientX - tx0;
+      tx0 = null;
+      if (dx > 48) go(-1);
+      else if (dx < -48) go(1);
+    }, { passive: true });
+
+    setTransform();
+  });
+}
+
 /* ── INIT (called after DOM ready) ── */
 function initPage() {
   renderTypicalTasks();
+  initCaseCarousels();
   triggerReveal();
   document.querySelectorAll('.cnt').forEach(el => counterObs.observe(el));
   document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => e.preventDefault()));

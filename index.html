@@ -50,7 +50,7 @@
         <!-- LEFT: text content -->
         <div>
           <div class="hero-stamp rv">▸ LIVE · Машинное зрение · Промышленная автоматизация</div>
-          <h1 class="rv d1">Машинное зрение, которое окупается за 8–14 месяцев</h1>
+          <h1 class="rv d1">Машинное зрение, которое окупается за <span class="hero-accent">8–14 месяцев</span></h1>
           <p class="rv d1 hero-sub">Помогаем заводам, складам и фарме автоматизировать контроль качества и логистику.</p>
           <div class="hero-metrics rv d2">
             <span>100+ проектов</span><span class="hero-metrics-dot">·</span>
@@ -76,37 +76,33 @@
         </div>
         <!-- RIGHT: 4 live detection preview tiles -->
         <div class="hero-tiles">
-          <!-- Tile 0: Logistics -->
           <div class="hero-tile ht-0">
-            <img src="assets/images/hero/tile-1.png" alt="Детекция паллет на складе" loading="eager" decoding="async">
+            <img src="assets/images/hero/tile-1.png" alt="Металлургия: аналитика и детекция" width="800" height="800" loading="eager" decoding="async">
             <div class="hero-tile-overlay"></div>
             <div class="hero-tile-bb"></div>
-            <div class="hero-tile-tag">OK 98.2%</div>
-            <div class="hero-tile-label">ЛОГИСТИКА · CAM_01</div>
+            <div class="hero-tile-tag">OK 99.4%</div>
+            <div class="hero-tile-label">МЕТАЛЛ</div>
           </div>
-          <!-- Tile 1: Safety -->
           <div class="hero-tile ht-1">
-            <img src="assets/images/hero/tile-2.png" alt="Контроль СИЗ на производстве" loading="eager" decoding="async">
+            <img src="assets/images/hero/tile-2.png" alt="Склад: детекция объектов" width="800" height="800" loading="eager" decoding="async">
             <div class="hero-tile-overlay"></div>
             <div class="hero-tile-bb"></div>
-            <div class="hero-tile-tag">СИЗ</div>
-            <div class="hero-tile-label">БЕЗОПАСНОСТЬ · CAM_02</div>
+            <div class="hero-tile-tag">BOX_142</div>
+            <div class="hero-tile-label">СКЛАД</div>
           </div>
-          <!-- Tile 2: Quality control -->
           <div class="hero-tile ht-2">
-            <img src="assets/images/hero/tile-3.png" alt="Контроль качества платы" loading="eager" decoding="async">
+            <img src="assets/images/hero/tile-3.png" alt="Фарма: контроль качества" width="800" height="800" loading="eager" decoding="async">
             <div class="hero-tile-overlay"></div>
             <div class="hero-tile-bb"></div>
-            <div class="hero-tile-tag">OK 99.7%</div>
-            <div class="hero-tile-label">КОНТРОЛЬ · CAM_03</div>
+            <div class="hero-tile-tag">OK 98.7%</div>
+            <div class="hero-tile-label">ФАРМА</div>
           </div>
-          <!-- Tile 3: Defect detection -->
           <div class="hero-tile ht-3">
-            <img src="assets/images/hero/tile-4.png" alt="Детекция дефектов на конвейере" loading="eager" decoding="async">
+            <img src="assets/images/hero/tile-4.png" alt="Производство: трекинг" width="800" height="800" loading="eager" decoding="async">
             <div class="hero-tile-overlay"></div>
             <div class="hero-tile-bb"></div>
-            <div class="hero-tile-tag">ДЕФЕКТ</div>
-            <div class="hero-tile-label">ПРОИЗВОДСТВО · CAM_04</div>
+            <div class="hero-tile-tag">TRACK</div>
+            <div class="hero-tile-label">РОБОТ</div>
           </div>
         </div>
       </div>
@@ -349,13 +345,23 @@
         <a href="cases.html" class="btn btn-g">Все кейсы →</a>
       </div>
       <div class="case-a-grid rv">
-        <!-- Case 1: Safety -->
-        <a class="case-a-card" href="cases/kontrol-kachestva-metalla.html">
-          <div class="case-a-img">
+        <article class="case-a-card">
+          <div class="case-a-img" data-case-carousel>
+            <div class="case-carousel-viewport">
+              <div class="case-carousel-track">
+                <div class="case-carousel-slide"><img src="assets/images/cases/case1_main_window.png" alt="Интерфейс: главное окно" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="assets/images/cases/case1_new_processing.png" alt="Интерфейс: обработка" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="assets/images/cases/case1_results_window.png" alt="Интерфейс: результаты" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="assets/images/cases/case1_export_format.png" alt="Интерфейс: экспорт" loading="lazy" decoding="async"></div>
+              </div>
+            </div>
+            <button type="button" class="case-carousel-btn case-carousel-prev" aria-label="Предыдущий слайд">‹</button>
+            <button type="button" class="case-carousel-btn case-carousel-next" aria-label="Следующий слайд">›</button>
+            <div class="case-carousel-dots" aria-hidden="true"></div>
             <div class="case-a-img-g"></div>
             <div class="case-a-badge">БЕЗОПАСНОСТЬ</div>
           </div>
-          <div class="case-a-body">
+          <a class="case-a-body case-a-body-link" href="cases/kontrol-kachestva-metalla.html">
             <div class="case-a-metric">
               <div class="case-a-metric-v">−85%</div>
               <div class="case-a-metric-l">НАРУШЕНИЙ ОХРАНЫ ТРУДА</div>
@@ -370,15 +376,24 @@
               </div>
               <span class="case-a-arr">→</span>
             </div>
-          </div>
-        </a>
-        <!-- Case 2: Transport -->
-        <a class="case-a-card" href="cases/identifikatsiya-na-sklade.html">
-          <div class="case-a-img">
+          </a>
+        </article>
+        <article class="case-a-card">
+          <div class="case-a-img" data-case-carousel>
+            <div class="case-carousel-viewport">
+              <div class="case-carousel-track">
+                <div class="case-carousel-slide"><img src="assets/images/cases/case2_main_window.png" alt="PVSign: главное окно" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="assets/images/cases/case2_new_shablon.png" alt="PVSign: шаблон" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="assets/images/cases/case1_export_format.png" alt="Экспорт данных" loading="lazy" decoding="async"></div>
+              </div>
+            </div>
+            <button type="button" class="case-carousel-btn case-carousel-prev" aria-label="Предыдущий слайд">‹</button>
+            <button type="button" class="case-carousel-btn case-carousel-next" aria-label="Следующий слайд">›</button>
+            <div class="case-carousel-dots" aria-hidden="true"></div>
             <div class="case-a-img-g"></div>
             <div class="case-a-badge">ТРАНСПОРТ</div>
           </div>
-          <div class="case-a-body">
+          <a class="case-a-body case-a-body-link" href="cases/identifikatsiya-na-sklade.html">
             <div class="case-a-metric">
               <div class="case-a-metric-v">×4</div>
               <div class="case-a-metric-l">СКОРОСТЬ ИНВЕНТАРИЗАЦИИ</div>
@@ -393,15 +408,25 @@
               </div>
               <span class="case-a-arr">→</span>
             </div>
-          </div>
-        </a>
-        <!-- Case 3: Engineering -->
-        <a class="case-a-card" href="cases/kontrol-upakovki-lekarstv.html">
-          <div class="case-a-img">
+          </a>
+        </article>
+        <article class="case-a-card">
+          <div class="case-a-img" data-case-carousel>
+            <div class="case-carousel-viewport">
+              <div class="case-carousel-track">
+                <div class="case-carousel-slide"><img src="assets/images/cases/case1_results_window.png" alt="Результаты детекции" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="assets/images/cases/case2_new_shablon.png" alt="Настройка шаблона" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="assets/images/cases/case1_new_processing.png" alt="Обработка кадра" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="assets/images/cases/case2_main_window.png" alt="Рабочее окно" loading="lazy" decoding="async"></div>
+              </div>
+            </div>
+            <button type="button" class="case-carousel-btn case-carousel-prev" aria-label="Предыдущий слайд">‹</button>
+            <button type="button" class="case-carousel-btn case-carousel-next" aria-label="Следующий слайд">›</button>
+            <div class="case-carousel-dots" aria-hidden="true"></div>
             <div class="case-a-img-g"></div>
             <div class="case-a-badge">МАШИНОСТРОЕНИЕ</div>
           </div>
-          <div class="case-a-body">
+          <a class="case-a-body case-a-body-link" href="cases/kontrol-upakovki-lekarstv.html">
             <div class="case-a-metric">
               <div class="case-a-metric-v">99%</div>
               <div class="case-a-metric-l">ТОЧНОСТЬ ДЕТЕКЦИИ</div>
@@ -416,8 +441,8 @@
               </div>
               <span class="case-a-arr">→</span>
             </div>
-          </div>
-        </a>
+          </a>
+        </article>
       </div>
     </div>
   </section>
