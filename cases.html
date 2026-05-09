@@ -4,78 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Кейсы — ИТиС ЛАБ</title>
-  <meta name="description" content="Реализованные проекты ИТиС ЛАБ по машинному зрению: машиностроение, пищевая промышленность, логистика, металлургия. Конкретные результаты и цифры.">
+  <meta name="description" content="Реализованные проекты ИТиС ЛАБ по машинному зрению: металлургия, логистика, фармацевтика. Конкретные результаты и цифры.">
   <link rel="canonical" href="https://lab-itis.ru/cases.html">
-  <meta property="og:title" content="Кейсы — ИТиС ЛАБ">
-  <meta property="og:description" content="Реализованные проекты по внедрению машинного зрения в промышленности.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lab-itis.ru/cases.html">
-  <meta property="og:image" content="https://lab-itis.ru/assets/images/og-default.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* === HERO B (cases) === */
-    .cs-hero { padding: 80px 0 56px; border-bottom: 1px solid var(--line); }
-    .cs-bc { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-bottom: 36px; }
-    .cs-bc a { color: var(--m2); } .cs-bc .sep { margin: 0 10px; color: var(--line2); }
-    .cs-hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end; }
-    @media(max-width:920px) { .cs-hero-grid { grid-template-columns: 1fr; gap: 40px; } }
-    .cs-hero-h { font-family: var(--fh); font-weight: 900; font-size: clamp(44px,6vw,84px); line-height: .95; letter-spacing: -.04em; margin-bottom: 22px; }
-    .cs-hero-d { max-width: 520px; font-size: 16px; color: var(--m2); line-height: 1.6; }
-    .cs-hero-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .cs-hero-stat { padding: 24px 0; border-right: 1px solid var(--line); padding-right: 24px; }
-    .cs-hero-stat:last-child { border-right: 0; padding-left: 24px; padding-right: 0; }
-    .cs-hero-stat:nth-child(3) { border-right: 1px solid var(--line); padding-left: 0; padding-right: 24px; }
-    .cs-hero-stat .v { font-family: var(--fh); font-weight: 900; font-size: 36px; letter-spacing: -.03em; line-height: 1; margin-bottom: 8px; }
-    .cs-hero-stat .v.ok { color: var(--ok); }
-    .cs-hero-stat .l { font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: .08em; text-transform: uppercase; }
-
-    /* === FILTERS === */
-    .fl-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 48px; }
-    .fl-l { font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .1em; text-transform: uppercase; margin-right: 12px; }
-    .fl-c { padding: 9px 16px; font-family: var(--fm); font-size: 11px; color: var(--m2); letter-spacing: .05em; background: var(--s1); border: 1px solid var(--line); transition: all .15s; cursor: pointer; }
-    .fl-c:hover { background: var(--s2); color: var(--text); }
-    .fl-c.is-on { background: var(--text); color: #000; border-color: var(--text); }
-    .fl-c-c { margin-left: 6px; color: inherit; opacity: .5; }
-
-    /* === GRID A — 3-col cards === */
-    .gr-a { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
-    @media(max-width:1000px) { .gr-a { grid-template-columns: repeat(2,1fr); } }
-    @media(max-width:600px) { .gr-a { grid-template-columns: 1fr; } }
-    .gr-a-c { background: var(--s1); display: flex; flex-direction: column; cursor: pointer; transition: background .2s; text-decoration: none; color: inherit; }
-    .gr-a-c:hover { background: var(--s2); }
-    .gr-a-c-img { aspect-ratio: 4/3; background: var(--s2); position: relative; overflow: hidden; }
-    .gr-a-c-img-g { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size: 32px 32px; transition: filter .25s; }
-    .gr-a-c:hover .gr-a-c-img-g { filter: brightness(1.4); }
-    .gr-a-c-badge { position: absolute; top: 14px; left: 14px; font-family: var(--fm); font-size: 10px; color: var(--ok); letter-spacing: .1em; background: rgba(9,9,9,.7); backdrop-filter: blur(8px); padding: 6px 10px; border: 1px solid var(--line2); }
-    .gr-a-c-body { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-    .gr-a-c-t { font-family: var(--fh); font-weight: 700; font-size: 18px; line-height: 1.2; letter-spacing: -.01em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.4em; }
-    .gr-a-c-d { color: var(--m2); font-size: 14px; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex: 1; }
-    .gr-a-c-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; border-top: 1px solid var(--line); padding-top: 16px; margin-top: 6px; }
-    .gr-a-c-stat .v { font-family: var(--fh); font-weight: 700; font-size: 18px; letter-spacing: -.02em; line-height: 1; margin-bottom: 4px; }
-    .gr-a-c-stat .v.ok { color: var(--ok); }
-    .gr-a-c-stat .l { font-family: var(--fm); font-size: 9.5px; color: var(--m); letter-spacing: .08em; }
-    .gr-a-c-arr { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-top: 6px; transition: color .2s, transform .2s; }
-    .gr-a-c:hover .gr-a-c-arr { color: var(--text); transform: translateX(4px); }
+    .cs-hero{padding:80px 0 56px;border-bottom:1px solid var(--line)}
+    .cs-bc{font-family:var(--fm);font-size:11px;color:var(--m);letter-spacing:.08em;margin-bottom:36px}
+    .cs-bc a{color:var(--m2)}.cs-bc .sep{margin:0 10px;color:var(--line2)}
+    .cs-hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:end}
+    @media(max-width:920px){.cs-hero-grid{grid-template-columns:1fr;gap:40px}}
+    .cs-hero-h{font-family:var(--fh);font-weight:900;font-size:clamp(44px,6vw,84px);line-height:.95;letter-spacing:-.04em;margin-bottom:22px}
+    .cs-hero-d{max-width:520px;font-size:16px;color:var(--m2);line-height:1.6}
+    .cs-hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .cs-hero-stat{padding:24px 0;border-right:1px solid var(--line);padding-right:24px}
+    .cs-hero-stat:last-child{border-right:0;padding-left:24px;padding-right:0}
+    .cs-hero-stat:nth-child(3){border-right:1px solid var(--line);padding-left:0;padding-right:24px}
+    .cs-hero-stat .v{font-family:var(--fh);font-weight:900;font-size:36px;letter-spacing:-.03em;line-height:1;margin-bottom:8px}
+    .cs-hero-stat .v.ok{color:var(--ok)}
+    .cs-hero-stat .l{font-family:var(--fm);font-size:10px;color:var(--m);letter-spacing:.08em;text-transform:uppercase}
+    .fl-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:48px}
+    .fl-l{font-family:var(--fm);font-size:10.5px;color:var(--m);letter-spacing:.1em;text-transform:uppercase;margin-right:12px}
+    .fl-c{padding:9px 16px;font-family:var(--fm);font-size:11px;color:var(--m2);letter-spacing:.05em;background:var(--s1);border:1px solid var(--line);transition:all .15s;cursor:pointer}
+    .fl-c:hover{background:var(--s2);color:var(--text)}
+    .fl-c.is-on{background:var(--text);color:#000;border-color:var(--text)}
+    .fl-c-c{margin-left:6px;color:inherit;opacity:.5}
+    .gr-a{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+    @media(max-width:1000px){.gr-a{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.gr-a{grid-template-columns:1fr}}
+    .gr-a-c{background:var(--s1);display:flex;flex-direction:column;cursor:pointer;transition:background .2s;text-decoration:none;color:inherit}
+    .gr-a-c:hover{background:var(--s2)}
+    .gr-a-c-img{aspect-ratio:4/3;background:var(--s2);position:relative;overflow:hidden}
+    .gr-a-c-img-g{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:32px 32px;transition:filter .25s}
+    .gr-a-c:hover .gr-a-c-img-g{filter:brightness(1.4)}
+    .gr-a-c-badge{position:absolute;top:14px;left:14px;font-family:var(--fm);font-size:10px;color:var(--ok);letter-spacing:.1em;background:rgba(9,9,9,.7);backdrop-filter:blur(8px);padding:6px 10px;border:1px solid var(--line2)}
+    .gr-a-c-body{padding:24px 24px 28px;display:flex;flex-direction:column;gap:12px;flex:1}
+    .gr-a-c-t{font-family:var(--fh);font-weight:700;font-size:18px;line-height:1.2;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.4em}
+    .gr-a-c-d{color:var(--m2);font-size:14px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+    .gr-a-c-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line);padding-top:16px;margin-top:6px}
+    .gr-a-c-stat .v{font-family:var(--fh);font-weight:700;font-size:18px;letter-spacing:-.02em;line-height:1;margin-bottom:4px}
+    .gr-a-c-stat .v.ok{color:var(--ok)}
+    .gr-a-c-stat .l{font-family:var(--fm);font-size:9.5px;color:var(--m);letter-spacing:.08em}
+    .gr-a-c-arr{font-family:var(--fm);font-size:11px;color:var(--m);letter-spacing:.08em;margin-top:6px;transition:color .2s,transform .2s}
+    .gr-a-c:hover .gr-a-c-arr{color:var(--text);transform:translateX(4px)}
   </style>
 </head>
 <body>
-
 <div id="nav-root"></div>
 <div id="modals-root"></div>
-
 <div class="page-top">
 
-  <!-- ── HERO B — split с метриками ── -->
   <section style="padding-top:0;border-top:none;">
     <div class="cs-hero">
       <div class="wrap">
-        <div class="cs-bc">
-          <a href="index.html">Главная</a><span class="sep">/</span><span style="color:var(--text);">Кейсы</span>
-        </div>
+        <div class="cs-bc"><a href="index.html">Главная</a><span class="sep">/</span><span style="color:var(--text);">Кейсы</span></div>
         <div class="cs-hero-grid">
           <div>
             <h1 class="cs-hero-h">Что мы уже сделали для промышленности</h1>
@@ -92,12 +76,9 @@
     </div>
   </section>
 
-  <!-- ── GRID A — 3-col карточки с метриками ── -->
   <section class="section" id="cases">
     <div class="wrap">
       <div class="section-num">01 / КЕЙСЫ</div>
-
-      <!-- Фильтры по отраслям -->
       <div class="fl-bar" style="margin-top:32px;" id="cases-filters">
         <span class="fl-l">Отрасль:</span>
         <button class="fl-c is-on" data-filter="all">Все <span class="fl-c-c">6</span></button>
@@ -108,15 +89,10 @@
         <button class="fl-c" data-filter="machines">Машиностроение <span class="fl-c-c">1</span></button>
         <button class="fl-c" data-filter="food">Пищевка <span class="fl-c-c">1</span></button>
       </div>
-
       <div class="gr-a" id="cases-grid">
 
-        <!-- Кейс 1 -->
         <a class="gr-a-c" href="cases/kontrol-kachestva-metalla.html" data-industry="metallurgy">
-          <div class="gr-a-c-img">
-            <div class="gr-a-c-img-g"></div>
-            <div class="gr-a-c-badge">МЕТАЛЛУРГИЯ</div>
-          </div>
+          <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">МЕТАЛЛУРГИЯ</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">Контроль СИЗ на металлургическом производстве</div>
             <div class="gr-a-c-d">Мониторинг каски, очков, жилета на 8 участках в реальном времени. Алёрт оператору ОТ за 2 секунды.</div>
@@ -128,12 +104,8 @@
           </div>
         </a>
 
-        <!-- Кейс 2 -->
         <a class="gr-a-c" href="cases/identifikatsiya-na-sklade.html" data-industry="logistics">
-          <div class="gr-a-c-img">
-            <div class="gr-a-c-img-g"></div>
-            <div class="gr-a-c-badge">ЛОГИСТИКА</div>
-          </div>
+          <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">ЛОГИСТИКА</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">PVSignDetector — детекция знаков по ГОСТ</div>
             <div class="gr-a-c-d">Десктоп для автоматической детекции и классификации дорожных знаков из видео GoPro с GPS-привязкой. Работает оффлайн.</div>
@@ -145,12 +117,8 @@
           </div>
         </a>
 
-        <!-- Кейс 3 -->
         <a class="gr-a-c" href="cases/kontrol-upakovki-lekarstv.html" data-industry="pharma">
-          <div class="gr-a-c-img">
-            <div class="gr-a-c-img-g"></div>
-            <div class="gr-a-c-badge">ФАРМАЦЕВТИКА</div>
-          </div>
+          <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">ФАРМАЦЕВТИКА</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">FastenAI — детекция крепёжных элементов</div>
             <div class="gr-a-c-d">Автоматическое распознавание, измерение и категоризация болтов, гаек, шайб с точностью до 0.05 мм.</div>
@@ -162,12 +130,8 @@
           </div>
         </a>
 
-        <!-- Кейс 4 -->
         <a class="gr-a-c" href="cases/opredelenie-remontoprigodnosti-neftyanyh-dolot.html" data-industry="oil">
-          <div class="gr-a-c-img">
-            <div class="gr-a-c-img-g"></div>
-            <div class="gr-a-c-badge">НЕФТЕСЕРВИС</div>
-          </div>
+          <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">НЕФТЕСЕРВИС</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">Ремонтопригодность нефтяных долот</div>
             <div class="gr-a-c-d">CV-система оценки состояния шарошечных долот для ускорения решения о ремонте или списании.</div>
@@ -179,12 +143,8 @@
           </div>
         </a>
 
-        <!-- Кейс 5 -->
         <a class="gr-a-c" href="#" data-industry="machines">
-          <div class="gr-a-c-img">
-            <div class="gr-a-c-img-g"></div>
-            <div class="gr-a-c-badge">МАШИНОСТРОЕНИЕ</div>
-          </div>
+          <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">МАШИНОСТРОЕНИЕ</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">Автоматическая инвентаризация склада</div>
             <div class="gr-a-c-d">OCR номеров вагонов и контейнеров на въезде, подсчёт паллет без бумажных пропусков.</div>
@@ -196,12 +156,8 @@
           </div>
         </a>
 
-        <!-- Кейс 6 -->
         <a class="gr-a-c" href="#" data-industry="food">
-          <div class="gr-a-c-img">
-            <div class="gr-a-c-img-g"></div>
-            <div class="gr-a-c-badge">ПИЩЕВКА</div>
-          </div>
+          <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">ПИЩЕВКА</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">Сортировка овощей по сортам</div>
             <div class="gr-a-c-d">Классификация продукции по форме, размеру и наличию повреждений на ленте 80 кг/мин.</div>
@@ -217,7 +173,6 @@
     </div>
   </section>
 
-  <!-- ── CTA ── -->
   <section class="section" style="padding:64px 0;border-bottom:none;">
     <div class="wrap">
       <div class="cta-strip rv">
@@ -227,32 +182,24 @@
     </div>
   </section>
 
-</div><!-- /.page-top -->
-
+</div>
 <div id="footer-root"></div>
-
 <script src="js/data.js"></script>
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
 <script>
   initComponents();
   initPage();
-
-  // Фильтрация кейсов
-  (function() {
-    var btns = document.querySelectorAll('#cases-filters .fl-c');
-    var cards = document.querySelectorAll('#cases-grid .gr-a-c');
-    btns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        btns.forEach(function(b) { b.classList.remove('is-on'); });
+  (function(){
+    var btns=document.querySelectorAll('#cases-filters .fl-c');
+    var cards=document.querySelectorAll('#cases-grid .gr-a-c');
+    btns.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        btns.forEach(function(b){b.classList.remove('is-on')});
         btn.classList.add('is-on');
-        var f = btn.dataset.filter;
-        cards.forEach(function(card) {
-          if (f === 'all' || card.dataset.industry === f) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
+        var f=btn.dataset.filter;
+        cards.forEach(function(card){
+          card.style.display=(f==='all'||card.dataset.industry===f)?'':'none';
         });
       });
     });
