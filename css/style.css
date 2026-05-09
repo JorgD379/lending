@@ -89,11 +89,11 @@ button { font-family: var(--fb); cursor: pointer; border: none; background: none
 .dd-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; }
 @media(max-width:1100px){ .dd-grid { grid-template-columns: repeat(4,1fr); } }
 @media(max-width:860px){ .dd-grid { grid-template-columns: repeat(3,1fr); } }
-.dd-item { background: var(--s2); padding: 14px 16px; cursor: pointer; transition: background .15s; display: flex; flex-direction: column; gap: 10px; }
+.dd-item { background: var(--s2); padding: 18px 16px; cursor: pointer; transition: background .15s; display: flex; flex-direction: column; gap: 14px; }
 .dd-item:hover { background: var(--s3); }
 .dd-item-top { display: flex; align-items: center; justify-content: space-between; }
 .dd-num { font-family: var(--fm); font-size: 9px; color: var(--m); }
-.dd-icon { opacity: 0.45; transition: opacity .15s; display: flex; align-items: center; filter: invert(1); }
+.dd-icon { opacity: 0.45; transition: opacity .15s; display: block; filter: invert(1); width: 36px !important; height: 36px !important; }
 .dd-item:hover .dd-icon { opacity: 1; }
 .dd-name { font-family: var(--fb); font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.3; }
 

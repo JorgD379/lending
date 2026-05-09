@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FastenAI — детекция крепёжных элементов — ИТиС ЛАБ</title>
+  <meta name="description" content="Автоматическое распознавание, измерение и категоризация болтов, гаек, шайб с точностью до 0.05 мм. Производительность 200 штук в минуту.">
+  <link rel="canonical" href="https://lab-itis.ru/cases/kontrol-upakovki-lekarstv.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+<div class="page-top">
+
+  <div class="case-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a><span>/</span>
+        <a href="../cases.html">Кейсы</a><span>/</span>
+        <span>FastenAI</span>
+      </div>
+      <div class="article-meta">
+        <span class="article-tag">МАШИНОСТРОЕНИЕ</span>
+        <span class="article-date">Февраль 2025</span>
+      </div>
+      <h1 class="rv" style="margin-bottom:14px;">FastenAI — детекция крепёжных элементов</h1>
+      <p class="rv d1" style="max-width:640px;font-size:17px;">Система автоматически распознаёт, измеряет и категоризирует болты, гайки и шайбы на конвейере с точностью до 0.05 мм.</p>
+      <div class="case-stats rv d2">
+        <div class="cs"><div class="cs-val">99.2%</div><div class="cs-lbl">ТОЧНОСТЬ КЛАССИФИКАЦИИ</div></div>
+        <div class="cs"><div class="cs-val">200 шт</div><div class="cs-lbl">В МИНУТУ</div></div>
+        <div class="cs"><div class="cs-val">0.05 мм</div><div class="cs-lbl">ТОЧНОСТЬ ИЗМЕРЕНИЯ</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:32px;">
+    <div style="border:1px solid var(--line);overflow:hidden;">
+      <img src="../assets/images/cases/case2_main_window.png" alt="FastenAI — главное окно" style="width:100%;height:auto;display:block;opacity:.9;">
+    </div>
+  </div>
+
+  <section class="section" style="border:none;padding-top:48px;">
+    <div class="wrap">
+      <div class="case-body">
+        <div class="rv">
+          <div class="case-section-label">01 / Задача</div>
+          <h3 style="margin-bottom:16px;">Что нужно было решить</h3>
+          <div class="case-prose">
+            <p>Производитель крепежа вручную сортировал и контролировал продукцию на выходе: операторы визуально отбраковывали нестандартные изделия и раскладывали по типоразмерам. Скорость — около 40 штук в минуту, ошибки — 3–5%.</p>
+            <p>Задача: автоматизировать идентификацию типа крепежа (болт/гайка/шайба), определение типоразмера по ГОСТ и отбраковку дефектных изделий на скорости конвейера.</p>
+          </div>
+          <div style="margin-top:48px;">
+            <div class="case-section-label">02 / Решение</div>
+            <h3 style="margin-bottom:16px;">Что мы сделали</h3>
+            <div class="case-prose">
+              <p>Установили промышленную камеру высокого разрешения с кольцевой подсветкой над конвейерной лентой. Разработали пайплайн: детекция → измерение геометрии → классификация → сигнал отбраковщику.</p>
+              <ul>
+                <li>Сегментация каждого изделия на ленте (несколько штук одновременно)</li>
+                <li>Субпиксельное измерение диаметра, длины, шага резьбы</li>
+                <li>Классификация по 47 типоразмерам ГОСТ</li>
+                <li>Отбраковка дефектов: сколы, деформации, несоответствие размера</li>
+                <li>Статистика по партии в реальном времени</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="rv d1">
+          <div class="case-section-label">03 / Результаты</div>
+          <h3 style="margin-bottom:16px;">Что получил клиент</h3>
+          <div class="case-prose">
+            <p>Ручной контроль на данном участке полностью исключён. Производительность выросла в 5 раз, процент пропущенного брака снизился с 3–5% до 0.8%.</p>
+            <ul>
+              <li>Точность классификации 99.2%</li>
+              <li>Производительность 200 изделий/мин vs 40 ранее</li>
+              <li>Точность измерения ±0.05 мм</li>
+              <li>Снижение рекламаций по браку на 85%</li>
+            </ul>
+          </div>
+          <div style="margin-top:48px;">
+            <div class="case-section-label">04 / Технологии</div>
+            <h3 style="margin-bottom:16px;">Что использовали</h3>
+            <div class="case-prose">
+              <p>Basler acA4024 камера, кольцевая LED-подсветка, YOLOv8 для сегментации, субпиксельный алгоритм измерения геометрии, ResNet-50 для классификации типоразмера, промышленный ПК с NVIDIA RTX 4000.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding:0 0 120px;border:none;">
+    <div class="wrap">
+      <div class="cta-strip rv">
+        <h2>Хотите автоматизировать контроль на своём производстве?</h2>
+        <button class="btn btn-w" onclick="openForm('simple')">Обсудить проект</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div id="footer-root"></div>
+<script src="../js/data.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script>initComponents();initPage();</script>
+</body>
+</html>

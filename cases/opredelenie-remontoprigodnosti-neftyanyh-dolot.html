@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ремонтопригодность нефтяных долот — ИТиС ЛАБ</title>
+  <meta name="description" content="CV-система оценки состояния шарошечных долот для ускорения решения о ремонте или списании. Скорость оценки в 3 раза выше, 4 класса состояния.">
+  <link rel="canonical" href="https://lab-itis.ru/cases/opredelenie-remontoprigodnosti-neftyanyh-dolot.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+<div class="page-top">
+
+  <div class="case-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a><span>/</span>
+        <a href="../cases.html">Кейсы</a><span>/</span>
+        <span>Ремонтопригодность долот</span>
+      </div>
+      <div class="article-meta">
+        <span class="article-tag">НЕФТЕСЕРВИС</span>
+        <span class="article-date">Октябрь 2024</span>
+      </div>
+      <h1 class="rv" style="margin-bottom:14px;">Ремонтопригодность нефтяных долот</h1>
+      <p class="rv d1" style="max-width:640px;font-size:17px;">CV-система оценки состояния шарошечных долот заменяет ручной осмотр эксперта и ускоряет принятие решения о ремонте или списании.</p>
+      <div class="case-stats rv d2">
+        <div class="cs"><div class="cs-val">×3</div><div class="cs-lbl">БЫСТРЕЕ ОЦЕНКА</div></div>
+        <div class="cs"><div class="cs-val">4</div><div class="cs-lbl">КЛАССА СОСТОЯНИЯ</div></div>
+        <div class="cs"><div class="cs-val">93%</div><div class="cs-lbl">ТОЧНОСТЬ КЛАССИФИКАЦИИ</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="border:none;padding-top:48px;">
+    <div class="wrap">
+      <div class="case-body">
+        <div class="rv">
+          <div class="case-section-label">01 / Задача</div>
+          <h3 style="margin-bottom:16px;">Что нужно было решить</h3>
+          <div class="case-prose">
+            <p>Нефтесервисная компания после каждого подъёма долота из скважины проводила ручной осмотр: опытный инженер оценивал степень износа шарошек, зубьев и корпуса и принимал решение — отправить на ремонт или списать.</p>
+            <p>Проблема: дефицит экспертов, субъективность оценки, время осмотра 20–40 минут при срочных операциях. Задача: автоматизировать оценку, стандартизировать критерии, ускорить процесс.</p>
+          </div>
+          <div style="margin-top:48px;">
+            <div class="case-section-label">02 / Решение</div>
+            <h3 style="margin-bottom:16px;">Что мы сделали</h3>
+            <div class="case-prose">
+              <p>Разработали систему фотофиксации долота (стенд с 3 камерами под разными углами) и модель классификации по 4 классам состояния согласно стандарту IADC.</p>
+              <ul>
+                <li>Автоматический фотостенд — 3 ракурса за 30 секунд</li>
+                <li>Сегментация шарошек, зубьев, подшипников, форсунок</li>
+                <li>Классификация по IADC: A (новое) / B (лёгкий износ) / C (ремонт) / D (списание)</li>
+                <li>Отчёт с визуализацией дефектов и рекомендацией</li>
+                <li>История осмотров с трекингом каждого долота по серийному номеру</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="rv d1">
+          <div class="case-section-label">03 / Результаты</div>
+          <h3 style="margin-bottom:16px;">Что получил клиент</h3>
+          <div class="case-prose">
+            <p>Время оценки одного долота сократилось с 20–40 минут до 5–7 минут. Стандартизация критериев исключила субъективные расхождения между экспертами.</p>
+            <ul>
+              <li>В 3 раза быстрее оценка состояния</li>
+              <li>Точность классификации 93% (совпадение с решением эксперта)</li>
+              <li>Снижение стоимости необоснованных списаний на 22%</li>
+              <li>База данных осмотров для предиктивного обслуживания</li>
+            </ul>
+          </div>
+          <div style="margin-top:48px;">
+            <div class="case-section-label">04 / Технологии</div>
+            <h3 style="margin-bottom:16px;">Что использовали</h3>
+            <div class="case-prose">
+              <p>Трёхкамерный фотостенд с управляемой подсветкой, Mask R-CNN для сегментации компонентов долота, EfficientNet-B4 для итоговой классификации, веб-интерфейс на FastAPI + React.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding:0 0 120px;border:none;">
+    <div class="wrap">
+      <div class="cta-strip rv">
+        <h2>Нужна оценка состояния оборудования по фото?</h2>
+        <button class="btn btn-w" onclick="openForm('simple')">Обсудить проект</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div id="footer-root"></div>
+<script src="../js/data.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script>initComponents();initPage();</script>
+</body>
+</html>

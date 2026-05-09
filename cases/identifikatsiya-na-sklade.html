@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PVSignDetector — детекция дорожных знаков по ГОСТ — ИТиС ЛАБ</title>
+  <meta name="description" content="Десктоп-приложение для автоматической детекции и классификации дорожных знаков из видео GoPro с GPS-привязкой. Recall 94%, latency 12 мс, работает оффлайн.">
+  <link rel="canonical" href="https://lab-itis.ru/cases/identifikatsiya-na-sklade.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .case-gallery { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; margin-top: 48px; }
+    @media(max-width:640px){ .case-gallery { grid-template-columns: 1fr; } }
+    .case-gallery-img { aspect-ratio: 16/10; overflow: hidden; background: var(--s2); }
+    .case-gallery-img img { width: 100%; height: 100%; object-fit: cover; opacity: .85; transition: opacity .2s, transform .3s; }
+    .case-gallery-img:hover img { opacity: 1; transform: scale(1.02); }
+  </style>
+</head>
+<body>
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+<div class="page-top">
+
+  <div class="case-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a><span>/</span>
+        <a href="../cases.html">Кейсы</a><span>/</span>
+        <span>PVSignDetector</span>
+      </div>
+      <div class="article-meta">
+        <span class="article-tag">ТРАНСПОРТ · ИНФРАСТРУКТУРА</span>
+        <span class="article-date">Январь 2025</span>
+      </div>
+      <h1 class="rv" style="margin-bottom:14px;">PVSignDetector — детекция знаков по ГОСТ</h1>
+      <p class="rv d1" style="max-width:640px;font-size:17px;">Десктоп-приложение для автоматической детекции и классификации дорожных знаков из видео GoPro с GPS-привязкой. Работает полностью оффлайн.</p>
+      <div class="case-stats rv d2">
+        <div class="cs"><div class="cs-val">94%</div><div class="cs-lbl">RECALL</div></div>
+        <div class="cs"><div class="cs-val">12 мс</div><div class="cs-lbl">LATENCY НА КАДР</div></div>
+        <div class="cs"><div class="cs-val">100%</div><div class="cs-lbl">ОФФЛАЙН РАБОТА</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Главный скриншот -->
+  <div class="wrap" style="margin-top:32px;margin-bottom:0;">
+    <div style="border:1px solid var(--line);overflow:hidden;">
+      <img src="../assets/images/cases/case1_main_window.png" alt="PVSignDetector — главное окно" style="width:100%;height:auto;display:block;opacity:.9;">
+    </div>
+  </div>
+
+  <section class="section" style="border:none;padding-top:48px;">
+    <div class="wrap">
+      <div class="case-body">
+        <div class="rv">
+          <div class="case-section-label">01 / Задача</div>
+          <h3 style="margin-bottom:16px;">Что нужно было решить</h3>
+          <div class="case-prose">
+            <p>Дорожная служба проводила регулярные объезды трасс для инвентаризации и проверки состояния дорожных знаков. Процесс был полностью ручным: видеозапись с видеорегистратора просматривалась оператором, знаки фиксировались вручную.</p>
+            <p>Задача: автоматизировать распознавание знаков из видео GoPro, определять их класс по ГОСТ Р 52290, привязывать к GPS-координатам и формировать отчёт — без интернета, на ноутбуке в машине.</p>
+          </div>
+          <div style="margin-top:48px;">
+            <div class="case-section-label">02 / Решение</div>
+            <h3 style="margin-bottom:16px;">Что мы сделали</h3>
+            <div class="case-prose">
+              <p>Разработали десктоп-приложение на Python + PyQt6 с встроенной моделью детекции и классификатором знаков по ГОСТ.</p>
+              <ul>
+                <li>Детекция знаков на каждом кадре видео в реальном времени</li>
+                <li>Классификация по категориям ГОСТ Р 52290 (предупреждающие, запрещающие, информационные и т.д.)</li>
+                <li>GPS-привязка из NMEA-лога GoPro к каждому зафиксированному знаку</li>
+                <li>Экспорт в CSV и интерактивную карту в формате HTML</li>
+                <li>Полностью оффлайн — работает без интернета на обычном ноутбуке</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="rv d1">
+          <div class="case-section-label">03 / Результаты</div>
+          <h3 style="margin-bottom:16px;">Что получил клиент</h3>
+          <div class="case-prose">
+            <p>Время инвентаризации 100 км дороги сократилось с 3 рабочих дней до 4 часов. Ручной просмотр видео полностью исключён.</p>
+            <ul>
+              <li>Recall 94% на тестовой выборке из реальных дорог</li>
+              <li>Latency 12 мс на кадр (CPU-режим, без GPU)</li>
+              <li>Сокращение трудозатрат на инвентаризацию в 6 раз</li>
+              <li>Автоматический отчёт с картой вместо ручных таблиц</li>
+            </ul>
+          </div>
+          <div style="margin-top:48px;">
+            <div class="case-section-label">04 / Технологии</div>
+            <h3 style="margin-bottom:16px;">Что использовали</h3>
+            <div class="case-prose">
+              <p>YOLOv8n для детекции (оптимизирован под CPU), EfficientNet-B0 для классификации, PyQt6 для интерфейса, OpenCV для обработки видео, Folium для генерации карты. Сборка в exe через PyInstaller.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Галерея скриншотов -->
+      <div class="case-gallery rv">
+        <div class="case-gallery-img">
+          <img src="../assets/images/cases/case1_new_processing.png" alt="PVSignDetector — обработка видео">
+        </div>
+        <div class="case-gallery-img">
+          <img src="../assets/images/cases/case1_results_window.png" alt="PVSignDetector — результаты">
+        </div>
+        <div class="case-gallery-img" style="grid-column:1/-1;">
+          <img src="../assets/images/cases/case1_export_format.png" alt="PVSignDetector — экспорт данных">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding:0 0 120px;border:none;">
+    <div class="wrap">
+      <div class="cta-strip rv">
+        <h2>Нужна похожая система для вашей инфраструктуры?</h2>
+        <button class="btn btn-w" onclick="openForm('simple')">Обсудить проект</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div id="footer-root"></div>
+<script src="../js/data.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script>initComponents();initPage();</script>
+</body>
+</html>

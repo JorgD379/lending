@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контроль СИЗ на металлургическом производстве — ИТиС ЛАБ</title>
+  <meta name="description" content="Внедрение системы машинного зрения для мониторинга средств индивидуальной защиты на 8 участках металлургического завода. Снижение нарушений ОТ на 78%.">
+  <link rel="canonical" href="https://lab-itis.ru/cases/kontrol-kachestva-metalla.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="nav-root"></div>
+<div id="modals-root"></div>
+<div class="page-top">
+
+  <div class="case-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a><span>/</span>
+        <a href="../cases.html">Кейсы</a><span>/</span>
+        <span>Контроль СИЗ · Металлургия</span>
+      </div>
+      <div class="article-meta">
+        <span class="article-tag">МЕТАЛЛУРГИЯ</span>
+        <span class="article-date">Март 2025</span>
+      </div>
+      <h1 class="rv" style="margin-bottom:14px;">Контроль СИЗ на металлургическом производстве</h1>
+      <p class="rv d1" style="max-width:640px;font-size:17px;">Система машинного зрения мониторит ношение каски, очков и жилета на 8 участках в реальном времени — алёрт офицеру ОТ за 2 секунды.</p>
+      <div class="case-stats rv d2">
+        <div class="cs"><div class="cs-val">−78%</div><div class="cs-lbl">НАРУШЕНИЙ ОТ ЗА 6 МЕС</div></div>
+        <div class="cs"><div class="cs-val">24/7</div><div class="cs-lbl">МОНИТОРИНГ БЕЗ ОПЕРАТОРА</div></div>
+        <div class="cs"><div class="cs-val">8 мес</div><div class="cs-lbl">СРОК ОКУПАЕМОСТИ</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="border:none;padding-top:0;">
+    <div class="wrap">
+      <div class="case-body">
+        <div class="rv">
+          <div class="case-section-label">01 / Задача</div>
+          <h3 style="margin-bottom:16px;">Что нужно было решить</h3>
+          <div class="case-prose">
+            <p>Крупный металлургический завод фиксировал стабильно высокий уровень нарушений правил ношения СИЗ. Штатные инспекторы ОТ физически не могли охватить все участки одновременно, а видеозаписи просматривались постфактум.</p>
+            <p>Задача: автоматически детектировать отсутствие каски, защитных очков и сигнального жилета у каждого сотрудника в кадре и немедленно уведомлять ответственного.</p>
+          </div>
+          <div style="margin-top:48px;">
+            <div class="case-section-label">02 / Решение</div>
+            <h3 style="margin-bottom:16px;">Что мы сделали</h3>
+            <div class="case-prose">
+              <p>Подключили 24 IP-камеры на 8 производственных участках к edge-серверу с GPU. Обучили модель детекции на 12 000 размеченных кадров с условиями завода: пар, высокая контрастность, движение.</p>
+              <ul>
+                <li>Детекция каски, очков, жилета, перчаток и спецобуви по каждому человеку</li>
+                <li>Алёрт в мессенджер офицера ОТ с фото нарушителя за &lt;2 секунды</li>
+                <li>Автоматический журнал нарушений с привязкой к камере, зоне и времени</li>
+                <li>Интеграция с системой пропусков — идентификация по бейджу</li>
+                <li>Дашборд руководителя с тепловой картой нарушений по цехам</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="rv d1">
+          <div class="case-section-label">03 / Результаты</div>
+          <h3 style="margin-bottom:16px;">Что получил клиент</h3>
+          <div class="case-prose">
+            <p>За первые 6 месяцев работы системы количество зафиксированных нарушений ОТ снизилось на 78%. Три крупных инцидента были предотвращены благодаря своевременному алёрту.</p>
+            <ul>
+              <li>−78% нарушений ношения СИЗ</li>
+              <li>Сокращение времени реакции с 15–20 минут до 2 секунд</li>
+              <li>Журнал нарушений полностью автоматизирован, ручной учёт исключён</li>
+              <li>Окупаемость системы за 8 месяцев за счёт снижения штрафов и страховых выплат</li>
+            </ul>
+          </div>
+          <div style="margin-top:48px;">
+            <div class="case-section-label">04 / Технологии</div>
+            <h3 style="margin-bottom:16px;">Что использовали</h3>
+            <div class="case-prose">
+              <p>YOLOv8 для детекции объектов, кастомная классификация атрибутов СИЗ, NVIDIA Jetson AGX Orin на каждом участке, интеграция по REST API с корпоративным мессенджером и СКУД.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding:0 0 120px;border:none;">
+    <div class="wrap">
+      <div class="cta-strip rv">
+        <h2>Хотите похожий результат на своём производстве?</h2>
+        <button class="btn btn-w" onclick="openForm('simple')">Обсудить проект</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div id="footer-root"></div>
+<script src="../js/data.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script>initComponents();initPage();</script>
+</body>
+</html>
