@@ -17,8 +17,11 @@
     .gr-a-c{background:var(--s1);display:flex;flex-direction:column;cursor:pointer;transition:background .2s;text-decoration:none;color:inherit}
     .gr-a-c:hover{background:var(--s2)}
     .gr-a-c-img{aspect-ratio:4/3;background:var(--s2);position:relative;overflow:hidden}
-    .gr-a-c-img-g{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:32px 32px;transition:filter .25s}
+    .gr-a-c-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .4s;opacity:.8}
+    .gr-a-c:hover .gr-a-c-img img{transform:scale(1.03);opacity:1}
+    .gr-a-c-img-g{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:32px 32px;transition:filter .25s;z-index:1}
     .gr-a-c:hover .gr-a-c-img-g{filter:brightness(1.4)}
+    .gr-a-c-badge{z-index:2}
     .gr-a-c-badge{position:absolute;top:14px;left:14px;font-family:var(--fm);font-size:10px;color:var(--ok);letter-spacing:.1em;background:rgba(9,9,9,.7);backdrop-filter:blur(8px);padding:6px 10px;border:1px solid var(--line2)}
     .gr-a-c-body{padding:24px 24px 28px;display:flex;flex-direction:column;gap:12px;flex:1}
     .gr-a-c-t{font-family:var(--fh);font-weight:700;font-size:18px;line-height:1.2;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.4em}
@@ -55,7 +58,7 @@
         </a>
 
         <a class="gr-a-c" href="cases/identifikatsiya-na-sklade.html" data-industry="logistics">
-          <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">ЛОГИСТИКА</div></div>
+          <div class="gr-a-c-img"><img src="assets/images/cases/case1_main_window.png" alt="PVSignDetector" loading="lazy"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">ТРАНСПОРТ</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">PVSignDetector — детекция знаков по ГОСТ</div>
             <div class="gr-a-c-d">Десктоп для автоматической детекции и классификации дорожных знаков из видео GoPro с GPS-привязкой. Работает оффлайн.</div>
@@ -68,7 +71,7 @@
         </a>
 
         <a class="gr-a-c" href="cases/kontrol-upakovki-lekarstv.html" data-industry="pharma">
-          <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">ФАРМАЦЕВТИКА</div></div>
+          <div class="gr-a-c-img"><img src="assets/images/cases/case2_main_window.png" alt="FastenAI" loading="lazy"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">МАШИНОСТРОЕНИЕ</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">FastenAI — детекция крепёжных элементов</div>
             <div class="gr-a-c-d">Автоматическое распознавание, измерение и категоризация болтов, гаек, шайб с точностью до 0.05 мм.</div>
