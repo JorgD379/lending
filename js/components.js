@@ -190,9 +190,131 @@ function buildDD() {
     </div>`).join('');
 }
 
+/* ── COOKIE BANNER ── */
+function injectCookieBanner() {
+  if (localStorage.getItem('cookie_consent')) return;
+
+  const base = (() => {
+    const p = window.location.pathname;
+    const parts = p.split('/').filter(Boolean);
+    return parts.length > 1 ? '../' : '';
+  })();
+
+  const banner = document.createElement('div');
+  banner.id = 'cookie-banner';
+  banner.innerHTML = `
+    <div class="ck-inner">
+      <div class="ck-text">
+        <span>Мы используем файлы Cookie для корректной работы сайта и анализа трафика.</span>
+        <a href="${base}cookies.html" target="_blank">Подробнее</a>
+      </div>
+      <div class="ck-actions">
+        <button class="ck-btn ck-accept" onclick="cookieAccept()">Принять все</button>
+        <button class="ck-btn ck-decline" onclick="cookieDecline()">Только необходимые</button>
+      </div>
+    </div>
+  `;
+
+  const style = document.createElement('style');
+  style.textContent = `
+    #cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 9999;
+      background: #141414;
+      border-top: 1px solid #2a2a2a;
+      padding: 16px 24px;
+      animation: ckSlideUp .35s ease;
+    }
+    @keyframes ckSlideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);   opacity: 1; }
+    }
+    .ck-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .ck-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.5;
+    }
+    .ck-text a {
+      color: #3dff7a;
+      text-decoration: none;
+      margin-left: 6px;
+      white-space: nowrap;
+    }
+    .ck-text a:hover { text-decoration: underline; }
+    .ck-actions {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .ck-btn {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .ck-btn:hover { opacity: .85; }
+    .ck-accept {
+      background: #3dff7a;
+      color: #000;
+    }
+    .ck-decline {
+      background: transparent;
+      color: #aaa;
+      border: 1px solid #333;
+    }
+    #cookie-banner.ck-hide {
+      animation: ckSlideDown .3s ease forwards;
+    }
+    @keyframes ckSlideDown {
+      to { transform: translateY(100%); opacity: 0; }
+    }
+    @media (max-width: 600px) {
+      .ck-inner { flex-direction: column; align-items: flex-start; }
+      .ck-actions { width: 100%; }
+      .ck-btn { flex: 1; text-align: center; }
+    }
+  `;
+
+  document.head.appendChild(style);
+  document.body.appendChild(banner);
+}
+
+function cookieAccept() {
+  localStorage.setItem('cookie_consent', 'all');
+  closeCookieBanner();
+}
+
+function cookieDecline() {
+  localStorage.setItem('cookie_consent', 'essential');
+  closeCookieBanner();
+}
+
+function closeCookieBanner() {
+  const b = document.getElementById('cookie-banner');
+  if (!b) return;
+  b.classList.add('ck-hide');
+  setTimeout(() => b.remove(), 350);
+}
+
 function initComponents() {
   injectNav();
   injectFooter();
   injectModals();
   buildDD();
+  injectCookieBanner();
 }
