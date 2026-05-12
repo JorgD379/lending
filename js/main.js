@@ -96,7 +96,7 @@ function openProcModal(indId, subId, procId) {
   const p = procs.find(x => x.id === procId);
   if (!p) return;
   document.getElementById('procContent').innerHTML = `
-    <div class="m-img"><div class="m-img-g"></div><img src="assets/images/processes/${String(indId).padStart(2,'0')}.${String(subId).padStart(2,'0')}.${String(procId).padStart(2,'0')}.jpg" alt="${p.title}" onerror="this.style.display='none'" loading="lazy"><span class="m-img-lbl" id="mImgLbl">[ Фото / визуализация процесса ]</span></div>
+    <div class="m-img"><div class="m-img-g"></div><img src="/assets/images/processes/${String(indId).padStart(2,'0')}.${String(subId).padStart(2,'0')}.${String(procId).padStart(2,'0')}.jpg" alt="${p.title}" onerror="this.style.display='none'" loading="lazy"><span class="m-img-lbl" id="mImgLbl">[ Фото / визуализация процесса ]</span></div>
     <div class="m-body">
       <div class="m-title">${p.title}</div>
       <div class="m-grid">

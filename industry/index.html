@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <style>
     /* ── INDUSTRY PAGE ── */
     .ind-page { padding-top: 69px; }
@@ -69,7 +69,7 @@
     .sub-row:hover { background: var(--s2); padding-left: 38px; }
     .sub-row.is-on {
       background: var(--bg);
-      border-left: 2px solid #4ade80;
+      border-left: 2px solid var(--ok);
       padding-left: 30px;
     }
     .sub-row.is-on:hover { padding-left: 36px; }
@@ -80,7 +80,7 @@
       color: var(--m);
       letter-spacing: 0.06em;
     }
-    .sub-row.is-on .sub-row-num { color: #4ade80; }
+    .sub-row.is-on .sub-row-num { color: var(--ok); }
     .sub-row-name {
       font-family: var(--fh);
       font-weight: 700;
@@ -108,7 +108,7 @@
     .det-sub-tag {
       font-family: var(--fm);
       font-size: 12px;
-      color: #4ade80;
+      color: var(--ok);
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
@@ -124,7 +124,7 @@
     .proc-section-label {
       font-family: var(--fm);
       font-size: 12px;
-      color: #4ade80;
+      color: var(--ok);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 8px;
@@ -145,7 +145,7 @@
       transition: padding-left .15s;
     }
     .proc-row-item:hover { padding-left: 8px; }
-    .proc-row-item:hover .proc-row-num { color: #4ade80; }
+    .proc-row-item:hover .proc-row-num { color: var(--ok); }
     .proc-row-item:hover .proc-row-arr { color: var(--text); }
 
     .proc-row-num {
@@ -233,7 +233,7 @@
     .proc-modal-tag {
       font-family: var(--fm);
       font-size: 10px;
-      color: #4ade80;
+      color: var(--ok);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 16px;
@@ -297,9 +297,9 @@
   <div class="ind-header">
     <div class="wrap">
       <div class="breadcrumb">
-        <a href="index.html">Главная</a>
+        <a href="/">Главная</a>
         <span class="sep">/</span>
-        <a href="industries.html">Решения по отраслям</a>
+        <a href="/industries/">Решения по отраслям</a>
         <span class="sep">/</span>
         <span class="cur" id="indBreadcrumb">—</span>
       </div>
@@ -329,9 +329,9 @@
 
 <div id="footer-root"></div>
 
-<script src="js/data.js"></script>
-<script src="js/components.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
 <script>
   initComponents();
   initPage();
@@ -341,7 +341,7 @@
   const ind = INDUSTRIES.find(i => i.id === indId);
 
   if (!ind) {
-    window.location.href = 'industries.html';
+    window.location.href = '/industries/';
   } else {
     document.title = `${ind.name} — ИТиС ЛАБ`;
     document.getElementById('indBreadcrumb').textContent = ind.name;

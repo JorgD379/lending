@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Кейсы — ИТиС ЛАБ</title>
   <meta name="description" content="Реализованные проекты ИТиС ЛАБ по машинному зрению: металлургия, логистика, фармацевтика. Конкретные результаты и цифры.">
-  <link rel="canonical" href="https://lab-itis.ru/cases.html">
+  <link rel="canonical" href="https://lab-itis.ru/cases/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <style>
     .gr-a{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
     @media(max-width:1000px){.gr-a{grid-template-columns:repeat(2,1fr)}}
@@ -31,7 +31,7 @@
     .gr-a-c-stat .v.ok{color:var(--ok)}
     .gr-a-c-stat .l{font-family:var(--fm);font-size:9.5px;color:var(--m);letter-spacing:.08em}
     .gr-a-c-arr{font-family:var(--fm);font-size:11px;color:var(--m);letter-spacing:.08em;margin-top:6px;transition:color .2s,transform .2s}
-    .gr-a-c:hover .gr-a-c-arr{color:var(--text);transform:translateX(4px)}
+    .gr-a-c:hover .gr-a-c-arr{color:var(--ok);transform:translateX(4px)}
   </style>
 </head>
 <body>
@@ -44,7 +44,7 @@
       <div class="section-num">01 / КЕЙСЫ</div>
       <div class="gr-a" style="margin-top:48px;" id="cases-grid">
 
-        <a class="gr-a-c" href="cases/kontrol-kachestva-metalla.html" data-industry="metallurgy">
+        <a class="gr-a-c" href="/cases/kontrol-kachestva-metalla/" data-industry="metallurgy">
           <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">МЕТАЛЛУРГИЯ</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">Контроль СИЗ на металлургическом производстве</div>
@@ -57,8 +57,8 @@
           </div>
         </a>
 
-        <a class="gr-a-c" href="cases/identifikatsiya-na-sklade.html" data-industry="logistics">
-          <div class="gr-a-c-img"><img src="assets/images/cases/case1_main_window.png" alt="PVSignDetector" loading="lazy"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">ТРАНСПОРТ</div></div>
+        <a class="gr-a-c" href="/cases/identifikatsiya-na-sklade/" data-industry="logistics">
+          <div class="gr-a-c-img"><img src="/assets/images/cases/case1_main_window.png" alt="PVSignDetector" loading="lazy"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">ТРАНСПОРТ</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">PVSignDetector — детекция знаков по ГОСТ</div>
             <div class="gr-a-c-d">Десктоп для автоматической детекции и классификации дорожных знаков из видео GoPro с GPS-привязкой. Работает оффлайн.</div>
@@ -70,8 +70,8 @@
           </div>
         </a>
 
-        <a class="gr-a-c" href="cases/kontrol-upakovki-lekarstv.html" data-industry="pharma">
-          <div class="gr-a-c-img"><img src="assets/images/cases/case2_main_window.png" alt="FastenAI" loading="lazy"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">МАШИНОСТРОЕНИЕ</div></div>
+        <a class="gr-a-c" href="/cases/kontrol-upakovki-lekarstv/" data-industry="pharma">
+          <div class="gr-a-c-img"><img src="/assets/images/cases/case2_main_window.png" alt="FastenAI" loading="lazy"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">МАШИНОСТРОЕНИЕ</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">FastenAI — детекция крепёжных элементов</div>
             <div class="gr-a-c-d">Автоматическое распознавание, измерение и категоризация болтов, гаек, шайб с точностью до 0.05 мм.</div>
@@ -83,7 +83,7 @@
           </div>
         </a>
 
-        <a class="gr-a-c" href="cases/opredelenie-remontoprigodnosti-neftyanyh-dolot.html" data-industry="oil">
+        <a class="gr-a-c" href="/cases/opredelenie-remontoprigodnosti-neftyanyh-dolot/" data-industry="oil">
           <div class="gr-a-c-img"><div class="gr-a-c-img-g"></div><div class="gr-a-c-badge">НЕФТЕСЕРВИС</div></div>
           <div class="gr-a-c-body">
             <div class="gr-a-c-t">Ремонтопригодность нефтяных долот</div>
@@ -137,9 +137,9 @@
 
 </div>
 <div id="footer-root"></div>
-<script src="js/data.js"></script>
-<script src="js/components.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
 <script>
   initComponents();
   initPage();

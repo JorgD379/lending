@@ -5,8 +5,9 @@
 OUTPUT="itis-lab-site.zip"
 
 zip -r "$OUTPUT" \
-  index.html about.html tasks.html industries.html industry.html subindustry.html \
-  cases.html blog.html contacts.html privacy.html \
+  index.html .nojekyll CNAME \
+  about/ tasks/ industries/ industry/ subindustry/ \
+  contacts/ privacy/ consent/ cookies/ \
   blog/ cases/ css/ js/ assets/ \
   --exclude "*.DS_Store" --exclude "__MACOSX/*"
 

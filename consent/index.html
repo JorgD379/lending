@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <style>
     .prose { max-width: 760px; }
     .prose h2 { font-size: clamp(18px,2vw,24px); margin: 48px 0 16px; }
@@ -35,9 +35,9 @@
   <div class="pg-hero">
     <div class="wrap">
       <div class="breadcrumb">
-        <a href="index.html">Главная</a>
-        <span>/</span>
-        <span>Согласие на обработку персональных данных</span>
+        <a href="/">Главная</a>
+        <span class="sep">/</span>
+        <span class="cur">Согласие на обработку персональных данных</span>
       </div>
       <h1 class="rv" style="margin-bottom:14px;">Согласие на обработку персональных данных</h1>
     </div>
@@ -110,8 +110,8 @@
 
         <h2>Документы</h2>
         <p>
-          <a href="privacy.html">Политика конфиденциальности</a><br>
-          <a href="cookies.html">Политика использования Cookie</a>
+          <a href="/privacy/">Политика конфиденциальности</a><br>
+          <a href="/cookies/">Политика использования Cookie</a>
         </p>
 
       </div>
@@ -123,9 +123,9 @@
 
 <div id="footer-root"></div>
 
-<script src="js/data.js"></script>
-<script src="js/components.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
 <script>
   initComponents();
   initPage();

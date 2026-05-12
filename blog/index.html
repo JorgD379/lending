@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Блог — ИТиС ЛАБ</title>
   <meta name="description" content="Статьи о машинном зрении, промышленной автоматизации и ИИ для производства от команды ИТиС ЛАБ.">
-  <link rel="canonical" href="https://lab-itis.ru/blog.html">
+  <link rel="canonical" href="https://lab-itis.ru/blog/">
   <meta property="og:title" content="Блог — ИТиС ЛАБ">
   <meta property="og:description" content="Статьи о машинном зрении, промышленной автоматизации и ИИ для производства.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lab-itis.ru/blog.html">
+  <meta property="og:url" content="https://lab-itis.ru/blog/">
   <meta property="og:image" content="https://lab-itis.ru/assets/images/og-default.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <style>
     /* === GRID A — 3-col blog cards === */
     .bg-a { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
@@ -32,7 +32,7 @@
     .bp-a-t { font-family: var(--fh); font-weight: 700; font-size: 18px; line-height: 1.2; letter-spacing: -.01em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.6em; }
     .bp-a-d { color: var(--m2); font-size: 14px; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex: 1; }
     .bp-a-r { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-top: 6px; transition: color .2s, transform .2s; }
-    .bp-a:hover .bp-a-r { color: var(--text); transform: translateX(4px); }
+    .bp-a:hover .bp-a-r { color: var(--ok); transform: translateX(4px); }
   </style>
 </head>
 <body>
@@ -51,7 +51,7 @@
       <div class="bg-a" id="blog-grid">
 
         <!-- Статья 1 -->
-        <a class="bp-a" href="blog/kak-rabotaet-mashinnoe-zrenie.html" data-topic="cv">
+        <a class="bp-a" href="/blog/kak-rabotaet-mashinnoe-zrenie/" data-topic="cv">
           <div class="bp-a-c">
             <div class="bp-a-c-g"></div>
             <div class="bp-a-tag">МАШИННОЕ ЗРЕНИЕ</div>
@@ -65,7 +65,7 @@
         </a>
 
         <!-- Статья 2 -->
-        <a class="bp-a" href="blog/roi-mashinnogo-zreniya.html" data-topic="economy">
+        <a class="bp-a" href="/blog/roi-mashinnogo-zreniya/" data-topic="economy">
           <div class="bp-a-c">
             <div class="bp-a-c-g"></div>
             <div class="bp-a-tag">ЭКОНОМИКА</div>
@@ -79,7 +79,7 @@
         </a>
 
         <!-- Статья 3 -->
-        <a class="bp-a" href="blog/defekty-metalla-klassifikatsiya.html" data-topic="metal">
+        <a class="bp-a" href="/blog/defekty-metalla-klassifikatsiya/" data-topic="metal">
           <div class="bp-a-c">
             <div class="bp-a-c-g"></div>
             <div class="bp-a-tag">МЕТАЛЛУРГИЯ</div>
@@ -152,9 +152,9 @@
 
 <div id="footer-root"></div>
 
-<script src="js/data.js"></script>
-<script src="js/components.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
 <script>
   initComponents();
   initPage();

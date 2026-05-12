@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>О компании — ИТиС ЛАБ</title>
   <meta name="description" content="ИТиС ЛАБ — разработчик систем машинного зрения и промышленной автоматизации для производственных предприятий.">
-  <link rel="canonical" href="https://lab-itis.ru/about.html">
+  <link rel="canonical" href="https://lab-itis.ru/about/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <style>
     .hr-c{padding:120px 0 80px;text-align:center;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
     .hr-c::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 50% 30%,rgba(74,222,128,.04),transparent 60%);pointer-events:none}
@@ -25,7 +25,7 @@
     .st-a-list::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:var(--line2)}
     .st-a-event{position:relative;padding-bottom:42px}
     .st-a-event:last-child{padding-bottom:0}
-    .st-a-event::before{content:"";position:absolute;left:-29px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--m2)}
+    .st-a-event::before{content:"";position:absolute;left:-29px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--line2)}
     .st-a-event.ok::before{border-color:var(--ok);background:var(--ok)}
     .st-a-event-y{font-family:var(--fm);font-size:11px;color:var(--ok);letter-spacing:.1em;margin-bottom:6px}
     .st-a-event-h{font-family:var(--fh);font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-.01em;margin-bottom:8px}
@@ -51,7 +51,8 @@
     .tm-c-stat .l{font-size:13px;color:var(--m2);line-height:1.4}
     .tm-c-roles-l{font-family:var(--fm);font-size:10.5px;color:var(--m);letter-spacing:.1em;margin:24px 0 14px;text-transform:uppercase}
     .tm-c-roles{display:flex;flex-wrap:wrap;gap:6px}
-    .tm-c-roles span{font-family:var(--fm);font-size:11px;color:var(--m2);background:var(--s1);padding:7px 12px;border:1px solid var(--line)}
+    .tm-c-roles span{font-family:var(--fm);font-size:11px;color:var(--m2);background:var(--s1);padding:7px 12px;border:1px solid var(--line);transition:color .15s,border-color .15s}
+    .tm-c-roles span:hover{color:var(--ok);border-color:var(--ok)}
   </style>
 </head>
 <body>
@@ -182,9 +183,9 @@
 
 <div id="footer-root"></div>
 
-<script src="js/data.js"></script>
-<script src="js/components.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
 <script>
   initComponents();
   initPage();

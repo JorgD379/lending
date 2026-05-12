@@ -10,27 +10,27 @@ const LOGO_SVG = `<svg class="logo-icon" viewBox="0 0 28 28" fill="none" xmlns="
   <line x1="27" y1="27" x2="21" y2="21" stroke="#F0F0F0" stroke-width="1"/>
 </svg>`;
 
+/** Pathname without query; strip trailing slashes (except root) — for nav active state */
+function navNormPath(pathname) {
+  const pathOnly = (pathname || '/').split('?')[0];
+  if (pathOnly === '/' || pathOnly === '') return '/';
+  return pathOnly.replace(/\/+$/, '') || '/';
+}
+
 function injectNav() {
   const root = document.getElementById('nav-root');
   if (!root) return;
 
-  const depth = (() => {
-    const p = window.location.pathname;
-    const parts = p.split('/').filter(Boolean);
-    return parts.length > 1 ? 1 : 0;
-  })();
-  const base = depth > 0 ? '../' : '';
-
   root.innerHTML = `
 <nav id="nav">
   <div class="wrap nav-row">
-    <a href="${base}index.html" class="logo">
+    <a href="/" class="logo">
       ${LOGO_SVG}
       ИТиС ЛАБ
     </a>
     <div class="nav-links">
-      <a href="${base}about.html">О нас</a>
-      <a href="${base}tasks.html">Типовые задачи</a>
+      <a href="/about/">О нас</a>
+      <a href="/tasks/">Типовые задачи</a>
       <div class="nav-dd">
         <button class="nav-dd-btn">Решения по отраслям ▾</button>
         <div class="dd-panel" id="ddPanel">
@@ -40,9 +40,9 @@ function injectNav() {
           </div>
         </div>
       </div>
-      <a href="${base}cases.html">Кейсы</a>
-      <a href="${base}blog.html">Блог</a>
-      <a href="${base}contacts.html">Контакты</a>
+      <a href="/cases/">Кейсы</a>
+      <a href="/blog/">Блог</a>
+      <a href="/contacts/">Контакты</a>
       <button class="nav-cta" onclick="openForm('simple')">Обсудить проект</button>
     </div>
   </div>
@@ -50,12 +50,13 @@ function injectNav() {
 
   document.querySelectorAll('#mob, .mob').forEach(el => el.remove());
 
-  const path = window.location.pathname;
+  const p = navNormPath(window.location.pathname);
   root.querySelectorAll('.nav-links a').forEach(a => {
     const href = a.getAttribute('href');
-    const cleanHref = href.replace(/\.\.\//g, '').replace(/\.html$/, '');
-    const cleanPath = path.replace(/\.html$/, '').replace(/.*\//, '');
-    if (cleanPath && cleanHref.endsWith(cleanPath)) a.classList.add('active');
+    if (!href || href[0] !== '/') return;
+    const h = navNormPath(href);
+    if (h === '/') return;
+    if (p === h || p.startsWith(h + '/')) a.classList.add('active');
   });
 
   window.addEventListener('scroll', () => {
@@ -66,12 +67,6 @@ function injectNav() {
 function injectFooter() {
   const root = document.getElementById('footer-root');
   if (!root) return;
-
-  const footerBase = (() => {
-    const p = window.location.pathname;
-    const parts = p.split('/').filter(Boolean);
-    return parts.length > 1 ? '../' : '';
-  })();
 
   root.innerHTML = `
 <footer>
@@ -93,12 +88,12 @@ function injectFooter() {
         <div class="footer-tagline">Автоматизация и машинное зрение для производства</div>
       </div>
       <nav class="footer-nav">
-        <a href="${footerBase}about.html">О нас</a>
-        <a href="${footerBase}tasks.html">Типовые задачи</a>
-        <a href="${footerBase}industries.html">Решения по отраслям</a>
-        <a href="${footerBase}cases.html">Кейсы</a>
-        <a href="${footerBase}blog.html">Блог</a>
-        <a href="${footerBase}contacts.html">Контакты</a>
+        <a href="/about/">О нас</a>
+        <a href="/tasks/">Типовые задачи</a>
+        <a href="/industries/">Решения по отраслям</a>
+        <a href="/cases/">Кейсы</a>
+        <a href="/blog/">Блог</a>
+        <a href="/contacts/">Контакты</a>
       </nav>
       <div>
         <button class="btn btn-w btn-sm" onclick="openForm('simple')">Обсудить проект</button>
@@ -106,7 +101,7 @@ function injectFooter() {
     </div>
     <div class="footer-bar">
       <span>© 2025 ИТиС ЛАБ. Все права защищены.</span>
-      <a href="${footerBase}privacy.html">Политика конфиденциальности</a>
+      <a href="/privacy/">Политика конфиденциальности</a>
     </div>
   </div>
 </footer>`;
@@ -115,12 +110,6 @@ function injectFooter() {
 function injectModals() {
   const root = document.getElementById('modals-root');
   if (!root) return;
-
-  const modalBase = (() => {
-    const p = window.location.pathname;
-    const parts = p.split('/').filter(Boolean);
-    return parts.length > 1 ? '../' : '';
-  })();
 
   root.innerHTML = `
 <!-- PROCESS MODAL -->
@@ -144,7 +133,7 @@ function injectModals() {
     </div>
     <div class="cb-row">
       <input type="checkbox" id="cbs1" required>
-      <label for="cbs1">Соглашаюсь на обработку персональных данных в соответствии с <a href="${modalBase}privacy.html" style="color:var(--text);text-decoration:underline;">Политикой конфиденциальности</a></label>
+      <label for="cbs1">Соглашаюсь на обработку персональных данных в соответствии с <a href="/privacy/" style="color:var(--text);text-decoration:underline;">Политикой конфиденциальности</a></label>
     </div>
     <button class="form-submit" onclick="closeById('formSimple')">Отправить заявку</button>
   </div>
@@ -175,16 +164,11 @@ function injectModals() {
 function buildDD() {
   const grid = document.getElementById('ddGrid');
   if (!grid) return;
-  const ddBase = (() => {
-    const p = window.location.pathname;
-    const parts = p.split('/').filter(Boolean);
-    return parts.length > 1 ? '../' : '';
-  })();
   grid.innerHTML = INDUSTRIES.map(i => `
-    <div class="dd-item" onclick="window.location.href='${ddBase}industry.html?id=${i.id}'">
+    <div class="dd-item" onclick="window.location.href='/industry/?id=${i.id}'">
       <div class="dd-item-top">
         <div class="dd-num">${String(i.id).padStart(2,'0')}</div>
-        <img class="dd-icon" src="${ddBase}assets/icons/industries/${i.id}.svg" alt="" width="18" height="18" onerror="this.style.display='none'">
+        <img class="dd-icon" src="/assets/icons/industries/${i.id}.svg" alt="" width="18" height="18" onerror="this.style.display='none'">
       </div>
       <div class="dd-name">${i.name}</div>
     </div>`).join('');
@@ -194,19 +178,13 @@ function buildDD() {
 function injectCookieBanner() {
   if (localStorage.getItem('cookie_consent')) return;
 
-  const base = (() => {
-    const p = window.location.pathname;
-    const parts = p.split('/').filter(Boolean);
-    return parts.length > 1 ? '../' : '';
-  })();
-
   const banner = document.createElement('div');
   banner.id = 'cookie-banner';
   banner.innerHTML = `
     <div class="ck-inner">
       <div class="ck-text">
         <span>Мы используем файлы Cookie для корректной работы сайта и анализа трафика.</span>
-        <a href="${base}cookies.html" target="_blank">Подробнее</a>
+        <a href="/cookies/" target="_blank">Подробнее</a>
       </div>
       <div class="ck-actions">
         <button class="ck-btn ck-accept" onclick="cookieAccept()">Принять все</button>

@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Решения по отраслям — ИТиС ЛАБ</title>
   <meta name="description" content="Системы машинного зрения для 18+ промышленных отраслей. Выберите свою отрасль и найдите готовые решения.">
-  <link rel="canonical" href="https://lab-itis.ru/industries.html">
+  <link rel="canonical" href="https://lab-itis.ru/industries/">
   <meta property="og:title" content="Решения по отраслям — ИТиС ЛАБ">
   <meta property="og:description" content="Системы машинного зрения для 18+ промышленных отраслей.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lab-itis.ru/industries.html">
+  <meta property="og:url" content="https://lab-itis.ru/industries/">
   <meta property="og:image" content="https://lab-itis.ru/assets/images/og-default.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <style>
     .ind-card { background:var(--s1); padding:36px 32px; cursor:pointer; transition:background .15s; display:flex; flex-direction:column; gap:20px; min-height:240px; text-decoration:none; color:inherit; }
     .ind-card:hover { background:var(--s2); }
@@ -24,6 +24,8 @@
     .ind-icon { color:var(--m); transition:color .15s; flex-shrink:0; width:64px; height:64px; display:flex; align-items:center; justify-content:center; }
     .ind-icon svg { width:56px; height:56px; }
     .ind-card:hover .ind-icon { color:var(--ok); }
+    .ind-num { transition:color .15s; }
+    .ind-card:hover .ind-num { color:var(--ok); }
     .ind-title { font-family:var(--fh); font-size:20px; font-weight:700; line-height:1.2; letter-spacing:-0.01em; flex:1; color:var(--text); }
     .ind-link { font-family:var(--fm); font-size:11px; color:var(--m); letter-spacing:0.06em; margin-top:auto; transition:color .15s; }
     .ind-card:hover .ind-link { color:var(--ok); }
@@ -48,84 +50,84 @@
       </div>
       <div class="ind-grid">
 
-        <a class="ind-card" href="industry.html?id=1">
+        <a class="ind-card" href="/industry/?id=1">
           <div class="ind-card-top"><span class="ind-num">/ 01</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10l4-4h8l4 4v10"/><rect x="9" y="14" width="6" height="6"/></svg></span></div>
           <div class="ind-title">Металлургия</div>
           <div class="ind-link">ДЕТЕКЦИЯ ДЕФЕКТОВ ПРОКАТА &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=2">
+        <a class="ind-card" href="/industry/?id=2">
           <div class="ind-card-top"><span class="ind-num">/ 02</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></span></div>
           <div class="ind-title">Машиностроение</div>
           <div class="ind-link">ИЗМЕРЕНИЕ ГЕОМЕТРИИ &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=10">
+        <a class="ind-card" href="/industry/?id=10">
           <div class="ind-card-top"><span class="ind-num">/ 03</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></span></div>
           <div class="ind-title">Фармацевтика</div>
           <div class="ind-link">КОНТРОЛЬ БЛИСТЕРОВ &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=11">
+        <a class="ind-card" href="/industry/?id=11">
           <div class="ind-card-top"><span class="ind-num">/ 04</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span></div>
           <div class="ind-title">Логистика и склад</div>
           <div class="ind-link">ПОДСЧЁТ ПАЛЛЕТ &middot; OCR &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=4">
+        <a class="ind-card" href="/industry/?id=4">
           <div class="ind-card-top"><span class="ind-num">/ 05</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span></div>
           <div class="ind-title">Нефтегаз</div>
           <div class="ind-link">ДЕТЕКЦИЯ УТЕЧЕК И ДЫМА &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=9">
+        <a class="ind-card" href="/industry/?id=9">
           <div class="ind-card-top"><span class="ind-num">/ 06</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span></div>
           <div class="ind-title">Пищевая промышленность</div>
           <div class="ind-link">СОРТИРОВКА &middot; КОНТРОЛЬ &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=7">
+        <a class="ind-card" href="/industry/?id=7">
           <div class="ind-card-top"><span class="ind-num">/ 07</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 22 21 22 12 2"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="3" y1="14" x2="21" y2="14"/></svg></span></div>
           <div class="ind-title">Строительство и ЖКХ</div>
           <div class="ind-link">КОНТРОЛЬ КЛАДКИ И ШВОВ &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=18">
+        <a class="ind-card" href="/industry/?id=18">
           <div class="ind-card-top"><span class="ind-num">/ 08</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span></div>
           <div class="ind-title">Транспорт и инфраструктура</div>
           <div class="ind-link">РАСПОЗНАВАНИЕ ЗНАКОВ &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=6">
+        <a class="ind-card" href="/industry/?id=6">
           <div class="ind-card-top"><span class="ind-num">/ 09</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span></div>
           <div class="ind-title">Энергетика</div>
           <div class="ind-link">МОНИТОРИНГ ОБОРУДОВАНИЯ &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=5">
+        <a class="ind-card" href="/industry/?id=5">
           <div class="ind-card-top"><span class="ind-num">/ 10</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-6 7 6v12"/><path d="M9 20v-6h6v6"/></svg></span></div>
           <div class="ind-title">Горнодобывающая</div>
           <div class="ind-link">КОНТРОЛЬ ДОБЫЧИ &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=4">
+        <a class="ind-card" href="/industry/?id=4">
           <div class="ind-card-top"><span class="ind-num">/ 11</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l1 9H8L9 3z"/><path d="M8 12l-4 7a1 1 0 0 0 .9 1.5h14.2a1 1 0 0 0 .9-1.5L16 12"/></svg></span></div>
           <div class="ind-title">Химическая промышленность</div>
           <div class="ind-link">МОНИТОРИНГ ПРОЦЕССОВ &rarr;</div>
         </a>
 
-        <a class="ind-card" href="industry.html?id=13">
+        <a class="ind-card" href="/industry/?id=13">
           <div class="ind-card-top"><span class="ind-num">/ 12</span>
           <span class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12L5 7M12 12l7-5M5 7V2M19 7V2M5 7l7 5 7-5"/></svg></span></div>
           <div class="ind-title">Лесная и деревообработка</div>
@@ -147,9 +149,9 @@
 
 </div>
 <div id="footer-root"></div>
-<script src="js/data.js"></script>
-<script src="js/components.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
 <script>
   initComponents();
   initPage();
