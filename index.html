@@ -40,12 +40,12 @@
     .review-card { background: var(--s1); padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px; border: 1px solid var(--line); transition: background .2s, border-color .2s; }
     .review-card:hover { background: var(--s2); border-color: var(--line2); }
     .review-card-logo { display: flex; align-items: center; gap: 12px; }
-    .review-card-logo-box { width: 40px; height: 40px; background: var(--s2); border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--fh); font-weight: 700; font-size: 13px; color: var(--ok); letter-spacing: .03em; }
+    .review-card-logo-box { width: 80px; height: 40px; background: var(--s2); border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--fh); font-weight: 700; font-size: 13px; color: var(--ok); letter-spacing: .03em; }
     .review-card-logo-info { display: flex; flex-direction: column; gap: 2px; }
     .review-card-company { font-family: var(--fh); font-weight: 700; font-size: 14px; letter-spacing: .02em; color: var(--text); }
     .review-card-industry { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; text-transform: uppercase; }
     .review-card-quote { font-size: 14px; line-height: 1.6; color: var(--m2); flex: 1; position: relative; padding-top: 4px; }
-    .review-card-quote::before { content: '\201C'; font-family: var(--fh); font-size: 48px; line-height: 1; color: var(--ok); opacity: .25; position: absolute; top: -8px; left: -4px; pointer-events: none; }
+    .review-card-quote::before { display: none; }
     .review-card-metric { font-family: var(--fh); font-weight: 700; font-size: 22px; color: var(--ok); letter-spacing: -.02em; }
     .review-card-metric-l { font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: .08em; text-transform: uppercase; margin-top: 2px; }
   </style>
@@ -206,22 +206,22 @@
         <div class="pt-ticker-logo"><img src="/assets/images/partners/it-kosmos.png" alt="ИТ-Космос"></div>
         <div class="pt-ticker-logo"><img src="/assets/images/partners/umpo.png" alt="УМПО"></div>
         <div class="pt-ticker-logo"><img src="/assets/images/partners/uunit.png" alt="UUnit"></div>
-        <div class="pt-ticker-logo"><div>ЗИПМАЙН<small>ГОРНОДОБЫЧА</small></div></div>
-        <div class="pt-ticker-logo"><div>ДЕКА-С<small>ПРОИЗВОДСТВО</small></div></div>
-        <div class="pt-ticker-logo"><div>ФОРЕСТ<small>ЛОГИСТИКА</small></div></div>
-        <div class="pt-ticker-logo"><div>ЧИСТЫЙ ПОРОЛОН<small>ПРОИЗВОДСТВО</small></div></div>
-        <div class="pt-ticker-logo"><div>ИГАРДО<small>УПРАВЛЕНИЕ</small></div></div>
-        <div class="pt-ticker-logo"><div>ЮЛИЯ<small>НЕДВИЖИМОСТЬ</small></div></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/zipmain.webp" alt="Зипмайн"></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/deka.webp" alt="Дека-С"></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/forest.webp" alt="ForEst"></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/paralon.webp" alt="Clean Foam"></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/igardo.webp" alt="Игардо"></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/8marta.webp" alt="8 Марта"></div>
         <!-- duplicate for seamless loop -->
         <div class="pt-ticker-logo"><img src="/assets/images/partners/it-kosmos.png" alt="ИТ-Космос"></div>
         <div class="pt-ticker-logo"><img src="/assets/images/partners/umpo.png" alt="УМПО"></div>
         <div class="pt-ticker-logo"><img src="/assets/images/partners/uunit.png" alt="UUnit"></div>
-        <div class="pt-ticker-logo"><div>ЗИПМАЙН<small>ГОРНОДОБЫЧА</small></div></div>
-        <div class="pt-ticker-logo"><div>ДЕКА-С<small>ПРОИЗВОДСТВО</small></div></div>
-        <div class="pt-ticker-logo"><div>ФОРЕСТ<small>ЛОГИСТИКА</small></div></div>
-        <div class="pt-ticker-logo"><div>ЧИСТЫЙ ПОРОЛОН<small>ПРОИЗВОДСТВО</small></div></div>
-        <div class="pt-ticker-logo"><div>ИГАРДО<small>УПРАВЛЕНИЕ</small></div></div>
-        <div class="pt-ticker-logo"><div>ЮЛИЯ<small>НЕДВИЖИМОСТЬ</small></div></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/zipmain.webp" alt="Зипмайн"></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/deka.webp" alt="Дека-С"></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/forest.webp" alt="ForEst"></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/paralon.webp" alt="Clean Foam"></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/igardo.webp" alt="Игардо"></div>
+        <div class="pt-ticker-logo"><img src="/assets/images/partners/8marta.webp" alt="8 Марта"></div>
       </div>
     </div>
 
@@ -231,7 +231,7 @@
 
         <div class="review-card">
           <div class="review-card-logo">
-            <div class="review-card-logo-box">ЗМ</div>
+            <div class="review-card-logo-box" style="background:transparent;border:none;width:80px;height:40px;"><img src="/assets/images/partners/zipmain.webp" alt="Зипмайн" style="max-width:80px;max-height:40px;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.8;"></div>
             <div class="review-card-logo-info">
               <div class="review-card-company">ООО «Зипмайн»</div>
               <div class="review-card-industry">Горнодобыча · Видеоаналитика</div>
@@ -246,7 +246,7 @@
 
         <div class="review-card">
           <div class="review-card-logo">
-            <div class="review-card-logo-box">ДС</div>
+            <div class="review-card-logo-box" style="background:transparent;border:none;width:80px;height:40px;"><img src="/assets/images/partners/deka.webp" alt="Дека-С" style="max-width:80px;max-height:40px;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.8;"></div>
             <div class="review-card-logo-info">
               <div class="review-card-company">ООО «Дека-С»</div>
               <div class="review-card-industry">Производство · Контроль качества</div>
@@ -261,7 +261,7 @@
 
         <div class="review-card">
           <div class="review-card-logo">
-            <div class="review-card-logo-box">ФС</div>
+            <div class="review-card-logo-box" style="background:transparent;border:none;width:80px;height:40px;"><img src="/assets/images/partners/forest.webp" alt="ForEst" style="max-width:80px;max-height:40px;width:auto;height:auto;object-fit:contain;opacity:0.8;"></div>
             <div class="review-card-logo-info">
               <div class="review-card-company">ООО «Форест»</div>
               <div class="review-card-industry">Логистика · Склад</div>
@@ -269,14 +269,14 @@
           </div>
           <div class="review-card-quote">Разговор был не только про камеры и алгоритмы, а про снижение ошибок, ускорение контроля и повышение управляемости склада. Проект реализован в согласованные сроки.</div>
           <div>
-            <div class="review-card-metric">100%</div>
+            <div class="review-card-metric">99%</div>
             <div class="review-card-metric-l">точность контроля паллетомест и очерёдности отгрузки</div>
           </div>
         </div>
 
         <div class="review-card">
           <div class="review-card-logo">
-            <div class="review-card-logo-box">ЧП</div>
+            <div class="review-card-logo-box" style="background:transparent;border:none;width:80px;height:40px;"><img src="/assets/images/partners/paralon.webp" alt="Clean Foam" style="max-width:80px;max-height:40px;width:auto;height:auto;object-fit:contain;opacity:0.8;"></div>
             <div class="review-card-logo-info">
               <div class="review-card-company">ООО «Чистый поролон»</div>
               <div class="review-card-industry">Производство · Детекция дефектов</div>
@@ -284,14 +284,14 @@
           </div>
           <div class="review-card-quote">Система помогает не только отбраковывать проблемный материал, но и быстрее понимать момент, когда процесс начинает уходить от заданных параметров. Стало частью культуры качества.</div>
           <div>
-            <div class="review-card-metric">100%</div>
+            <div class="review-card-metric">98.9%</div>
             <div class="review-card-metric-l">контроль качества на производственном потоке</div>
           </div>
         </div>
 
         <div class="review-card">
           <div class="review-card-logo">
-            <div class="review-card-logo-box">ИМ</div>
+            <div class="review-card-logo-box" style="background:transparent;border:none;width:80px;height:40px;"><img src="/assets/images/partners/igardo.webp" alt="Игардо" style="max-width:80px;max-height:40px;width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.8;"></div>
             <div class="review-card-logo-info">
               <div class="review-card-company">ООО «Игардо Менеджмент»</div>
               <div class="review-card-industry">Управление объектами · СИЗ</div>
@@ -306,7 +306,7 @@
 
         <div class="review-card">
           <div class="review-card-logo">
-            <div class="review-card-logo-box">ЮЛ</div>
+            <div class="review-card-logo-box" style="background:transparent;border:none;width:80px;height:40px;"><img src="/assets/images/partners/8marta.webp" alt="8 Марта" style="max-width:80px;max-height:40px;width:auto;height:auto;object-fit:contain;opacity:0.8;"></div>
             <div class="review-card-logo-info">
               <div class="review-card-company">ООО «Юлия»</div>
               <div class="review-card-industry">Недвижимость · Учёт транспорта</div>

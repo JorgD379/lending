@@ -104,8 +104,8 @@ function openProcModal(indId, subId, procId) {
         <div><div class="m-sec-t">Почему это полезно</div><div class="m-sec-b">${p.why}</div></div>
         <div><div class="m-sec-t">Результаты внедрения</div><div class="m-sec-b">${p.results}</div></div>
         <div><div class="m-sec-t">Принцип работы ИИ</div><div class="m-sec-b">${p.principle}</div></div>
-        <div><div class="m-sec-t">Функции ИТиС ЛАБ</div><div class="m-sec-b">${p.features}</div></div>
-        <div><div class="m-sec-t">Минусы традиционных методов</div><div class="m-sec-b">${p.traditional}</div></div>
+        <div><div class="m-sec-t">Минусы традиционных методов</div><div class="m-sec-b">${p.features}</div></div>
+        <div><div class="m-sec-t">Функции ИТиС ЛАБ</div><div class="m-sec-b">${p.traditional}</div></div>
       </div>
       <div class="m-footer">
         <button class="btn btn-w btn-sm" onclick="closeById('procOverlay');openForm('simple')">Обсудить этот процесс</button>
