@@ -568,10 +568,12 @@ def article_html_page(
 
         <aside class="article-sidebar rv d2">
           <div class="sidebar-toc">
-            <div class="toc-title">Содержание</div>
-            <ul class="toc-list">
+            <details class="toc-details">
+              <summary class="toc-title toc-summary">Содержание</summary>
+              <ul class="toc-list">
 {toc_html}
-            </ul>
+              </ul>
+            </details>
           </div>
         </aside>
 
