@@ -13,13 +13,16 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lab-itis.ru/blog/">
   <meta property="og:image" content="https://lab-itis.ru/assets/images/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Блог — ИТиС ЛАБ">
+  <meta name="twitter:description" content="Статьи о машинном зрении, промышленной автоматизации и ИИ для производства.">
+  <meta name="twitter:image" content="https://lab-itis.ru/assets/images/og-default.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    /* === GRID A — 3-col blog cards === */
     .bg-a { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
     @media(max-width:1000px) { .bg-a { grid-template-columns: repeat(2,1fr); } }
     @media(max-width:600px) { .bg-a { grid-template-columns: 1fr; } }
@@ -44,103 +47,245 @@
 
 <div class="page-top">
 
-  <!-- ── GRID A — 3-col карточки ── -->
   <section class="section" id="blog">
     <div class="wrap">
       <div class="section-num">01 / СТАТЬИ</div>
-      <h2 class="section-h" style="margin-bottom:48px;margin-top:16px;">6 материалов</h2>
+      <h2 class="section-h" style="margin-bottom:48px;margin-top:16px;">19 материалов</h2>
 
       <div class="bg-a" id="blog-grid">
 
-        <!-- Статья 1 -->
-        <a class="bp-a" href="/blog/kak-rabotaet-mashinnoe-zrenie/" data-topic="cv">
+        <a class="bp-a" href="/blog/s-chego-nachinaetsya-rabota-sistemyi/" data-topic="s-chego-nach">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">ЭКСПЕРТИЗА</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>24 апр 2025</span><span>8 мин</span></div>
+            <div class="bp-a-t">С чего начинается работа системы</div>
+            <div class="bp-a-d">Любая система компьютерного зрения на заводе начинается не с программы, а с постановки задачи. Сначала предприятие определяет, что именно нужно видеть и…</div>
+            <div class="bp-a-r">Артём Лебедев →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/tsifrovaya-transformatsiya-proizvodstva-primeryi/" data-topic="tsifrovaya-t">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">ЦИФРОВИЗАЦИЯ</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>22 апр 2025</span><span>7 мин</span></div>
+            <div class="bp-a-t">Цифровая трансформация производства примеры</div>
+            <div class="bp-a-d">Title: Цифровая трансформация производства: примеры изменений и практическая польза для предприятия</div>
+            <div class="bp-a-r">ИТиС ЛАБ →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/kak-vnedrit-ii-v-proizvodstvo/" data-topic="kak-vnedrit-">
           <div class="bp-a-c">
             <div class="bp-a-c-g"></div>
             <div class="bp-a-tag">МАШИННОЕ ЗРЕНИЕ</div>
           </div>
           <div class="bp-a-body">
-            <div class="bp-a-meta"><span>28 апр 2025</span><span>12 мин</span></div>
-            <div class="bp-a-t">Как работает машинное зрение на производстве: от камеры до решения</div>
-            <div class="bp-a-d">Полный цикл — захват изображения, нейросетевая обработка, классификация дефектов и интеграция с MES/SCADA.</div>
-            <div class="bp-a-r">Дмитрий Новиков →</div>
-          </div>
-        </a>
-
-        <!-- Статья 2 -->
-        <a class="bp-a" href="/blog/roi-mashinnogo-zreniya/" data-topic="economy">
-          <div class="bp-a-c">
-            <div class="bp-a-c-g"></div>
-            <div class="bp-a-tag">ЭКОНОМИКА</div>
-          </div>
-          <div class="bp-a-body">
-            <div class="bp-a-meta"><span>15 апр 2025</span><span>9 мин</span></div>
-            <div class="bp-a-t">ROI машинного зрения: как считать окупаемость для производства</div>
-            <div class="bp-a-d">Методика расчёта ROI, типовые статьи затрат и экономии, реальные цифры из наших проектов.</div>
+            <div class="bp-a-meta"><span>18 апр 2025</span><span>7 мин</span></div>
+            <div class="bp-a-t">Как внедрить ИИ в производство</div>
+            <div class="bp-a-d">Как внедрить ИИ в производство. Как внедрить ИИ в производство</div>
             <div class="bp-a-r">Илья Ковалёв →</div>
           </div>
         </a>
-
-        <!-- Статья 3 -->
-        <a class="bp-a" href="/blog/defekty-metalla-klassifikatsiya/" data-topic="metal">
+        <a class="bp-a" href="/blog/kak-pravilno-stavit-zadachu-podryadchiku-po-kompyuternomu-zreniyu/" data-topic="kak-pravilno">
           <div class="bp-a-c">
             <div class="bp-a-c-g"></div>
-            <div class="bp-a-tag">МЕТАЛЛУРГИЯ</div>
+            <div class="bp-a-tag">ЭКСПЕРТИЗА</div>
           </div>
           <div class="bp-a-body">
-            <div class="bp-a-meta"><span>3 апр 2025</span><span>15 мин</span></div>
-            <div class="bp-a-t">Дефекты металлопроката: классификация и методы автоматического обнаружения</div>
-            <div class="bp-a-d">Систематизируем типы дефектов поверхности и алгоритмы зрения, которые справляются с каждым видом.</div>
+            <div class="bp-a-meta"><span>16 апр 2025</span><span>6 мин</span></div>
+            <div class="bp-a-t">Как правильно ставить задачу подрядчику по компьютерному зрению</div>
+            <div class="bp-a-d">Как поставить задачу подрядчику по компьютерному зрению так, чтобы проект не сорвался на этапе ожиданий, исходных данных и приемки результата.</div>
+            <div class="bp-a-r">Ольга Морозова →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/kak-sobirat-izobrazheniya-dlya-zapuska-sistemyi-kompyuternogo-zreniya/" data-topic="kak-sobirat-">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">ЭКСПЕРТИЗА</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>13 апр 2025</span><span>7 мин</span></div>
+            <div class="bp-a-t">Как собирать изображения для запуска системы компьютерного зрения</div>
+            <div class="bp-a-d">Как правильно собирать изображения для запуска системы компьютерного зрения на производстве: что снимать, сколько примеров нужно и какие ошибки портят результат…</div>
             <div class="bp-a-r">Дмитрий Новиков →</div>
           </div>
         </a>
-
-        <!-- Статья 4 -->
-        <a class="bp-a" href="#" data-topic="safety">
+        <a class="bp-a" href="/blog/pochemu-markirovka-tak-vazhna-dlya-promyishlennoj-produktsii/" data-topic="pochemu-mark">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">МАРКИРОВКА</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>4 апр 2025</span><span>6 мин</span></div>
+            <div class="bp-a-t">Почему маркировка так важна для промышленной продукции</div>
+            <div class="bp-a-d">Серийный номер и производственная маркировка нужны не только для внешнего вида изделия. По ним предприятие подтверждает происхождение продукции, дату выпуска,…</div>
+            <div class="bp-a-r">Ольга Морозова →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/kak-snizit-zavisimost-kachestva-ot-chelovecheskogo-faktora/" data-topic="kak-snizit-z">
           <div class="bp-a-c">
             <div class="bp-a-c-g"></div>
             <div class="bp-a-tag">ОТ · СИЗ</div>
           </div>
           <div class="bp-a-body">
-            <div class="bp-a-meta"><span>22 мар 2025</span><span>10 мин</span></div>
-            <div class="bp-a-t">Контроль СИЗ камерами: что считается, как внедрять, юридические аспекты</div>
-            <div class="bp-a-d">Какие нарушения детектируем, как оформить с учётом ТК РФ, типовые ошибки внедрения.</div>
+            <div class="bp-a-meta"><span>4 апр 2025</span><span>6 мин</span></div>
+            <div class="bp-a-t">Как снизить зависимость качества от человеческого фактора</div>
+            <div class="bp-a-d">Для большинства производственных предприятий проблема качества связана не только с оборудованием, сырьем или технологией. Во многих случаях решающим оказывается…</div>
+            <div class="bp-a-r">ИТиС ЛАБ →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/pochemu-zavodyi-vnedryayut-ii/" data-topic="pochemu-zavo">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">МАШИННОЕ ЗРЕНИЕ</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>27 мар 2025</span><span>7 мин</span></div>
+            <div class="bp-a-t">Почему заводы внедряют ИИ</div>
+            <div class="bp-a-d">На заводах ИИ внедряют не ради самой технологии. Руководителя интересует, может ли решение уменьшить потери, ускорить выпуск, сделать контроль качества…</div>
             <div class="bp-a-r">Елена Петрова →</div>
           </div>
         </a>
-
-        <!-- Статья 5 -->
-        <a class="bp-a" href="#" data-topic="edge">
+        <a class="bp-a" href="/blog/s-chego-nachinat-vyibor-sistemyi/" data-topic="s-chego-nach">
           <div class="bp-a-c">
             <div class="bp-a-c-g"></div>
-            <div class="bp-a-tag">EDGE</div>
+            <div class="bp-a-tag">ЭКСПЕРТИЗА</div>
           </div>
           <div class="bp-a-body">
-            <div class="bp-a-meta"><span>14 мар 2025</span><span>11 мин</span></div>
-            <div class="bp-a-t">Edge-инференс на производстве: NVIDIA Jetson против обычного сервера</div>
-            <div class="bp-a-d">Сравниваем производительность, стоимость и надёжность edge-устройств vs серверной инсталляции.</div>
+            <div class="bp-a-meta"><span>26 мар 2025</span><span>6 мин</span></div>
+            <div class="bp-a-t">С чего начинать выбор системы</div>
+            <div class="bp-a-d">Правильный выбор начинается не с оборудования, а с ответа на вопрос: какую именно проблему предприятие хочет решить. Одни компании ищут способ сократить брак на…</div>
+            <div class="bp-a-r">Елена Петрова →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/roi-mashinnogo-zreniya/" data-topic="roi-mashinno">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">ЭКОНОМИКА</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>19 мар 2025</span><span>7 мин</span></div>
+            <div class="bp-a-t">Когда внедрение компьютерного зрения окупается быстрее всего</div>
+            <div class="bp-a-d">Description: В каких случаях внедрение компьютерного зрения на производстве окупается быстрее: высокий брак, дорогая ошибка, быстрые линии, ручной контроль и…</div>
+            <div class="bp-a-r">Илья Ковалёв →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/pochemu-horoshie-proektyi-chasto-ne-prohodyat-soglasovanie/" data-topic="pochemu-horo">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">ЭКСПЕРТИЗА</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>17 мар 2025</span><span>6 мин</span></div>
+            <div class="bp-a-t">Почему хорошие проекты часто не проходят согласование</div>
+            <div class="bp-a-d">Во многих компаниях проблема не в самой идее внедрения, а в способе ее подачи. Инициатор проекта подробно рассказывает о возможностях технологии, но не переводит…</div>
             <div class="bp-a-r">Артём Лебедев →</div>
           </div>
         </a>
-
-        <!-- Статья 6 -->
-        <a class="bp-a" href="#" data-topic="data">
+        <a class="bp-a" href="/blog/pochemu-bezopasnost-na-proizvodstve-trebuet-drugogo-urovnya-kontrolya/" data-topic="pochemu-bezo">
           <div class="bp-a-c">
             <div class="bp-a-c-g"></div>
-            <div class="bp-a-tag">DATASETS</div>
+            <div class="bp-a-tag">ОТ · СИЗ</div>
           </div>
           <div class="bp-a-body">
-            <div class="bp-a-meta"><span>2 мар 2025</span><span>8 мин</span></div>
-            <div class="bp-a-t">Сбор датасета на новом производстве: 5 типовых ошибок</div>
-            <div class="bp-a-d">Чек-лист сбора и разметки данных под промышленное CV, исходя из 100+ проектов.</div>
+            <div class="bp-a-meta"><span>9 мар 2025</span><span>7 мин</span></div>
+            <div class="bp-a-t">Почему безопасность на производстве требует другого уровня контроля</div>
+            <div class="bp-a-d">На производстве вопросы безопасности напрямую связаны не только с охраной труда, но и с устойчивостью всего предприятия. Один пропущенный опасный эпизод может…</div>
+            <div class="bp-a-r">Дмитрий Новиков →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/kogda-predpriyatiyu-uzhe-nevyigodno-proveryat-produktsiyu-vruchnuyu/" data-topic="kogda-predpr">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">ЭКОНОМИКА</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>8 мар 2025</span><span>5 мин</span></div>
+            <div class="bp-a-t">Когда предприятию уже невыгодно проверять продукцию вручную</div>
+            <div class="bp-a-d">Как понять, что ручной контроль качества уже перестал быть выгодным: признаки, расчеты, скрытые потери и условия, при которых автоматизация становится более…</div>
+            <div class="bp-a-r">Дмитрий Новиков →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/kak-rabotaet-mashinnoe-zrenie/" data-topic="kak-rabotaet">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">МАШИННОЕ ЗРЕНИЕ</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>6 мар 2025</span><span>7 мин</span></div>
+            <div class="bp-a-t">Что такое компьютерное зрение на производстве</div>
+            <div class="bp-a-d">Компьютерное зрение — это технология, которая позволяет автоматически анализировать изображения и видео. На производстве такие системы используют для того, чтобы…</div>
+            <div class="bp-a-r">ИТиС ЛАБ →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/pochemu-predpriyatiya-teryayut-dengi-iz-za-nezamechennyih-otklonenij/" data-topic="pochemu-pred">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">ЭКОНОМИКА</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>28 фев 2025</span><span>8 мин</span></div>
+            <div class="bp-a-t">Почему предприятия теряют деньги из-за незамеченных отклонений</div>
+            <div class="bp-a-d">Главная опасность производственных аномалий в том, что они редко выглядят как очевидная поломка с самого начала. Намного чаще это постепенное отклонение от…</div>
+            <div class="bp-a-r">Дмитрий Новиков →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/pochemu-vyibor-kameryi-nelzya-schitat-vtorostepennyim/" data-topic="pochemu-vyib">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">МАШИННОЕ ЗРЕНИЕ</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>24 фев 2025</span><span>7 мин</span></div>
+            <div class="bp-a-t">Почему выбор камеры нельзя считать второстепенным</div>
+            <div class="bp-a-d">На производстве результат проверки зависит не только от того, умеет ли система находить дефект, но и от того, насколько хорошо этот дефект вообще виден в кадре.…</div>
             <div class="bp-a-r">Ольга Морозова →</div>
           </div>
         </a>
-
+        <a class="bp-a" href="/blog/defekty-metalla-klassifikatsiya/" data-topic="defekty-meta">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">МАШИННОЕ ЗРЕНИЕ</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>22 фев 2025</span><span>10 мин</span></div>
+            <div class="bp-a-t">Что понимают под системой компьютерного зрения для контроля качества</div>
+            <div class="bp-a-d">Если говорить практично, система компьютерного зрения для контроля качества — это не одна камера и не обученная модель сама по себе. Это законченный технический…</div>
+            <div class="bp-a-r">Артём Лебедев →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/pochemu-rabochee-mesto-operatora-nelzya-schitat-vtorostepennoj-chastyu-proekta/" data-topic="pochemu-rabo">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">ЭКСПЕРТИЗА</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>16 фев 2025</span><span>7 мин</span></div>
+            <div class="bp-a-t">Почему рабочее место оператора нельзя считать второстепенной частью проекта</div>
+            <div class="bp-a-d">Во многих проектах основной упор делают на камеры, освещение и вычислительную часть, а место оператора собирают по остаточному принципу. Обычно это заканчивается…</div>
+            <div class="bp-a-r">Елена Петрова →</div>
+          </div>
+        </a>
+        <a class="bp-a" href="/blog/programmnoe-obespechenie-dlya-kompyuternogo-zreniya-v-promyishlennosti/" data-topic="programmnoe-">
+          <div class="bp-a-c">
+            <div class="bp-a-c-g"></div>
+            <div class="bp-a-tag">SOFTWARE</div>
+          </div>
+          <div class="bp-a-body">
+            <div class="bp-a-meta"><span>13 фев 2025</span><span>8 мин</span></div>
+            <div class="bp-a-t">Программное обеспечение для компьютерного зрения в промышленности</div>
+            <div class="bp-a-d">————————————————————————————————————————————————.</div>
+            <div class="bp-a-r">Илья Ковалёв →</div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ── CTA ── -->
   <section class="section" style="padding:64px 0;border-bottom:none;">
     <div class="wrap">
       <div class="cta-strip rv">
@@ -150,7 +295,7 @@
     </div>
   </section>
 
-</div><!-- /.page-top -->
+</div>
 
 <div id="footer-root"></div>
 
