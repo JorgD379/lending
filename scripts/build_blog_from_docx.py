@@ -53,10 +53,12 @@ AUTHORS = (
 
 
 def find_docx_files() -> list[Path]:
+    """Собираем .docx из articles_docx/ и из _articles_import/ — иначе при любом файле
+    в дропе весь импорт из _articles_import/ молча отключается и часть статей не обновляется."""
     paths: list[Path] = []
     if DROP.is_dir():
         paths.extend(sorted(DROP.rglob("*.docx")))
-    if not paths and FALLBACK.is_dir():
+    if FALLBACK.is_dir():
         paths.extend(sorted(FALLBACK.rglob("*.docx")))
     # без дубликатов по resolve()
     seen: set[str] = set()
@@ -338,6 +340,16 @@ def promote_strong_sections(soup: BeautifulSoup, page_title: str) -> None:
         p.replace_with(h2)
 
 
+def unwrap_title_block_header(soup: BeautifulSoup) -> None:
+    """Pandoc кладёт первый h2 в header#title-block-header. Перенос строки даёт текстовый узел —
+    h2 не :first-child, остаётся margin-top как у секции, якорь визуально ниже заголовка."""
+    body = soup.body
+    if not body:
+        return
+    for hdr in list(body.find_all("header", id="title-block-header")):
+        hdr.unwrap()
+
+
 def assign_h2_ids(soup: BeautifulSoup) -> list[tuple[str, str]]:
     body = soup.body
     if not body:
@@ -556,8 +568,7 @@ def article_html_page(
     <div class="wrap">
       <div class="article-body">
 
-        <div class="article-prose rv">
-{body_inner}
+        <div class="article-prose rv">{body_inner}
           <div class="article-cta">
             <div class="cta-strip" style="border:none;padding:0;">
               <h2 style="font-size:clamp(22px,2.6vw,36px);">Нужна такая система на вашем производстве?</h2>
@@ -659,13 +670,14 @@ def process_one(
     trim_word_noise(soup)
     scrub_strong_label_paragraphs(soup)
     scrub_label_h2(soup)
+    unwrap_title_block_header(soup)
     toc = assign_h2_ids(soup)
     body = soup.body
     if not body:
         return None
     dest_rel = f"/assets/blog/{slug}"
     relocate_media(soup, slug, tmp_media, dest_rel)
-    inner = body.decode_contents()
+    inner = body.decode_contents().lstrip()
     if tmp_media.exists():
         shutil.rmtree(tmp_media, ignore_errors=True)
 
@@ -854,7 +866,7 @@ def main() -> None:
             iso_date=rec["iso_date"],
             read_min=rec["read_min"],
             tag=rec["tag"],
-            body_inner="\n" + rec["body_inner"] + "\n",
+            body_inner=rec["body_inner"].strip() + "\n",
             toc=rec["toc"],
             related=rel,
             breadcrumb_short=rec["breadcrumb_short"],
