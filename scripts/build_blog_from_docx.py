@@ -683,6 +683,23 @@ def process_one(
     }
 
 
+def clean_listing_blurb(text: str, title: str) -> str:
+    """Убираем служебные префиксы из лидов карточек листинга."""
+    s = re.sub(r"\s+", " ", (text or "").strip())
+    for prefix in ("Title:", "title:", "Description:", "description:", "H1:", "h1:"):
+        if s.lower().startswith(prefix.lower()):
+            s = s[len(prefix) :].strip()
+    if re.match(r"^[—\-_\s\u2013\u2014.]{4,}$", s):
+        s = ""
+    parts = re.split(r"\s*\.\s*", s)
+    parts = [p.strip() for p in parts if p.strip()]
+    if len(parts) >= 2 and len(set(parts)) == 1:
+        s = parts[0] + "."
+    if len(s) < 40 and title:
+        s = (title[:120] + ("" if len(title) <= 120 else "…")).strip()
+    return s
+
+
 def write_listing(posts: list[dict]) -> None:
     posts = sorted(posts, key=lambda p: p["iso_date"], reverse=True)
     n = len(posts)
@@ -690,9 +707,9 @@ def write_listing(posts: list[dict]) -> None:
     for i, p in enumerate(posts):
         tag_u = html.escape(p["tag"].upper())
         d = html.escape(ru_date_short(p["iso_date"]))
-        author = html.escape(p.get("author") or AUTHORS[i % len(AUTHORS)])
         tt = html.escape(p["title"])
-        td = html.escape(p["description"])
+        blur = clean_listing_blurb(p.get("description") or "", p.get("title") or "")
+        td = html.escape(blur)
         cards.append(
             f"""
         <a class="bp-a" href="/blog/{p["slug"]}/" data-topic="{p["slug"][:12]}">
@@ -704,7 +721,6 @@ def write_listing(posts: list[dict]) -> None:
             <div class="bp-a-meta"><span>{d}</span><span>{p["read_min"]} мин</span></div>
             <div class="bp-a-t">{tt}</div>
             <div class="bp-a-d">{td}</div>
-            <div class="bp-a-r">{author} →</div>
           </div>
         </a>"""
         )
@@ -732,22 +748,20 @@ def write_listing(posts: list[dict]) -> None:
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-  <style>
-    .bg-a {{ display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }}
+    <style>
+    .bg-a {{ display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; align-items: stretch; }}
     @media(max-width:1000px) {{ .bg-a {{ grid-template-columns: repeat(2,1fr); }} }}
     @media(max-width:600px) {{ .bg-a {{ grid-template-columns: 1fr; }} }}
-    .bp-a {{ background: var(--s1); display: flex; flex-direction: column; cursor: pointer; transition: background .2s; text-decoration: none; color: inherit; }}
+    .bp-a {{ height: 100%; min-height: 0; background: var(--s1); display: flex; flex-direction: column; justify-content: flex-start; cursor: pointer; transition: background .2s; text-decoration: none; color: inherit; box-sizing: border-box; }}
     .bp-a:hover {{ background: var(--s2); }}
-    .bp-a-c {{ aspect-ratio: 16/10; background: var(--s2); position: relative; overflow: hidden; }}
+    .bp-a-c {{ flex: 0 0 auto; aspect-ratio: 16/10; background: var(--s2); position: relative; overflow: hidden; }}
     .bp-a-c-g {{ position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size: 32px 32px; transition: filter .25s; }}
     .bp-a:hover .bp-a-c-g {{ filter: brightness(1.4); }}
     .bp-a-tag {{ position: absolute; top: 14px; left: 14px; font-family: var(--fm); font-size: 10px; color: var(--ok); letter-spacing: .1em; background: rgba(9,9,9,.7); backdrop-filter: blur(8px); padding: 6px 10px; border: 1px solid var(--line2); }}
-    .bp-a-body {{ padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1; }}
-    .bp-a-meta {{ font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .06em; display: flex; justify-content: space-between; }}
-    .bp-a-t {{ font-family: var(--fh); font-weight: 700; font-size: 18px; line-height: 1.2; letter-spacing: -.01em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.6em; }}
-    .bp-a-d {{ color: var(--m2); font-size: 14px; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex: 1; }}
-    .bp-a-r {{ font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; margin-top: 6px; transition: color .2s, transform .2s; }}
-    .bp-a:hover .bp-a-r {{ color: var(--ok); transform: translateX(4px); }}
+    .bp-a-body {{ flex: 1 1 auto; min-height: 0; padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px; justify-content: flex-start; }}
+    .bp-a-meta {{ flex: 0 0 auto; font-family: var(--fm); font-size: 10.5px; color: var(--m); letter-spacing: .06em; display: flex; justify-content: space-between; }}
+    .bp-a-t {{ flex: 0 0 auto; font-family: var(--fh); font-weight: 700; font-size: 18px; line-height: 1.2; letter-spacing: -.01em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.6em; }}
+    .bp-a-d {{ flex: 0 0 auto; min-height: calc(1.55em * 3); color: var(--m2); font-size: 14px; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }}
   </style>
 </head>
 <body>
