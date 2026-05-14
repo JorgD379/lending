@@ -33,6 +33,22 @@
     .pt-ticker-logo:hover img { opacity: 0.85; }
     .pt-ticker-logo small { font-family: var(--fm); font-size: 9px; display: block; color: var(--m); margin-top: 4px; letter-spacing: .1em; text-align: center; font-weight: 400; }
     @keyframes pt-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* Reviews */
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
+    @media (max-width: 900px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .reviews-grid { grid-template-columns: 1fr; } }
+    .review-card { background: var(--s1); padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 16px; border: 1px solid var(--line); transition: background .2s, border-color .2s; }
+    .review-card:hover { background: var(--s2); border-color: var(--line2); }
+    .review-card-logo { display: flex; align-items: center; gap: 12px; }
+    .review-card-logo-box { width: 40px; height: 40px; background: var(--s2); border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--fh); font-weight: 700; font-size: 13px; color: var(--ok); letter-spacing: .03em; }
+    .review-card-logo-info { display: flex; flex-direction: column; gap: 2px; }
+    .review-card-company { font-family: var(--fh); font-weight: 700; font-size: 14px; letter-spacing: .02em; color: var(--text); }
+    .review-card-industry { font-family: var(--fm); font-size: 11px; color: var(--m); letter-spacing: .08em; text-transform: uppercase; }
+    .review-card-quote { font-size: 14px; line-height: 1.6; color: var(--m2); flex: 1; position: relative; padding-top: 4px; }
+    .review-card-quote::before { content: '\201C'; font-family: var(--fh); font-size: 48px; line-height: 1; color: var(--ok); opacity: .25; position: absolute; top: -8px; left: -4px; pointer-events: none; }
+    .review-card-metric { font-family: var(--fh); font-weight: 700; font-size: 22px; color: var(--ok); letter-spacing: -.02em; }
+    .review-card-metric-l { font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: .08em; text-transform: uppercase; margin-top: 2px; }
   </style>
 </head>
 <body class="home-page">
@@ -52,8 +68,8 @@
         <!-- LEFT: text content -->
         <div>
           <div class="hero-stamp rv">▸ LIVE · Машинное зрение · Промышленная автоматизация</div>
-          <h1 class="rv d1">Машинное зрение, которое окупается за <span class="hero-accent">8–14 месяцев</span></h1>
-          <p class="rv d1 hero-sub">Помогаем заводам, складам и фарме автоматизировать контроль качества и логистику.</p>
+          <h1 class="rv d1">Машинное зрение, которое окупается за <span class="hero-accent">1–9 месяцев</span></h1>
+          <p class="rv d1 hero-sub">Помогаем производству автоматизировать и оптимизировать их процессы.</p>
           <div class="hero-metrics rv d2">
             <span>100+ проектов</span><span class="hero-metrics-dot">·</span>
             <span>18 отраслей</span><span class="hero-metrics-dot">·</span>
@@ -79,19 +95,19 @@
         <!-- RIGHT: 4 live detection preview tiles -->
         <div class="hero-tiles">
           <div class="hero-tile">
-            <img src="/assets/images/hero/tile-1.png" alt="Склад: паллеты и логистика" width="800" height="800" loading="eager" decoding="async">
+            <img src="/assets/images/hero/tile-1.webp" alt="Склад: паллеты и логистика" width="800" height="800" loading="eager" decoding="async">
             <div class="hero-tile-label">СКЛАД</div>
           </div>
           <div class="hero-tile">
-            <img src="/assets/images/hero/tile-2.png" alt="СИЗ на производстве" width="800" height="800" loading="eager" decoding="async">
+            <img src="/assets/images/hero/tile-2.webp" alt="СИЗ на производстве" width="800" height="800" loading="eager" decoding="async">
             <div class="hero-tile-label">СИЗ</div>
           </div>
           <div class="hero-tile">
-            <img src="/assets/images/hero/tile-3.png" alt="Сборка: контроль узлов" width="800" height="800" loading="eager" decoding="async">
+            <img src="/assets/images/hero/tile-3.webp" alt="Сборка: контроль узлов" width="800" height="800" loading="eager" decoding="async">
             <div class="hero-tile-label">СБОРКА</div>
           </div>
           <div class="hero-tile">
-            <img src="/assets/images/hero/tile-4.png" alt="Конвейерная линия" width="800" height="800" loading="eager" decoding="async">
+            <img src="/assets/images/hero/tile-4.webp" alt="Конвейерная линия" width="800" height="800" loading="eager" decoding="async">
             <div class="hero-tile-label">КОНВЕЕР</div>
           </div>
         </div>
@@ -175,12 +191,12 @@
 
   <!-- 03 / PARTNERS -->
   <section class="section" id="s-partners">
-    <div class="wrap" style="margin-bottom:64px;">
+    <div class="wrap" style="margin-bottom:48px;">
       <div class="sec-hd rv">
         <div>
-          <div class="mono sec-num">03 / Партнёры</div>
-          <h2>С нами работают лидеры отраслей</h2>
-          <p style="margin-top:12px;color:var(--m2);font-size:16px;max-width:560px;">Компании, для которых мы запускали пилоты и тиражировали решения.</p>
+          <div class="mono sec-num">03 / Партнёры и отзывы</div>
+          <h2>Нам доверяют — и говорят об этом</h2>
+          <p style="margin-top:12px;color:var(--m2);font-size:16px;max-width:560px;">Компании, которые уже автоматизировали процессы с ИТиС ЛАБ.</p>
         </div>
       </div>
     </div>
@@ -191,20 +207,125 @@
         <div class="pt-ticker-logo"><img src="/assets/images/partners/it-kosmos.png" alt="ИТ-Космос"></div>
         <div class="pt-ticker-logo"><img src="/assets/images/partners/umpo.png" alt="УМПО"></div>
         <div class="pt-ticker-logo"><img src="/assets/images/partners/uunit.png" alt="UUnit"></div>
-        <div class="pt-ticker-logo"><div>СЕВЕРСТАЛЬ<small>МЕТАЛЛ</small></div></div>
-        <div class="pt-ticker-logo"><div>РОСАТОМ<small>ЭНЕРГЕТИКА</small></div></div>
-        <div class="pt-ticker-logo"><div>КАМАЗ<small>МАШИНОСТР</small></div></div>
-        <div class="pt-ticker-logo"><div>РЖД<small>ТРАНСПОРТ</small></div></div>
-        <div class="pt-ticker-logo"><div>ГАЗПРОМ<small>НЕФТЕГАЗ</small></div></div>
+        <div class="pt-ticker-logo"><div>ЗИПМАЙН<small>ГОРНОДОБЫЧА</small></div></div>
+        <div class="pt-ticker-logo"><div>ДЕКА-С<small>ПРОИЗВОДСТВО</small></div></div>
+        <div class="pt-ticker-logo"><div>ФОРЕСТ<small>ЛОГИСТИКА</small></div></div>
+        <div class="pt-ticker-logo"><div>ЧИСТЫЙ ПОРОЛОН<small>ПРОИЗВОДСТВО</small></div></div>
+        <div class="pt-ticker-logo"><div>ИГАРДО<small>УПРАВЛЕНИЕ</small></div></div>
+        <div class="pt-ticker-logo"><div>ЮЛИЯ<small>НЕДВИЖИМОСТЬ</small></div></div>
         <!-- duplicate for seamless loop -->
         <div class="pt-ticker-logo"><img src="/assets/images/partners/it-kosmos.png" alt="ИТ-Космос"></div>
         <div class="pt-ticker-logo"><img src="/assets/images/partners/umpo.png" alt="УМПО"></div>
         <div class="pt-ticker-logo"><img src="/assets/images/partners/uunit.png" alt="UUnit"></div>
-        <div class="pt-ticker-logo"><div>СЕВЕРСТАЛЬ<small>МЕТАЛЛ</small></div></div>
-        <div class="pt-ticker-logo"><div>РОСАТОМ<small>ЭНЕРГЕТИКА</small></div></div>
-        <div class="pt-ticker-logo"><div>КАМАЗ<small>МАШИНОСТР</small></div></div>
-        <div class="pt-ticker-logo"><div>РЖД<small>ТРАНСПОРТ</small></div></div>
-        <div class="pt-ticker-logo"><div>ГАЗПРОМ<small>НЕФТЕГАЗ</small></div></div>
+        <div class="pt-ticker-logo"><div>ЗИПМАЙН<small>ГОРНОДОБЫЧА</small></div></div>
+        <div class="pt-ticker-logo"><div>ДЕКА-С<small>ПРОИЗВОДСТВО</small></div></div>
+        <div class="pt-ticker-logo"><div>ФОРЕСТ<small>ЛОГИСТИКА</small></div></div>
+        <div class="pt-ticker-logo"><div>ЧИСТЫЙ ПОРОЛОН<small>ПРОИЗВОДСТВО</small></div></div>
+        <div class="pt-ticker-logo"><div>ИГАРДО<small>УПРАВЛЕНИЕ</small></div></div>
+        <div class="pt-ticker-logo"><div>ЮЛИЯ<small>НЕДВИЖИМОСТЬ</small></div></div>
+      </div>
+    </div>
+
+    <!-- Reviews grid -->
+    <div class="wrap">
+      <div class="reviews-grid rv">
+
+        <!-- Зипмайн -->
+        <div class="review-card">
+          <div class="review-card-logo">
+            <div class="review-card-logo-box">ЗМ</div>
+            <div class="review-card-logo-info">
+              <div class="review-card-company">ООО «Зипмайн»</div>
+              <div class="review-card-industry">Горнодобыча · Видеоаналитика</div>
+            </div>
+          </div>
+          <div class="review-card-quote">После внедрения подготовка отчётности по работе техники стала занимать пару минут. Руководители видят информацию в онлайн-дашборде: работа техники по зонам, длительность простоев, загрузка оборудования.</div>
+          <div>
+            <div class="review-card-metric">−93%</div>
+            <div class="review-card-metric-l">неидентифицированных простоев</div>
+          </div>
+        </div>
+
+        <!-- Дека-С -->
+        <div class="review-card">
+          <div class="review-card-logo">
+            <div class="review-card-logo-box">ДС</div>
+            <div class="review-card-logo-info">
+              <div class="review-card-company">ООО «Дека-С»</div>
+              <div class="review-card-industry">Производство · Контроль качества</div>
+            </div>
+          </div>
+          <div class="review-card-quote">Система стала выявлять отклонения по форме, повреждения покрытия, нарушения геометрии на более раннем этапе. Инженерный подход команды — проект выполнен в срок, с понятной экономикой.</div>
+          <div>
+            <div class="review-card-metric">−99%</div>
+            <div class="review-card-metric-l">спорных ситуаций в производственном контроле</div>
+          </div>
+        </div>
+
+        <!-- Форест -->
+        <div class="review-card">
+          <div class="review-card-logo">
+            <div class="review-card-logo-box">ФС</div>
+            <div class="review-card-logo-info">
+              <div class="review-card-company">ООО «Форест»</div>
+              <div class="review-card-industry">Логистика · Склад</div>
+            </div>
+          </div>
+          <div class="review-card-quote">Разговор был не только про камеры и алгоритмы, а про снижение ошибок, ускорение контроля и повышение управляемости склада. Проект реализован в согласованные сроки.</div>
+          <div>
+            <div class="review-card-metric">100%</div>
+            <div class="review-card-metric-l">точность контроля паллетомест и очерёдности отгрузки</div>
+          </div>
+        </div>
+
+        <!-- Чистый поролон -->
+        <div class="review-card">
+          <div class="review-card-logo">
+            <div class="review-card-logo-box">ЧП</div>
+            <div class="review-card-logo-info">
+              <div class="review-card-company">ООО «Чистый поролон»</div>
+              <div class="review-card-industry">Производство · Детекция дефектов</div>
+            </div>
+          </div>
+          <div class="review-card-quote">Система помогает не только отбраковывать проблемный материал, но и быстрее понимать момент, когда процесс начинает уходить от заданных параметров. Стало частью культуры качества.</div>
+          <div>
+            <div class="review-card-metric">100%</div>
+            <div class="review-card-metric-l">контроль качества на производственном потоке</div>
+          </div>
+        </div>
+
+        <!-- Игардо Менеджмент -->
+        <div class="review-card">
+          <div class="review-card-logo">
+            <div class="review-card-logo-box">ИМ</div>
+            <div class="review-card-logo-info">
+              <div class="review-card-company">ООО «Игардо Менеджмент»</div>
+              <div class="review-card-industry">Управление объектами · СИЗ</div>
+            </div>
+          </div>
+          <div class="review-card-quote">Система встроилась в действующие процессы без создания отдельных процедур. По контролируемым зонам время реакции на типовые нарушения сократилось до нескольких минут.</div>
+          <div>
+            <div class="review-card-metric">мин.</div>
+            <div class="review-card-metric-l">время реакции на нарушения ОТ</div>
+          </div>
+        </div>
+
+        <!-- Юлия -->
+        <div class="review-card">
+          <div class="review-card-logo">
+            <div class="review-card-logo-box">ЮЛ</div>
+            <div class="review-card-logo-info">
+              <div class="review-card-company">ООО «Юлия»</div>
+              <div class="review-card-industry">Недвижимость · Учёт транспорта</div>
+            </div>
+          </div>
+          <div class="review-card-quote">Спорные ситуации теперь разбираются быстрее: есть номер автомобиля, время события, зона и история проезда. Решение стало практичным инструментом контроля территории.</div>
+          <div>
+            <div class="review-card-metric">авто</div>
+            <div class="review-card-metric-l">автоматическое распознавание номеров и управление шлагбаумом</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -339,10 +460,8 @@
           <div class="case-a-img" data-case-carousel>
             <div class="case-carousel-viewport">
               <div class="case-carousel-track">
-                <div class="case-carousel-slide"><img src="/assets/images/hero/tile-1.png" alt="Производство: мониторинг" loading="lazy" decoding="async"></div>
-                <div class="case-carousel-slide"><img src="/assets/images/hero/tile-2.png" alt="Склад: машинное зрение" loading="lazy" decoding="async"></div>
-                <div class="case-carousel-slide"><img src="/assets/images/hero/tile-3.png" alt="Контроль качества" loading="lazy" decoding="async"></div>
-                <div class="case-carousel-slide"><img src="/assets/images/hero/tile-4.png" alt="Линия: детекция" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="/assets/images/hero/tile-2.webp" alt="СИЗ на производстве" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="/assets/images/hero/tile-1.webp" alt="Склад: паллеты и логистика" loading="lazy" decoding="async"></div>
               </div>
             </div>
             <button type="button" class="case-carousel-btn case-carousel-prev" aria-label="Предыдущий слайд">‹</button>
@@ -359,11 +478,6 @@
             <div class="case-a-title">Контроль СИЗ на производстве</div>
             <div class="case-a-desc">Мониторинг соблюдения требований охраны труда на производственных участках в реальном времени.</div>
             <div class="case-a-foot">
-              <div class="case-a-stack">
-                <span>YOLOv8</span>
-                <span>RTSP</span>
-                <span>Edge AI</span>
-              </div>
               <span class="case-a-arr">→</span>
             </div>
           </a>
@@ -372,10 +486,10 @@
           <div class="case-a-img" data-case-carousel>
             <div class="case-carousel-viewport">
               <div class="case-carousel-track">
-                <div class="case-carousel-slide"><img src="/assets/images/cases/case1_main_window.png" alt="PVSignDetector: главное окно" loading="lazy" decoding="async"></div>
-                <div class="case-carousel-slide"><img src="/assets/images/cases/case1_new_processing.png" alt="PVSignDetector: обработка" loading="lazy" decoding="async"></div>
-                <div class="case-carousel-slide"><img src="/assets/images/cases/case1_results_window.png" alt="PVSignDetector: результаты" loading="lazy" decoding="async"></div>
-                <div class="case-carousel-slide"><img src="/assets/images/cases/case1_export_format.png" alt="PVSignDetector: экспорт" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="/assets/images/cases/case1_main_window.webp" alt="PVSignDetector: главное окно" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="/assets/images/cases/case1_new_processing.webp" alt="PVSignDetector: обработка" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="/assets/images/cases/case1_results_window.webp" alt="PVSignDetector: результаты" loading="lazy" decoding="async"></div>
+                <div class="case-carousel-slide"><img src="/assets/images/cases/case1_export_format.webp" alt="PVSignDetector: экспорт" loading="lazy" decoding="async"></div>
               </div>
             </div>
             <button type="button" class="case-carousel-btn case-carousel-prev" aria-label="Предыдущий слайд">‹</button>
@@ -390,185 +504,4 @@
               <div class="case-a-metric-l">СКОРОСТЬ ИНВЕНТАРИЗАЦИИ</div>
             </div>
             <div class="case-a-title">PVSignDetector — детекция знаков по ГОСТ</div>
-            <div class="case-a-desc">Детекция и классификация дорожных знаков из видео с GPS. Десктопное приложение для инвентаризации.</div>
-            <div class="case-a-foot">
-              <div class="case-a-stack">
-                <span>GPS</span>
-                <span>OpenCV</span>
-                <span>Desktop</span>
-              </div>
-              <span class="case-a-arr">→</span>
-            </div>
-          </a>
-        </article>
-        <article class="case-a-card">
-          <div class="case-a-img" data-case-carousel>
-            <div class="case-carousel-viewport">
-              <div class="case-carousel-track">
-                <div class="case-carousel-slide"><img src="/assets/images/cases/case2_main_window.png" alt="FastenAI: главное окно" loading="lazy" decoding="async"></div>
-                <div class="case-carousel-slide"><img src="/assets/images/cases/case2_new_shablon.png" alt="FastenAI: шаблон / настройка" loading="lazy" decoding="async"></div>
-              </div>
-            </div>
-            <button type="button" class="case-carousel-btn case-carousel-prev" aria-label="Предыдущий слайд">‹</button>
-            <button type="button" class="case-carousel-btn case-carousel-next" aria-label="Следующий слайд">›</button>
-            <div class="case-carousel-dots" aria-hidden="true"></div>
-            <div class="case-a-img-g"></div>
-            <div class="case-a-badge">МАШИНОСТРОЕНИЕ</div>
-          </div>
-          <a class="case-a-body case-a-body-link" href="/cases/kontrol-upakovki-lekarstv/">
-            <div class="case-a-metric">
-              <div class="case-a-metric-v">99%</div>
-              <div class="case-a-metric-l">ТОЧНОСТЬ ДЕТЕКЦИИ</div>
-            </div>
-            <div class="case-a-title">FastenAI — детекция крепёжных элементов</div>
-            <div class="case-a-desc">Автоматическая детекция, измерение и категоризация крепёжных элементов на производственной линии.</div>
-            <div class="case-a-foot">
-              <div class="case-a-stack">
-                <span>PyTorch</span>
-                <span>ONNX</span>
-                <span>MES</span>
-              </div>
-              <span class="case-a-arr">→</span>
-            </div>
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 09 / STAGES -->
-  <section class="section" id="s-stages">
-    <div class="wrap">
-      <div class="sec-hd rv">
-        <div>
-          <div class="mono sec-num">07 / Методология</div>
-          <h2>Этапы внедрения ИТиС ЛАБ. От старта до результата: ваш путь</h2>
-        </div>
-      </div>
-      <div class="stage-list rv">
-        <div class="si">
-          <div class="si-num">01</div>
-          <div>
-            <div class="si-time">3–5 рабочих дней</div>
-            <h3>Аудит и техническое задание</h3>
-            <p style="margin-top:8px;">Изучаем производственный процесс, определяем метрики задачи, формируем ТЗ и план пилота. Выезжаем на объект или работаем удалённо с вашими данными.</p>
-          </div>
-        </div>
-        <div class="si">
-          <div class="si-num">02</div>
-          <div>
-            <div class="si-time">2–4 недели</div>
-            <h3>Пилотный проект</h3>
-            <p style="margin-top:8px;">Разрабатываем и обучаем модель на ваших данных, разворачиваем прототип на производстве. Вы видите реальные результаты детекции до подписания основного договора.</p>
-          </div>
-        </div>
-        <div class="si">
-          <div class="si-num">03</div>
-          <div>
-            <div class="si-time">1–2 недели</div>
-            <h3>Промышленное внедрение</h3>
-            <p style="margin-top:8px;">Интегрируем систему в существующую инфраструктуру: MES, SCADA, ERP. Обучаем операторов, настраиваем отчётность и тревоги.</p>
-          </div>
-        </div>
-        <div class="si">
-          <div class="si-num">04</div>
-          <div>
-            <div class="si-time">Постоянно</div>
-            <h3>Поддержка и развитие</h3>
-            <p style="margin-top:8px;">Мониторим точность моделей, дообучаем при изменении условий производства. SLA-поддержка, обновления и масштабирование на новые участки.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10 / PRICING CTA -->
-  <section class="section" style="padding:0;border:none;">
-    <div class="wrap">
-      <div class="cta-strip rv">
-        <h2>Инвестиции в ИТиС ЛАБ: прозрачный расчёт под вашу конфигурацию</h2>
-        <button class="btn btn-w" onclick="openForm('complex')">Получить точное КП и расчёт стоимости</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 11 / CONTACTS -->
-  <section class="section" id="s-contacts">
-    <div class="wrap">
-      <div class="sec-hd rv">
-        <div>
-          <div class="mono sec-num">08 / Контакты</div>
-          <h2>Связь с командой ИТиС ЛАБ: обсудим ваш проект</h2>
-        </div>
-      </div>
-      <div class="contacts-row rv">
-        <div class="cc"><div class="cc-type">Телефон</div><a href="tel:+79656401726" class="cc-val">+7 (965) 640-17-26</a></div>
-        <div class="cc"><div class="cc-type">Email</div><a href="mailto:info@lab-itis.ru" class="cc-val">info@lab-itis.ru</a></div>
-        <div class="cc"><div class="cc-type">Telegram</div><a href="https://t.me/lab_itis" class="cc-val">@lab_itis</a></div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<div id="footer-root"></div>
-
-<script src="/js/data.js"></script>
-<script src="/js/components.js"></script>
-<script src="/js/main.js"></script>
-<script>
-  initComponents();
-  initPage();
-</script>
-<script>
-  // ── Roadmap B Progressive: scroll-driven fill line ──
-  (function() {
-    var wrap = document.getElementById('rmProgressive');
-    if (!wrap) return;
-    var fill = document.getElementById('rmFill');
-    var steps = Array.from(wrap.querySelectorAll('.rm-p-step'));
-    var track = wrap.querySelector('.rm-p-track');
-
-    function updateRoadmap() {
-      if (!track || !fill || !steps.length) return;
-      var trackRect = track.getBoundingClientRect();
-      var trackTop = trackRect.top;
-      var trackH = trackRect.height;
-      var viewH = window.innerHeight;
-
-      // how far down the viewport has the track scrolled (0..1)
-      var progress = Math.min(1, Math.max(0, (viewH * 0.65 - trackTop) / trackH));
-      fill.style.height = (progress * 100) + '%';
-
-      // activate steps based on their dot position
-      steps.forEach(function(step) {
-        var dot = step.querySelector('.rm-p-dot');
-        if (!dot) return;
-        var dotRect = dot.getBoundingClientRect();
-        var dotCenter = dotRect.top + dotRect.height / 2;
-        if (dotCenter < viewH * 0.7) {
-          step.classList.add('rm-p-active');
-        } else {
-          step.classList.remove('rm-p-active');
-        }
-      });
-    }
-
-    // Use requestAnimationFrame on scroll for smooth update
-    var ticking = false;
-    window.addEventListener('scroll', function() {
-      if (!ticking) {
-        requestAnimationFrame(function() {
-          updateRoadmap();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-
-    // Initial call
-    updateRoadmap();
-  })();
-</script>
-</body>
-</html>
+            <div class="case-a-desc">Детекция и классификация дорожных знаков из видео с GPS. Десктопно�
