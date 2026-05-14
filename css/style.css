@@ -470,6 +470,8 @@ footer { border-top: 1px solid var(--line); padding: 60px 0 40px; }
 .article-prose strong { color: var(--text); font-weight: 600; }
 .article-prose blockquote { border-left: 3px solid var(--line2); padding-left: 24px; margin: 36px 0; }
 .article-prose blockquote p { font-size: 18px; color: var(--m); font-style: italic; }
+.article-prose figure.article-inline-fig { margin: 32px 0; border: 1px solid var(--line); overflow: hidden; background: var(--s2); }
+.article-prose figure.article-inline-fig img { margin: 0; border: none; }
 .article-prose img { width: 100%; height: auto; display: block; margin: 32px 0; border: 1px solid var(--line); }
 .article-prose .note { background: var(--s1); padding: 24px 28px; margin: 32px 0; border-left: 3px solid var(--text); }
 .article-prose .note p { margin: 0; color: var(--m2); }
