@@ -344,16 +344,18 @@
             <div><div class="mono" style="margin-bottom:6px;">Ответ за 24 часа</div><p style="font-size:14px;">Составляем коммерческое предложение в течение суток после запроса — без лишних согласований и брифов.</p></div>
           </div>
         </div>
-        <form novalidate onsubmit="return false;">
+        <form data-lead-form data-source="home-form" novalidate>
+          <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-body">
-            <div class="fld"><label>Ваше имя</label><input type="text" autocomplete="name"></div>
-            <div class="fld"><label>Email</label><input type="email" autocomplete="email"></div>
-            <div class="fld"><label>Телефон</label><input type="tel" autocomplete="tel"></div>
-            <div class="fld"><label>Комментарий</label><textarea rows="3"></textarea></div>
-            <div class="fld"><label>Прикрепить файл</label><input type="file"></div>
+            <div class="fld"><label>Ваше имя</label><input type="text" name="name" autocomplete="name" required></div>
+            <div class="fld"><label>Email</label><input type="email" name="email" autocomplete="email"></div>
+            <div class="fld"><label>Телефон</label><input type="tel" name="phone" autocomplete="tel"></div>
+            <div class="fld"><label>Комментарий</label><textarea name="message" rows="3"></textarea></div>
+            <div class="fld"><label>Прикрепить файл</label><input type="file" name="file"></div>
           </div>
-          <div class="cb-row"><input type="checkbox" id="cb1" required><label for="cb1">Соглашаюсь на <a href="/consent/" target="_blank">обработку персональных данных</a></label></div>
-          <div class="cb-row" style="margin-top:10px;"><input type="checkbox" id="cb2"><label for="cb2">Согласен на получение <a href="/consent/#marketing" target="_blank">рекламных рассылок</a></label></div>
+          <div class="cb-row"><input type="checkbox" id="cb1" name="consent" required><label for="cb1">Соглашаюсь на <a href="/consent/" target="_blank">обработку персональных данных</a></label></div>
+          <div class="cb-row" style="margin-top:10px;"><input type="checkbox" id="cb2" name="marketing"><label for="cb2">Согласен на получение <a href="/consent/#marketing" target="_blank">рекламных рассылок</a></label></div>
+          <div class="form-status" role="status"></div>
           <button type="submit" class="form-submit">Получить предложение</button>
         </form>
       </div>
@@ -657,19 +659,4 @@
 
     // Use requestAnimationFrame on scroll for smooth update
     var ticking = false;
-    window.addEventListener('scroll', function() {
-      if (!ticking) {
-        requestAnimationFrame(function() {
-          updateRoadmap();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-
-    // Initial call
-    updateRoadmap();
-  })();
-</script>
-</body>
-</html>
+    window.addEventListener('scroll', fun

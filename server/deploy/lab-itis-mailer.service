@@ -1,0 +1,17 @@
+[Unit]
+Description=lab-itis-lead-mailer (форма -> email + SQLite)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/lab-itis.ru/server
+EnvironmentFile=/var/www/lab-itis.ru/server/.env
+ExecStart=/usr/bin/node /var/www/lab-itis.ru/server/server.js
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

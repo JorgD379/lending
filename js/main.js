@@ -24,6 +24,86 @@ document.addEventListener('keydown', e => {
   }
 });
 
+/* ── LEAD FORMS: отправка заявки на backend, который шлёт письмо на почту ──
+   Сайт и backend теперь на одном VPS/домене (см. server/README.md),
+   поэтому адрес относительный — CORS между фронтом и бэком не нужен. */
+const LEAD_API_URL = '/api/lead';
+
+function leadFormButton(form) {
+  return form.querySelector('button[type="submit"], .form-submit');
+}
+
+function leadFormStatusBox(form) {
+  let box = form.querySelector('.form-status');
+  if (!box) {
+    box = document.createElement('div');
+    box.className = 'form-status';
+    const btn = leadFormButton(form);
+    if (btn) form.insertBefore(box, btn);
+    else form.appendChild(box);
+  }
+  return box;
+}
+
+function setLeadFormStatus(form, kind, message) {
+  const box = leadFormStatusBox(form);
+  box.className = 'form-status' + (kind ? ' ' + kind : '');
+  box.textContent = message || '';
+  box.style.display = message ? 'flex' : 'none';
+}
+
+function wireLeadForm(form) {
+  if (!form || form.dataset.leadWired) return;
+  form.dataset.leadWired = '1';
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (typeof form.checkValidity === 'function' && !form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const btn = leadFormButton(form);
+    const originalLabel = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Отправляем…'; }
+    setLeadFormStatus(form, '', '');
+
+    const fd = new FormData(form);
+    if (!fd.get('source') && form.dataset.source) fd.set('source', form.dataset.source);
+
+    fetch(LEAD_API_URL, { method: 'POST', body: fd })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          return { ok: res.ok && data && data.ok, data: data };
+        });
+      })
+      .then(function (result) {
+        if (result.ok) {
+          setLeadFormStatus(form, 'ok', 'Заявка отправлена — мы свяжемся с вами в течение 24 часов.');
+          form.reset();
+          const overlay = form.closest('.form-overlay');
+          if (overlay) {
+            setTimeout(function () { closeById(overlay.id); setLeadFormStatus(form, '', ''); }, 1800);
+          }
+        } else {
+          const msg = (result.data && result.data.error) || 'Не удалось отправить заявку. Попробуйте ещё раз или напишите на info@lab-itis.ru';
+          setLeadFormStatus(form, 'err', msg);
+        }
+      })
+      .catch(function () {
+        setLeadFormStatus(form, 'err', 'Не удалось отправить заявку — проверьте соединение с интернетом или напишите на info@lab-itis.ru');
+      })
+      .finally(function () {
+        if (btn) { btn.disabled = false; btn.textContent = originalLabel; }
+      });
+  });
+}
+
+function wireAllLeadForms() {
+  document.querySelectorAll('form[data-lead-form]').forEach(wireLeadForm);
+}
+
 /* ── MOBILE MENU ── */
 function closeMob() {
   const m = document.getElementById('mob');
@@ -105,89 +185,4 @@ function openProcModal(indId, subId, procId) {
         <div><div class="m-sec-t">Результаты внедрения</div><div class="m-sec-b">${p.results}</div></div>
         <div><div class="m-sec-t">Принцип работы ИИ</div><div class="m-sec-b">${p.principle}</div></div>
         <div><div class="m-sec-t">Минусы традиционных методов</div><div class="m-sec-b">${p.features}</div></div>
-        <div><div class="m-sec-t">Функции ИТиС ЛАБ</div><div class="m-sec-b">${p.traditional}</div></div>
-      </div>
-      <div class="m-footer">
-        <button class="btn btn-w btn-sm" onclick="closeById('procOverlay');openForm('simple')">Обсудить этот процесс</button>
-        <button class="btn btn-g btn-sm" onclick="closeById('procOverlay')">Закрыть</button>
-      </div>
-    </div>`;
-  openOverlay('procOverlay');
-}
-
-/* ── CASE CAROUSELS (index / cases grid) ── */
-function initCaseCarousels() {
-  document.querySelectorAll('[data-case-carousel]').forEach(root => {
-    const track = root.querySelector('.case-carousel-track');
-    const slides = root.querySelectorAll('.case-carousel-slide');
-    const prev = root.querySelector('.case-carousel-prev');
-    const next = root.querySelector('.case-carousel-next');
-    const dotsRoot = root.querySelector('.case-carousel-dots');
-    if (!track || slides.length < 2) return;
-
-    let idx = 0;
-    let dotBtns = [];
-
-    function setTransform() {
-      track.style.transform = `translateX(${-idx * 100}%)`;
-      dotBtns.forEach((b, j) => b.classList.toggle('on', j === idx));
-    }
-
-    function go(delta) {
-      idx = (idx + delta + slides.length) % slides.length;
-      setTransform();
-    }
-
-    if (dotsRoot) {
-      dotsRoot.innerHTML = '';
-      dotBtns = Array.from(slides).map((_, j) => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'case-carousel-dot' + (j === 0 ? ' on' : '');
-        b.setAttribute('aria-label', 'Слайд ' + (j + 1));
-        b.addEventListener('click', e => {
-          e.preventDefault();
-          e.stopPropagation();
-          idx = j;
-          setTransform();
-        });
-        dotsRoot.appendChild(b);
-        return b;
-      });
-    }
-
-    prev?.addEventListener('click', e => {
-      e.preventDefault();
-      e.stopPropagation();
-      go(-1);
-    });
-    next?.addEventListener('click', e => {
-      e.preventDefault();
-      e.stopPropagation();
-      go(1);
-    });
-
-    let tx0 = null;
-    root.addEventListener('touchstart', e => {
-      if (e.touches.length === 1) tx0 = e.touches[0].clientX;
-    }, { passive: true });
-    root.addEventListener('touchend', e => {
-      if (tx0 == null || !e.changedTouches.length) return;
-      const dx = e.changedTouches[0].clientX - tx0;
-      tx0 = null;
-      if (dx > 48) go(-1);
-      else if (dx < -48) go(1);
-    }, { passive: true });
-
-    setTransform();
-  });
-}
-
-/* ── INIT (called after DOM ready) ── */
-function initPage() {
-  renderTypicalTasks();
-  initCaseCarousels();
-  triggerReveal();
-  document.querySelectorAll('.cnt').forEach(el => counterObs.observe(el));
-  document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => e.preventDefault()));
-}
+        <div><div class="m-sec-t">Функ

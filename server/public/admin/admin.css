@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--fb);
+}
+
+#app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.login-form {
+  max-width: 320px;
+  margin: 120px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-form h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.login-form input {
+  background: var(--s1);
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 14px;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.login-form input:focus {
+  border-color: var(--ok);
+  outline: none;
+}
+
+.login-form .error {
+  color: var(--err);
+  font-size: 13px;
+}
+
+.login-form button,
+.admin-header button,
+.pager button,
+.resend-btn,
+.detail-btn {
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  padding: 10px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-form button:hover,
+.admin-header button:hover,
+.pager button:hover,
+.resend-btn:hover,
+.detail-btn:hover {
+  opacity: .85;
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters select,
+.filters input {
+  background: var(--s1);
+  border: none;
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.ok-badge { color: var(--ok); }
+
+.err-badge {
+  color: var(--err);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.detail-row td { background: var(--s1); }
+
+.detail-row pre {
+  white-space: pre-wrap;
+  font-family: var(--fb);
+  margin: 0 0 12px;
+}
+
+.detail-row a { color: var(--ok); }
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  font-size: 13px;
+}

@@ -69,9 +69,11 @@
     .off-st.is-hub { color: var(--ok); }
     .off-st.is-rep { color: var(--m); }
 
-    /* Success */
+    /* Success / Error */
     .ok-msg { padding: 24px; border: 1px solid var(--ok); background: rgba(74,222,128,.08); color: var(--text); font-size: 14px; display: flex; gap: 12px; align-items: center; }
     .ok-msg b { color: var(--ok); }
+    .form-status.err { padding: 16px 20px; border: 1px solid var(--err); background: rgba(248,113,113,.08); color: var(--text); font-size: 13.5px; }
+    .form-status.ok { padding: 16px 20px; border: 1px solid var(--ok); background: rgba(74,222,128,.08); color: var(--text); font-size: 13.5px; }
   </style>
 </head>
 <body>
@@ -101,40 +103,39 @@
 
         <!-- Форма -->
         <div class="fa-form">
-          <div id="contact-success" class="ok-msg" style="display:none;">
-            <b>✓</b>&nbsp; Заявка отправлена — ответим в течение 24 часов.
-          </div>
-          <form id="contact-form" novalidate>
+          <form id="contact-form" data-lead-form data-source="contacts" novalidate>
+            <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="fa-form-row" style="margin-bottom:28px;">
               <div class="fld">
                 <div class="fld-l">Имя</div>
-                <input class="fld-i" type="text" placeholder="Иван Петров" autocomplete="name" required>
+                <input class="fld-i" type="text" name="name" placeholder="Иван Петров" autocomplete="name" required>
               </div>
               <div class="fld">
                 <div class="fld-l">Компания</div>
-                <input class="fld-i" type="text" placeholder="ООО «Завод»">
+                <input class="fld-i" type="text" name="company" placeholder="ООО «Завод»">
               </div>
             </div>
             <div class="fa-form-row" style="margin-bottom:28px;">
               <div class="fld">
                 <div class="fld-l">Email</div>
-                <input class="fld-i" type="email" placeholder="ivan@zavod.ru" autocomplete="email" required>
+                <input class="fld-i" type="email" name="email" placeholder="ivan@zavod.ru" autocomplete="email" required>
               </div>
               <div class="fld">
                 <div class="fld-l">Телефон</div>
-                <input class="fld-i" type="tel" placeholder="+7 (999) 000-00-00" autocomplete="tel">
+                <input class="fld-i" type="tel" name="phone" placeholder="+7 (999) 000-00-00" autocomplete="tel">
               </div>
             </div>
             <div class="fld" style="margin-bottom:28px;">
               <div class="fld-l">Опишите задачу</div>
-              <textarea class="fld-i" placeholder="Что производите, какую задачу хотите автоматизировать, есть ли уже данные..."></textarea>
+              <textarea class="fld-i" name="message" placeholder="Что производите, какую задачу хотите автоматизировать, есть ли уже данные..."></textarea>
             </div>
             <div style="margin-bottom:24px;">
               <label style="display:flex;gap:12px;font-size:13px;color:var(--m2);cursor:pointer;">
-                <input type="checkbox" required style="margin-top:2px;">
+                <input type="checkbox" name="consent" required style="margin-top:2px;">
                 Соглашаюсь на обработку персональных данных в соответствии с <a href="/privacy/" style="color:var(--m2);text-decoration:underline;margin-left:4px;">Политикой конфиденциальности</a>
               </label>
             </div>
+            <div class="form-status" role="status" style="margin-bottom:20px;"></div>
             <button type="submit" class="cta-pri">Отправить заявку →</button>
           </form>
           <div class="fa-form-meta">
@@ -176,18 +177,4 @@
 <div id="footer-root"></div>
 
 <script src="/js/data.js"></script>
-<script src="/js/components.js"></script>
-<script src="/js/main.js"></script>
-<script>
-  initComponents();
-  initPage();
-
-  // Форма
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('contact-success').style.display = 'flex';
-  });
-</script>
-</body>
-</html>
+<script sr

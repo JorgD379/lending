@@ -127,16 +127,20 @@ function injectModals() {
     <button class="fcl" onclick="closeById('formSimple')">✕</button>
     <h3>Расскажите о задаче</h3>
     <p class="sub">Мы свяжемся с вами в течение 24 часов</p>
-    <div class="form-body">
-      <div class="fld"><label>Ваше имя</label><input type="text" autocomplete="name"></div>
-      <div class="fld"><label>Телефон</label><input type="tel" autocomplete="tel"></div>
-      <div class="fld"><label>Email</label><input type="email" autocomplete="email"></div>
-    </div>
-    <div class="cb-row">
-      <input type="checkbox" id="cbs1" required>
-      <label for="cbs1">Соглашаюсь на обработку персональных данных в соответствии с <a href="/privacy/" style="color:var(--text);text-decoration:underline;">Политикой конфиденциальности</a></label>
-    </div>
-    <button class="form-submit" onclick="closeById('formSimple')">Отправить заявку</button>
+    <form data-lead-form data-source="modal-simple" novalidate>
+      <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-body">
+        <div class="fld"><label>Ваше имя</label><input type="text" name="name" autocomplete="name" required></div>
+        <div class="fld"><label>Телефон</label><input type="tel" name="phone" autocomplete="tel"></div>
+        <div class="fld"><label>Email</label><input type="email" name="email" autocomplete="email"></div>
+      </div>
+      <div class="cb-row">
+        <input type="checkbox" id="cbs1" name="consent" required>
+        <label for="cbs1">Соглашаюсь на обработку персональных данных в соответствии с <a href="/privacy/" style="color:var(--text);text-decoration:underline;">Политикой конфиденциальности</a></label>
+      </div>
+      <div class="form-status" role="status"></div>
+      <button type="submit" class="form-submit">Отправить заявку</button>
+    </form>
   </div>
 </div>
 
@@ -146,18 +150,22 @@ function injectModals() {
     <button class="fcl" onclick="closeById('formComplex')">✕</button>
     <h3>Детальный проект</h3>
     <p class="sub">Заполните анкету — рассчитаем КП и сроки</p>
-    <div class="form-body">
-      <div class="fld"><label>Ваше имя</label><input type="text" autocomplete="name"></div>
-      <div class="fld"><label>Email</label><input type="email" autocomplete="email"></div>
-      <div class="fld"><label>Телефон</label><input type="tel" autocomplete="tel"></div>
-      <div class="fld"><label>Компания</label><input type="text"></div>
-      <div class="fld"><label>Отрасль</label><input type="text" placeholder="Например: машиностроение"></div>
-      <div class="fld"><label>Описание задачи</label><textarea rows="4"></textarea></div>
-      <div class="fld"><label>Прикрепить файл (ТЗ, схема)</label><input type="file"></div>
-    </div>
-    <div class="cb-row"><input type="checkbox" id="cbc1" required><label for="cbc1">Соглашаюсь на обработку персональных данных</label></div>
-    <div class="cb-row" style="margin-top:10px;"><input type="checkbox" id="cbc2"><label for="cbc2">Согласен на получение рекламных рассылок</label></div>
-    <button class="form-submit" onclick="closeById('formComplex')">Получить предложение</button>
+    <form data-lead-form data-source="modal-complex" novalidate>
+      <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-body">
+        <div class="fld"><label>Ваше имя</label><input type="text" name="name" autocomplete="name" required></div>
+        <div class="fld"><label>Email</label><input type="email" name="email" autocomplete="email"></div>
+        <div class="fld"><label>Телефон</label><input type="tel" name="phone" autocomplete="tel"></div>
+        <div class="fld"><label>Компания</label><input type="text" name="company"></div>
+        <div class="fld"><label>Отрасль</label><input type="text" name="industry" placeholder="Например: машиностроение"></div>
+        <div class="fld"><label>Описание задачи</label><textarea name="message" rows="4"></textarea></div>
+        <div class="fld"><label>Прикрепить файл (ТЗ, схема)</label><input type="file" name="file"></div>
+      </div>
+      <div class="cb-row"><input type="checkbox" id="cbc1" name="consent" required><label for="cbc1">Соглашаюсь на обработку персональных данных</label></div>
+      <div class="cb-row" style="margin-top:10px;"><input type="checkbox" id="cbc2" name="marketing"><label for="cbc2">Согласен на получение рекламных рассылок</label></div>
+      <div class="form-status" role="status"></div>
+      <button type="submit" class="form-submit">Получить предложение</button>
+    </form>
   </div>
 </div>`;
 }

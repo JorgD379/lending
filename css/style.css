@@ -213,6 +213,15 @@ button { font-family: var(--fb); cursor: pointer; border: none; background: none
 .cb-row label { font-size: 12px; color: var(--m); line-height: 1.5; }
 .form-submit { margin-top: 20px; width: 100%; padding: 18px; background: var(--text); color: var(--bg); font-family: var(--fb); font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: opacity .2s; }
 .form-submit:hover { opacity: .85; }
+.form-submit:disabled { opacity: .55; cursor: not-allowed; }
+
+/* Honeypot — скрытое от людей поле-ловушка для ботов */
+.hp-field { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+/* Статус отправки формы (успех / ошибка) */
+.form-status { display: none; margin-top: 16px; padding: 14px 16px; font-size: 13px; line-height: 1.5; }
+.form-status.ok { display: flex; border: 1px solid var(--ok); background: rgba(74,222,128,.08); color: var(--text); }
+.form-status.err { display: flex; border: 1px solid var(--err); background: rgba(248,113,113,.08); color: var(--text); }
 
 /* ── PAGE HERO (inner pages) ── */
 .page-top { padding-top: 69px; }
@@ -646,9 +655,4 @@ textarea:focus-visible,
 .case-a-metric-v { font-family: var(--fh); font-weight: 900; font-size: 38px; color: var(--ok); letter-spacing: -.04em; line-height: 1; }
 .case-a-metric-l { font-family: var(--fm); font-size: 10px; color: var(--m); letter-spacing: .08em; text-transform: uppercase; line-height: 1.4; max-width: 140px; }
 .case-a-title { font-family: var(--fh); font-weight: 700; font-size: 17px; letter-spacing: -.015em; line-height: 1.3; margin-bottom: 10px; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.6em; color: var(--text); }
-.case-a-desc { color: var(--m2); font-size: 13.5px; line-height: 1.6; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.8em; }
-.case-a-foot { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 18px; }
-.case-a-stack { display: flex; gap: 6px; flex-wrap: wrap; }
-.case-a-stack span { font-family: var(--fm); font-size: 9.5px; color: var(--m); background: var(--bg); padding: 3px 7px; letter-spacing: .05em; border: 1px solid var(--line); }
-.case-a-arr { font-family: var(--fm); color: var(--m); transition: transform .2s, color .2s; }
-.case-a-card:hover .case-a-arr { color: var(--ok); transform: translateX(4px); }
+.case-a-de

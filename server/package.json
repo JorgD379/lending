@@ -1,0 +1,28 @@
+{
+  "name": "lab-itis-lead-mailer",
+  "version": "1.0.0",
+  "description": "Принимает заявки с форм lab-itis.ru, пишет их в SQLite и отправляет на почту через Яндекс SMTP",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.14"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  }
+}
