@@ -659,4 +659,19 @@
 
     // Use requestAnimationFrame on scroll for smooth update
     var ticking = false;
-    window.addEventListener('scroll', fun
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          updateRoadmap();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Initial call
+    updateRoadmap();
+  })();
+</script>
+</body>
+</html>
